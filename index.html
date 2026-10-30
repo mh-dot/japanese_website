@@ -262,414 +262,253 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 <div class="kanji-view" id="view-n5-grammar">
   <div class="kanji-bar"><span>N5 ব্যাকরণ</span><a href="#home">← হোমে ফিরুন</a></div>
   <iframe title="N5 ব্যাকরণ" data-page="&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;bn&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-&lt;title&gt;জাপানি N5 ব্যাকরণ – পাঠ ১ থেকে ৩৫&lt;/title&gt;
+&lt;html lang=&quot;bn&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&lt;title&gt;N5 গ্রামার মাস্টার&lt;/title&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;style&gt;
-:root{--bg:#f1f5fa;--card:#fff;--ink:#1c2233;--sub:#5b6478;--line:#dde3ee;--pol:#2a4a9a;--polbg:#e8eefc;--pla:#2f6b4f;--plabg:#e6f3ec;--pic:#f4efe2;color-scheme:light}
-:root[data-theme=&quot;dark&quot;]{color-scheme:dark;--bg:#12161f;--card:#1b2130;--ink:#eef1f8;--sub:#9aa5bd;--line:#2c3448;--pol:#8fb0ff;--polbg:#222c4a;--pla:#7fd0a6;--plabg:#1f3a2e;--pic:#2a2a30}
+:root{--bg:#f6f3ff;--bg2:#e8f4ff;--card:#fff;--ink:#1c1f35;--sub:#5a6180;--line:#e3dff2;--acc:#6a4df0;--accI:#fff;--ok:#16915b;--bad:#d63c3c;--gold:#e0a52b;--paper:#fff9ec;--sh:0 6px 20px rgba(60,40,140,.12);
+--brush:&quot;Yuji Boku&quot;,&quot;Yuji Syuku&quot;,&quot;Zen Antique&quot;,&quot;Hina Mincho&quot;,&quot;Noto Serif JP&quot;,&quot;Hiragino Mincho ProN&quot;,&quot;Yu Mincho&quot;,&quot;MS Mincho&quot;,serif;
+--ui:&quot;Hind Siliguri&quot;,&quot;Noto Sans JP&quot;,&quot;Hiragino Sans&quot;,&quot;Noto Sans Bengali&quot;,&quot;Segoe UI&quot;,sans-serif}
+:root[data-theme=dark]{color-scheme:dark;--bg:#12101d;--bg2:#0f1a26;--card:#1c1930;--ink:#f1effc;--sub:#a9a4c9;--line:#2e2a47;--acc:#a290ff;--accI:#17122e;--ok:#4fd49a;--bad:#ff7b7b;--gold:#f0c24d;--paper:#241f36;--sh:0 6px 20px rgba(0,0,0,.45)}
 *{box-sizing:border-box}
-html{scroll-padding-top:16px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:&quot;Hiragino Sans&quot;,&quot;Noto Sans JP&quot;,&quot;Noto Sans Bengali&quot;,&quot;Segoe UI&quot;,sans-serif;line-height:1.6}
-.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(18px,7vw,90px)}
-header{text-align:center;padding:44px 0 10px}
-h1{margin:0;font-size:clamp(24px,4vw,32px)}
-header p{margin:8px auto 0;max-width:560px;color:var(--sub);font-size:14.5px}
-.bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:linear-gradient(160deg,var(--bg),var(--bg2)) fixed;color:var(--ink);font-family:var(--ui);line-height:1.55;min-height:100vh}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+.cat{--cc:hsl(var(--h) 68% 40%);--ct:hsl(var(--h) 95% 95%);--cb:hsl(var(--h) 85% 85%)}
+:root[data-theme=dark] .cat{--cc:hsl(var(--h) 85% 74%);--ct:hsl(var(--h) 30% 19%);--cb:hsl(var(--h) 32% 28%)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.rdbox{margin-top:8px}
+.rdbox .rlab{margin:6px 0 4px;font-size:12.5px}
+.rdbox .chips{gap:6px}
+.rdbox .rchip{padding:3px 9px}
+.rchip .kana{grid-column:1;grid-row:1/span 2}.rchip .rr{grid-column:2;grid-row:1}.rchip .rb{grid-column:2;grid-row:2}.rchip i{grid-column:3;grid-row:1/span 2;font-size:14px}
+.rdbox .rchip .kana{font-size:18px}
+.rdbox .rchip .rr,.rdbox .rchip .rb{font-size:11.5px}
+.acts.sm{margin-top:8px}
+.acts.sm .btn{padding:3px 10px;font-size:12px;border-radius:9px}
+.stmsg{min-height:1.4em;margin-top:6px}
+/* brush thickening */
+.tile .bk,.stage .glyph,.qstem .qk,.qo.kj,.mini b{-webkit-text-stroke:.014em currentColor}
+/* header */
+.top{max-width:1180px;margin:auto;padding:22px 16px 6px;display:grid;gap:14px}
+.brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand h1{margin:0;font-size:26px;line-height:1.2}
+.brand .big{font-family:var(--brush);font-size:44px;line-height:1;background:linear-gradient(135deg,#ff5f6d,#ffc371,#6a4df0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand p{margin:2px 0 0;color:var(--sub);font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px;box-shadow:var(--sh);font-size:14px;display:flex;gap:8px;align-items:center}
+.stat b{font-size:18px}
+.pbar{flex:1;min-width:180px;height:12px;background:var(--line);border-radius:99px;overflow:hidden}
+.pbar i{display:block;height:100%;background:linear-gradient(90deg,#16c79a,#6a4df0,#ff5f6d);border-radius:99px;transition:width .4s}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;background:var(--card)}
-.seg button,select{border:0;background:transparent;color:var(--ink);padding:7px 16px;font:inherit;font-size:14px;cursor:pointer}
-select{border:1px solid var(--line);border-radius:99px;background:var(--card)}
-.seg button[aria-pressed=&quot;true&quot;]{background:var(--pol);color:var(--card);font-weight:600}
-button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--pol);outline-offset:2px}
-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 4px}
-nav a{padding:6px 16px;border-radius:99px;background:var(--polbg);color:var(--pol);text-decoration:none;font-size:14px;font-weight:600}
-section{margin:56px 0}
-h2{font-size:21px;margin:0 0 20px;padding-left:14px;border-left:5px solid var(--pol)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:26px}
-.g{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 6px 22px rgba(30,50,90,.06)}
-.tag{display:inline-block;font-size:12px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:1px 12px}
-h3{margin:10px 0 2px;font-size:26px}
-.nm{margin:0;color:var(--sub);font-size:14.5px}
-.fm{margin:16px 0 10px;padding:10px 14px;background:var(--polbg);color:var(--pol);border-radius:10px;font-size:16px;font-weight:600}
-.fm b{font-size:12px;display:block;opacity:.8}
-.ex-t{margin:8px 0;font-size:15px}
-.tip{margin:8px 0 14px;padding:8px 12px;background:var(--plabg);border-left:4px solid var(--pla);border-radius:8px;font-size:13.5px}
-.ex{position:relative;border-top:1px dashed var(--line);padding:14px 44px 6px 0}
-.jp{font-size:22px;line-height:2.1}
+.seg button{border:0;background:transparent;padding:7px 14px;font-size:14px}
+.seg button[aria-pressed=true]{background:var(--acc);color:var(--accI);font-weight:600}
+select,.inp{border:1px solid var(--line);border-radius:99px;background:var(--card);padding:7px 14px;font-size:14px}
+.inp{min-width:170px}
+/* tabs */
+.tabs{max-width:1180px;margin:10px auto 0;padding:0 16px;display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+.tabs button{border:1px solid var(--line);background:var(--card);border-radius:14px 14px 0 0;padding:10px 18px;font-weight:600;box-shadow:var(--sh)}
+.tabs button[aria-selected=true]{background:var(--acc);color:var(--accI);border-color:var(--acc)}
+main{max-width:1180px;margin:0 auto;padding:0 16px 30px}
+.panel{background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--line);border-radius:0 16px 16px 16px;padding:16px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.chipc{border:1px solid var(--cc,var(--line));background:var(--ct,var(--card));color:var(--cc,var(--ink));border-radius:99px;padding:5px 12px;font-size:13.5px;font-weight:600}
+.chipc[aria-pressed=true]{background:var(--cc,var(--acc));color:var(--accI)}
+.count{font-size:13.5px;color:var(--sub);margin-left:auto}
+/* tiles */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px}
+.tile{position:relative;border:1px solid color-mix(in srgb,var(--cb) 45%,transparent);border-radius:18px;background:linear-gradient(145deg,color-mix(in srgb,var(--ct) 60%,var(--card)),color-mix(in srgb,var(--cb) 38%,var(--card)));padding:10px 8px 10px;text-align:center;box-shadow:0 4px 14px rgba(60,40,140,.07);transition:transform .15s}
+.tile:hover{transform:translateY(-3px) rotate(-.5deg)}
+.tile .bk{display:block;font-family:var(--brush);font-size:62px;line-height:1.15;color:var(--cc)}
+.tile .tm{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.tile .tr{display:block;font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile .sc{position:absolute;left:9px;top:7px;font-size:11px;color:var(--cc);font-weight:700}
+.tile .mk{position:absolute;right:8px;top:5px;font-size:14px;color:var(--gold)}
+.tile .mk .d{color:var(--ok)}
+.tile .lv{display:flex;gap:3px;justify-content:center;margin-top:4px}
+.tile .lv i{width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--cc) 22%,transparent)}
+.tile .lv i.on{background:var(--cc)}
+.tile.fin{outline:2px solid var(--ok);outline-offset:-2px}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(15,10,35,.6);z-index:50;display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;padding:14px 10px 40px;backdrop-filter:blur(3px)}
+.mwrap{width:min(760px,100%);position:relative}
+.mbar{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
+.mbar button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 14px;font-weight:700}
+.mbar span{color:#fff;font-weight:600}
+.sheet{background:var(--card);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden;border:1px solid var(--line)}
+.fp{animation:fp .4s ease}
+@keyframes fp{from{transform:rotateY(80deg);opacity:.2}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.fp{animation:none}.tile:hover{transform:none}}
+.hero{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:16px;padding:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--ct) 60%,var(--card)),color-mix(in srgb,var(--cb) 38%,var(--card)))}
+@media(max-width:640px){.hero{grid-template-columns:1fr}}
+.stage{position:relative;aspect-ratio:1;width:100%;max-width:340px;margin:auto;background:var(--paper);border:2px solid var(--cc);border-radius:16px;overflow:hidden;touch-action:none;user-select:none}
+.stage .gl{position:absolute;inset:0;background:
+ linear-gradient(var(--cc) 0 0) center/1px 100% no-repeat,linear-gradient(var(--cc) 0 0) center/100% 1px no-repeat,
+ linear-gradient(45deg,transparent 49.7%,var(--cc) 49.7% 50.3%,transparent 50.3%),linear-gradient(-45deg,transparent 49.7%,var(--cc) 49.7% 50.3%,transparent 50.3%);opacity:.18}
+.stage .glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--brush);font-size:min(60vw,250px);line-height:1;color:var(--ink);cursor:pointer;padding-bottom:4%}
+.stage.refon .glyph{opacity:.13;cursor:default;pointer-events:none}
+.stage .sv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.stage .cv{position:absolute;inset:0;width:100%;height:100%}
+.sv path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sv .oln{stroke:var(--ink);stroke-width:5;opacity:0}
+.stage.guide .oln{opacity:.14}
+.sv .ink{stroke:var(--ink);stroke-width:5.2}
+.sv .hintp{stroke:var(--gold);stroke-width:6}
+.sv .num{font-size:7px;fill:var(--cc);font-weight:700;font-family:var(--ui)}
+.sv .pen{fill:var(--cc)}
+.sv .sdot{fill:var(--ok);opacity:.9}
+.stage.shake{animation:shake .25s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.stage .tip{position:absolute;left:0;right:0;bottom:4px;text-align:center;font-size:11.5px;color:var(--sub);pointer-events:none}
+.heroR h2{margin:0;font-size:24px}
+.heroR .en{color:var(--sub);font-size:14px}
+.pill{display:inline-block;background:var(--cb);color:var(--cc);border-radius:99px;padding:2px 12px;font-size:12.5px;font-weight:700;margin-right:6px}
+.story{margin-top:10px;background:var(--card);border-left:5px solid var(--cc);border-radius:10px;padding:8px 12px;font-size:14.5px}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:7px 12px;font-size:14px;font-weight:600}
+.btn.pri{background:var(--cc,var(--acc));color:var(--accI);border-color:transparent}
+.btn[aria-pressed=true]{outline:2px solid var(--cc,var(--acc))}
+.stmsg{min-height:2.6em;margin-top:8px;font-size:14px;font-weight:600}
+.stmsg.ok{color:var(--ok)}.stmsg.bad{color:var(--bad)}
+.sec{padding:14px 16px;border-top:1px solid var(--line)}
+.sec h3{margin:0 0 8px;font-size:16px;color:var(--cc)}
+.orders{display:flex;flex-wrap:wrap;gap:6px}
+.orders svg{width:50px;height:50px;background:var(--paper);border:1px solid var(--line);border-radius:8px}
+.orders path{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke:var(--sub);stroke-width:5}
+.orders path.cu{stroke:var(--bad);stroke-width:6}
+.orders text{font-size:11px;fill:var(--bad);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.rchip{border:1px solid var(--cb);background:var(--ct);border-radius:12px;padding:6px 12px;text-align:left;display:grid;grid-template-columns:auto auto auto;gap:0 8px;align-items:center}
+.rchip .kana{font-size:20px;font-weight:700;grid-row:span 2}
+.rchip .kana small{font-size:14px;opacity:.65;font-weight:500}
+.rchip .rr{font-size:12.5px;color:var(--sub);font-style:italic}
+.rchip .rb{font-size:12.5px;color:var(--cc);font-weight:600}
+.rchip i{font-style:normal;grid-row:span 2;grid-column:3}
+.rlab{font-size:13px;font-weight:700;margin:6px 0 4px}
+.note{font-size:12.5px;color:var(--sub);margin-top:6px}
+.wrow{display:grid;grid-template-columns:1fr auto auto;gap:4px 10px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--line)}
+.wrow:last-child{border:0}
+.wk{font-size:24px;font-weight:700;line-height:1.9}
+.wk mark,.sj mark{background:none;color:var(--cc);font-weight:800}
+.wr{font-size:12.5px;color:var(--sub)}
+.wr span{font-style:italic}.wr .bnp{font-style:normal;color:var(--cc)}
+.wm{font-size:14.5px;font-weight:600;text-align:right}
+.sp{width:34px;height:34px;border-radius:50%;border:0;background:var(--cc,var(--acc));color:var(--accI);font-size:15px}
+.srow{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:10px 0;border-bottom:1px dashed var(--line);align-items:center}
+.srow:last-child{border:0}
+.sj{font-size:20px;line-height:2.2}
+.tg{color:var(--cc);font-weight:800;border-bottom:3px solid var(--cc)}
+.sbn{font-size:14px;color:var(--sub);grid-column:1}
 rt{font-size:.5em;color:var(--sub)}
-.hi,.ro,.bn{font-size:13.5px;color:var(--sub)}
-.hi::before{content:&quot;ひらがな · &quot;}.ro::before{content:&quot;Romaji · &quot;}.bn::before{content:&quot;বাংলা উচ্চারণ · &quot;}
-.hi::before,.ro::before,.bn::before{font-size:11.5px;opacity:.8}
-.ro{font-style:italic}
-.mn{margin-top:4px;font-weight:600;font-size:15.5px}
-.sp{position:absolute;right:0;top:14px;width:36px;height:36px;border:0;border-radius:50%;cursor:pointer;font-size:16px;background:var(--pol);color:var(--card)}
-.sp.on{outline:3px solid #e0a52b}
-section{display:none;margin:36px 0 56px}
-section.show{display:block}
-.cnt{margin:34px 0 20px;color:var(--sub);font-size:15px}
-.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px}
-.lb{display:flex;flex-direction:column;min-height:190px;padding:26px 26px 18px;background:var(--card);border-radius:18px;border-left:6px solid var(--pla);text-decoration:none;color:var(--ink);box-shadow:0 4px 18px rgba(30,50,90,.06);transition:transform .2s,box-shadow .2s}
-.lb:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(30,50,90,.12)}
-.lb .top{display:flex;justify-content:space-between;align-items:center}
-.lc{background:var(--bg);font-weight:700;font-size:14px;padding:7px 14px;border-radius:8px}
-.kj{font-weight:700;color:var(--sub);font-size:18px}
-.lb h3{margin:18px 0 4px;font-size:22px;color:var(--pla)}
-.lb p{margin:0;color:var(--sub);font-size:15px}
-.ar{margin-top:auto;align-self:flex-end;font-size:24px;color:var(--line);transition:color .2s}
-.lb:hover .ar{color:var(--pla)}
-.back{display:inline-block;margin-bottom:20px;padding:8px 18px;border-radius:99px;background:var(--polbg);color:var(--pol);text-decoration:none;font-size:14px;font-weight:600}
-@media(prefers-reduced-motion:reduce){.lb{transition:none}}
-@media(max-width:699px){.lgrid{grid-template-columns:repeat(2,1fr);gap:12px}.lb{min-height:150px;padding:16px 14px 12px;border-left-width:5px}.lb h3{font-size:17px;margin-top:12px}.lb p{font-size:13px}.lc{font-size:12px;padding:5px 9px}.kj{font-size:14px}}
-@media(min-width:1700px){.wrap{max-width:1600px}.lgrid{grid-template-columns:repeat(5,1fr)}}
-:root{--ink:#0d1220;--sub:#3e475c}
-:root[data-theme=&quot;dark&quot;]{--ink:#f7f9ff;--sub:#bcc5da}
-body{font-weight:500;font-size:17px}
-header p{font-size:16px}
-.nm{font-size:16px;font-weight:600}
-.fm{font-size:18px;font-weight:700}
-.ex-t{font-size:16.5px}
-.tip{font-size:15px;font-weight:600}
-.jp{font-size:25px;font-weight:700}
-.hi,.ro,.bn{font-size:15.5px;font-weight:600}
-.mn{font-size:17.5px;font-weight:700}
-h2{font-size:24px;font-weight:800}
-h3{font-weight:800}
-.lb p{font-size:16px;font-weight:600}
-.cnt{font-size:17px;font-weight:600}
-.seg button,select,.back,.tag,rt{font-weight:600}
-@media(max-width:699px){.lb p{font-size:14px}.jp{font-size:23px}}
-footer{text-align:center;color:var(--sub);font-size:13px;padding:0 0 48px}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;wrap&quot;&gt;
-&lt;header&gt;
-&lt;h1&gt;জাপানি N5 ব্যাকরণ – পাঠ ১ থেকে ৩৫&lt;/h1&gt;
-&lt;p&gt;প্রতিটি কার্ডে নিয়ম, গঠন, টিপ এবং উদাহরণ আছে। উদাহরণে ফুরিগানা, হিরাগানা, রোমাজি, বাংলা উচ্চারণ ও অর্থ দেওয়া। 🔊 চাপলে শুনতে পাবেন।&lt;/p&gt;
-&lt;div class=&quot;bar&quot;&gt;
-&lt;div class=&quot;seg&quot; id=&quot;th&quot;&gt;&lt;button data-t=&quot;light&quot; aria-pressed=&quot;true&quot;&gt;☀️ Light&lt;/button&gt;&lt;button data-t=&quot;dark&quot; aria-pressed=&quot;false&quot;&gt;🌙 Dark&lt;/button&gt;&lt;/div&gt;
-&lt;div class=&quot;seg&quot; id=&quot;vg&quot;&gt;&lt;button data-g=&quot;f&quot; aria-pressed=&quot;true&quot;&gt;👩 Female&lt;/button&gt;&lt;button data-g=&quot;m&quot; aria-pressed=&quot;false&quot;&gt;👨 Male&lt;/button&gt;&lt;/div&gt;
-&lt;select id=&quot;rt&quot; aria-label=&quot;গতি&quot;&gt;&lt;option value=&quot;0.65&quot;&gt;🐢 খুব ধীর&lt;/option&gt;&lt;option value=&quot;0.8&quot; selected&gt;N5 গতি&lt;/option&gt;&lt;option value=&quot;1&quot;&gt;N4 গতি&lt;/option&gt;&lt;/select&gt;
-&lt;/div&gt;
+.nofuri rt{display:none}
+.foot{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px;border-top:1px solid var(--line);background:var(--ct)}
+.foot .btn.big{flex:1;min-width:140px;padding:11px}
+/* quiz */
+.qwrap{max-width:720px;margin:auto}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--sh)}
+.qhead{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--sub);margin-bottom:10px}
+.qhead .pbar{height:9px;min-width:60px}
+.qtype{display:inline-block;background:var(--ct,var(--line));color:var(--cc,var(--acc));border-radius:99px;padding:2px 12px;font-size:12.5px;font-weight:700}
+.qstem{margin:10px 0;font-size:18px;font-weight:600;line-height:2}
+.qstem .qk{display:block;text-align:center;font-family:var(--brush);font-size:96px;line-height:1.2;color:var(--cc)}
+.qstem u,.ul{text-decoration:none;border-bottom:3px solid var(--acc);font-weight:800}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.qopts{grid-template-columns:1fr}}
+.qo{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:12px;font-size:19px;font-weight:600;text-align:center;min-height:56px}
+.qo.kj{font-family:var(--brush);font-size:40px;line-height:1.2}
+.qo:hover:not(:disabled){border-color:var(--acc)}
+.qo.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--card));color:var(--ok)}
+.qo.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--card));color:var(--bad)}
+.qo:disabled{cursor:default}
+.qfb{margin-top:12px;padding:12px;border-radius:14px;background:var(--paper);border:1px solid var(--line);font-size:14.5px}
+.qfb .res{font-weight:800;font-size:16px}
+.qfb .res.ok{color:var(--ok)}.qfb .res.bad{color:var(--bad)}
+.qfb .acts{margin-top:8px}
+.wst{max-width:300px;margin:8px auto}
+.setup{display:grid;gap:14px}
+.setup label.t{display:flex;gap:8px;align-items:center;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+.setup h3{margin:0 0 6px;font-size:15px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.res-big{font-size:46px;font-weight:800;text-align:center}
+.mini{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--cb);background:var(--ct);color:var(--cc);border-radius:10px;padding:2px 10px;margin:3px;font-weight:700}
+.mini b{font-family:var(--brush);font-size:26px}
+/* guide */
+.guide h2{margin:22px 0 8px;font-size:19px}
+.guide h2:first-child{margin-top:0}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}
+.gcard ol,.gcard ul{margin:6px 0;padding-left:22px}
+.gcard li{margin:4px 0}
+.tbl{display:flex;flex-wrap:wrap;gap:6px}
+.sayw{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:4px 10px;font-size:14px}
+.sayw b{font-size:17px;margin-right:4px}
+.sayw:hover{border-color:var(--acc)}
+.warn{border-left:5px solid var(--bad)}
+.tipc{border-left:5px solid var(--ok)}
+footer{max-width:900px;margin:0 auto;text-align:center;color:var(--sub);font-size:12.5px;padding:6px 16px 36px}
+footer a{color:var(--acc)}
+.tile .bk{font-family:var(--ui);font-size:24px;line-height:1.35;min-height:1.6em;padding-top:16px;display:flex;align-items:center;justify-content:center;font-weight:700;-webkit-text-stroke:0}
+.grid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.hd{padding:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--ct) 60%,var(--card)),color-mix(in srgb,var(--cb) 38%,var(--card)))}
+.hd h2{font-size:30px;margin:8px 0 0}.hd .en{color:var(--sub);margin-bottom:6px}
+.fm{margin:10px 0;padding:10px 14px;background:var(--card);border-left:5px solid var(--cc);color:var(--cc);border-radius:10px;font-weight:700;font-size:17px}.fm b{display:block;font-size:12px;opacity:.8}
+.rl{font-size:13px;color:var(--sub)}.mean{font-weight:700;font-size:16px;margin-top:4px}
+.sp.on{outline:3px solid var(--gold)}
+.fc{perspective:900px;max-width:600px;margin:10px auto;cursor:pointer}
+.fin{position:relative;min-height:320px;transition:transform .5s;transform-style:preserve-3d}
+.fc.flip .fin{transform:rotateY(180deg)}
+.ff,.fb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:2px solid var(--cc);border-radius:20px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;overflow:auto;box-shadow:var(--sh)}
+.fb{transform:rotateY(180deg);background:var(--paper)}
+.ff h2,.fb h2{margin:0;font-size:28px}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.slots label{display:flex;gap:6px;align-items:center;font-weight:700}.slots select{max-width:100%}
+.out{padding:10px;border-radius:12px;background:var(--paper);border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.out&gt;*:not(.sp){grid-column:1}.out .sp{grid-column:2;grid-row:1}
+.sj.big{font-size:26px}
+@media(prefers-reduced-motion:reduce){.fin{transition:none}}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;
+&lt;header class=&quot;top&quot;&gt;
+  &lt;div class=&quot;brand&quot;&gt;&lt;div class=&quot;big&quot; aria-hidden=&quot;true&quot;&gt;文法&lt;/div&gt;&lt;div&gt;&lt;h1&gt;N5 গ্রামার মাস্টার&lt;/h1&gt;&lt;p&gt;৫টি লেসন · পার্টিকল সহ গভীর ব্যাখ্যা · ফ্ল্যাশকার্ড (উল্টে টেস্ট) · লেসন অনুযায়ী বাক্য বানানো&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;stats&quot;&gt;
+    &lt;div class=&quot;stat&quot;&gt;✅ শেখা লেসন &lt;b id=&quot;sDone&quot;&gt;0&lt;/b&gt;/&lt;span id=&quot;sTot&quot;&gt;0&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;stat&quot;&gt;🔄 জানা কার্ড &lt;b id=&quot;sKn&quot;&gt;0&lt;/b&gt;/&lt;span id=&quot;sKt&quot;&gt;0&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;pbar&quot; aria-label=&quot;অগ্রগতি&quot;&gt;&lt;i id=&quot;pfill&quot; style=&quot;width:0&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;tools&quot;&gt;
+    &lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;থিম&quot;&gt;&lt;button data-t=&quot;light&quot; aria-pressed=&quot;true&quot;&gt;☀️ Light&lt;/button&gt;&lt;button data-t=&quot;dark&quot; aria-pressed=&quot;false&quot;&gt;🌙 Dark&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;ফুরিগানা&quot;&gt;&lt;button data-f=&quot;1&quot; aria-pressed=&quot;true&quot;&gt;ふりがな ON&lt;/button&gt;&lt;button data-f=&quot;0&quot; aria-pressed=&quot;false&quot;&gt;OFF&lt;/button&gt;&lt;/div&gt;
+    &lt;select id=&quot;rate&quot; aria-label=&quot;শোনার গতি&quot;&gt;&lt;option value=&quot;0.65&quot;&gt;🐢 খুব ধীর&lt;/option&gt;&lt;option value=&quot;0.8&quot;&gt;ধীর (N5)&lt;/option&gt;&lt;option value=&quot;1&quot;&gt;স্বাভাবিক&lt;/option&gt;&lt;/select&gt;
+    &lt;span id=&quot;vinfo&quot; class=&quot;note&quot;&gt;&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/header&gt;
-&lt;div id=&quot;home&quot;&gt;&lt;p class=&quot;cnt&quot;&gt;&lt;/p&gt;&lt;div class=&quot;lgrid&quot; id=&quot;nav&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;main id=&quot;main&quot;&gt;&lt;/main&gt;
-&lt;footer&gt;বাংলা উচ্চারণ স্বয়ংক্রিয়, তাই মোটামুটি ঠিক। Edge ব্রাউজারে পুরুষ ভয়েস ভালো পাওয়া যায়।&lt;/footer&gt;
+&lt;nav class=&quot;tabs&quot; role=&quot;tablist&quot;&gt;
+  &lt;button role=&quot;tab&quot; data-tab=&quot;cards&quot; aria-selected=&quot;true&quot;&gt;📚 গ্রামার কার্ড&lt;/button&gt;
+  &lt;button role=&quot;tab&quot; data-tab=&quot;flash&quot; aria-selected=&quot;false&quot;&gt;🔄 ফ্ল্যাশকার্ড&lt;/button&gt;
+  &lt;button role=&quot;tab&quot; data-tab=&quot;build&quot; aria-selected=&quot;false&quot;&gt;✍️ বাক্য বানানো&lt;/button&gt;
+&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section id=&quot;tab-cards&quot; class=&quot;panel&quot;&gt;
+    &lt;div class=&quot;filters&quot; id=&quot;catf&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;filters&quot;&gt;&lt;input class=&quot;inp&quot; id=&quot;q&quot; type=&quot;search&quot; placeholder=&quot;🔍 লেসন, পার্টিকল বা অর্থ খুঁজুন&quot; aria-label=&quot;খুঁজুন&quot;&gt;&lt;select id=&quot;flt&quot; aria-label=&quot;ফিল্টার&quot;&gt;&lt;option value=&quot;all&quot;&gt;সব কার্ড&lt;/option&gt;&lt;option value=&quot;star&quot;&gt;⭐ ফেভারিট&lt;/option&gt;&lt;option value=&quot;todo&quot;&gt;বাকি আছে&lt;/option&gt;&lt;option value=&quot;done&quot;&gt;✅ শেখা শেষ&lt;/option&gt;&lt;/select&gt;&lt;span class=&quot;count&quot; id=&quot;cnt&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;h3 id=&quot;lt&quot; style=&quot;margin:0 0 10px&quot;&gt;&lt;/h3&gt;
+    &lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section id=&quot;tab-flash&quot; class=&quot;panel&quot; hidden&gt;&lt;div class=&quot;qwrap&quot; id=&quot;flRoot&quot;&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section id=&quot;tab-build&quot; class=&quot;panel&quot; hidden&gt;&lt;div class=&quot;qwrap&quot; id=&quot;buildRoot&quot;&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/main&gt;
+&lt;div class=&quot;modal&quot; id=&quot;modal&quot; hidden role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;গ্রামার কার্ড&quot;&gt;
+  &lt;div class=&quot;mwrap&quot;&gt;&lt;div class=&quot;mbar&quot;&gt;&lt;button id=&quot;mprev&quot; aria-label=&quot;আগের&quot;&gt;◀&lt;/button&gt;&lt;span id=&quot;mpos&quot;&gt;&lt;/span&gt;&lt;button id=&quot;mnext&quot; aria-label=&quot;পরের&quot;&gt;▶&lt;/button&gt;&lt;button id=&quot;mclose&quot; aria-label=&quot;বন্ধ&quot;&gt;✕ বন্ধ&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;sheet cat&quot; id=&quot;sheet&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
+&lt;footer&gt;শব্দ না এলে Chrome বা Edge ব্যবহার করুন ও ডিভাইসে Japanese ভয়েস চালু রাখুন। বাংলা উচ্চারণ স্বয়ংক্রিয়, মোটামুটি সঠিক — আসল উচ্চারণ শুনে মিলিয়ে নিন। অগ্রগতি এই ব্রাউজারে সেভ থাকে।&lt;/footer&gt;
 &lt;script&gt;
-/* L|নং|শিরোনাম  G|প্যাটার্ন|নাম|গঠন|ব্যাখ্যা|টিপ  E|বাক্য[পড়া]|অর্থ */
-const D=`L|1|পাঠ ১ · পরিচয় দেওয়া
-G|A は B です|“A হলো B” (পরিচয়)|A は B です|は (পড়ুন “ওয়া”) কথার বিষয় বোঝায়, です বাক্যকে ভদ্রভাবে শেষ করে। বাংলার মতোই ক্রিয়া শেষে বসে।|は লেখা হয় “হা”, কিন্তু পড়া হয় “ওয়া”।
-E|私[わたし] は 学生[がくせい] です。|আমি ছাত্র।
-E|マイク さん は アメリカ人[じん] です。|মাইক আমেরিকান।
-G|A は B じゃ ありません|“A হলো B নয়” ও প্রশ্ন|A は B じゃ ありません / ～です か|です এর না-বোধক রূপ じゃ ありません (লেখায় ではありません)। প্রশ্ন করতে শেষে か বসান, প্রশ্নচিহ্ন লাগে না।|はい = হ্যাঁ, いいえ = না।
-E|私[わたし] は 先生[せんせい] じゃ ありません。|আমি শিক্ষক নই।
-E|あなた は 学生[がくせい] です か。|আপনি কি ছাত্র?
-E|いいえ、 学生[がくせい] じゃ ありません。|না, আমি ছাত্র নই।
-G|も ও の|も = “-ও”, の = “-এর”|A も B です / A の B|も আগের কথার সাথে মিল বোঝায় (は এর জায়গায় বসে)। の দুই বিশেষ্য জুড়ে মালিকানা বা সম্পর্ক বোঝায়।|の অনেকটা বাংলার “-র/-এর”।
-E|私[わたし] も 学生[がくせい] です。|আমিও ছাত্র।
-E|先生[せんせい] の 名前[なまえ] は ミラー です。|শিক্ষকের নাম মিলার।
-L|2|পাঠ ২ · জিনিস দেখিয়ে বলা
-G|これ・それ・あれ|“এটা・ওটা・ঐটা”|これ/それ/あれ は N です|これ = বক্তার কাছে, それ = শ্রোতার কাছে, あれ = দুজনেরই দূরে। “কী” জিজ্ঞেস করতে 何[なん] ব্যবহার হয়।|それ মানে আপনার দিকের নয়, শ্রোতার দিকের জিনিস।
-E|これ は 本[ほん] です。|এটা বই।
-E|それ は 何[なん] です か。|ওটা কী?
-E|あれ は 私[わたし] の かさ です。|ঐটা আমার ছাতা।
-G|この・その・あの|“এই・ওই・ঐ + বিশেষ্য”|この/その/あの N は ～ です|これ-দলের শব্দ একা বসে, কিন্তু この-দলের পরে সবসময় একটি বিশেষ্য লাগে।|この 本 ঠিক, কিন্তু “この です” ভুল।
-E|この 本[ほん] は 私[わたし] の です。|এই বইটা আমার।
-E|あの 人[ひと] は だれ です か。|ঐ লোকটি কে?
-G|そう です・A か B か|“তাই” ও “A নাকি B?”|そう です / そう じゃ ありません|প্রশ্নের উত্তরে そう です (তাই) বা そう じゃ ありません (তা নয়)। দুই বিকল্প থেকে বাছতে か দুইবার বসে।|উত্তরে সরাসরি B বলে দেওয়াই স্বাভাবিক।
-E|これ は 本[ほん] です か、 ノート です か。|এটা বই নাকি খাতা?
-E|ノート です。|খাতা।
-E|いいえ、 そう じゃ ありません。|না, তা নয়।
-L|3|পাঠ ৩ · স্থান
-G|ここ・そこ・あそこ・どこ|“এখানে・ওখানে・ঐখানে・কোথায়”|N は ここ/そこ/あそこ です|স্থান বোঝায়: ここ (আমার কাছে), そこ (আপনার কাছে), あそこ (দূরে)। জিজ্ঞেস করতে どこ।|প্যাটার্ন: জিনিস は স্থান です।
-E|ここ は 教室[きょうしつ] です。|এটা ক্লাসরুম।
-E|トイレ は どこ です か。|টয়লেট কোথায়?
-E|トイレ は あそこ です。|টয়লেট ঐখানে।
-G|こちら・そちら・あちら・どちら|“এদিক…” (ভদ্র রূপ)|こちら は N さん です|ここ-র ভদ্র রূপ। মানুষের পরিচয় করাতে (ইনি…) এবং দিক বা দেশ জিজ্ঞেস করতে ব্যবহার হয়।|অতিথি বা অফিসে こちら ব্যবহার করুন।
-E|こちら は 山田[やまだ] さん です。|ইনি ইয়ামাদা-সান।
-E|お 国[くに] は どちら です か。|আপনার দেশ কোথায়?
-G|の দিয়ে উৎস|“…র তৈরি / …কার”|N1 の N2|の দিয়ে কোন দেশ বা কোম্পানির জিনিস তা বলা যায়। প্রশ্নে どこ の (কোথাকার) ব্যবহার হয়।|どこ の = কোথাকার।
-E|これ は 日本[にほん] の 車[くるま] です。|এটা জাপানের গাড়ি।
-E|その かばん は どこ の です か。|ওই ব্যাগ কোথাকার?
-L|4|পাঠ ৪ · সময় ও ক্রিয়া (ます)
-G|今 何時ですか|“এখন কয়টা”|今 ～時 ～分 です|সময়: সংখ্যা + 時 (ঘণ্টা) + 分 (মিনিট)। প্রশ্ন: 何時[なんじ] (কয়টা)। 半[はん] মানে আধা।|4 = よじ, 7 = しちじ, 9 = くじ, এগুলো নিয়মের বাইরে।
-E|今[いま] 何時[なんじ] です か。|এখন কয়টা বাজে?
-E|今[いま] 九時[くじ] 半[はん] です。|এখন সাড়ে নয়টা।
-G|V ます・ません・ました|ক্রিয়ার ভদ্র চার রূপ|ます / ません / ました / ませんでした|ます = হ্যাঁ (বর্তমান/ভবিষ্যৎ), ません = না, ました = হ্যাঁ (অতীত), ませんでした = না (অতীত)। শুধু শেষ অংশ বদলায়।|ます দিয়ে শেষ হলে বুঝবেন ভদ্র রূপ।
-E|毎朝[まいあさ] 六時[ろくじ] に 起[お]きます。|প্রতিদিন সকালে ছয়টায় উঠি।
-E|昨日[きのう] 勉強[べんきょう] しました。|গতকাল পড়েছি।
-E|今日[きょう] は 勉強[べんきょう] しません。|আজ পড়ব না।
-G|に ও から〜まで|“সময়ে” ও “…থেকে…পর্যন্ত”|時間 に V / A から B まで|নির্দিষ্ট সময়ে কাজ হলে に বসে। কাজ কখন শুরু ও শেষ তা বলতে から (থেকে) ও まで (পর্যন্ত)।|“আজ, গতকাল” এর পরে に লাগে না।
-E|七時[しちじ] に 起[お]きます。|সাতটায় উঠি।
-E|九時[くじ] から 五時[ごじ] まで 働[はたら]きます。|নয়টা থেকে পাঁচটা কাজ করি।
-L|5|পাঠ ৫ · যাওয়া, আসা, ফেরা
-G|へ + 行く・来る・帰る|“…-তে যাই/আসি/ফিরি”|場所 へ 行[い]きます|গন্তব্য বোঝায় へ (লেখা “হে”, পড়া “এ”)। 行[い]きます = যাই, 来[き]ます = আসি, 帰[かえ]ります = ফিরি।|は এর মতো へ এরও লেখা আর পড়া আলাদা।
-E|学校[がっこう] へ 行[い]きます。|স্কুলে যাই।
-E|日本[にほん] へ 来[き]ました。|জাপানে এসেছি।
-E|家[うち] へ 帰[かえ]ります。|বাড়ি ফিরি।
-G|で (যানবাহন)|“…দিয়ে / …-তে করে”|乗り物 で 行[い]きます|যানবাহনের পরে で বসে। প্রশ্ন: 何[なに] で (কিসে)। হেঁটে গেলে で লাগে না: 歩[ある]いて 行きます।|で = উপায় বা মাধ্যম।
-E|電車[でんしゃ] で 会社[かいしゃ] へ 行[い]きます。|ট্রেনে অফিস যাই।
-E|何[なに] で 来[き]ました か。|কিসে করে এসেছেন?
-G|と ও いつ|“…র সাথে” ও “কখন”|人 と V / いつ V|と সঙ্গী বোঝায়, প্রশ্নে だれ と (কার সাথে)। いつ = কখন, এর পরে に লাগে না।|একা গেলে ひとり で।
-E|友達[ともだち] と 学校[がっこう] へ 行[い]きます。|বন্ধুর সাথে স্কুলে যাই।
-E|いつ 日本[にほん] へ 来[き]ました か。|কখন জাপানে এসেছেন?
-L|6|পাঠ ৬ · আমন্ত্রণ ও কর্ম
-G|を と で|“…কে” ও “…-তে” (কর্ম ও স্থান)|N を V / 場所 で V|を ক্রিয়ার কর্ম বোঝায় (কী করছি)। কাজ কোথায় ঘটছে বোঝাতে স্থানের পরে で বসে।|を লেখা “wo”, কিন্তু পড়া হয় “ও”।
-E|何[なに] を 食[た]べます か。|কী খান?
-E|レストラン で ご飯[はん] を 食[た]べます。|রেস্তোরাঁয় ভাত খাই।
-G|ませんか・ましょう|“যাবেন কি?” “চলুন…”|V ませんか / V ましょう|ませんか ভদ্রভাবে আমন্ত্রণ জানায়, ましょう মানে “চলুন করি”। উত্তরে ええ、V ましょう বলা যায়।|আমন্ত্রণে ませんか, প্রস্তাবে ましょう।
-E|いっしょ に 行[い]きませんか。|একসাথে যাবেন কি?
-E|ええ、 行[い]きましょう。|হ্যাঁ, চলুন যাই।
-L|7|পাঠ ৭ · উপকরণ, দেওয়া-নেওয়া
-G|で (উপকরণ)|“…দিয়ে”|N で V|যা দিয়ে কাজ করা হয় (চপস্টিক, ভাষা) তার পরে で বসে। পাঠ ৫-এর যানবাহনের で একই ধারণা।|で = “দিয়ে / মাধ্যমে”।
-E|はし で 食[た]べます。|চপস্টিক দিয়ে খাই।
-E|日本語[にほんご] で 手紙[てがみ] を 書[か]きます。|জাপানি ভাষায় চিঠি লিখি।
-G|あげます・もらいます|“দিই” ও “পাই”|A は B に N を あげます/もらいます|あげます = দেওয়া, もらいます = পাওয়া। যাকে দেওয়া হয় বা যার কাছ থেকে পাওয়া যায়, তার পরে に বসে।|もらいます এ に মানে “…র কাছ থেকে”।
-E|私[わたし] は 友達[ともだち] に 花[はな] を あげます。|আমি বন্ধুকে ফুল দিই।
-E|私[わたし] は 先生[せんせい] に 本[ほん] を もらいました。|আমি শিক্ষকের কাছ থেকে বই পেয়েছি।
-L|8|পাঠ ৮ · বিশেষণ
-G|い・な বিশেষণ + です|“…(গুণ) হয়”|い-adj / な-adj です|い দিয়ে শেষ হলে い-adj (おもしろい)। な-adj (きれい) নিজে একই থাকে। না-বোধক: い-adj এ い বদলে く ありません, な-adj এ じゃ ありません।|い-adj এর না-বোধকে い বদলে く হয়।
-E|この 本[ほん] は おもしろい です。|এই বইটা মজার।
-E|この 部屋[へや] は 広[ひろ]く ありません。|এই ঘর বড় নয়।
-G|বিশেষণ + বিশেষ্য|“সুন্দর শহর”|い N / な N|い-adj সরাসরি বিশেষ্যের আগে বসে। な-adj আর বিশেষ্যের মাঝে な বসে।|きれい な 町 — মাঝে な ভুলবেন না।
-E|大[おお]きい 家[いえ] です。|বড় বাড়ি।
-E|きれい な 町[まち] です。|সুন্দর শহর।
-L|9|পাঠ ৯ · পছন্দ ও কারণ
-G|が すき・じょうず|“পছন্দ・দক্ষ”|N が すき / じょうず です|পছন্দ বা দক্ষতা বোঝাতে বস্তুর পরে は নয়, が বসে। 好[す]き = পছন্দ, 上手[じょうず] = দক্ষ, 下手[へた] = আনাড়ি।|“আমি X পছন্দ করি” এ X এর পরে が।
-E|私[わたし] は 音楽[おんがく] が 好[す]き です。|আমি গান পছন্দ করি।
-E|ミラー さん は 料理[りょうり] が 上手[じょうず] です。|মিলার রান্নায় দক্ষ।
-G|から (কারণ)|“…তাই”|কারণ から、 ফল|কারণের বাক্যের পরে から বসিয়ে ফল বলা হয়। প্রশ্নে どうして (কেন) ব্যবহার হয়।|から বসে কারণের পরে, আগে নয়।
-E|時間[じかん] が ありません から、 行[い]きません。|সময় নেই, তাই যাব না।
-E|どうして です か。|কেন?
-L|10|পাঠ ১০ · অস্তিত্ব (আছে)
-G|あります・います|“আছে”|場所 に N が あります/います|জড়বস্তু বা গাছ হলে あります, মানুষ বা প্রাণী হলে います। স্থানের পরে に, বস্তুর পরে が বসে।|প্রাণ আছে → います, নেই → あります।
-E|机[つくえ] の 上[うえ] に 本[ほん] が あります。|টেবিলের ওপর বই আছে।
-E|庭[にわ] に 犬[いぬ] が います。|বাগানে কুকুর আছে।
-G|স্থানবাচক শব্দ|“ওপর・নিচ・ভেতর・সামনে”|N の 上[うえ]/下[した]/中[なか]/前[まえ]|N の + অবস্থানের শব্দ দিয়ে ঠিক কোথায় আছে বলা যায়: 上 ওপর, 下 নিচে, 中 ভেতরে, 前 সামনে।|বিশেষ্য ও অবস্থানের শব্দের মাঝে の বসে।
-E|かばん の 中[なか] に ノート が あります。|ব্যাগের ভেতর খাতা আছে।
-E|銀行[ぎんこう] は 駅[えき] の 前[まえ] に あります。|ব্যাংক স্টেশনের সামনে আছে।
-L|11|পাঠ ১১ · গণনা
-G|～つ দিয়ে গোনা|“১টি・২টি・৩টি”|数 つ: ひとつ ふたつ みっつ|জিনিস গুনতে বিশেষ গণনা আছে: ひとつ, ふたつ, みっつ, よっつ, いつつ। সংখ্যা সাধারণত ক্রিয়ার ঠিক আগে বসে।|সংখ্যা বসে ক্রিয়ার ঠিক আগে।
-E|りんご を 三[みっ]つ 買[か]いました。|তিনটি আপেল কিনেছি।
-E|みかん を 五[いつ]つ ください。|পাঁচটি কমলা দিন।
-G|মানুষ গোনা|“১জন・২জন…”|数 人 / 何人[なんにん]|ひとり (১জন), ふたり (২জন), তারপর さんにん, よにん ইত্যাদি। প্রশ্ন: 何人[なんにん] (কতজন)।|১ ও ২ জন আলাদা: ひとり, ふたり।
-E|家族[かぞく] は 何人[なんにん] です か。|পরিবারে কতজন?
-E|四人[よにん] です。|চারজন।
-L|12|পাঠ ১২ · তুলনা ও অতীত
-G|বিশেষণের অতীত|“ছিল”|い → かった です / な → でした|い-adj এর অতীতে い বদলে かった (暑い → あつかった) হয়। な-adj ও বিশেষ্যের অতীত でした।|“গরম ছিল” = あつかった です।
-E|昨日[きのう] は 暑[あつ]かった です。|গতকাল গরম ছিল।
-E|試験[しけん] は 簡単[かんたん] でした。|পরীক্ষা সহজ ছিল।
-G|より・の ほう が|“…র চেয়ে”|A は B より adj / A の ほう が adj|B より = B এর চেয়ে। A の ほう が = A-ই বেশি। দুটো মিলিয়ে তুলনা করা যায়।|より এর আগে যা, সেটি কম।
-E|東京[とうきょう] は 大阪[おおさか] より 大[おお]きい です。|টোকিও ওসাকার চেয়ে বড়।
-E|夏[なつ] より 冬[ふゆ] の ほう が 好[す]き です。|গ্রীষ্মের চেয়ে শীত বেশি পছন্দ।
-L|13|পাঠ ১৩ · চাওয়া
-G|が ほしい|“…চাই”|N が ほしい です|কোনো জিনিস চাইলে ほしい (い-adj) ব্যবহার হয়, জিনিসের পরে が বসে।|ほしい নিজের চাওয়ার জন্য ব্যবহার হয়।
-E|新[あたら]しい かばん が ほしい です。|নতুন ব্যাগ চাই।
-E|私[わたし] は 車[くるま] が ほしい です。|আমার গাড়ি চাই।
-G|V たい|“…করতে চাই”|V(ます রূপ) + たい です|ます বাদ দিয়ে ধাতুতে たい জুড়লে “করতে চাই” হয়। たい নিজে い-adj এর মতো চলে।|行[い]きます → 行[い]きたい।
-E|日本[にほん] へ 行[い]きたい です。|জাপানে যেতে চাই।
-E|何[なに] を 食[た]べたい です か。|কী খেতে চান?
-L|14|পাঠ ১৪ · て-রূপ
-G|て-রূপ + ください|“…করুন”|V て ください|て-রূপ বানানোর নিয়ম ক্রিয়ার গ্রুপ অনুযায়ী আলাদা (き→いて, み→んで, し→して, り→って)। て ください = ভদ্র অনুরোধ।|て-রূপ পরের অনেক নিয়মের ভিত্তি।
-E|ちょっと 待[ま]って ください。|একটু অপেক্ষা করুন।
-E|ここ に 名前[なまえ] を 書[か]いて ください。|এখানে নাম লিখুন।
-G|て います|“…করছি”|V て います|কাজ এখন চলছে বোঝাতে て-রূপের পরে います বসে।|て います = “করছে / করে চলেছে”।
-E|今[いま] 雨[あめ] が 降[ふ]って います。|এখন বৃষ্টি হচ্ছে।
-E|山田[やまだ] さん は 電話[でんわ] を かけて います。|ইয়ামাদা ফোন করছেন।
-L|15|পাঠ ১৫ · অনুমতি ও নিষেধ
-G|ても いい です|“করা যাবে”|V て も いい です|অনুমতি চাইতে বা দিতে て-রূপের পরে も いい です বসে। প্রশ্ন করলে শেষে か যোগ হয়।|উত্তর: はい、 いい です よ।
-E|ここ で 写真[しゃしん] を 撮[と]って も いい です か。|এখানে ছবি তোলা যাবে কি?
-E|はい、 いい です よ。|হ্যাঁ, ঠিক আছে।
-G|ては いけません|“করা যাবে না”|V て は いけません|নিষেধ বোঝাতে て-রূপের পরে は いけません বসে। বেশ জোরালো নিষেধ।|は এখানেও “ওয়া” পড়া হয়।
-E|ここ で たばこ を 吸[す]って は いけません。|এখানে ধূমপান করা যাবে না।
-E|教室[きょうしつ] で 食[た]べて は いけません。|ক্লাসরুমে খাওয়া যাবে না।
-L|16|পাঠ ১৬ · ক্রিয়া জোড়া লাগানো
-G|V1 て、 V2|“…করে, তারপর…”|V1 て、 V2 て、 V3 ます|একাধিক কাজ ক্রমানুসারে বলতে ক্রিয়ার て-রূপ দিয়ে জোড়া লাগান। শুধু শেষ ক্রিয়ায় ます/ました বসে।|সময় বোঝা যায় শুধু শেষ ক্রিয়া থেকে।
-E|朝[あさ] 起[お]きて、 ご飯[はん] を 食[た]べて、 学校[がっこう] へ 行[い]きます。|সকালে উঠে, ভাত খেয়ে স্কুলে যাই।
-E|買[か]い物[もの] して、 うち へ 帰[かえ]ります。|কেনাকাটা করে বাড়ি ফিরি।
-G|বিশেষণ て・N で|“…এবং” (গুণ)|い → くて / な・N → で|বিশেষণ বা বিশেষ্য জুড়তে い-adj এ い বদলে くて বসে, আর な-adj ও বিশেষ্যে で বসে।|い→くて, な→で।
-E|この 部屋[へや] は 広[ひろ]くて、 きれい です。|এই ঘর বড় এবং সুন্দর।
-E|ミラー さん は 親切[しんせつ] で、 おもしろい 人[ひと] です。|মিলার দয়ালু ও মজার মানুষ।
-L|17|পাঠ ১৭ · না-রূপ (ない)
-G|ないで ください|“করবেন না”|V ない + で ください|ক্রিয়ার ます বদলে ない-রূপ বানাতে হয়, যেমন かきます→かかない, たべます→たべない। এর পরে で ください বললে “করবেন না” হয়।|ないで = “না করে”।
-E|ここ で 写真[しゃしん] を 撮[と]らないで ください。|এখানে ছবি তুলবেন না।
-E|心配[しんぱい] しないで ください。|চিন্তা করবেন না।
-G|なければ なりません|“করতেই হবে”|V ない → なければ なりません|ない এর শেষ い বদলে なければ なりません বসালে বাধ্যবাধকতা বোঝায়। なくても いい です মানে “না করলেও চলে”।|なくても いい = করা দরকার নেই।
-E|毎日[まいにち] 勉強[べんきょう] しなければ なりません。|প্রতিদিন পড়তেই হবে।
-E|明日[あした] は 来[こ]なくても いい です。|কাল না এলেও চলবে।
-L|18|পাঠ ১৮ · অভিধান রূপ (る)
-G|こと が できます|“পারি”|V(辞書形) こと が できます|ক্রিয়ার অভিধান রূপ (る-রূপ) এর পরে こと が できます বসালে “করতে পারি” হয়।|行[い]きます → 行[い]く こと が できます।
-E|私[わたし] は 日本語[にほんご] を 話[はな]す こと が できます。|আমি জাপানি বলতে পারি।
-E|ピアノ を ひく こと が できます か。|পিয়ানো বাজাতে পারেন কি?
-G|まえ に・しゅみ|“আগে” ও “শখ”|V(辞書形) まえ に / 趣味[しゅみ] は V こと です|る-রূপ + まえ に মানে “…করার আগে”। শখ বলতে 趣味 は V こと です ব্যবহার হয়।|まえ に এর আগের ক্রিয়া সবসময় る-রূপে।
-E|寝[ね]る まえ に、 本[ほん] を 読[よ]みます。|ঘুমানোর আগে বই পড়ি।
-E|私[わたし] の 趣味[しゅみ] は 映画[えいが] を 見[み]る こと です。|আমার শখ সিনেমা দেখা।
-L|19|পাঠ ১৯ · た-রূপ (অতীত)
-G|たこと が あります|“করেছি (অভিজ্ঞতা)”|V た こと が あります|た-রূপ + こと が あります মানে “কখনো করেছি”। た-রূপ: かきます→かいた, たべます→たべた।|এটা অভিজ্ঞতা, নির্দিষ্ট দিনের কাজ নয়।
-E|富士山[ふじさん] に 登[のぼ]った こと が あります。|ফুজি পর্বতে উঠেছি।
-E|すし を 食[た]べた こと が ありません。|সুশি কখনো খাইনি।
-G|たり～たり・なります|“কখনো…কখনো…” ও “হয়ে ওঠা”|V たり、 V たり します / adj く なります|た-রূপ + り দিয়ে কয়েকটি কাজের উদাহরণ দেওয়া হয়। い-adj এ く + なります মানে “হয়ে ওঠা”।|く なります = পরিবর্তন।
-E|日曜日[にちようび] は 映画[えいが] を 見[み]たり、 買[か]い物[もの] を したり します。|রবিবারে কখনো সিনেমা দেখি, কখনো কেনাকাটা করি।
-E|だんだん 寒[さむ]く なります。|ধীরে ধীরে ঠান্ডা পড়ছে।
-L|20|পাঠ ২০ · বন্ধুদের সাথে কথা
-G|সাধারণ রূপ|“আনুষ্ঠানিক নয়” রূপ|ます→る / です→だ / ません→ない|বন্ধু বা পরিবারের সাথে কথায় ভদ্র রূপ (ます/です) বদলে সাধারণ রূপ (る/だ/ない) চলে।|এই ফাইলের প্লেইন রূপগুলো এটাই।
-E|あした 学校[がっこう] へ 行[い]く。|কাল স্কুলে যাব।
-E|この 映画[えいが] は おもしろい。|এই সিনেমা মজার।
-G|না-বোধক ও অতীত|“যাইনি・ছিল”|行[い]かない / 行[い]った / 行[い]かなかった|না-বোধক ない, অতীত た, না-বোধক অতীত なかった। বিশেষ্য ও な-adj এ だ → だった।|বিশেষ্য: だ → だった।
-E|昨日[きのう] は 学校[がっこう] へ 行[い]かなかった。|গতকাল স্কুলে যাইনি।
-E|昨日[きのう] は 雨[あめ] だった。|গতকাল বৃষ্টি ছিল।
-L|21|পাঠ ২১ · মতামত
-G|と 思います|“আমার মনে হয়”|普通形 と 思[おも]います|নিজের মত বা অনুমান বলতে সাধারণ রূপের পরে と 思います বসে।|বাক্যের মাঝে সাধারণ রূপ, শেষে ভদ্র রূপ।
-E|あした は 雨[あめ] が 降[ふ]る と 思[おも]います。|আমার মনে হয় কাল বৃষ্টি হবে।
-E|この 店[みせ] は 高[たか]い と 思[おも]います。|আমার মনে হয় এই দোকান দামি।
-G|と 言います・でしょう|“বলেছেন” ও “সম্ভবত”|普通形 と 言[い]います / でしょう|কেউ কী বলেছে তা বলতে と 言います বসে। অনুমান বোঝাতে でしょう (সম্ভবত) ব্যবহার হয়।|でしょう এর সাধারণ রূপ だろう।
-E|先生[せんせい] は あした 試験[しけん] が ある と 言[い]いました。|শিক্ষক বলেছেন কাল পরীক্ষা আছে।
-E|あした は いい 天気[てんき] でしょう。|কাল সম্ভবত আবহাওয়া ভালো হবে।
-L|22|পাঠ ২২ · বিশেষ্যের বর্ণনা
-G|বাক্য + বিশেষ্য|“যে…”|普通形 + N|কোনো বাক্যকে বিশেষ্যের আগে বসালে তা ওই বিশেষ্যের বর্ণনা হয়। বর্ণনার ক্রিয়া সাধারণ রূপে থাকে।|বর্ণনা সবসময় বিশেষ্যের আগে বসে।
-E|これ は 私[わたし] が 作[つく]った ケーキ です。|এটা আমার বানানো কেক।
-E|あそこ に いる 人[ひと] は 先生[せんせい] です。|ঐখানে যে লোকটি আছে, সে শিক্ষক।
-G|বর্ণনা + は ～ です|“…হলো সেটা”|普通形 N は ～ です|বর্ণনাযুক্ত বিশেষ্য কথার বিষয় হতে পারে এবং です দিয়ে বাক্য শেষ করা যায়।|বর্ণনার ভেতরে কর্তার পরে が বসে।
-E|昨日[きのう] 買[か]った 本[ほん] は おもしろい です。|গতকাল কেনা বইটা মজার।
-E|私[わたし] が 好[す]きな 食[た]べ物[もの] は すし です。|আমার পছন্দের খাবার সুশি।
-L|23|পাঠ ২৩ · যখন ও ফল
-G|とき|“যখন”|V とき、 ～|とき এর আগে ক্রিয়া সাধারণ রূপে বসে। る-রূপ মানে কাজ হওয়ার আগে বা চলাকালীন, た-রূপ মানে কাজ শেষ হওয়ার পর।|る とき = আগে, た とき = পরে।
-E|日本[にほん] へ 行[い]く とき、 かさ を 買[か]いました。|জাপানে যাওয়ার সময় ছাতা কিনেছি।
-E|暇[ひま] な とき、 映画[えいが] を 見[み]ます。|অবসরে সিনেমা দেখি।
-G|と (নিশ্চিত ফল)|“…করলে…ই হয়”|V(辞書形) と、 ～|と দিয়ে এমন ফল বোঝায় যা প্রায় নিশ্চিত ঘটে, যেমন যন্ত্রের নিয়ম বা পথ-নির্দেশ।|ইচ্ছা নয়, নিশ্চিত ফল।
-E|この ボタン を 押[お]す と、 お 茶[ちゃ] が 出[で]ます。|এই বোতাম টিপলে চা আসে।
-E|右[みぎ] へ 曲[ま]がる と、 駅[えき] が あります。|ডানে ঘুরলে স্টেশন আছে।
-L|24|পাঠ ২৪ · উপকার করা-পাওয়া
-G|てくれます|“করে দেন”|(人) が V て くれます|কেউ আমার বা আমার আপনজনের জন্য কিছু করে দিলে て-রূপ + くれます বসে। এতে কৃতজ্ঞতার ভাব থাকে।|くれます = অন্য কেউ আমার জন্য।
-E|友達[ともだち] が 荷物[にもつ] を 持[も]って くれました。|বন্ধু আমার মালপত্র বয়ে দিল।
-E|母[はは] が 料理[りょうり] を 作[つく]って くれます。|মা আমার জন্য রান্না করে দেন।
-G|てあげます・てもらいます|“করে দিই” ও “করিয়ে নিই”|V て あげます / V て もらいます|て あげます = আমি অন্যের জন্য করি। て もらいます = অন্য কেউ আমার জন্য করে দিল, করে-দেওয়া ব্যক্তির পরে に বসে।|もらいます এ ব্যক্তির পরে に।
-E|私[わたし] は 友達[ともだち] に 日本語[にほんご] を 教[おし]えて あげます。|আমি বন্ধুকে জাপানি শিখিয়ে দিই।
-E|私[わたし] は 先生[せんせい] に 教[おし]えて もらいました。|শিক্ষক আমাকে শিখিয়ে দিলেন।
-L|25|পাঠ ২৫ · যদি ও যদিও
-G|たら|“যদি…তাহলে”|V たら、 ～|た-রূপ + ら দিয়ে “যদি বা করার পর” বোঝায়। পরের অংশে ইচ্ছা, অনুরোধ বা আদেশও বসতে পারে।|た + ら = “হলে”।
-E|雨[あめ] が 降[ふ]ったら、 家[いえ] に います。|বৃষ্টি হলে বাড়িতে থাকব।
-E|時間[じかん] が あったら、 映画[えいが] を 見[み]ます。|সময় থাকলে সিনেমা দেখব।
-G|ても|“যদিও…তবুও”|V て も、 ～|て-রূপ + も মানে “…করলেও”। যা আশা করা যায় তার উল্টো ফল বোঝায়।|雨が 降っても = বৃষ্টি হলেও।
-E|雨[あめ] が 降[ふ]っても、 行[い]きます。|বৃষ্টি হলেও যাব।
-E|高[たか]くても、 この かばん を 買[か]います。|দামি হলেও এই ব্যাগ কিনব।
-L|26|পাঠ ২৬ · ক্রিয়ার রূপ-তালিকা
-G|ক্রিয়ার ৩ গ্রুপ|ক্রিয়া কীভাবে ভাগ হয়|গ্রুপ ১ / ২ / ৩|গ্রুপ ১: ます এর আগে い-সারি (かきます→かく)। গ্রুপ ২: え-সারি (たべます→たべる), কিছু い-সারিও (みます, おきます)। গ্রুপ ৩: します ও きます।|গ্রুপ চিনলেই সব রূপ বানানো যায়।
-E|書[か]く|লেখা: 書きます → 書く (গ্রুপ ১)
-E|食[た]べる|খাওয়া: 食べます → 食べる (গ্রুপ ২)
-E|来[く]る|আসা: 来ます → 来る (গ্রুপ ৩)
-G|て-রূপ বানানো|“…করে” রূপ|গ্রুপ অনুযায়ী নিয়ম|গ্রুপ ১: い・ち・り→って, み・び・に→んで, き→いて, ぎ→いで, し→して। গ্রুপ ২: ます→て। গ্রুপ ৩: して, きて।|行[い]く একমাত্র ব্যতিক্রম: 行って।
-E|買[か]って|কিনে (買います)
-E|飲[の]んで|খেয়ে (飲みます)
-E|書[か]いて|লিখে (書きます)
-E|食[た]べて|খেয়ে (食べます)
-G|ない ও た রূপ|না-রূপ ও অতীত|ない / た|ない: গ্রুপ ১ এ い-সারি→あ-সারি+ない, গ্রুপ ২ এ ます→ない, গ্রুপ ৩ এ しない・こない। た: て→た, で→だ।|あいます → あわない (い→わ)।
-E|書[か]かない|লিখি না (書きます)
-E|食[た]べない|খাই না (食べます)
-E|書[か]いた|লিখেছি (書きます)
-E|飲[の]んだ|খেয়েছি (飲みます)
-L|27|পাঠ ২৭ · もう・অবস্থা
-G|もう～ました・まだ|“ইতিমধ্যে” ও “এখনো না”|もう V ました か / まだ です|もう + ました দিয়ে জিজ্ঞেস করা হয়। না করে থাকলে ません নয়, いいえ、 まだ です বলা হয়।|উত্তরে まだ です।
-E|もう ご飯[はん] を 食[た]べました か。|ইতিমধ্যে ভাত খেয়েছেন কি?
-E|いいえ、 まだ です。|না, এখনো নয়।
-G|て います (অবস্থা)|“…আছে (স্থায়ী অবস্থা)”|住[す]んで います / 知[し]って います|কিছু ক্রিয়ায় て います কাজ চলা নয়, অবস্থা বোঝায়: 住んで います (থাকি), 知って います (জানি), 持って います, 結婚して います।|“জানি না” = 知りません।
-E|私[わたし] は 東京[とうきょう] に 住[す]んで います。|আমি টোকিওতে থাকি।
-E|山田[やまだ] さん を 知[し]って います か。|ইয়ামাদাকে চেনেন কি?
-E|田中[たなか] さん は 結婚[けっこん] して います。|তানাকা বিবাহিত।
-G|てから|“করার পর”|V て から、 V|এক কাজ শেষ করে আরেক কাজ করতে আগের কাজ て-রূপে বসে।|আগের কাজ て-রূপে।
-E|ご飯[はん] を 食[た]べて から、 勉強[べんきょう] します。|ভাত খেয়ে তারপর পড়ি।
-E|宿題[しゅくだい] を して から、 ゲーム を します。|হোমওয়ার্ক করে তারপর গেম খেলি।
-L|28|পাঠ ২৮ · নাম, দাম, বয়স
-G|さん・～人|“-জি” ও “…দেশের লোক”|N さん / 国[くに]の名 人[じん]|さん অন্যের নামের পরে সম্মান বোঝায়। 人 দেশের নামের পরে জাতীয়তা বোঝায়।|নিজের নামের পরে さん নয়।
-E|山田[やまだ] さん は 日本人[にほんじん] です。|ইয়ামাদা-সান জাপানি।
-E|私[わたし] は バングラデシュ人[じん] です。|আমি বাংলাদেশি।
-G|いくら・円|“কত দাম”|N は いくら です か|দাম জিজ্ঞেস করতে いくら। ১০০ = ひゃく, ৩০০ = さんびゃく, ৬০০ = ろっぴゃく, ৮০০ = はっぴゃく।|ひゃく এর উচ্চারণ বদলায়।
-E|これ は いくら です か。|এটা কত?
-E|三百[さんびゃく] 円[えん] です。|৩০০ ইয়েন।
-E|千[せん] 円[えん] です。|১০০০ ইয়েন।
-G|বয়স ও তলা|“কত বছর” ও “কত তলা”|何歳[なんさい] / ～階[かい]|বয়স জিজ্ঞেস করতে 何歳 (ভদ্রভাবে おいくつ)। ২০ বছর = はたち। তলা: ～階, ৩ = さんがい।|二十歳 = はたち (নিয়মের বাইরে)।
-E|おいくつ です か。|আপনার বয়স কত?
-E|私[わたし] は 二十歳[はたち] です。|আমি ২০ বছরের।
-E|トイレ は 三階[さんがい] です。|টয়লেট তিন তলায়।
-L|29|পাঠ ২৯ · বার ও তারিখ
-G|সপ্তাহের দিন|“কী বার”|何曜日[なんようび]|月=げつ, 火=か, 水=すい, 木=もく, 金=きん, 土=ど, 日=にち + ようび। প্রশ্ন: 何曜日।|দিনের পরে に বসে (月曜日 に)।
-E|今日[きょう] は 何曜日[なんようび] です か。|আজ কী বার?
-E|今日[きょう] は 月曜日[げつようび] です。|আজ সোমবার।
-G|মাস ও তারিখ|“কত তারিখ”|何月[なんがつ] 何日[なんにち]|মাস = সংখ্যা + 月। তারিখ: ১=ついたち, ২=ふつか, ৩=みっか, ৪=よっか, ৫=いつか, ১০=とおか, ২০=はつか; বাকিগুলো সংখ্যা + にち।|১ থেকে ১০ তারিখ আলাদা শব্দ।
-E|誕生日[たんじょうび] は 何月[なんがつ] 何日[なんにち] です か。|জন্মদিন কত তারিখে?
-E|五月[ごがつ] 五日[いつか] です。|৫ মে।
-G|と・ね|“এবং” ও “…তাই না?”|N と N / 文 ね|と দুই বিশেষ্য জোড়ে। বাক্যশেষে ね সম্মতি চায় বা মিল জানায়।|と শুধু বিশেষ্য জোড়ে।
-E|本[ほん] と ノート を 買[か]いました。|বই ও খাতা কিনেছি।
-E|いい 天気[てんき] です ね。|আবহাওয়া ভালো, তাই না?
-L|30|পাঠ ৩০ · প্রশ্নের শব্দ
-G|だれの・どれ|“কার” ও “কোনটি”|だれ の N / どれ|だれ の = কার। どれ = তিন বা বেশির মধ্যে কোনটি।|২টি থেকে হলে どちら।
-E|これ は だれ の かさ です か。|এটা কার ছাতা?
-E|あなた の かさ は どれ です か。|আপনার ছাতা কোনটি?
-G|どんな・どう|“কেমন”|どんな N / どう です か|どんな + বিশেষ্য = কী ধরনের। どう です か = কেমন?|どんな এর পরে বিশেষ্য লাগে।
-E|日本[にほん] は どんな 国[くに] です か。|জাপান কেমন দেশ?
-E|日本[にほん] の 食[た]べ物[もの] は どう です か。|জাপানি খাবার কেমন?
-G|何も・何か|“কিছুই না” ও “কিছু”|何[なに] も V ません / 何[なに] か V|何も + না-বোধক ক্রিয়া = কিছুই না। 何か = কিছু। だれも, どこも, どこか একইভাবে চলে।|何も এর সাথে না-বোধক ক্রিয়া।
-E|何[なに] も 食[た]べません。|কিছুই খাই না।
-E|何[なに] か 飲[の]みませんか。|কিছু খাবেন কি?
-L|31|পাঠ ৩১ · মাত্রা ও তুলনা
-G|とても・あまり|“খুব” ও “তেমন নয়”|とても adj / あまり adj ません|とても হ্যাঁ-বোধক বাক্যে, あまり না-বোধক বাক্যে বসে।|あまり + না-বোধক।
-E|この 料理[りょうり] は とても おいしい です。|এই খাবার খুব সুস্বাদু।
-E|この 本[ほん] は あまり おもしろく ありません。|এই বই তেমন মজার নয়।
-G|よく・ぜんぜん|“প্রায়ই” ও “একদমই না”|よく V / ぜんぜん V ません|よく = প্রায়ই। だいたい = মোটামুটি, ときどき = মাঝে মাঝে। ぜんぜん + না-বোধক = একদমই না।|ぜんぜん + না-বোধক।
-E|私[わたし] は よく 映画[えいが] を 見[み]ます。|আমি প্রায়ই সিনেমা দেখি।
-E|コーヒー は ぜんぜん 飲[の]みません。|কফি একদমই খাই না।
-G|いちばん・どちら|“সবচেয়ে” ও “দুটোর মধ্যে”|N の 中[なか]で いちばん / A と B と どちら|সবার মধ্যে সেরা বলতে いちばん। দুটোর মধ্যে বেছে নিতে どちら।|২টি → どちら, ৩টি+ → なに/だれ।
-E|果物[くだもの] の 中[なか] で、 何[なに] が いちばん 好[す]き です か。|ফলের মধ্যে কোনটি সবচেয়ে পছন্দ?
-E|りんご と みかん と、 どちら が 好[す]き です か。|আপেল ও কমলার মধ্যে কোনটি পছন্দ?
-L|32|পাঠ ৩২ · অবস্থান ও জানা
-G|や・অবস্থান|“…ইত্যাদি” ও “কোথায় আছে”|N1 や N2 / N は 場所 に あります|や কয়েকটি জিনিসের নাম দেয় (ইত্যাদি)। নির্দিষ্ট বস্তুর অবস্থান বলতে N は 場所 に あります/います।|অবস্থান বলতে বস্তু আগে, は দিয়ে।
-E|机[つくえ] の 上[うえ] に 本[ほん] や ノート が あります。|টেবিলের ওপর বই, খাতা ইত্যাদি আছে।
-E|本[ほん] は 机[つくえ] の 上[うえ] に あります。|বই টেবিলের ওপর আছে।
-G|が わかります・が います|“বুঝি” ও “আছে (আপনজন)”|N が わかります / N が います|わかります, できます, あります, います এর আগে বস্তুর পরে は নয়, が বসে।|“বুঝি” এ বস্তুর পরে が।
-E|私[わたし] は 日本語[にほんご] が わかります。|আমি জাপানি বুঝি।
-E|私[わたし] は 兄[あに] が います。|আমার ভাই আছে।
-L|33|পাঠ ৩৩ · গণনা ও সময়কাল
-G|গণনা-শব্দ|“কাগজ・বই・গাড়ি…”|数 + 枚/冊/台/回|পাতলা জিনিস = 枚[まい], বই = 冊[さつ], গাড়ি ও যন্ত্র = 台[だい], বার = 回[かい]। সংখ্যা + গণনা-শব্দ ক্রিয়ার ঠিক আগে বসে।|জিনিসের ধরন অনুযায়ী শব্দ বদলায়।
-E|紙[かみ] を 二枚[にまい] ください。|২টি কাগজ দিন।
-E|本[ほん] を 三冊[さんさつ] 買[か]いました。|তিনটি বই কিনেছি।
-E|車[くるま] が 二台[にだい] あります。|দুটি গাড়ি আছে।
-G|সময়কাল・ぐらい|“কতক্ষণ” ও “প্রায়”|数 時間[じかん] / どのくらい / ぐらい|সময়কাল: ～時間 (ঘণ্টা), ～週間 (সপ্তাহ), ～か月 (মাস), ～年 (বছর)। ぐらい = প্রায়, どのくらい = কতক্ষণ।|時間 (ঘণ্টা) আর 時 (সময়) আলাদা।
-E|毎日[まいにち] 二時間[にじかん] 勉強[べんきょう] します。|রোজ দুই ঘণ্টা পড়ি।
-E|五時間[ごじかん] ぐらい かかります。|পাঁচ ঘণ্টার মতো লাগে।
-G|だけ|“শুধু”|N だけ V|だけ মানে শুধু বা একমাত্র। বিশেষ্যের পরে বসে এবং を/が বাদ যায়।|だけ এর পরে を/が লাগে না।
-E|私[わたし] は 水[みず] だけ 飲[の]みます。|আমি শুধু পানি খাই।
-E|ひとり だけ 来[き]ました。|শুধু একজন এসেছে।
-L|34|পাঠ ৩৪ · উদ্দেশ্য ও প্রস্তাব
-G|V に 行[い]きます|“…করতে যাই”|場所 へ V(ます বাদে) に 行[い]きます|যাওয়ার উদ্দেশ্য বলতে ক্রিয়ার ます বাদ দিয়ে に বসান, তারপর 行きます/来ます/帰ります। বিশেষ্যে সরাসরি に।|ます বাদ দিয়ে に।
-E|図書館[としょかん] へ 本[ほん] を 借[か]りに 行[い]きます。|লাইব্রেরিতে বই ধার করতে যাই।
-E|デパート へ 買[か]い物[もの] に 行[い]きます。|ডিপার্টমেন্ট স্টোরে কেনাকাটা করতে যাই।
-G|ましょうか|“করে দেব কি?”|V ましょう か|নিজে সাহায্য করার প্রস্তাব দিতে ましょう か বলা হয়। গ্রহণ করতে お願[ねが]いします।|ませんか = আমন্ত্রণ, ましょうか = সাহায্যের প্রস্তাব।
-E|手伝[てつだ]いましょう か。|সাহায্য করব কি?
-E|ええ、 お願[ねが]いします。|হ্যাঁ, দয়া করে।
-G|に なります・を します|“হই” ও “করি”|N に なります / N を します|に なります = হয়ে ওঠা। N を します = খেলা বা কাজ করা (サッカー を します)।|なります এর আগে に।
-E|来年[らいねん] 二十歳[はたち] に なります。|আসছে বছর ২০ বছরের হব।
-E|日曜日[にちようび] に サッカー を します。|রবিবারে ফুটবল খেলি।
-L|35|পাঠ ৩৫ · সময়সীমা ও আরও
-G|までに・まで|“…র মধ্যে” ও “…পর্যন্ত”|時間 までに V / 時間 まで V|までに = সময়সীমার মধ্যে একবার কাজ। まで = ওই সময় পর্যন্ত কাজ চলতে থাকে।|までに = শেষ সীমা, まで = ধারাবাহিক।
-E|五時[ごじ] までに 帰[かえ]ります。|পাঁচটার মধ্যে ফিরব।
-E|明日[あした] まで 休[やす]みます。|কাল পর্যন্ত ছুটি।
-G|い・な・N + とき|“…থাকলে”|い / な+な / N+の とき|とき এর আগে い-adj সরাসরি, な-adj এ な এবং বিশেষ্যে の বসে।|な-adj → な とき, N → の とき।
-E|忙[いそが]しい とき、 手伝[てつだ]います。|ব্যস্ত থাকলে সাহায্য করি।
-E|暇[ひま] な とき、 来[き]て ください。|অবসর থাকলে আসুন।
-E|雨[あめ] の とき、 バス で 行[い]きます。|বৃষ্টির সময় বাসে যাই।
-G|もし～たら|“যদি”|もし adj/N たら|い-adj এ たら = かったら, な-adj ও বিশেষ্যে たら = だったら। もし যোগ করলে অনিশ্চয়তা বাড়ে।|い→かったら, な/N→だったら।
-E|安[やす]かったら、 買[か]います。|সস্তা হলে কিনব।
-E|もし 雨[あめ] だったら、 行[い]きません。|যদি বৃষ্টি হয়, যাব না।
-G|পরার ক্রিয়া|“শার্ট・জুতো・টুপি・চশমা পরি”|着[き]ます / はきます / かぶります / かけます|পোশাকের ধরন অনুযায়ী আলাদা ক্রিয়া: শার্ট-কোট 着ます, জুতো-প্যান্ট はきます, টুপি かぶります, চশমা かけます।|বাংলায় সবই “পরি”, জাপানিতে আলাদা।
-E|シャツ を 着[き]ます。|শার্ট পরি।
-E|くつ を はきます。|জুতো পরি।
-E|ぼうし を かぶります。|টুপি পরি।
-E|めがね を かけます。|চশমা পরি।`;
-
+&quot;use strict&quot;;
+const $=(s,r=document)=&gt;r.querySelector(s),$$=(s,r=document)=&gt;[...r.querySelectorAll(s)];
+const LX={g(k,d){try{const v=localStorage.getItem(&#x27;g5_&#x27;+k);return v==null?d:JSON.parse(v)}catch(e){return d}},s(k,v){try{localStorage.setItem(&#x27;g5_&#x27;+k,JSON.stringify(v))}catch(e){}}};
+const shuf=a=&gt;{a=[...a];for(let i=a.length-1;i&gt;0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const HUE=[220,150,30,280,340],bd=n=&gt;String(n).replace(/\d/g,d=&gt;&#x27;০১২৩৪৫৬৭৮৯&#x27;[d]);
+let FURI=LX.g(&#x27;furi&#x27;,true),RATE=LX.g(&#x27;rate&#x27;,.8);
+const FAV=new Set(LX.g(&#x27;lfav&#x27;,[])),DONE=new Set(LX.g(&#x27;ldone&#x27;,[])),KN=new Set(LX.g(&#x27;kn&#x27;,[]));
 /* কানা → রোমাজি + বাংলা উচ্চারণ */
 const ROWS=[[&#x27;&#x27;,&#x27;&#x27;,&#x27;あいうえお&#x27;],[&#x27;k&#x27;,&#x27;ক&#x27;,&#x27;かきくけこ&#x27;],[&#x27;s&#x27;,&#x27;স&#x27;,&#x27;さしすせそ&#x27;],[&#x27;t&#x27;,&#x27;ত&#x27;,&#x27;たちつてと&#x27;],[&#x27;n&#x27;,&#x27;ন&#x27;,&#x27;なにぬねの&#x27;],[&#x27;h&#x27;,&#x27;হ&#x27;,&#x27;はひふへほ&#x27;],[&#x27;m&#x27;,&#x27;ম&#x27;,&#x27;まみむめも&#x27;],[&#x27;r&#x27;,&#x27;র&#x27;,&#x27;らりるれろ&#x27;],[&#x27;g&#x27;,&#x27;গ&#x27;,&#x27;がぎぐげご&#x27;],[&#x27;z&#x27;,&#x27;জ&#x27;,&#x27;ざじずぜぞ&#x27;],[&#x27;d&#x27;,&#x27;দ&#x27;,&#x27;だぢづでど&#x27;],[&#x27;b&#x27;,&#x27;ব&#x27;,&#x27;ばびぶべぼ&#x27;],[&#x27;p&#x27;,&#x27;প&#x27;,&#x27;ぱぴぷぺぽ&#x27;]];
 const V=&#x27;aiueo&#x27;,BV=&#x27;আইউএও&#x27;,BS=[&#x27;া&#x27;,&#x27;ি&#x27;,&#x27;ু&#x27;,&#x27;ে&#x27;,&#x27;ো&#x27;],M={},Y={&#x27;ゃ&#x27;:0,&#x27;ゅ&#x27;:2,&#x27;ょ&#x27;:4};
@@ -703,90 +542,226 @@ function conv(txt){
   });
   return [R.join(&#x27; &#x27;),B.join(&#x27; &#x27;)];
 }
-const ru=s=&gt;s.replace(/([一-龥々]+)\[([^\]]+)\]/g,&#x27;&lt;ruby&gt;$1&lt;rt&gt;$2&lt;/rt&gt;&lt;/ruby&gt;&#x27;);
-const kana=s=&gt;s.replace(/[一-龥々]+\[([^\]]+)\]/g,&#x27;$1&#x27;);
 
-/* থিম */
-const root=document.documentElement;
-function setTheme(t){root.dataset.theme=t;document.querySelectorAll(&#x27;#th button&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-pressed&#x27;,b.dataset.t===t));try{localStorage.setItem(&#x27;gtheme&#x27;,t)}catch(e){}}
-let st;try{st=localStorage.getItem(&#x27;gtheme&#x27;)}catch(e){}
-setTheme(st||(matchMedia(&#x27;(prefers-color-scheme:dark)&#x27;).matches?&#x27;dark&#x27;:&#x27;light&#x27;));
-document.querySelectorAll(&#x27;#th button&#x27;).forEach(b=&gt;b.onclick=()=&gt;setTheme(b.dataset.t));
-
-/* উচ্চারণ */
-let gender=&#x27;f&#x27;,rate=.8;
-const MALE=/ichiro|otoya|hattori|keita|takumi|daichi|naoki|ryota|male|男/i;
-function pick(){
-  const ja=(window.speechSynthesis?speechSynthesis.getVoices():[]).filter(x=&gt;x.lang.toLowerCase().replace(&#x27;_&#x27;,&#x27;-&#x27;).startsWith(&#x27;ja&#x27;));
-  const m=ja.find(x=&gt;MALE.test(x.name)),f=ja.find(x=&gt;!MALE.test(x.name))||ja[0];
-  if(gender===&#x27;m&#x27;)return m?{v:m,pitch:1}:{v:f,pitch:.6};
-  return {v:f,pitch:1};
-}
-function say(t,btn){
-  const s=window.speechSynthesis;
-  if(!s){alert(&#x27;এই ব্রাউজারে শব্দ সাপোর্ট নেই। Chrome বা Edge ব্যবহার করুন।&#x27;);return}
-  s.cancel();document.querySelectorAll(&#x27;.on&#x27;).forEach(e=&gt;e.classList.remove(&#x27;on&#x27;));
-  const {v,pitch}=pick(),u=new SpeechSynthesisUtterance(t.replace(/\s/g,&#x27;&#x27;));
-  u.lang=&#x27;ja-JP&#x27;;u.rate=rate;u.pitch=pitch;if(v)u.voice=v;
-  u.onstart=()=&gt;btn.classList.add(&#x27;on&#x27;);u.onend=()=&gt;btn.classList.remove(&#x27;on&#x27;);
-  s.speak(u);
-}
-document.querySelectorAll(&#x27;#vg button&#x27;).forEach(b=&gt;b.onclick=()=&gt;{gender=b.dataset.g;document.querySelectorAll(&#x27;#vg button&#x27;).forEach(x=&gt;x.setAttribute(&#x27;aria-pressed&#x27;,x===b))});
-document.getElementById(&#x27;rt&#x27;).onchange=e=&gt;{rate=+e.target.value};
-if(window.speechSynthesis)speechSynthesis.getVoices();
-
-/* পাঠ ও কার্ড তৈরি */
-const main=document.getElementById(&#x27;main&#x27;),nav=document.getElementById(&#x27;nav&#x27;);
-let grid,exs,ln=0,gn=0;
-D.split(&#x27;\n&#x27;).forEach(l=&gt;{
-  const p=l.split(&#x27;|&#x27;);
-  if(p[0]===&#x27;L&#x27;){
-    ln=p[1];gn=0;
-    const s=document.createElement(&#x27;section&#x27;);s.id=&#x27;L&#x27;+ln;
-    s.innerHTML=`&lt;a class=&quot;back&quot; href=&quot;#&quot;&gt;← সব লেসন&lt;/a&gt;&lt;h2&gt;${p[2]}&lt;/h2&gt;&lt;div class=&quot;grid&quot;&gt;&lt;/div&gt;`;
-    main.appendChild(s);grid=s.querySelector(&#x27;.grid&#x27;);
-    const bd=n=&gt;String(n).replace(/\d/g,d=&gt;&#x27;০১২৩৪৫৬৭৮৯&#x27;[d]),n2=String(ln).padStart(2,&#x27;0&#x27;);
-    nav.insertAdjacentHTML(&#x27;beforeend&#x27;,`&lt;a class=&quot;lb&quot; href=&quot;#L${ln}&quot;&gt;&lt;div class=&quot;top&quot;&gt;&lt;span class=&quot;lc&quot;&gt;L-${n2}&lt;/span&gt;&lt;span class=&quot;kj&quot; lang=&quot;ja&quot;&gt;第${n2}課&lt;/span&gt;&lt;/div&gt;&lt;h3&gt;লেসন ${bd(ln)}&lt;/h3&gt;&lt;p&gt;${p[2].split(&#x27; · &#x27;)[1]||&#x27;&#x27;}&lt;/p&gt;&lt;span class=&quot;ar&quot; aria-hidden=&quot;true&quot;&gt;→&lt;/span&gt;&lt;/a&gt;`);
-    document.querySelector(&#x27;.cnt&#x27;).textContent=`মোট ${bd(ln)}টি লেসন • ব্যাকরণ`;
-  }else if(p[0]===&#x27;G&#x27;){
-    gn++;
-    const c=document.createElement(&#x27;article&#x27;);c.className=&#x27;g&#x27;;
-    c.innerHTML=`&lt;span class=&quot;tag&quot;&gt;পাঠ ${ln} · নিয়ম ${gn}&lt;/span&gt;&lt;h3 lang=&quot;ja&quot;&gt;${p[1]}&lt;/h3&gt;&lt;p class=&quot;nm&quot;&gt;${p[2]}&lt;/p&gt;&lt;div class=&quot;fm&quot;&gt;&lt;b&gt;গঠন&lt;/b&gt;${p[3]}&lt;/div&gt;&lt;p class=&quot;ex-t&quot;&gt;${p[4]}&lt;/p&gt;&lt;p class=&quot;tip&quot;&gt;💡 ${p[5]}&lt;/p&gt;&lt;div class=&quot;exs&quot;&gt;&lt;/div&gt;`;
-    grid.appendChild(c);exs=c.querySelector(&#x27;.exs&#x27;);
-  }else if(p[0]===&#x27;E&#x27;){
-    const h=kana(p[1]),[ro,bn]=conv(h);
-    const e=document.createElement(&#x27;div&#x27;);e.className=&#x27;ex&#x27;;
-    e.innerHTML=`&lt;button class=&quot;sp&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;div class=&quot;jp&quot; lang=&quot;ja&quot;&gt;${ru(p[1])}&lt;/div&gt;&lt;div class=&quot;hi&quot; lang=&quot;ja&quot;&gt;${h}&lt;/div&gt;&lt;div class=&quot;ro&quot;&gt;${ro}&lt;/div&gt;&lt;div class=&quot;bn&quot;&gt;${bn}&lt;/div&gt;&lt;div class=&quot;mn&quot;&gt;${p[2]}&lt;/div&gt;`;
-    const b=e.querySelector(&#x27;.sp&#x27;);b.onclick=()=&gt;say(h,b);
-    exs.appendChild(e);
-  }
+const RB=/([一-龥々]+)\[([^\]]+)\]/g;
+const ru=s=&gt;FURI?s.replace(RB,&#x27;&lt;ruby&gt;$1&lt;rt&gt;$2&lt;/rt&gt;&lt;/ruby&gt;&#x27;):s.replace(RB,&#x27;$1&#x27;),kana=s=&gt;s.replace(RB,&#x27;$2&#x27;);
+/* ডেটা */
+const D=`L|1|পরিচয় · は・です・か・も・の・さん
+G|A は B です|“A হলো B” · は, です|A は B です|は বাক্যের বিষয় বোঝায় (“আমি-টা”), আর です শেষে বসে বাক্যকে ভদ্র করে; বাংলার “হয়” এখানে です। ক্রিয়া সবসময় বাক্যের শেষে বসে।|は লেখা “হা”, পড়া “ওয়া”।
+E|私[わたし] は 学生[がくせい] です。|আমি ছাত্র।
+E|マイク さん は アメリカ人[じん] です。|মাইক আমেরিকান।
+E|山田[やまだ] さん は 会社員[かいしゃいん] です。|ইয়ামাদা অফিসকর্মী।
+S|{1} は {2} です。|{1} {2}।|私[わたし]=আমি,ミラー さん=মিলার,山田[やまだ] さん=ইয়ামাদা;学生[がくせい]=ছাত্র,先生[せんせい]=শিক্ষক,医者[いしゃ]=ডাক্তার
+G|じゃ ありません|“A হলো B নয়” · じゃ ありません|A は B じゃ ありません|です এর না-বোধক রূপ じゃ ありません (লেখায় ではありません), বিশেষ্যের পরে বসে। অতীত না-বোধক নয়, বর্তমানের “নয়”।|じゃ ありません = “নয়”।
+E|私[わたし] は 先生[せんせい] じゃ ありません。|আমি শিক্ষক নই।
+E|ミラー さん は 医者[いしゃ] じゃ ありません。|মিলার ডাক্তার নন।
+S|{1} は {2} じゃ ありません。|{1} {2} নয়।|ミラー さん=মিলার,山田[やまだ] さん=ইয়ামাদা;学生[がくせい]=ছাত্র,先生[せんせい]=শিক্ষক,医者[いしゃ]=ডাক্তার
+G|か・はい・いいえ|প্রশ্ন ও উত্তর · か|A は B です か|বাক্যের শেষে か বসালেই প্রশ্ন হয় (? লাগে না)। উত্তরে はい = হ্যাঁ, いいえ = না। “কে/কী” জিজ্ঞেসে だれ ও 何[なん] ব্যবহার হয়।|か প্রশ্নচিহ্নের কাজ করে।
+E|あなた は 学生[がくせい] です か。|আপনি কি ছাত্র?
+E|はい、 学生[がくせい] です。|হ্যাঁ, ছাত্র।
+E|お 名前[なまえ] は 何[なん] です か。|আপনার নাম কী?
+S|{1} は {2} です か。|{1} কি {2}?|あなた=আপনি,ミラー さん=মিলার,山田[やまだ] さん=ইয়ামাদা;日本人[にほんじん]=জাপানি,アメリカ人[じん]=আমেরিকান,バングラデシュ人[じん]=বাংলাদেশি
+G|も|“-ও” · も|A も B です|আগের কথার সাথে মিল থাকলে は এর জায়গায় も বসে। না-বোধক বাক্যেও も চলে।|は ও も একসাথে বসে না।
+E|私[わたし] も 学生[がくせい] です。|আমিও ছাত্র।
+E|ミラー さん も 先生[せんせい] じゃ ありません。|মিলারও শিক্ষক নন।
+S|{1} も {2} です。|{1}ও {2}।|私[わたし]=আমি,ミラー さん=মিলার,山田[やまだ] さん=ইয়ামাদা;学生[がくせい]=ছাত্র,先生[せんせい]=শিক্ষক,医者[いしゃ]=ডাক্তার
+G|の|“-র / -এর” · の|A の B|দুই বিশেষ্য জুড়ে মালিকানা বা সম্পর্ক বোঝায়: মালিক আগে, জিনিস পরে (আমার বই = 私の本)। কোন প্রতিষ্ঠানের লোক তাও の দিয়ে বলা হয়।|の = “-র”; মালিক আগে বসে।
+E|私[わたし] の 本[ほん] です。|আমার বই।
+E|ミラー さん は IMC の 社員[しゃいん] です。|মিলার IMC এর কর্মী।
+S|{1} の {2} です。|{1} {2}।|私[わたし]=আমার,ミラー さん=মিলারের,先生[せんせい]=শিক্ষকের;本[ほん]=বই,かばん=ব্যাগ,名前[なまえ]=নাম
+G|さん・人・歳|সম্বোধন ও পরিচয় · さん/人/歳|名前 さん / 国[くに] 人[じん] / ～歳[さい]|さん অন্যের নামের পরে সম্মান বোঝায় (নিজের নামে নয়)। দেশের নামের পরে 人 বসালে জাতীয়তা হয়। বয়স ～歳, জিজ্ঞেসে 何歳[なんさい] বা ভদ্রভাবে おいくつ।|নিজের নামের পরে さん নয়।
+E|山田[やまだ] さん は 日本人[にほんじん] です。|ইয়ামাদা জাপানি।
+E|私[わたし] は バングラデシュ人[じん] です。|আমি বাংলাদেশি।
+E|私[わたし] は 二十二歳[にじゅうにさい] です。|আমি ২২ বছরের।
+L|2|জিনিস দেখানো · これ・この・そう
+G|これ・それ・あれ|“এটা・ওটা・ঐটা” · これ/それ/あれ|これ/それ/あれ は N です|দূরত্বে তিন ভাগ: これ = বক্তার কাছে, それ = শ্রোতার কাছে, あれ = দুজনেরই দূরে। এরা একা বসে, পরে বিশেষ্য লাগে না। “কী?” জিজ্ঞেসে 何[なん] বসে।|それ = শ্রোতার দিকের জিনিস।
+E|これ は 本[ほん] です。|এটা বই।
+E|それ は 何[なん] です か。|ওটা কী?
+E|あれ は 私[わたし] の かさ です。|ঐটা আমার ছাতা।
+S|{1} は {2} です。|{1} {2}।|これ=এটা,それ=ওটা,あれ=ঐটা;本[ほん]=বই,かさ=ছাতা,かばん=ব্যাগ,時計[とけい]=ঘড়ি
+G|この・その・あの + N|“এই・ওই・ঐ + বিশেষ্য” · この/その/あの|この/その/あの N は ～ です|これ-দল একা বসে, কিন্তু この-দলের পরে সবসময় একটি বিশেষ্য আসে (この本)। “この です” ভুল। মালিকানা বোঝাতে の বসে ও শেষের বিশেষ্য বাদ যেতে পারে।|この এর পরে বিশেষ্য ছাড়া বসে না।
+E|この 本[ほん] は 私[わたし] の です。|এই বইটা আমার।
+E|その かばん は だれ の です か。|ওই ব্যাগ কার?
+E|あの 人[ひと] は だれ です か。|ঐ লোকটি কে?
+S|{1} {2} は {3} の です。|{1} {2} {3}।|この=এই,その=ওই,あの=ঐ;本[ほん]=বইটা,かばん=ব্যাগটা,かさ=ছাতাটা;私[わたし]=আমার,先生[せんせい]=শিক্ষকের,ミラー さん=মিলারের
+G|そう です・そう じゃ ありません|“তাই / তা নয়” · そう です|そう です / そう じゃ ありません / そう です か|হ্যাঁ-না প্রশ্নের উত্তরে そう です (তাই) ও そう じゃ ありません (তা নয়) বলা যায়। অন্যের কথা শুনে “ও, তাই?” বলতে そう です か (সুর নিচু)।|そう です か = শুনে বুঝলাম।
+E|それ は 時計[とけい] です か。|ওটা কি ঘড়ি?
+E|はい、 そう です。|হ্যাঁ, তাই।
+E|いいえ、 そう じゃ ありません。|না, তা নয়।
+G|A です か、 B です か|“A নাকি B?” · か ～ か|A です か、 B です か|দুটি বিকল্প থেকে একটি বাছাই করাতে প্রতিটির শেষে か বসে। উত্তরে はい/いいえ নয়, পছন্দেরটি সরাসরি বলা হয়।|উত্তরে はい/いいえ লাগে না।
+E|これ は 本[ほん] です か、 ノート です か。|এটা বই নাকি খাতা?
+E|ノート です。|খাতা।
+E|あれ は 車[くるま] です か、 バス です か。|ঐটা গাড়ি নাকি বাস?
+G|の・だれの|“কার / কীসের” · の, だれの|N1 の N2 / だれ の N / 何 の N|の দিয়ে বিষয় বা ধরন বোঝানো যায় (日本語の本 = জাপানি ভাষার বই)। মালিক জিজ্ঞেসে だれ の (কার)। উত্তরে の এর পরের বিশেষ্য বাদ দেওয়া যায়: 私の です।|だれ の = “কার”।
+E|これ は 日本語[にほんご] の 本[ほん] です。|এটা জাপানি ভাষার বই।
+E|それ は だれ の かさ です か。|ওটা কার ছাতা?
+E|私[わたし] の です。|আমার।
+S|{1} は {2} の {3} です。|{1} {2} {3}।|これ=এটা,それ=ওটা;私[わたし]=আমার,先生[せんせい]=শিক্ষকের,ミラー さん=মিলারের;本[ほん]=বই,かさ=ছাতা,かばん=ব্যাগ
+L|3|স্থান ও দাম · ここ・こちら・いくら
+G|ここ・そこ・あそこ・どこ|“এখানে・ওখানে・ঐখানে・কোথায়” · ここ/そこ/あそこ/どこ|N は ここ/そこ/あそこ です / N は どこ です か|ここ = বক্তার কাছে, そこ = শ্রোতার কাছে, あそこ = দুজনেরই দূরে, どこ = কোথায়। জিনিস は স্থান です এই ছাঁচে বলা হয়।|প্যাটার্ন: জিনিস は স্থান です।
+E|ここ は 教室[きょうしつ] です。|এটা ক্লাসরুম।
+E|トイレ は どこ です か。|টয়লেট কোথায়?
+E|トイレ は あそこ です。|টয়লেট ঐখানে।
+S|{1} は {2} です。|{1} {2}।|トイレ=টয়লেট,食堂[しょくどう]=ক্যান্টিন,事務所[じむしょ]=অফিস;ここ=এখানে,そこ=ওখানে,あそこ=ঐখানে
+G|こちら・そちら・あちら・どちら|“এদিক…” (ভদ্র রূপ) · こちら 系|こちら は N さん です / お 国[くに] は どちら です か|ここ・そこ・あそこ・どこ এর ভদ্র রূপ। দিক বোঝায়; মানুষের পরিচয় করাতে (ইনি…) এবং দেশ বা প্রতিষ্ঠান ভদ্রভাবে জিজ্ঞেসে ব্যবহার হয়।|অতিথি ও অফিসে こちら ব্যবহার করুন।
+E|こちら は 山田[やまだ] さん です。|ইনি ইয়ামাদা-সান।
+E|お 国[くに] は どちら です か。|আপনার দেশ কোথায়?
+E|あちら は 事務所[じむしょ] です。|ওইদিকে অফিস।
+G|の (কোথাকার)|“…র তৈরি / …কার” · の|N1 の N2 / どこ の N|の দিয়ে কোন দেশ বা কোম্পানির জিনিস তা বলা যায়। প্রশ্নে どこ の (কোথাকার)।|どこ の = কোথাকার।
+E|これ は 日本[にほん] の 車[くるま] です。|এটা জাপানের গাড়ি।
+E|その かばん は どこ の です か。|ওই ব্যাগ কোথাকার?
+E|イタリア の です。|ইতালির।
+G|いくら・円|“কত দাম” · いくら, 円|N は いくら です か / ～円[えん] です|দাম জিজ্ঞেসে いくら। ১০০ = ひゃく, ৩০০ = さんびゃく, ৬০০ = ろっぴゃく, ৮০০ = はっぴゃく; ১০০০ = せん, ৩০০০ = さんぜん, ৮০০০ = はっせん, ১০০০০ = いちまん।|ひゃく ও せん এর উচ্চারণ বদলায়।
+E|これ は いくら です か。|এটা কত?
+E|三百[さんびゃく] 円[えん] です。|৩০০ ইয়েন।
+E|八千[はっせん] 円[えん] です。|৮০০০ ইয়েন।
+S|{1} は {2} 円[えん] です。|{1} {2} ইয়েন।|これ=এটা,それ=ওটা,あれ=ঐটা;三百[さんびゃく]=৩০০,六百[ろっぴゃく]=৬০০,八百[はっぴゃく]=৮০০,三千[さんぜん]=৩০০০
+G|～階|“…তলা” · ～階|N は ～階[かい] です|তলা বলতে সংখ্যা + 階: いっかい (১), にかい (২), さんがい (৩), よんかい (৪), ごかい (৫), ろっかい (৬), はっかい (৮), じゅっかい (১০)। জিজ্ঞেসে 何階[なんがい]।|১, ৩, ৬, ৮, ১০ এর উচ্চারণ বিশেষ।
+E|トイレ は 三階[さんがい] です。|টয়লেট তিন তলায়।
+E|ここ は 何階[なんがい] です か。|এটা কত তলা?
+S|{1} は {2} です。|{1} {2}।|トイレ=টয়লেট,食堂[しょくどう]=ক্যান্টিন,事務所[じむしょ]=অফিস;一階[いっかい]=এক তলায়,三階[さんがい]=তিন তলায়,六階[ろっかい]=ছয় তলায়
+L|4|সময় ও দৈনন্দিন কাজ · ます・に・から・まで
+G|今 何時 ですか|“এখন কয়টা” · 時・分|今[いま] ～時[じ] ～分[ふん] です|সংখ্যা + 時 (ঘণ্টা) + 分 (মিনিট); আধা ঘণ্টা = 半[はん]। প্রশ্নে 何時[なんじ] ও 何分[なんぷん]। 午前 = সকাল, 午後 = বিকাল।|৪ = よじ, ৭ = しちじ, ৯ = くじ নিয়মের বাইরে।
+E|今[いま] 何時[なんじ] です か。|এখন কয়টা বাজে?
+E|今[いま] 九時[くじ] 半[はん] です。|এখন সাড়ে নয়টা।
+E|今[いま] 午後[ごご] 四時[よじ] 十分[じゅっぷん] です。|এখন বিকাল চারটা দশ।
+S|今[いま] {1} です。|এখন {1}।|九時[くじ]=নয়টা,四時[よじ]=চারটা,七時[しちじ]=সাতটা,九時[くじ] 半[はん]=সাড়ে নয়টা
+G|V ます・ません・ました|ক্রিয়ার ভদ্র চার রূপ · ます 系|V ます / V ません / V ました / V ませんでした|ক্রিয়া বাক্যের শেষে বসে। ます = হ্যাঁ (বর্তমান/ভবিষ্যৎ), ません = না, ました = হ্যাঁ (অতীত), ませんでした = না (অতীত)। শুধু শেষ অংশ বদলায়।|ます দিয়ে শেষ = ভদ্র রূপ।
+E|毎日[まいにち] 働[はたら]きます。|রোজ কাজ করি।
+E|昨日[きのう] 勉強[べんきょう] しました。|গতকাল পড়েছি।
+E|今日[きょう] は 働[はたら]きません。|আজ কাজ করব না।
+G|に (সময়)|“…সময়ে” · に|時間 に V|নির্দিষ্ট ঘণ্টা বা বারের পরে に বসে। বার: 月曜日 সোম, 火 মঙ্গল, 水 বুধ, 木 বৃহস্পতি, 金 শুক্র, 土 শনি, 日曜日 রবি। 今日, 昨日, 毎日, 毎朝 এর পরে に লাগে না।|নির্দিষ্ট সময় → に, ‘আজ/রোজ’ → না।
+E|毎朝[まいあさ] 六時[ろくじ] に 起[お]きます。|রোজ সকালে ছয়টায় উঠি।
+E|十一時[じゅういちじ] に 寝[ね]ます。|এগারোটায় ঘুমাই।
+E|日曜日[にちようび] に 休[やす]みます。|রবিবারে ছুটি নিই।
+S|毎朝[まいあさ] {1} に {2}。|প্রতিদিন সকালে {1} {2}।|五時[ごじ]=পাঁচটায়,六時[ろくじ]=ছয়টায়,七時[しちじ]=সাতটায়;起[お]きます=উঠি,働[はたら]きます=কাজ করি,勉強[べんきょう] します=পড়ি
+G|から・まで|“থেকে・পর্যন্ত” · から/まで|A から B まで V|から = শুরু, まで = শেষ; সময় ও স্থান দুটোতেই চলে। পুরো সময় জুড়ে কাজ চললে ব্যবহার হয়।|から ছাড়া একা ব্যবহার করলে “…থেকে” মাত্র।
+E|九時[くじ] から 五時[ごじ] まで 働[はたら]きます。|নয়টা থেকে পাঁচটা কাজ করি।
+E|銀行[ぎんこう] は 九時[くじ] から です。|ব্যাংক নয়টা থেকে।
+E|月曜日[げつようび] から 金曜日[きんようび] まで 働[はたら]きます。|সোমবার থেকে শুক্রবার কাজ করি।
+S|{1} から {2} まで 働[はたら]きます。|আমি {1} থেকে {2} পর্যন্ত কাজ করি।|九時[くじ]=নয়টা,八時[はちじ]=আটটা,十時[じゅうじ]=দশটা;五時[ごじ]=পাঁচটা,六時[ろくじ]=ছয়টা,七時[しちじ]=সাতটা
+G|と・ね|“এবং” ও “…তাই না?” · と, ね|N1 と N2 / 文 ね|と দুই বা বেশি বিশেষ্য জোড়ে (শুধু বিশেষ্য)। বাক্যের শেষে ね সম্মতি চায় বা মিল জানায়।|と শুধু বিশেষ্য জোড়ে, ক্রিয়া নয়।
+E|山田[やまだ] さん と 私[わたし] は 学生[がくせい] です。|ইয়ামাদা ও আমি ছাত্র।
+E|今[いま] 九時[くじ] です ね。|এখন নয়টা, তাই না?
+L|5|যাওয়া-আসা ও তারিখ · へ・で・と・いつ
+G|へ + 行く・来る・帰る|“…-তে যাই/আসি/ফিরি” · へ|場所 へ 行[い]きます|গন্তব্য বোঝায় へ (লেখা “হে”, পড়া “এ”)। 行[い]きます = যাই, 来[き]ます = আসি, 帰[かえ]ります = ফিরি।|は এর মতো へ এরও লেখা আর পড়া আলাদা।
+E|学校[がっこう] へ 行[い]きます。|স্কুলে যাই।
+E|日本[にほん] へ 来[き]ました。|জাপানে এসেছি।
+E|家[うち] へ 帰[かえ]ります。|বাড়ি ফিরি।
+S|{1} へ {2}。|আমি {1} {2}।|学校[がっこう]=স্কুলে,会社[かいしゃ]=অফিসে,日本[にほん]=জাপানে;行[い]きます=যাই,来[き]ました=এসেছি,帰[かえ]ります=ফিরি
+G|で (যানবাহন)|“…দিয়ে / …-তে করে” · で|乗り物 で 行[い]きます / 何[なん] で|যানবাহনের পরে で বসে (মাধ্যম)। প্রশ্ন: 何[なん] で (কিসে)। হেঁটে গেলে で লাগে না: 歩[ある]いて।|で = উপায় বা মাধ্যম।
+E|電車[でんしゃ] で 会社[かいしゃ] へ 行[い]きます。|ট্রেনে অফিস যাই।
+E|何[なん] で 来[き]ました か。|কিসে করে এসেছেন?
+E|歩[ある]いて 帰[かえ]ります。|হেঁটে ফিরি।
+G|と ও ひとり で|“…র সাথে” · と|人 と V / だれ と / ひとり で|と সঙ্গীর পরে বসে; প্রশ্নে だれ と (কার সাথে)। একা হলে ひとり で।|ひとり で = একা।
+E|友達[ともだち] と 学校[がっこう] へ 行[い]きます。|বন্ধুর সাথে স্কুলে যাই।
+E|だれ と 来[き]ました か。|কার সাথে এসেছেন?
+E|ひとり で 来[き]ました。|একা এসেছি।
+S|{1} と {2} で {3} へ 行[い]きます。|আমি {1} সাথে {2} {3} যাই।|友達[ともだち]=বন্ধুর,家族[かぞく]=পরিবারের,先生[せんせい]=শিক্ষকের;電車[でんしゃ]=ট্রেনে,バス=বাসে,車[くるま]=গাড়িতে;学校[がっこう]=স্কুলে,会社[かいしゃ]=অফিসে,駅[えき]=স্টেশনে
+G|いつ・তারিখ|“কখন” · いつ, 月・日|いつ V / 何月[なんがつ] 何日[なんにち]|いつ = কখন; এর পরে に লাগে না। মাস = সংখ্যা + 月 (四月 しがつ, 七月 しちがつ, 九月 くがつ)। তারিখ: ১ ついたち, ২ ふつか, ৩ みっか, ৪ よっか, ৫ いつか, ১০ とおか, ২০ はつか; বাকিগুলো সংখ্যা + にち।|১–১০ তারিখ আলাদা শব্দ।
+E|いつ 日本[にほん] へ 来[き]ました か。|কখন জাপানে এসেছেন?
+E|三月[さんがつ] 二十五日[にじゅうごにち] に 来[き]ました。|২৫ মার্চে এসেছি।
+E|誕生日[たんじょうび] は 五月[ごがつ] 五日[いつか] です。|জন্মদিন ৫ মে।
+G|よ|“…তো” (জানানো) · よ|文 よ|বাক্যের শেষে よ শ্রোতার জানা নেই এমন কথা জানায় বা জোর দেয়। ね সম্মতি চায়, よ তথ্য জানায়।|ね = “তাই না?”, よ = “জেনে রাখুন”।
+E|この 電車[でんしゃ] は 学校[がっこう] へ 行[い]きます よ。|এই ট্রেন স্কুলে যায় তো।
+E|明日[あした] 来[き]ます よ。|কাল আসব (জানিয়ে রাখলাম)।`;
+const LS=[],GS=[],CARDS=[];let L,G;
+D.trim().split(&#x27;\n&#x27;).forEach(l=&gt;{const p=l.split(&#x27;|&#x27;);
+  if(p[0]===&#x27;L&#x27;){L={n:+p[1],t:p[2],g:[],s:[]};LS.push(L)}
+  else if(p[0]===&#x27;G&#x27;){G={i:GS.length,l:L.n,p:p[1],nm:p[2],fm:p[3],ex:p[4],tp:p[5],e:[]};L.g.push(G);GS.push(G)}
+  else if(p[0]===&#x27;E&#x27;)G.e.push({j:p[1],b:p[2]});
+  else if(p[0]===&#x27;S&#x27;)L.s.push({t:p[1],b:p[2],o:p[3].split(&#x27;;&#x27;).map(x=&gt;x.split(&#x27;,&#x27;).map(y=&gt;{const[a,b]=y.split(&#x27;=&#x27;);return{j:a.trim(),b}}))});
 });
-
-/* লেসন বক্স ↔ পাঠ দেখানো */
-history.scrollRestoration=&#x27;manual&#x27;;
-let homeY=0;
-document.getElementById(&#x27;nav&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{homeY=window.scrollY});
-function route(){
-  const s=location.hash.length&gt;1?document.getElementById(location.hash.slice(1)):null;
-  document.querySelectorAll(&#x27;section&#x27;).forEach(x=&gt;x.classList.toggle(&#x27;show&#x27;,x===s));
-  document.getElementById(&#x27;home&#x27;).hidden=!!s;
-  window.scrollTo({top:s?Math.max(0,s.getBoundingClientRect().top+window.scrollY-12):homeY,behavior:&#x27;instant&#x27;});
-}
-addEventListener(&#x27;hashchange&#x27;,route);route();
-&lt;/script&gt;
-&lt;script&gt;
-document.addEventListener(&#x27;click&#x27;, function(e){
-  var a = e.target.closest ? e.target.closest(&#x27;a[href^=&quot;#&quot;]&#x27;) : null;
-  if(!a) return;
-  e.preventDefault();
-  var id = a.getAttribute(&#x27;href&#x27;).slice(1);
-  try{ history.replaceState(null, &#x27;&#x27;, id ? &#x27;#&#x27; + id : location.href.split(&#x27;#&#x27;)[0]); }catch(err){}
-  if(typeof route === &#x27;function&#x27;) route();
-}, true);
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-"></iframe>
+GS.forEach(g=&gt;{CARDS.push({id:&#x27;r&#x27;+g.i,t:&#x27;r&#x27;,g});g.e.forEach((e,k)=&gt;CARDS.push({id:&#x27;e&#x27;+g.i+&#x27;_&#x27;+k,t:&#x27;e&#x27;,g,e}))});
+/* উচ্চারণ */
+const synth=window.speechSynthesis||null;
+const jaV=()=&gt;{const j=synth?synth.getVoices().filter(v=&gt;/^ja/i.test(v.lang)):[];return j.find(v=&gt;/Kyoko|Haruka|Nanami|Google|Ayumi/i.test(v.name))||j[0]||null};
+function say(t,b){if(!synth){alert(&#x27;এই ব্রাউজারে শব্দ সাপোর্ট নেই। Chrome বা Edge ব্যবহার করুন।&#x27;);return}synth.cancel();const u=new SpeechSynthesisUtterance(t.replace(/\s/g,&#x27;&#x27;));u.lang=&#x27;ja-JP&#x27;;u.rate=RATE;const v=jaV();if(v)u.voice=v;if(b){b.classList.add(&#x27;on&#x27;);u.onend=u.onerror=()=&gt;b.classList.remove(&#x27;on&#x27;)}synth.speak(u)}
+document.addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;[data-say]&#x27;);if(b){e.stopPropagation();say(b.dataset.say,b)}});
+const vinfo=()=&gt;{const v=jaV();$(&#x27;#vinfo&#x27;).textContent=synth?(v?&#x27;ভয়েস: &#x27;+v.name:&#x27;⚠️ জাপানি ভয়েস পাওয়া যায়নি&#x27;):&#x27;&#x27;};
+/* স্ট্যাটস, থিম */
+function stats(){$(&#x27;#sDone&#x27;).textContent=DONE.size;$(&#x27;#sTot&#x27;).textContent=LS.length;$(&#x27;#sKn&#x27;).textContent=KN.size;$(&#x27;#sKt&#x27;).textContent=CARDS.length;$(&#x27;#pfill&#x27;).style.width=(DONE.size/LS.length*100)+&#x27;%&#x27;}
+function setTheme(t){document.documentElement.dataset.theme=t;$$(&#x27;[data-t]&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-pressed&#x27;,b.dataset.t===t));LX.s(&#x27;theme&#x27;,t)}
+function setFuri(on){FURI=on;$$(&#x27;[data-f]&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-pressed&#x27;,(b.dataset.f===&#x27;1&#x27;)===on));LX.s(&#x27;furi&#x27;,on);document.body.classList.toggle(&#x27;nofuri&#x27;,!on);if(!$(&#x27;#modal&#x27;).hidden)openCard(cur,true);if(!$(&#x27;#tab-build&#x27;).hidden)buildTab()}
+const exH=e=&gt;{const k=kana(e.j),[ro,bn]=conv(k);return `&lt;div class=&quot;srow&quot;&gt;&lt;div class=&quot;sj&quot; lang=&quot;ja&quot;&gt;${ru(e.j)}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${k}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;div class=&quot;sbn&quot;&gt;&lt;div class=&quot;rl&quot;&gt;${k} · &lt;i&gt;${ro}&lt;/i&gt; · ${bn}&lt;/div&gt;&lt;b&gt;${e.b}&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;`};
+/* ট্যাব ১: লেসন কার্ড (প্রতি লেসনে একটি কার্ড) */
+let VIS=[],cur=1;
+const grid=$(&#x27;#grid&#x27;),eN=l=&gt;l.g.reduce((a,g)=&gt;a+g.e.length,0);
+$(&#x27;#catf&#x27;).hidden=true;
+grid.innerHTML=LS.map(l=&gt;`&lt;button class=&quot;tile cat&quot; style=&quot;--h:${HUE[l.n-1]}&quot; data-i=&quot;${l.n}&quot;&gt;&lt;span class=&quot;sc&quot;&gt;লেসন ${bd(l.n)}&lt;/span&gt;&lt;span class=&quot;mk&quot;&gt;&lt;/span&gt;&lt;span class=&quot;bk&quot;&gt;${l.t.split(&#x27; · &#x27;)[0]}&lt;/span&gt;&lt;span class=&quot;tm&quot; lang=&quot;ja&quot;&gt;${l.t.split(&#x27; · &#x27;)[1]||&#x27;&#x27;}&lt;/span&gt;&lt;span class=&quot;tr&quot;&gt;${bd(l.g.length)}টি নিয়ম · ${bd(eN(l))}টি উদাহরণ&lt;/span&gt;&lt;/button&gt;`).join(&#x27;&#x27;);
+LS.forEach(l=&gt;l._s=(l.t+l.g.map(g=&gt;g.p+g.nm+g.fm+g.ex+g.e.map(e=&gt;kana(e.j)+e.b).join(&#x27;&#x27;)).join(&#x27;&#x27;)).toLowerCase());
+$$(&#x27;.tile&#x27;,grid).forEach(t=&gt;t.onclick=()=&gt;openCard(+t.dataset.i));
+function paintTiles(){$$(&#x27;.tile&#x27;,grid).forEach(t=&gt;{const i=+t.dataset.i;$(&#x27;.mk&#x27;,t).innerHTML=(FAV.has(i)?&#x27;★&#x27;:&#x27;&#x27;)+(DONE.has(i)?&#x27;&lt;span class=&quot;d&quot;&gt;✓&lt;/span&gt;&#x27;:&#x27;&#x27;);t.classList.toggle(&#x27;fin&#x27;,DONE.has(i))})}
+function applyFilter(){const f=$(&#x27;#flt&#x27;).value,q=$(&#x27;#q&#x27;).value.trim().toLowerCase();VIS=[];
+  $$(&#x27;.tile&#x27;,grid).forEach(t=&gt;{const i=+t.dataset.i,l=LS[i-1];const s=(!q||l._s.includes(q))&amp;&amp;(f===&#x27;all&#x27;||(f===&#x27;star&#x27;&amp;&amp;FAV.has(i))||(f===&#x27;todo&#x27;&amp;&amp;!DONE.has(i))||(f===&#x27;done&#x27;&amp;&amp;DONE.has(i)));t.hidden=!s;if(s)VIS.push(i)});
+  $(&#x27;#cnt&#x27;).textContent=`${bd(VIS.length)}টি লেসন দেখাচ্ছে`;$(&#x27;#lt&#x27;).textContent=&#x27;&#x27;}
+function toggle(set,i,key){set.has(i)?set.delete(i):set.add(i);LX.s(key,[...set]);stats();paintTiles();paintMarks()}
+function paintMarks(){const sh=$(&#x27;#sheet&#x27;),f=$(&#x27;[data-a=fav]&#x27;,sh),d=$(&#x27;[data-a=done]&#x27;,sh);if(!f)return;f.textContent=FAV.has(cur)?&#x27;★ ফেভারিট&#x27;:&#x27;☆ ফেভারিট&#x27;;d.textContent=DONE.has(cur)?&#x27;✓ লেসন শেখা হয়েছে&#x27;:&#x27;○ লেসন শেখা হয়েছে&#x27;;f.setAttribute(&#x27;aria-pressed&#x27;,FAV.has(cur));d.setAttribute(&#x27;aria-pressed&#x27;,DONE.has(cur))}
+function openCard(n,keep){cur=n;const l=LS[n-1],sh=$(&#x27;#sheet&#x27;);sh.style.setProperty(&#x27;--h&#x27;,HUE[n-1]);sh.className=&#x27;sheet cat&#x27;;
+  sh.innerHTML=`&lt;div class=&quot;hd&quot;&gt;&lt;span class=&quot;pill&quot;&gt;লেসন ${bd(n)} · ${bd(l.g.length)}টি নিয়ম · ${bd(eN(l))}টি উদাহরণ&lt;/span&gt;&lt;h2&gt;${l.t.split(&#x27; · &#x27;)[0]}&lt;/h2&gt;&lt;div class=&quot;en&quot; lang=&quot;ja&quot;&gt;${l.t.split(&#x27; · &#x27;)[1]||&#x27;&#x27;}&lt;/div&gt;&lt;div class=&quot;acts&quot;&gt;&lt;button class=&quot;btn&quot; data-a=&quot;fav&quot;&gt;☆ ফেভারিট&lt;/button&gt;&lt;button class=&quot;btn&quot; data-a=&quot;done&quot;&gt;○ লেসন শেখা হয়েছে&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`+
+  l.g.map((g,k)=&gt;`&lt;div class=&quot;sec&quot;&gt;&lt;h3&gt;${bd(k+1)}. &lt;span lang=&quot;ja&quot;&gt;${g.p}&lt;/span&gt; — ${g.nm.split(&#x27; · &#x27;)[0]}&lt;/h3&gt;&lt;div class=&quot;fm&quot;&gt;&lt;b&gt;গঠন&lt;/b&gt;&lt;span lang=&quot;ja&quot;&gt;${g.fm}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;story&quot;&gt;📖 &lt;b&gt;ব্যাখ্যা:&lt;/b&gt; ${g.ex}&lt;/div&gt;&lt;div class=&quot;story&quot;&gt;💡 ${g.tp}&lt;/div&gt;&lt;div class=&quot;rlab&quot;&gt;📝 উদাহরণ&lt;/div&gt;${g.e.map(exH).join(&#x27;&#x27;)}&lt;/div&gt;`).join(&#x27;&#x27;)+
+  `&lt;div class=&quot;foot&quot;&gt;&lt;button class=&quot;btn pri big&quot; data-a=&quot;fl&quot;&gt;🔄 ফ্লিপ করে পরীক্ষা দিন&lt;/button&gt;&lt;button class=&quot;btn big&quot; data-a=&quot;sb&quot;&gt;✍️ বাক্য বানান&lt;/button&gt;&lt;/div&gt;`;
+  $(&#x27;#modal&#x27;).hidden=false;document.body.style.overflow=&#x27;hidden&#x27;;const p=VIS.indexOf(n);$(&#x27;#mpos&#x27;).textContent=p&gt;=0?`${bd(p+1)} / ${bd(VIS.length)}`:&#x27;&#x27;;paintMarks();$(&#x27;#modal&#x27;).scrollTop=0}
+function closeModal(){$(&#x27;#modal&#x27;).hidden=true;document.body.style.overflow=&#x27;&#x27;;if(synth)synth.cancel();paintTiles()}
+$(&#x27;#sheet&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;[data-a]&#x27;);if(!b)return;const a=b.dataset.a;
+  if(a===&#x27;fav&#x27;)toggle(FAV,cur,&#x27;lfav&#x27;);else if(a===&#x27;done&#x27;)toggle(DONE,cur,&#x27;ldone&#x27;);
+  else if(a===&#x27;fl&#x27;){const n=cur;closeModal();setTab(&#x27;flash&#x27;);flRun(CARDS.filter(c=&gt;c.g.l===n),&#x27;mix&#x27;)}
+  else if(a===&#x27;sb&#x27;){bl=cur;closeModal();setTab(&#x27;build&#x27;)}});
+const step=d=&gt;{if(!VIS.length)return;let p=VIS.indexOf(cur);p=(p+d+VIS.length)%VIS.length;openCard(VIS[p],true)};
+$(&#x27;#mprev&#x27;).onclick=()=&gt;step(-1);$(&#x27;#mnext&#x27;).onclick=()=&gt;step(1);$(&#x27;#mclose&#x27;).onclick=closeModal;
+$(&#x27;#modal&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{if(e.target.id===&#x27;modal&#x27;)closeModal()});
+/* ট্যাব ২: ফ্ল্যাশকার্ড (উল্টে টেস্ট) */
+let FK=null;
+function sides(c,d){const g=c.g;
+  if(c.t===&#x27;r&#x27;){const A=`&lt;h2 lang=&quot;ja&quot;&gt;${g.p}&lt;/h2&gt;&lt;div class=&quot;rl&quot;&gt;${g.nm.split(&#x27; · &#x27;)[0]}&lt;/div&gt;`,B=`&lt;div class=&quot;fm&quot; style=&quot;width:100%&quot;&gt;&lt;b&gt;গঠন&lt;/b&gt;&lt;span lang=&quot;ja&quot;&gt;${g.fm}&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align:left&quot;&gt;${g.ex}&lt;/div&gt;&lt;div class=&quot;rl&quot;&gt;💡 ${g.tp}&lt;/div&gt;`;
+    return d===&#x27;jb&#x27;?{f:A+&#x27;&lt;div class=&quot;rl&quot;&gt;ব্যাখ্যা ও গঠন মনে করুন →&lt;/div&gt;&#x27;,b:B}:{f:`&lt;h2&gt;${g.nm.split(&#x27; · &#x27;)[0]}&lt;/h2&gt;&lt;div class=&quot;rl&quot;&gt;লেসন ${bd(g.l)} · প্যাটার্নটি মনে করুন →&lt;/div&gt;`,b:A+`&lt;div class=&quot;fm&quot; style=&quot;width:100%&quot;&gt;&lt;b&gt;গঠন&lt;/b&gt;&lt;span lang=&quot;ja&quot;&gt;${g.fm}&lt;/span&gt;&lt;/div&gt;`}}
+  const k=kana(c.e.j),[ro,bn]=conv(k),J=`&lt;div class=&quot;sj big&quot; lang=&quot;ja&quot;&gt;${ru(c.e.j)}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${k}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;`,P=`&lt;div class=&quot;rl&quot;&gt;${k} · &lt;i&gt;${ro}&lt;/i&gt; · ${bn}&lt;/div&gt;`,M=`&lt;div class=&quot;mean&quot;&gt;${c.e.b}&lt;/div&gt;`,R=`&lt;div class=&quot;rl&quot;&gt;📌 ${g.p}&lt;/div&gt;`;
+  return d===&#x27;jb&#x27;?{f:J+&#x27;&lt;div class=&quot;rl&quot;&gt;অর্থ বলুন →&lt;/div&gt;&#x27;,b:M+P+R}:{f:M+`&lt;div class=&quot;rl&quot;&gt;📌 ${g.nm.split(&#x27; · &#x27;)[0]} · জাপানিতে বলুন →&lt;/div&gt;`,b:J+P}}
+function flSetup(){FK=null;const r=$(&#x27;#flRoot&#x27;);
+  r.innerHTML=`&lt;div class=&quot;setup&quot;&gt;&lt;div class=&quot;gcard tipc&quot;&gt;&lt;b&gt;🔄 উল্টে টেস্ট:&lt;/b&gt; কার্ডে ট্যাপ করে উল্টান, তারপর নিজেকে যাচাই করুন। &lt;b&gt;বাংলা → জাপানি&lt;/b&gt; মোডে বাংলা দেখে জাপানি বাক্য বা প্যাটার্ন মুখে বলুন, তারপর উল্টে মিলিয়ে নিন। (Space = উল্টানো, ১ = আবার, ২ = জানি)&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;কোন লেসন?&lt;/h3&gt;&lt;select id=&quot;fsL&quot; style=&quot;width:100%;border-radius:12px&quot;&gt;&lt;option value=&quot;0&quot;&gt;সব ৫টি লেসন&lt;/option&gt;${LS.map(l=&gt;`&lt;option value=&quot;${l.n}&quot;&gt;লেসন ${bd(l.n)} · ${l.t}&lt;/option&gt;`).join(&#x27;&#x27;)}&lt;/select&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;কার্ডের ধরন&lt;/h3&gt;&lt;select id=&quot;fsT&quot; style=&quot;width:100%;border-radius:12px&quot;&gt;&lt;option value=&quot;a&quot;&gt;নিয়ম + উদাহরণ বাক্য&lt;/option&gt;&lt;option value=&quot;r&quot;&gt;শুধু নিয়ম (প্যাটার্ন)&lt;/option&gt;&lt;option value=&quot;e&quot;&gt;শুধু উদাহরণ বাক্য&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;h3&gt;কোন দিক থেকে?&lt;/h3&gt;&lt;select id=&quot;fsD&quot; style=&quot;width:100%;border-radius:12px&quot;&gt;&lt;option value=&quot;jb&quot;&gt;জাপানি → বাংলা&lt;/option&gt;&lt;option value=&quot;bj&quot;&gt;বাংলা → জাপানি (উল্টো)&lt;/option&gt;&lt;option value=&quot;mix&quot;&gt;মিক্স (র‍্যান্ডম)&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+  &lt;div class=&quot;acts&quot;&gt;&lt;button class=&quot;btn pri&quot; id=&quot;fsGo&quot; style=&quot;font-size:17px;padding:12px 22px&quot;&gt;▶ শুরু করুন&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+  $(&#x27;#fsGo&#x27;).onclick=()=&gt;{const l=+$(&#x27;#fsL&#x27;).value,t=$(&#x27;#fsT&#x27;).value;flRun(CARDS.filter(c=&gt;(!l||c.g.l===l)&amp;&amp;(t===&#x27;a&#x27;||c.t===t)),$(&#x27;#fsD&#x27;).value)}}
+function flRun(list,dir){const r=$(&#x27;#flRoot&#x27;);list=shuf(list);let i=0,ok=0,bad=[],fl=false;
+  const flip=()=&gt;{fl=!fl;$(&#x27;#fc&#x27;).classList.toggle(&#x27;flip&#x27;,fl);$(&#x27;#fa&#x27;).hidden=!fl},
+  mark=y=&gt;{if(!fl)return;const c=list[i];if(y){ok++;KN.add(c.id)}else{bad.push(c);KN.delete(c.id)}LX.s(&#x27;kn&#x27;,[...KN]);stats();i++;show()};
+  function show(){if(i&gt;=list.length)return end();fl=false;const c=list[i],d=dir===&#x27;mix&#x27;?(Math.random()&lt;.5?&#x27;jb&#x27;:&#x27;bj&#x27;):dir,s=sides(c,d);
+    r.innerHTML=`&lt;div class=&quot;qwrap&quot;&gt;&lt;div class=&quot;qhead&quot;&gt;&lt;span&gt;${i+1}/${list.length}&lt;/span&gt;&lt;div class=&quot;pbar&quot;&gt;&lt;i style=&quot;width:${i/list.length*100}%&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;✅ ${ok}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;fc cat&quot; style=&quot;--h:${HUE[c.g.l-1]}&quot; id=&quot;fc&quot; tabindex=&quot;0&quot; role=&quot;button&quot; aria-label=&quot;কার্ড উল্টান&quot;&gt;&lt;div class=&quot;fin&quot;&gt;&lt;div class=&quot;ff&quot;&gt;${s.f}&lt;/div&gt;&lt;div class=&quot;fb&quot;&gt;${s.b}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;note&quot; style=&quot;text-align:center&quot;&gt;কার্ডে ট্যাপ করে উল্টান&lt;/div&gt;&lt;div class=&quot;acts&quot; id=&quot;fa&quot; style=&quot;justify-content:center&quot; hidden&gt;&lt;button class=&quot;btn&quot; id=&quot;fNo&quot;&gt;😕 আবার দেখব&lt;/button&gt;&lt;button class=&quot;btn pri&quot; id=&quot;fYes&quot;&gt;✅ জানি&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;acts&quot; style=&quot;justify-content:center&quot;&gt;&lt;button class=&quot;btn&quot; id=&quot;fBack&quot;&gt;← সেটিংস&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    $(&#x27;#fc&#x27;).onclick=e=&gt;{if(!e.target.closest(&#x27;[data-say]&#x27;))flip()};$(&#x27;#fNo&#x27;).onclick=()=&gt;mark(false);$(&#x27;#fYes&#x27;).onclick=()=&gt;mark(true);$(&#x27;#fBack&#x27;).onclick=flSetup;$(&#x27;#fc&#x27;).focus()}
+  function end(){FK=null;const p=Math.round(ok/list.length*100);
+    r.innerHTML=`&lt;div class=&quot;qcard&quot;&gt;&lt;div class=&quot;res-big&quot;&gt;${p&gt;=80?&#x27;🎉&#x27;:p&gt;=50?&#x27;👍&#x27;:&#x27;💪&#x27;} ${ok}/${list.length}&lt;/div&gt;&lt;p style=&quot;text-align:center&quot;&gt;${p&gt;=80?&#x27;চমৎকার! লেসনটা ভালোভাবে মনে আছে।&#x27;:&#x27;ভুলগুলো আরেকবার ঘুরে দেখুন — নিয়মের ব্যাখ্যা আবার পড়ে নিন।&#x27;}&lt;/p&gt;&lt;div class=&quot;acts&quot; style=&quot;justify-content:center&quot;&gt;${bad.length?&#x27;&lt;button class=&quot;btn pri&quot; id=&quot;fRe&quot;&gt;🔁 শুধু ভুলগুলো আবার&lt;/button&gt;&#x27;:&#x27;&#x27;}&lt;button class=&quot;btn&quot; id=&quot;fAg&quot;&gt;🔄 নতুন টেস্ট&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    const a=$(&#x27;#fRe&#x27;);if(a)a.onclick=()=&gt;flRun(bad,dir);$(&#x27;#fAg&#x27;).onclick=flSetup}
+  FK={flip,mark};show()}
+document.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(!FK||$(&#x27;#tab-flash&#x27;).hidden||e.target.matches(&#x27;input,select,textarea&#x27;))return;
+  if(e.key===&#x27; &#x27;||e.key===&#x27;Enter&#x27;){e.preventDefault();FK.flip()}else if(e.key===&#x27;1&#x27;)FK.mark(false);else if(e.key===&#x27;2&#x27;)FK.mark(true)});
+/* ট্যাব ৩: লেসন অনুযায়ী বাক্য বানানো */
+let bl=1;
+const fill=(t,o,ix,f)=&gt;t.replace(/\{(\d)\}/g,(m,n)=&gt;o[n-1][ix[n-1]][f]),combos=s=&gt;s.o.reduce((a,o)=&gt;a.flatMap(p=&gt;o.map((_,j)=&gt;[...p,j])),[[]]);
+function bOut(card){const s=LS[bl-1].s[+card.dataset.k],ix=$$(&#x27;select&#x27;,card).map(x=&gt;+x.value),j=fill(s.t,s.o,ix,&#x27;j&#x27;),b=fill(s.b,s.o,ix,&#x27;b&#x27;),k=kana(j),[ro,bn]=conv(k);
+  $(&#x27;.out&#x27;,card).innerHTML=`&lt;div class=&quot;sj big&quot; lang=&quot;ja&quot;&gt;${ru(j)}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${k}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;div class=&quot;rl&quot;&gt;${k} · &lt;i&gt;${ro}&lt;/i&gt; · ${bn}&lt;/div&gt;&lt;div class=&quot;mean&quot;&gt;${b}&lt;/div&gt;`}
+function buildTab(){const l=LS[bl-1],r=$(&#x27;#buildRoot&#x27;);
+  r.innerHTML=`&lt;div class=&quot;filters&quot;&gt;${LS.map(x=&gt;`&lt;button class=&quot;chipc cat&quot; style=&quot;--h:${HUE[x.n-1]}&quot; data-bl=&quot;${x.n}&quot; aria-pressed=&quot;${x.n===bl}&quot;&gt;লেসন ${bd(x.n)}&lt;/button&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;
+  &lt;div class=&quot;gcard tipc&quot;&gt;&lt;b&gt;লেসন ${bd(l.n)} · ${l.t}&lt;/b&gt;&lt;div class=&quot;note&quot;&gt;এই লেসনের প্যাটার্ন দিয়ে যা যা বাক্য বানানো যায় — শব্দ বদলে বদলে দেখুন, বা “সব বাক্য” খুলে দ্রুত রিভিশন দিন।&lt;/div&gt;&lt;div style=&quot;margin-top:6px&quot;&gt;${l.g.map(g=&gt;`&lt;span class=&quot;mini cat&quot; style=&quot;--h:${HUE[l.n-1]}&quot; lang=&quot;ja&quot;&gt;${g.p}&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/div&gt;`+
+  l.s.map((s,k)=&gt;`&lt;div class=&quot;gcard cat bc&quot; style=&quot;--h:${HUE[l.n-1]}&quot; data-k=&quot;${k}&quot;&gt;&lt;div class=&quot;rlab&quot;&gt;✍️ ছাঁচ ${bd(k+1)}: &lt;span lang=&quot;ja&quot;&gt;${s.t.replace(/\{(\d)\}/g,&#x27;［$1］&#x27;)}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;slots&quot;&gt;${s.o.map((o,n)=&gt;`&lt;label&gt;${bd(n+1)}&lt;select data-n=&quot;${n}&quot;&gt;${o.map((x,j)=&gt;`&lt;option value=&quot;${j}&quot;&gt;${kana(x.j)} — ${x.b}&lt;/option&gt;`).join(&#x27;&#x27;)}&lt;/select&gt;&lt;/label&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;out&quot;&gt;&lt;/div&gt;&lt;div class=&quot;acts&quot;&gt;&lt;button class=&quot;btn&quot; data-a=&quot;rnd&quot;&gt;🎲 র‍্যান্ডম&lt;/button&gt;&lt;button class=&quot;btn&quot; data-a=&quot;all&quot;&gt;📋 সব সম্ভাব্য বাক্য (${bd(combos(s).length)})&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;all&quot; hidden&gt;&lt;/div&gt;&lt;/div&gt;`).join(&#x27;&#x27;);
+  $$(&#x27;.bc&#x27;,r).forEach(bOut)}
+$(&#x27;#buildRoot&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{const c=e.target.closest(&#x27;.bc&#x27;);if(c)bOut(c)});
+$(&#x27;#buildRoot&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const ch=e.target.closest(&#x27;[data-bl]&#x27;);if(ch){bl=+ch.dataset.bl;buildTab();return}
+  const b=e.target.closest(&#x27;[data-a]&#x27;);if(!b)return;const c=b.closest(&#x27;.bc&#x27;),s=LS[bl-1].s[+c.dataset.k];
+  if(b.dataset.a===&#x27;rnd&#x27;){$$(&#x27;select&#x27;,c).forEach(x=&gt;x.selectedIndex=Math.floor(Math.random()*x.options.length));bOut(c)}
+  else{const a=$(&#x27;.all&#x27;,c);if(!a.innerHTML)a.innerHTML=combos(s).map(ix=&gt;{const j=fill(s.t,s.o,ix,&#x27;j&#x27;);return `&lt;div class=&quot;srow&quot;&gt;&lt;div class=&quot;sj&quot; lang=&quot;ja&quot;&gt;${ru(j)}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${kana(j)}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;div class=&quot;sbn&quot;&gt;${fill(s.b,s.o,ix,&#x27;b&#x27;)}&lt;/div&gt;&lt;/div&gt;`}).join(&#x27;&#x27;);a.hidden=!a.hidden}});
+/* ট্যাব ও শুরু */
+function setTab(t){$$(&#x27;.tabs button&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-selected&#x27;,b.dataset.tab===t));[&#x27;cards&#x27;,&#x27;flash&#x27;,&#x27;build&#x27;].forEach(x=&gt;$(&#x27;#tab-&#x27;+x).hidden=x!==t);
+  if(t===&#x27;flash&#x27;&amp;&amp;!FK&amp;&amp;!$(&#x27;#flRoot&#x27;).innerHTML)flSetup();if(t===&#x27;build&#x27;)buildTab();if(t===&#x27;cards&#x27;)paintTiles();if(synth)synth.cancel()}
+$$(&#x27;.tabs button&#x27;).forEach(b=&gt;b.onclick=()=&gt;setTab(b.dataset.tab));
+$$(&#x27;[data-t]&#x27;).forEach(b=&gt;b.onclick=()=&gt;setTheme(b.dataset.t));$$(&#x27;[data-f]&#x27;).forEach(b=&gt;b.onclick=()=&gt;setFuri(b.dataset.f===&#x27;1&#x27;));
+$(&#x27;#rate&#x27;).value=String(RATE);$(&#x27;#rate&#x27;).onchange=e=&gt;{RATE=+e.target.value;LX.s(&#x27;rate&#x27;,RATE)};
+$(&#x27;#flt&#x27;).onchange=applyFilter;$(&#x27;#q&#x27;).oninput=applyFilter;
+setTheme(LX.g(&#x27;theme&#x27;,null)||(matchMedia(&#x27;(prefers-color-scheme:dark)&#x27;).matches?&#x27;dark&#x27;:&#x27;light&#x27;));setFuri(FURI);
+paintTiles();applyFilter();stats();vinfo();if(synth){synth.getVoices();synth.onvoiceschanged=vinfo}
+document.addEventListener(&#x27;keydown&#x27;,e=&gt;{if($(&#x27;#modal&#x27;).hidden||e.target.matches(&#x27;input,select,textarea&#x27;))return;if(e.key===&#x27;Escape&#x27;)closeModal();else if(e.key===&#x27;ArrowLeft&#x27;)step(-1);else if(e.key===&#x27;ArrowRight&#x27;)step(1)});
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
 </div>
 <div class="kanji-view" id="view-n5-sentence">
   <div class="kanji-bar"><span>N5 বাক্য</span><a href="#home">← হোমে ফিরুন</a></div>
