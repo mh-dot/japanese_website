@@ -4,261 +4,530 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dream Japan | বাংলায় জাপানি ভাষা শিখুন বিনামূল্যে</title>
-<meta name="description" content="বাংলায় বিনামূল্যে জাপানি ভাষা শিখুন। N5 ও N4 গ্রামার, বাক্য, কানজি, শব্দভান্ডার, লিসেনিং এবং মক টেস্ট।">
+<meta name="description" content="বাংলায় বিনামূল্যে জাপানি ভাষা শিখুন। N5 ও N4 গ্রামার, কানজি, শব্দভান্ডার, লিসেনিং ও মক টেস্ট।">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#2f5bea;
-  --blue-dark:#1e3fb8;
-  --purple:#7c3aed;
-  --purple-dark:#5b21b6;
-  --ink:#16163a;
-  --muted:#5b5f85;
-  --bg:#f6f7ff;
-  --white:#fff;
-  --grad:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%);
+  --sky-top:#bfe3fb;
+  --sky-mid:#e4f3ff;
+  --ink:#0f1222;
+  --sub:#5b6178;
+  --line:#e3ebf5;
+  --black:#111318;
+  --blue:#3d7cf6;
+  --purple:#7c5cff;
+  --pink:#ff7aa8;
+  --yellow:#ffd86b;
+  --mint:#8ee6b5;
+  --radius:24px;
+  --shadow:0 18px 40px -18px rgba(30,70,130,.25);
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Hind Siliguri',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
-h1,h2,h3,.logo,.nav-link{font-family:'Anek Bangla','Hind Siliguri',sans-serif}
-
-/* ---------- Header ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e6e8fb}
-.nav-wrap{max-width:1200px;margin:auto;padding:0 20px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);white-space:nowrap}
-.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;font-family:'Noto Sans JP',sans-serif;font-size:20px;box-shadow:0 6px 16px rgba(124,58,237,.35)}
-.logo span em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-nav ul.menu{display:flex;align-items:center;gap:4px}
-.menu>li{position:relative}
-.nav-link{display:flex;align-items:center;gap:5px;padding:10px 14px;border-radius:10px;font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;background:none;border:0;transition:.2s}
-.nav-link:hover,.menu>li:hover>.nav-link,.nav-link.active{background:#eef0ff;color:var(--blue-dark)}
-.caret{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:.2s}
-.dropdown{position:absolute;top:100%;left:0;min-width:170px;background:#fff;border:1px solid #e6e8fb;border-radius:14px;padding:8px;box-shadow:0 18px 40px rgba(47,91,234,.18);opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s}
-.dropdown a{display:block;padding:10px 14px;border-radius:9px;font-weight:600;font-size:15px}
-.dropdown a:hover{background:var(--grad);color:#fff}
-@media(min-width:901px){
-  .menu>li:hover .dropdown,.menu>li:focus-within .dropdown{opacity:1;visibility:visible;transform:none}
-  .menu>li:hover .caret{transform:rotate(225deg) translateY(-2px)}
+body{
+  font-family:'Hind Siliguri',sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(900px 420px at 10% -10%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(700px 380px at 95% 5%, rgba(255,255,255,.85), transparent 60%),
+    linear-gradient(180deg,var(--sky-top) 0%,var(--sky-mid) 42%,#fff 100%);
+  background-attachment:fixed;
 }
-.burger{display:none;width:44px;height:44px;border:0;border-radius:12px;background:#eef0ff;cursor:pointer;position:relative}
-.burger span,.burger span::before,.burger span::after{content:"";position:absolute;left:12px;width:20px;height:2px;background:var(--blue-dark);border-radius:2px;transition:.25s}
-.burger span{top:21px}.burger span::before{left:0;top:-6px}.burger span::after{left:0;top:6px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+h1,h2,h3,.logo,.brand-name{font-family:'Anek Bangla','Hind Siliguri',sans-serif;letter-spacing:-.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ---------- Nav ---------- */
+.nav-wrap{position:sticky;top:14px;z-index:50;padding:14px 20px 0}
+.nav{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-radius:999px;
+  box-shadow:0 12px 30px rgba(40,90,160,.14);
+  padding:8px 8px 8px 18px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}
+.logo-mark{
+  width:34px;height:34px;border-radius:50%;
+  background:conic-gradient(from 200deg,#4fa3ff,#7c5cff,#ff7aa8,#4fa3ff);
+  display:grid;place-items:center;color:#fff;
+  font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:700;
+}
+.menu{display:flex;align-items:center;gap:4px}
+.menu a{padding:9px 14px;border-radius:999px;font-size:15px;color:var(--sub);transition:.2s}
+.menu a:hover,.menu a.active{color:var(--ink);background:#f1f6ff}
+.nav-actions{display:flex;align-items:center;gap:6px}
+.btn-ghost-link{padding:9px 14px;font-size:15px;color:var(--sub)}
+.btn-dark{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--black);color:#fff;border:0;border-radius:999px;
+  padding:12px 22px;font-size:15px;font-weight:600;
+  box-shadow:0 12px 26px -10px rgba(0,0,0,.45);
+  transition:transform .2s, box-shadow .2s;
+}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(0,0,0,.5)}
+.burger{display:none;width:42px;height:42px;border-radius:50%;border:0;background:#f1f6ff;position:relative}
+.burger span,.burger span::before,.burger span::after{
+  content:"";position:absolute;left:12px;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:.25s;
+}
+.burger span{top:20px}
+.burger span::before{top:-6px;left:0}
+.burger span::after{top:6px;left:0}
 .burger.open span{background:transparent}
 .burger.open span::before{top:0;transform:rotate(45deg)}
 .burger.open span::after{top:0;transform:rotate(-45deg)}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#1e3fb8 0%,#4a3fd6 50%,#7c3aed 100%);min-height:calc(100vh - 70px);display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0;pointer-events:none;user-select:none}
-.hero-bg span{position:absolute;font-family:'Noto Sans JP',sans-serif;font-weight:700;color:#fff;opacity:.1;animation:float 9s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-18px) rotate(var(--r))}}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(255,255,255,.14),transparent 55%)}
-.hero-inner{position:relative;z-index:2;max-width:900px;margin:auto;padding:80px 20px;text-align:center}
-.badge{display:inline-block;padding:6px 18px;border-radius:50px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);font-weight:600;font-size:15px;margin-bottom:22px}
-.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.25;font-weight:800;margin-bottom:20px}
-.hero h1 b{color:#ffd86b}
-.hero p{font-size:clamp(17px,2.2vw,21px);max-width:640px;margin:0 auto 34px;opacity:.95}
-.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{padding:14px 30px;border-radius:50px;font-weight:700;font-size:17px;font-family:'Anek Bangla',sans-serif;transition:.2s;display:inline-block}
-.btn-primary{background:#fff;color:var(--purple-dark);box-shadow:0 10px 26px rgba(0,0,0,.22)}
-.btn-primary:hover{transform:translateY(-3px)}
-.btn-ghost{border:2px solid rgba(255,255,255,.7);color:#fff}
-.btn-ghost:hover{background:rgba(255,255,255,.15)}
-.stats{display:flex;gap:34px;justify-content:center;margin-top:50px;flex-wrap:wrap}
-.stats div{text-align:center}
-.stats strong{display:block;font-family:'Anek Bangla',sans-serif;font-size:30px;font-weight:800}
-.stats small{opacity:.85;font-size:15px}
+.hero{padding:70px 20px 30px;text-align:center;position:relative}
+.trust{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.7);border-radius:999px;
+  padding:6px 14px 6px 6px;font-size:13px;color:var(--sub);
+  box-shadow:0 6px 16px -10px rgba(30,70,130,.3);
+}
+.avs{display:flex}
+.avs i{
+  width:26px;height:26px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:block;
+}
+.avs i:first-child{margin-left:0}
+.avs i:nth-child(1){background:linear-gradient(135deg,#ffcf8a,#ff8a65)}
+.avs i:nth-child(2){background:linear-gradient(135deg,#8ec5ff,#4a6cf7)}
+.avs i:nth-child(3){background:linear-gradient(135deg,#ffb3d1,#c06bff)}
+.hero h1{
+  font-size:clamp(34px,5.4vw,60px);
+  line-height:1.15;font-weight:800;
+  margin:22px auto 16px;max-width:860px;
+}
+.hero p.lead{
+  color:var(--sub);font-size:clamp(15px,1.7vw,17px);
+  max-width:560px;margin:0 auto 30px;
+}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-light{
+  background:#fff;color:var(--ink);border:0;border-radius:999px;
+  padding:12px 22px;font-size:15px;font-weight:600;
+  box-shadow:0 10px 24px -12px rgba(30,70,130,.35);
+  transition:transform .2s;
+}
+.btn-light:hover{transform:translateY(-2px)}
+
+/* hero art */
+.hero-art{
+  position:relative;margin:56px auto 0;max-width:980px;height:440px;
+  border-radius:36px;overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 20%, #ffffff 0 8%, transparent 9%),
+    radial-gradient(circle at 75% 35%, #ffffff 0 6%, transparent 7%),
+    linear-gradient(180deg,#8fd0ff 0%,#cfeaff 60%,#ffffff 100%);
+  box-shadow:var(--shadow);
+}
+.cloud{
+  position:absolute;background:#fff;border-radius:999px;opacity:.9;filter:blur(.3px);
+}
+.cloud.c1{width:260px;height:70px;left:-40px;bottom:120px}
+.cloud.c2{width:320px;height:90px;right:-60px;bottom:60px}
+.cloud.c3{width:180px;height:50px;left:40%;top:40px;opacity:.7}
+.kanji-hero{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;
+  font-size:clamp(180px,26vw,300px);line-height:1;
+  background:linear-gradient(160deg,#4f8bff,#7c5cff 55%,#ff7aa8);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 20px 30px rgba(60,80,200,.25));
+}
+.float-card{
+  position:absolute;background:#fff;border-radius:18px;padding:12px 16px;
+  box-shadow:0 14px 30px -14px rgba(30,70,130,.4);font-size:14px;
+  display:flex;align-items:center;gap:10px;text-align:left;
+}
+.float-card b{display:block;font-family:'Anek Bangla',sans-serif;font-size:16px}
+.float-card small{color:var(--sub);font-size:12px}
+.fc-dot{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-size:17px}
+.fc1{left:6%;top:22%;animation:bob 6s ease-in-out infinite}
+.fc2{right:6%;top:50%;animation:bob 7s ease-in-out infinite reverse}
+.fc3{left:14%;bottom:12%;animation:bob 8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---------- Stats ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  max-width:980px;margin:-40px auto 0;position:relative;z-index:2;padding:0 20px;
+}
+.stat{
+  background:#fff;border-radius:var(--radius);padding:22px 24px;
+  box-shadow:var(--shadow);display:flex;align-items:center;gap:16px;
+}
+.stat-num{
+  font-family:'Anek Bangla',sans-serif;font-weight:800;font-size:34px;line-height:1;
+  background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;
+  min-width:90px;
+}
+.stat p{color:var(--sub);font-size:14px}
+.stat strong{display:block;color:var(--ink);font-size:16px;font-weight:600}
 
 /* ---------- Sections ---------- */
-section.features{max-width:1200px;margin:auto;padding:80px 20px}
-.sec-title{text-align:center;margin-bottom:46px}
-.sec-title h2{font-size:clamp(28px,4vw,40px);font-weight:800}
-.sec-title h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sec-title p{color:var(--muted);font-size:18px;margin-top:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-.card{background:#fff;border:1px solid #e6e8fb;border-radius:20px;padding:28px;transition:.25s}
-.card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(47,91,234,.16)}
-.card .ico{width:56px;height:56px;border-radius:16px;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:'Noto Sans JP',sans-serif;font-size:26px;margin-bottom:16px}
-.card h3{font-size:22px;margin-bottom:4px}
-.card p{color:var(--muted);font-size:16px;margin-bottom:14px}
-.card .lv a{display:inline-block;padding:4px 16px;border-radius:50px;background:#eef0ff;color:var(--blue-dark);font-weight:700;font-size:14px;margin-right:6px}
-.card .lv a:hover{background:var(--grad);color:#fff}
+section.block{padding:90px 20px 0}
+.eyebrow{font-size:13px;color:var(--sub);text-align:center;letter-spacing:.02em}
+.sec-title{
+  text-align:center;font-size:clamp(28px,4vw,42px);font-weight:700;
+  line-height:1.25;margin:12px auto 14px;max-width:760px;
+}
+.mark{
+  background:linear-gradient(180deg,transparent 18%,#cfe6ff 18%,#cfe6ff 92%,transparent 92%);
+  padding:0 8px;border-radius:6px;
+}
+.sec-sub{text-align:center;color:var(--sub);font-size:15px;max-width:560px;margin:0 auto 46px}
 
-/* ---------- Footer ---------- */
-footer{background:#12123a;color:#cfd2ff;margin-top:20px}
-.foot-wrap{max-width:1200px;margin:auto;padding:54px 20px 26px;text-align:center}
-footer .logo{color:#fff;justify-content:center;margin-bottom:10px}
-footer .tag{max-width:480px;margin:0 auto 26px;color:#a9adde}
-.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 30px;margin-bottom:30px}
-.foot-nav>div{min-width:130px;text-align:left}
-.foot-nav h4{font-family:'Anek Bangla',sans-serif;color:#fff;font-size:17px;margin-bottom:6px}
-.foot-nav a{display:block;color:#a9adde;font-size:15px;padding:1px 0}
-.foot-nav a:hover{color:#fff}
-.copy{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-size:15px;color:#8f93c8}
+/* feature cards */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feat{
+  background:#fff;border-radius:22px;padding:14px 14px 22px;
+  box-shadow:0 14px 30px -20px rgba(30,70,130,.35);
+  transition:transform .3s, box-shadow .3s;
+  display:flex;flex-direction:column;
+}
+.feat:hover{transform:translateY(-6px);box-shadow:0 24px 40px -20px rgba(30,70,130,.45)}
+.feat-preview{
+  height:150px;border-radius:16px;position:relative;overflow:hidden;
+  display:grid;place-items:center;font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:64px;color:#fff;
+  margin-bottom:16px;
+}
+.feat-preview.p1{background:linear-gradient(145deg,#8fb8ff,#5c6cf0)}
+.feat-preview.p2{background:linear-gradient(145deg,#ffc2dc,#ff8cb0)}
+.feat-preview.p3{background:linear-gradient(145deg,#c9f3dd,#7fd9a6)}
+.feat-preview.p4{background:linear-gradient(145deg,#ffe49a,#ffb955)}
+.feat-preview small{
+  position:absolute;left:12px;top:10px;font-family:'Hind Siliguri',sans-serif;font-size:11px;
+  background:rgba(255,255,255,.85);color:var(--ink);padding:3px 9px;border-radius:999px;font-weight:600;
+}
+.feat h3{font-size:21px;margin:0 6px 4px}
+.feat p{color:var(--sub);font-size:14px;margin:0 6px 14px}
+.feat a{margin:auto 6px 0;font-size:14px;font-weight:600;color:var(--blue)}
+.feat a::after{content:" →"}
 
-/* ---------- Mobile ---------- */
-@media(max-width:900px){
-  .burger{display:block}
-  nav{position:absolute;top:70px;left:0;right:0;background:#fff;border-bottom:1px solid #e6e8fb;max-height:0;overflow:hidden;transition:max-height .35s}
-  nav.open{max-height:80vh;overflow:auto;box-shadow:0 20px 30px rgba(47,91,234,.12)}
-  nav ul.menu{flex-direction:column;align-items:stretch;padding:10px 16px 16px;gap:2px}
-  .nav-link{width:100%;justify-content:space-between}
-  .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:0 0 0 14px;max-height:0;overflow:hidden;transition:max-height .3s;min-width:0}
-  .menu>li.open .dropdown{max-height:140px}
-  .menu>li.open .caret{transform:rotate(225deg) translateY(-2px)}
-  .foot-nav>div{text-align:center;min-width:45%}
+/* quote */
+.quote{text-align:center;position:relative;padding-top:20px}
+.quote .q{
+  font-family:'Anek Bangla',sans-serif;font-weight:700;
+  font-size:clamp(28px,4.2vw,46px);line-height:1.35;max-width:820px;margin:0 auto;
+}
+.quote .q em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.quote-mark{
+  font-family:Georgia,serif;font-size:90px;color:#b4c7e0;line-height:.6;display:block;margin-bottom:10px;
+}
+.quote-av{display:inline-flex;vertical-align:middle;margin:0 6px}
+.quote-av i{width:44px;height:44px;border-radius:50%;border:3px solid #fff;margin-left:-12px;display:block}
+.quote-av i:first-child{margin-left:0}
+.quote-av i:nth-child(1){background:linear-gradient(135deg,#ffd27a,#ff9f6b)}
+.quote-av i:nth-child(2){background:linear-gradient(135deg,#8ec5ff,#4a6cf7)}
+.quote-av i:nth-child(3){background:linear-gradient(135deg,#ffb3d1,#c06bff)}
+
+/* courses */
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.course{
+  border-radius:28px;padding:20px 20px 26px;position:relative;overflow:hidden;
+  box-shadow:0 18px 36px -22px rgba(30,70,130,.45);
+  min-height:360px;display:flex;flex-direction:column;
+}
+.course.c-green{background:linear-gradient(170deg,#d7f8e6 0%,#b2ecd0 100%)}
+.course.c-pink{background:linear-gradient(170deg,#ffe2ee 0%,#ffc2da 100%)}
+.course.c-blue{background:linear-gradient(170deg,#dbeaff 0%,#b5d3ff 100%)}
+.tags{display:flex;gap:8px;margin-bottom:14px}
+.tag{background:#fff;font-size:12px;padding:5px 12px;border-radius:999px;font-weight:600;color:var(--ink)}
+.course .big-k{
+  font-family:'Noto Sans JP',sans-serif;font-weight:900;font-size:120px;line-height:1;
+  color:rgba(255,255,255,.85);text-shadow:0 10px 30px rgba(0,0,0,.08);
+  margin:10px 0 auto;
+}
+.course h3{font-size:26px;margin-top:20px}
+.course p{color:#41495f;font-size:14px;margin:6px 0 18px}
+.course .pill-btn{
+  align-self:flex-start;background:var(--black);color:#fff;border:0;border-radius:999px;
+  padding:10px 18px;font-size:14px;font-weight:600;
+}
+.course .meta{font-size:12px;color:#41495f;margin-top:10px}
+
+/* cta */
+.cta{
+  margin:90px 20px 0;max-width:1100px;margin-left:auto;margin-right:auto;
+  border-radius:36px;padding:56px 24px;text-align:center;color:#fff;
+  background:
+    radial-gradient(500px 240px at 15% 0%, rgba(255,255,255,.22), transparent 60%),
+    linear-gradient(135deg,#2f6bf0 0%,#6a4df0 55%,#c46bff 100%);
+  box-shadow:0 30px 60px -30px rgba(60,60,200,.55);
+}
+.cta h2{font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.25;margin-bottom:12px}
+.cta p{opacity:.9;max-width:520px;margin:0 auto 26px;font-size:15px}
+.btn-white{
+  display:inline-flex;align-items:center;background:#fff;color:var(--ink);border:0;border-radius:999px;
+  padding:13px 26px;font-size:15px;font-weight:700;box-shadow:0 14px 26px -14px rgba(0,0,0,.4);
 }
 
+/* footer */
+footer{margin-top:80px;padding:50px 20px 36px;background:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.8)}
+.foot{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:28px}
+.foot h4{font-family:'Anek Bangla',sans-serif;font-size:16px;margin-bottom:10px}
+.foot a{display:block;color:var(--sub);font-size:14px;padding:3px 0}
+.foot a:hover{color:var(--ink)}
+.foot p{color:var(--sub);font-size:14px;max-width:300px;margin-top:10px}
+.copy{max-width:1100px;margin:30px auto 0;border-top:1px solid var(--line);padding-top:18px;color:var(--sub);font-size:13px;text-align:center}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .menu{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;border-radius:24px;flex-direction:column;align-items:stretch;padding:12px;box-shadow:0 20px 40px -20px rgba(30,70,130,.35)}
+  .menu.open{display:flex}
+  .menu a{padding:12px 16px}
+  .burger{display:block}
+  .btn-ghost-link{display:none}
+  .nav{position:relative}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .courses{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:44px}
+  .hero-art{height:360px;border-radius:26px}
+  .float-card{display:none}
+  .stats{grid-template-columns:1fr;margin-top:-30px}
+  .feat-grid{grid-template-columns:1fr}
+  section.block{padding-top:70px}
+  .cta{margin-top:70px}
+  .foot{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- N5 views (আগের ফাইল থেকে) ---------- */
+:root{--grad:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%)}
 .kanji-view{display:none;position:fixed;inset:0;z-index:100;background:#fff;flex-direction:column}
 .kanji-view.show{display:flex}
 .kanji-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--grad);color:#fff;font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:18px}
 .kanji-bar a{color:#fff;padding:6px 16px;border:2px solid rgba(255,255,255,.7);border-radius:50px;white-space:nowrap}
 .kanji-bar a:hover{background:rgba(255,255,255,.15)}
 .kanji-view iframe{flex:1;width:100%;border:0}
+
+
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-wrap">
+<div class="nav-wrap">
+  <nav class="nav" aria-label="প্রধান নেভিগেশন">
     <a href="index.html" class="logo" aria-label="Dream Japan">
-      <div class="logo-mark">夢</div>
-      <span>Dream <em>Japan</em></span>
+      <span class="logo-mark">夢</span>
+      <span class="brand-name">Dream Japan</span>
     </a>
 
-    <nav id="nav">
-      <ul class="menu">
-        <li><a class="nav-link active" href="index.html">হোম</a></li>
-        <li>
-          <button class="nav-link" type="button">গ্রামার <i class="caret"></i></button>
-          <div class="dropdown"><a href="#n5-grammar">N5 গ্রামার</a><a href="grammar.html#n4">N4 গ্রামার</a></div>
-        </li>
-        <li>
-          <button class="nav-link" type="button">বাক্য <i class="caret"></i></button>
-          <div class="dropdown"><a href="#n5-sentence">N5 বাক্য</a><a href="sentence.html#n4">N4 বাক্য</a></div>
-        </li>
-        <li>
-          <button class="nav-link" type="button">কানজি <i class="caret"></i></button>
-          <div class="dropdown"><a href="#n5-kanji">N5 কানজি</a><a href="kanji.html#n4">N4 কানজি</a></div>
-        </li>
-        <li>
-          <button class="nav-link" type="button">শব্দভান্ডার <i class="caret"></i></button>
-          <div class="dropdown"><a href="#n5-vocab">N5 শব্দভান্ডার</a><a href="vocabulary.html#n4">N4 শব্দভান্ডার</a></div>
-        </li>
-        <li>
-          <button class="nav-link" type="button">লিসেনিং <i class="caret"></i></button>
-          <div class="dropdown"><a href="listening.html#n5">N5 লিসেনিং</a><a href="listening.html#n4">N4 লিসেনিং</a></div>
-        </li>
-        <li>
-          <button class="nav-link" type="button">মক টেস্ট <i class="caret"></i></button>
-          <div class="dropdown"><a href="mock-test.html#n5">N5 মক টেস্ট</a><a href="mock-test.html#n4">N4 মক টেস্ট</a></div>
-        </li>
-      </ul>
-    </nav>
+    <div class="menu" id="menu">
+      <a href="index.html" class="active">হোম</a>
+      <a href="#n5-grammar">গ্রামার</a>
+      <a href="#n5-sentence">বাক্য</a>
+      <a href="#n5-kanji">কানজি</a>
+      <a href="#n5-vocab">শব্দভান্ডার</a>
+      <a href="mock-test.html#n5">মক টেস্ট</a>
+    </div>
 
-    <button class="burger" id="burger" aria-label="মেনু"><span></span></button>
-  </div>
-</header>
+    <div class="nav-actions">
+      <a href="listening.html#n5" class="btn-ghost-link">লিসেনিং</a>
+      <a href="#n5-grammar" class="btn-dark">শুরু করুন</a>
+      <button class="burger" id="burger" aria-label="মেনু খুলুন"><span></span></button>
+    </div>
+  </nav>
+</div>
 
 <main>
-  <section class="hero">
-    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <span class="badge">🇧🇩 বাংলাদেশিদের জন্য · 🇯🇵 জাপানি ভাষা</span>
-      <h1>বাংলায় জাপানি ভাষা শিখুন <b>একদম বিনামূল্যে</b></h1>
-      <p>হিরাগানা, কাতাকানা থেকে শুরু করে কানজি, গ্রামার ও মক টেস্ট — N5 ও N4 লেভেলের সবকিছু সহজ বাংলায়, এক জায়গায়।</p>
-      <div class="btns">
-        <a href="#n5-grammar" class="btn btn-primary">শেখা শুরু করুন</a>
-        <a href="mock-test.html#n5" class="btn btn-ghost">মক টেস্ট দিন</a>
+  <header class="hero">
+    <div class="trust">
+      <span class="avs"><i></i><i></i><i></i></span>
+      বিনামূল্যে শেখা — ১৫০০+ শিক্ষার্থী
+    </div>
+
+    <h1>বাংলায় শিখুন জাপানি। <span class="mark">দ্রুত এগোন,</span> সহজে জিতুন।</h1>
+
+    <p class="lead">হিরাগানা, কাতাকানা থেকে শুরু করে কানজি, গ্রামার, শব্দভান্ডার, লিসেনিং আর মক টেস্ট — N5 ও N4 লেভেলের সবকিছু এক জায়গায়।</p>
+
+    <div class="hero-cta">
+      <a href="#n5-grammar" class="btn-dark">শেখা শুরু করুন</a>
+      <a href="mock-test.html#n5" class="btn-light">মক টেস্ট দিন</a>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <span class="cloud c1"></span>
+      <span class="cloud c2"></span>
+      <span class="cloud c3"></span>
+      <div class="kanji-hero">日本</div>
+
+      <div class="float-card fc1">
+        <span class="fc-dot" style="background:#e6f0ff">あ</span>
+        <div><b>হিরাগানা</b><small>সম্পূর্ণ শেখা</small></div>
       </div>
-      <div class="stats">
-        <div><strong>N5 + N4</strong><small>দুটি লেভেল</small></div>
-        <div><strong>৬টি</strong><small>শেখার বিভাগ</small></div>
-        <div><strong>১০০% ফ্রি</strong><small>কোনো খরচ নেই</small></div>
+      <div class="float-card fc2">
+        <span class="fc-dot" style="background:#ffe6f0">文</span>
+        <div><b>N5 গ্রামার</b><small>১০ লেসন</small></div>
+      </div>
+      <div class="float-card fc3">
+        <span class="fc-dot" style="background:#e3f9ee">✓</span>
+        <div><b>মক টেস্ট</b><small>পরীক্ষার মতো</small></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">N5<br>+N4</div>
+      <p><strong>দুটি লেভেল</strong>প্রাথমিক থেকে মধ্যম পর্যায়</p>
+    </div>
+    <div class="stat">
+      <div class="stat-num">৬</div>
+      <p><strong>শেখার বিভাগ</strong>গ্রামার, বাক্য, কানজি ও আরও</p>
+    </div>
+    <div class="stat">
+      <div class="stat-num">১০০%</div>
+      <p><strong>সম্পূর্ণ ফ্রি</strong>কোনো খরচ ছাড়াই শিখুন</p>
+    </div>
+  </div>
+
+  <section class="block" id="features">
+    <p class="eyebrow">কেন Dream Japan?</p>
+    <h2 class="sec-title">জাপানি শেখা হোক <span class="mark">গল্পের মতো</span></h2>
+    <p class="sec-sub">প্রতিটি পাঠ বাংলা ব্যাখ্যা, উদাহরণ বাক্য, উচ্চারণ শোনা আর প্র্যাকটিসের সাথে সাজানো — যাতে আপনি বুঝে বুঝে এগোতে পারেন।</p>
+
+    <div class="wrap">
+      <div class="feat-grid">
+        <article class="feat">
+          <div class="feat-preview p1"><small>ভিত্তি</small>文</div>
+          <h3>গ্রামার</h3>
+          <p>সহজ বাংলা ব্যাখ্যা ও লেসন অনুযায়ী বাক্য বানানোর অনুশীলন।</p>
+          <a href="#n5-grammar">N5 দেখুন</a>
+        </article>
+        <article class="feat">
+          <div class="feat-preview p2"><small>প্রয়োগ</small>例</div>
+          <h3>বাক্য</h3>
+          <p>বাস্তব উদাহরণ বাক্যে শব্দ ব্যবহার শিখুন, সাথে উচ্চারণ।</p>
+          <a href="#n5-sentence">বাক্য দেখুন</a>
+        </article>
+        <article class="feat">
+          <div class="feat-preview p3"><small>স্ট্রোক</small>字</div>
+          <h3>কানজি</h3>
+          <p>স্ট্রোক অ্যানিমেশন, নিজে আঁকা আর N5-ধাঁচের কুইজ।</p>
+          <a href="#n5-kanji">কানজি শিখুন</a>
+        </article>
+        <article class="feat">
+          <div class="feat-preview p4"><small>পরীক্ষা</small>試</div>
+          <h3>মক টেস্ট</h3>
+          <p>আসল পরীক্ষার মতো করে নিজেকে যাচাই করুন ও ফলাফল দেখুন।</p>
+          <a href="mock-test.html#n5">টেস্ট দিন</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="features">
-    <div class="sec-title">
-      <h2>কী কী <em>শিখবেন?</em></h2>
-      <p>পরীক্ষার প্রস্তুতির জন্য যা যা দরকার</p>
+  <section class="block quote">
+    <div class="wrap">
+      <span class="quote-mark">“</span>
+      <p class="q">
+        Dream Japan কৌতূহলী মনকে <em>দ্রুত</em> শিখতে,
+        <span class="quote-av"><i></i><i></i><i></i></span>
+        আত্মবিশ্বাস বাড়াতে আর পরীক্ষায় সাফল্য পেতে সাহায্য করে।
+      </p>
     </div>
-    <div class="grid">
-      <div class="card"><div class="ico">文</div><h3>গ্রামার</h3><p>সহজ বাংলা ব্যাখ্যাসহ ব্যাকরণ।</p><div class="lv"><a href="#n5-grammar">N5</a><a href="grammar.html#n4">N4</a></div></div>
-      <div class="card"><div class="ico">例</div><h3>বাক্য</h3><p>উদাহরণ বাক্যে ব্যবহার শিখুন।</p><div class="lv"><a href="#n5-sentence">N5</a><a href="sentence.html#n4">N4</a></div></div>
-      <div class="card"><div class="ico">字</div><h3>কানজি</h3><p>পড়া, অর্থ ও লেখার অনুশীলন।</p><div class="lv"><a href="#n5-kanji">N5</a><a href="kanji.html#n4">N4</a></div></div>
-      <div class="card"><div class="ico">語</div><h3>শব্দভান্ডার</h3><p>দরকারি শব্দ বাংলা অর্থসহ।</p><div class="lv"><a href="#n5-vocab">N5</a><a href="vocabulary.html#n4">N4</a></div></div>
-      <div class="card"><div class="ico">聞</div><h3>লিসেনিং</h3><p>শুনে বোঝার দক্ষতা বাড়ান।</p><div class="lv"><a href="listening.html#n5">N5</a><a href="listening.html#n4">N4</a></div></div>
-      <div class="card"><div class="ico">試</div><h3>মক টেস্ট</h3><p>পরীক্ষার মতো করে নিজেকে যাচাই করুন।</p><div class="lv"><a href="mock-test.html#n5">N5</a><a href="mock-test.html#n4">N4</a></div></div>
+  </section>
+
+  <section class="block" id="courses">
+    <p class="eyebrow">আমাদের কোর্স</p>
+    <h2 class="sec-title">পরীক্ষার সঠিক <span class="mark">ধাপে ধাপে</span> প্রস্তুতি</h2>
+    <p class="sec-sub">শূন্য থেকে শুরু করে N4 পর্যন্ত — প্রতিটি লেভেলের জন্য আলাদা পাঠ ও অনুশীলন।</p>
+
+    <div class="wrap">
+      <div class="courses">
+        <article class="course c-green">
+          <div class="tags"><span class="tag">জনপ্রিয়</span><span class="tag">ফ্রি</span></div>
+          <div class="big-k">N5</div>
+          <h3>বিগিনার কোর্স</h3>
+          <p>হিরাগানা, কাতাকানা, মৌলিক গ্রামার ও ১০২টি কানজি।</p>
+          <a href="#n5-grammar" class="pill-btn">শুরু করুন</a>
+          <div class="meta">গ্রামার · কানজি · শব্দভান্ডার</div>
+        </article>
+
+        <article class="course c-pink">
+          <div class="tags"><span class="tag">মধ্যম</span><span class="tag">ফ্রি</span></div>
+          <div class="big-k">N4</div>
+          <h3>এলিমেন্টারি কোর্স</h3>
+          <p>বাক্য গঠন, বর্ণনা, তুলনা ও আরও জটিল গ্রামার।</p>
+          <a href="grammar.html#n4" class="pill-btn">দেখুন</a>
+          <div class="meta">গ্রামার · বাক্য · মক টেস্ট</div>
+        </article>
+
+        <article class="course c-blue">
+          <div class="tags"><span class="tag">দক্ষতা</span><span class="tag">অডিও</span></div>
+          <div class="big-k">🎧</div>
+          <h3>লিসেনিং</h3>
+          <p>শুনে বোঝার দক্ষতা বাড়ান — ধীর গতি থেকে স্বাভাবিক উচ্চারণ।</p>
+          <a href="listening.html#n5" class="pill-btn">শুনুন</a>
+          <div class="meta">N5 · N4</div>
+        </article>
+      </div>
     </div>
+  </section>
+
+  <section class="cta" id="start">
+    <h2>আজই শুরু করুন তোমার জাপানি যাত্রা</h2>
+    <p>প্রতিদিন একটু একটু শিখলেই মাসের শেষে আপনি নিজেই অবাক হবেন। সব কিছু সম্পূর্ণ বিনামূল্যে।</p>
+    <a href="#n5-grammar" class="btn-white">শেখা শুরু করুন →</a>
   </section>
 </main>
 
 <footer>
-  <div class="foot-wrap">
-    <a href="index.html" class="logo"><div class="logo-mark">夢</div><span>Dream Japan</span></a>
-    <p class="tag">বাংলায় জাপানি ভাষা শেখার সবচেয়ে সহজ ঠিকানা।</p>
-    <div class="foot-nav">
-      <div><h4>হোম</h4><a href="index.html">প্রথম পাতা</a></div>
-      <div><h4>গ্রামার</h4><a href="#n5-grammar">N5</a><a href="grammar.html#n4">N4</a></div>
-      <div><h4>বাক্য</h4><a href="#n5-sentence">N5</a><a href="sentence.html#n4">N4</a></div>
-      <div><h4>কানজি</h4><a href="#n5-kanji">N5</a><a href="kanji.html#n4">N4</a></div>
-      <div><h4>শব্দভান্ডার</h4><a href="#n5-vocab">N5</a><a href="vocabulary.html#n4">N4</a></div>
-      <div><h4>লিসেনিং</h4><a href="listening.html#n5">N5</a><a href="listening.html#n4">N4</a></div>
-      <div><h4>মক টেস্ট</h4><a href="mock-test.html#n5">N5</a><a href="mock-test.html#n4">N4</a></div>
+  <div class="foot">
+    <div>
+      <a href="index.html" class="logo"><span class="logo-mark">夢</span><span class="brand-name">Dream Japan</span></a>
+      <p>বাংলায় জাপানি ভাষা শেখার সবচেয়ে সহজ ঠিকানা।</p>
     </div>
-    <div class="copy">© <span id="yr">2026</span> Dream Japan. সর্বস্বত্ব সংরক্ষিত।</div>
+    <div>
+      <h4>শেখা</h4>
+      <a href="#n5-grammar">গ্রামার</a>
+      <a href="#n5-sentence">বাক্য</a>
+      <a href="#n5-kanji">কানজি</a>
+    </div>
+    <div>
+      <h4>অনুশীলন</h4>
+      <a href="#n5-vocab">শব্দভান্ডার</a>
+      <a href="listening.html#n5">লিসেনিং</a>
+      <a href="mock-test.html#n5">মক টেস্ট</a>
+    </div>
+    <div>
+      <h4>আরও</h4>
+      <a href="grammar.html#n4">N4 গ্রামার</a>
+      <a href="sentence.html#n4">N4 বাক্য</a>
+      <a href="kanji.html#n4">N4 কানজি</a>
+    </div>
   </div>
+  <div class="copy">© <span id="yr">2026</span> Dream Japan. সর্বস্বত্ব সংরক্ষিত।</div>
 </footer>
 
 <script>
-// Hero background: floating kanji / hiragana / katakana
-(function(){
-  var chars = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん アイウエオカキクケコサシスセソタチツテトナニヌネノ 日月火水木金土山川人大小中上下本学校先生夢愛力心語";
-  chars = chars.replace(/ /g,"");
-  var box = document.getElementById('heroBg');
-  var cols = 8, rows = 5;
-  for(var r=0;r<rows;r++){
-    for(var c=0;c<cols;c++){
-      var s = document.createElement('span');
-      s.textContent = chars[Math.floor(Math.random()*chars.length)];
-      s.style.left = (c*(100/cols) + Math.random()*6) + '%';
-      s.style.top = (r*(100/rows) + Math.random()*6) + '%';
-      s.style.fontSize = (34 + Math.random()*70) + 'px';
-      s.style.setProperty('--r', (Math.random()*40-20) + 'deg');
-      s.style.animationDelay = (-Math.random()*9) + 's';
-      s.style.animationDuration = (7 + Math.random()*6) + 's';
-      box.appendChild(s);
-    }
-  }
-})();
-
-// Mobile menu + dropdowns
-var burger = document.getElementById('burger');
-var nav = document.getElementById('nav');
-burger.addEventListener('click', function(){
-  burger.classList.toggle('open');
-  nav.classList.toggle('open');
-});
-document.querySelectorAll('.menu > li').forEach(function(li){
-  var btn = li.querySelector('button.nav-link');
-  if(!btn) return;
-  btn.addEventListener('click', function(){
-    if(window.innerWidth <= 900){
-      li.classList.toggle('open');
-    }
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  burger.addEventListener('click', function () {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
   });
-});
-
-document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('.menu a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      burger.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
+
 <div class="kanji-view" id="view-n5-grammar">
   <div class="kanji-bar"><span>N5 ব্যাকরণ</span><a href="#home">← হোমে ফিরুন</a></div>
   <iframe title="N5 ব্যাকরণ" data-page="&lt;!DOCTYPE html&gt;
@@ -1004,6 +1273,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:8px 16px 32px;m
 &lt;section class=&quot;tabbox&quot;&gt;
 &lt;div class=&quot;tabs&quot; role=&quot;tablist&quot;&gt;
 &lt;button class=&quot;tab&quot; role=&quot;tab&quot; data-tab=&quot;base&quot;&gt;📘 মূল N5 কার্ড&lt;/button&gt;
+&lt;button class=&quot;tab&quot; role=&quot;tab&quot; data-tab=&quot;l18&quot;&gt;📒 Lesson 18&lt;/button&gt;
 &lt;button class=&quot;tab&quot; role=&quot;tab&quot; data-tab=&quot;l23&quot;&gt;📗 Lesson 23&lt;/button&gt;
 &lt;button class=&quot;tab&quot; role=&quot;tab&quot; data-tab=&quot;l24&quot;&gt;📙 Lesson 24&lt;/button&gt;
 &lt;button class=&quot;tab&quot; role=&quot;tab&quot; data-tab=&quot;l25&quot;&gt;📕 Lesson 25&lt;/button&gt;
@@ -1011,6 +1281,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:8px 16px 32px;m
 &lt;p class=&quot;tabnote&quot;&gt;একটা ট্যাব চাপলে সেই অংশের কার্ড দেখা যাবে।&lt;/p&gt;
 &lt;/section&gt;
 &lt;main class=&quot;grid&quot; id=&quot;grid&quot; data-tab=&quot;base&quot;&gt;&lt;/main&gt;
+&lt;main class=&quot;grid&quot; id=&quot;grid18&quot; data-tab=&quot;l18&quot; hidden&gt;&lt;/main&gt;
 &lt;main class=&quot;grid&quot; id=&quot;grid23&quot; data-tab=&quot;l23&quot; hidden&gt;&lt;/main&gt;
 &lt;main class=&quot;grid&quot; id=&quot;grid24&quot; data-tab=&quot;l24&quot; hidden&gt;&lt;/main&gt;
 &lt;main class=&quot;grid&quot; id=&quot;grid25&quot; data-tab=&quot;l25&quot; hidden&gt;&lt;/main&gt;
@@ -1631,6 +1902,208 @@ const LW25=`さしみ=সাশিমি;たべる=খাওয়া;にほん=
 まいにち=রোজ;ヨガ=যোগব্যায়াম;する=করা
 ともだち=বন্ধু;にほんご=জাপানি;はなす=বলা`.split(&#x27;\n&#x27;);
 
+/* Lesson 18: ১০০টি বাক্য (辞書形, できます, ことが できます, しゅみ, まえに) — একই ফরম্যাট */
+const L18=`🎹|まいにち ピアノ を ひきます。|まいにち ピアノ を ひく。|প্রতিদিন পিয়ানো বাজাই।|ひきます → ひく (গ্রুপ ১)|ひきます→ひく
+🎤|にちようび に うた を うたいます。|にちようび に うた を うたう。|রবিবারে গান গাই।|うたいます → うたう (গ্রুপ ১)|うたいます→うたう
+🧼|まいあさ かお を あらいます。|まいあさ かお を あらう。|প্রতিদিন সকালে মুখ ধুই।|あらいます → あらう (গ্রুপ ১)|あらいます→あらう
+📮|わたし は ふるい きって を あつめます。|わたし は ふるい きって を あつめる。|আমি পুরোনো ডাকটিকিট সংগ্রহ করি।|あつめます → あつめる (গ্রুপ ২)|あつめます→あつめる
+🗑️|いらない かみ を すてます。|いらない かみ を すてる。|অপ্রয়োজনীয় কাগজ ফেলে দিই।|すてます → すてる (গ্রুপ ২)|すてます→すてる
+💱|えん を ドル に かえます。|えん を ドル に かえる。|ইয়েন ডলারে বদলাই।|かえます → かえる (গ্রুপ ২)|かえます→かえる
+🚗|あに は まいにち くるま を うんてんします。|あに は まいにち くるま を うんてんする。|আমার বড় ভাই প্রতিদিন গাড়ি চালায়।|うんてんします → うんてんする (গ্রুপ ৩)|うんてんします→うんてんする
+🏨|らいしゅう ホテル を よやくします。|らいしゅう ホテル を よやくする。|আগামী সপ্তাহে হোটেল বুক করব।|よやくします → よやくする (গ্রুপ ৩)|よやくします→よやくする
+🏭|あした こうじょう を けんがくします。|あした こうじょう を けんがくする。|কাল কারখানা পরিদর্শনে যাব।|けんがくします → けんがくする (গ্রুপ ৩)|けんがくします→けんがくする
+🥤|「のみます」 の じしょけい は 「のむ」 です。|「のみます」 の じしょけい は 「のむ」 だ。|「飲みます」(পান করি)-এর ডিকশনারি ফর্ম 「飲む」।|のみます → のむ (গ্রুপ ১)|です→だ
+🍚|「たべます」 の じしょけい は 「たべる」 です。|「たべます」 の じしょけい は 「たべる」 だ。|「食べます」(খাই)-এর ডিকশনারি ফর্ম 「食べる」।|たべます → たべる (গ্রুপ ২)|です→だ
+✍️|「かきます」 の じしょけい は 「かく」 です。|「かきます」 の じしょけい は 「かく」 だ。|「書きます」(লিখি)-এর ডিকশনারি ফর্ম 「書く」।|かきます → かく (গ্রুপ ১)|です→だ
+🛠️|「します」 の じしょけい は 「する」 です。|「します」 の じしょけい は 「する」 だ。|「します」(করি)-এর ডিকশনারি ফর্ম 「する」।|します → する (গ্রুপ ৩)|です→だ
+🚶|「きます」 の じしょけい は 「くる」 です。|「きます」 の じしょけい は 「くる」 だ。|「来ます」(আসি)-এর ডিকশনারি ফর্ম 「来る」।|きます → くる (গ্রুপ ৩)|です→だ
+🏊|「およぎます」 の じしょけい は 「およぐ」 です。|「およぎます」 の じしょけい は 「およぐ」 だ。|「泳ぎます」(সাঁতার কাটি)-এর ডিকশনারি ফর্ম 「泳ぐ」।|およぎます → およぐ (গ্রুপ ১)|です→だ
+🛒|「かいます」 の じしょけい は 「かう」 です。|「かいます」 の じしょけい は 「かう」 だ。|「買います」(কিনি)-এর ডিকশনারি ফর্ম 「買う」।|かいます → かう (গ্রুপ ১)|です→だ
+⏳|「まちます」 の じしょけい は 「まつ」 です。|「まちます」 の じしょけい は 「まつ」 だ。|「待ちます」(অপেক্ষা করি)-এর ডিকশনারি ফর্ম 「待つ」।|まちます → まつ (গ্রুপ ১)|です→だ
+🗣️|「はなします」 の じしょけい は 「はなす」 です。|「はなします」 の じしょけい は 「はなす」 だ。|「話します」(বলি)-এর ডিকশনারি ফর্ম 「話す」।|はなします → はなす (গ্রুপ ১)|です→だ
+🐴|どうぶつえん で うま を みます。|どうぶつえん で うま を みる。|চিড়িয়াখানায় ঘোড়া দেখি।|で = কাজের জায়গা|みます→みる
+👔|しゃちょう と ぶちょう と かちょう は かいぎしつ に います。|しゃちょう と ぶちょう と かちょう は かいぎしつ に いる。|প্রেসিডেন্ট, বিভাগীয় প্রধান আর সেকশন প্রধান মিটিং রুমে আছেন।|と = এবং|います→いる
+🇯🇵|ミラーさん は にほんご が できます。|ミラーさん は にほんご が できる。|মিলার জাপানি ভাষা পারেন।|N が できます = পারি|できます→できる
+🔤|わたし は えいご が できます。|わたし は えいご が できる。|আমি ইংরেজি পারি।|N が できます = পারি|できます→できる
+🎼|やまださん は ピアノ が できます。|やまださん は ピアノ が できる。|ইয়ামাদা পিয়ানো বাজাতে পারেন।|N が できます = বাজাতে পারি|できます→できる
+⛷️|わたし は スキー が できません。|わたし は スキー が できない。|আমি স্কি করতে পারি না।|N が できません = পারি না|できません→できない
+📅|この みせ は よやく が できます か。|この みせ は よやく が できる？|এই দোকানে কি বুকিং করা যায়?|N が できますか = করা যায় কি?|できます→できる, か→？
+🚙|たなかさん は うんてん が できます。|たなかさん は うんてん が できる。|তানাকা গাড়ি চালাতে পারেন।|N が できます = চালাতে পারি|できます→できる
+🍳|わたし は りょうり が できます。|わたし は りょうり が できる。|আমি রান্না করতে পারি।|N が できます = রান্না পারি|できます→できる
+🩳|おとうと は すいえい が できません。|おとうと は すいえい が できない。|আমার ছোট ভাই সাঁতার পারে না।|N が できません = পারে না|できません→できない
+🤏|はい、 すこし できます。|はい、 すこし できる。|হ্যাঁ, একটু পারি।|すこし = একটু|できます→できる
+🙅|いいえ、 ぜんぜん できません。|いいえ、 ぜんぜん できない。|না, একদমই পারি না।|ぜんぜん + না = একদমই না|できません→できない
+😅|わたし は にほんご が あまり できません。|わたし は にほんご が あまり できない。|আমি জাপানি খুব একটা পারি না।|あまり + না = তেমন না|できません→できない
+🎶|ワットさん は ピアノ が できます か。|ワットさん は ピアノ が できる？|ওয়াট কি পিয়ানো বাজাতে পারেন?|N が できますか = পারেন কি?|できます→できる, か→？
+❓|なに が できます か。|なに が できる？|আপনি কী পারেন?|なに = কী|できます→できる, か→？
+💻|パソコン が できます か。|パソコン が できる？|আপনি কি কম্পিউটার চালাতে পারেন?|N が できますか = পারেন কি?|できます→できる, か→？
+📚|この へや で べんきょう が できます。|この へや で べんきょう が できる。|এই ঘরে পড়াশোনা করা যায়।|で = জায়গা (এই ঘরে)|できます→できる
+🗨️|わたし は にほんご を はなす こと が できます。|わたし は にほんご を はなす こと が できる。|আমি জাপানি বলতে পারি।|はなす ことが できます = বলতে পারি|できます→できる
+🌊|やまださん は およぐ こと が できます。|やまださん は およぐ こと が できる。|ইয়ামাদা সাঁতার কাটতে পারেন।|およぐ ことが できます = সাঁতার কাটতে পারি|できます→できる
+👓|ミラーさん は かんじ を よむ こと が できます。|ミラーさん は かんじ を よむ こと が できる。|মিলার কানজি পড়তে পারেন।|よむ ことが できます = পড়তে পারি|できます→できる
+🖋️|わたし は かんじ を かく こと が できます。|わたし は かんじ を かく こと が できる。|আমি কানজি লিখতে পারি।|かく ことが できます = লিখতে পারি|できます→できる
+🔑|わたし は くるま を うんてんする こと が できます。|わたし は くるま を うんてんする こと が できる。|আমি গাড়ি চালাতে পারি।|うんてんする ことが できます = চালাতে পারি|できます→できる
+🏤|ここ で きって を かう こと が できます。|ここ で きって を かう こと が できる。|এখানে ডাকটিকিট কেনা যায়।|かう ことが できます = কেনা যায়|できます→できる
+📖|としょかん で ほん を かりる こと が できます。|としょかん で ほん を かりる こと が できる。|লাইব্রেরিতে বই ধার নেওয়া যায়।|かりる ことが できます = ধার নেওয়া যায়|できます→できる
+💳|この カード で かいもの を する こと が できます。|この カード で かいもの を する こと が できる。|এই কার্ড দিয়ে কেনাকাটা করা যায়।|する ことが できます = করা যায়|できます→できる
+🏢|にちようび は かいしゃ へ いく こと が できません。|にちようび は かいしゃ へ いく こと が できない。|রবিবারে অফিসে যেতে পারি না।|いく ことが できません = যেতে পারি না|できません→できない
+🚭|ここ で たばこ を すう こと が できません。|ここ で たばこ を すう こと が できない。|এখানে ধূমপান করা যায় না।|すう ことが できません = টানা যায় না|できません→できない
+🏇|わたし は うま に のる こと が できます。|わたし は うま に のる こと が できる。|আমি ঘোড়ায় চড়তে পারি।|のる ことが できます = চড়তে পারি|できます→できる
+🍱|ひとり で にほんりょうり を つくる こと が できます。|ひとり で にほんりょうり を つくる こと が できる。|একা জাপানি খাবার রান্না করতে পারি।|つくる ことが できます = বানাতে পারি|できます→できる
+🎸|ギター を ひく こと が できます。|ギター を ひく こと が できる。|আমি গিটার বাজাতে পারি।|ひく ことが できます = বাজাতে পারি|できます→できる
+🎵|にほんご で うた を うたう こと が できます。|にほんご で うた を うたう こと が できる。|জাপানি ভাষায় গান গাইতে পারি।|うたう ことが できます = গাইতে পারি|できます→できる
+🏃|ひゃくメートル およぐ こと が できます。|ひゃくメートル およぐ こと が できる。|১০০ মিটার সাঁতার কাটতে পারি।|およぐ ことが できます = সাঁতার কাটতে পারি|できます→できる
+💴|ここ で おかね を かえる こと が できます。|ここ で おかね を かえる こと が できる。|এখানে টাকা বদলানো যায়।|かえる ことが できます = বদলানো যায়|できます→できる
+🖼️|びじゅつかん で しゃしん を とる こと が できます か。|びじゅつかん で しゃしん を とる こと が できる？|জাদুঘরে কি ছবি তোলা যায়?|とる ことが できますか = তোলা যায় কি?|できます→できる, か→？
+📞|よる おそく でんわ を かける こと が できません。|よる おそく でんわ を かける こと が できない。|রাত দেরিতে ফোন করা যায় না।|かける ことが できません = করা যায় না|できません→できない
+⏰|まいあさ ろくじ に おきる こと が できます か。|まいあさ ろくじ に おきる こと が できる？|প্রতিদিন সকাল ৬টায় উঠতে পারেন কি?|おきる ことが できますか = উঠতে পারেন কি?|できます→できる, か→？
+🌐|インターネット で ホテル を よやくする こと が できます。|インターネット で ホテル を よやくする こと が できる。|ইন্টারনেটে হোটেল বুক করা যায়।|よやくする ことが できます = বুক করা যায়|できます→できる
+⚙️|こうじょう を けんがくする こと が できます か。|こうじょう を けんがくする こと が できる？|কারখানা পরিদর্শন করা যায় কি?|けんがくする ことが できますか = পরিদর্শন করা যায় কি?|できます→できる, か→？
+💼|にほん の かいしゃ で はたらく こと が できます。|にほん の かいしゃ で はたらく こと が できる。|জাপানের কোম্পানিতে কাজ করতে পারি।|はたらく ことが できます = কাজ করতে পারি|できます→できる
+🚉|ひとり で えき まで いく こと が できます。|ひとり で えき まで いく こと が できる。|একা স্টেশন পর্যন্ত যেতে পারি।|いく ことが できます = যেতে পারি|できます→できる
+📓|にほんご で にっき を かく こと が できます。|にほんご で にっき を かく こと が できる。|জাপানি ভাষায় ডায়েরি লিখতে পারি।|かく ことが できます = লিখতে পারি|できます→できる
+🍙|じゅぎょうちゅう に たべる こと が できません。|じゅぎょうちゅう に たべる こと が できない。|ক্লাসের সময় খাওয়া যায় না।|たべる ことが できません = খাওয়া যায় না|できません→できない
+🎧|わたし の しゅみ は おんがく を きく こと です。|わたし の しゅみ は おんがく を きく こと だ。|আমার শখ গান শোনা।|きく ことです = শখ: শোনা|です→だ
+🎬|わたし の しゅみ は えいが を みる こと です。|わたし の しゅみ は えいが を みる こと だ。|আমার শখ সিনেমা দেখা।|みる ことです = শখ: দেখা|です→だ
+📬|わたし の しゅみ は きって を あつめる こと です。|わたし の しゅみ は きって を あつめる こと だ。|আমার শখ ডাকটিকিট সংগ্রহ করা।|あつめる ことです = শখ: সংগ্রহ করা|です→だ
+🎨|わたし の しゅみ は え を かく こと です。|わたし の しゅみ は え を かく こと だ。|আমার শখ ছবি আঁকা।|かく ことです = শখ: আঁকা|です→だ
+🎻|やまださん の しゅみ は ピアノ を ひく こと です。|やまださん の しゅみ は ピアノ を ひく こと だ。|ইয়ামাদার শখ পিয়ানো বাজানো।|ひく ことです = শখ: বাজানো|です→だ
+🧑‍🍳|ミラーさん の しゅみ は りょうり を つくる こと です。|ミラーさん の しゅみ は りょうり を つくる こと だ。|মিলারের শখ রান্না করা।|つくる ことです = শখ: রান্না করা|です→だ
+✏️|わたし の しゅみ は にっき を かく こと です。|わたし の しゅみ は にっき を かく こと だ。|আমার শখ ডায়েরি লেখা।|かく ことです = শখ: লেখা|です→だ
+🎙️|わたし の しゅみ は うた を うたう こと です。|わたし の しゅみ は うた を うたう こと だ。|আমার শখ গান গাওয়া।|うたう ことです = শখ: গাওয়া|です→だ
+📕|わたし の しゅみ は ほん を よむ こと です。|わたし の しゅみ は ほん を よむ こと だ。|আমার শখ বই পড়া।|よむ ことです = শখ: পড়া|です→だ
+🐘|わたし の しゅみ は どうぶつ を みる こと です。|わたし の しゅみ は どうぶつ を みる こと だ。|আমার শখ পশুপাখি দেখা।|みる ことです = শখ: দেখা|です→だ
+📷|しゅみ は なん です か。 …しゃしん を とる こと です。|しゅみ は なに？ …しゃしん を とる こと だ。|শখ কী? …ছবি তোলা।|とる ことです = শখ: ছবি তোলা|ですか→？, です→だ
+✈️|わたし の しゅみ は りょこうする こと です。|わたし の しゅみ は りょこうする こと だ。|আমার শখ ভ্রমণ করা।|りょこうする ことです = শখ: ভ্রমণ করা|です→だ
+🦷|ねる まえ に、 は を みがきます。|ねる まえ に、 は を みがく。|ঘুমানোর আগে দাঁত মাজি।|ねる まえに = ঘুমানোর আগে|みがきます→みがく
+🙌|ごはん を たべる まえ に、 て を あらいます。|ごはん を たべる まえ に、 て を あらう。|ভাত খাওয়ার আগে হাত ধুই।|たべる まえに = খাওয়ার আগে|あらいます→あらう
+🌙|ねる まえ に、 にっき を かきます。|ねる まえ に、 にっき を かく。|ঘুমানোর আগে ডায়েরি লিখি।|ねる まえに = ঘুমানোর আগে|かきます→かく
+🛫|にほん へ くる まえ に、 にほんご を べんきょうしました。|にほん へ くる まえ に、 にほんご を べんきょうした。|জাপানে আসার আগে জাপানি ভাষা শিখেছিলাম।|くる まえに = আসার আগে|べんきょうしました→べんきょうした
+📰|かいしゃ へ いく まえ に、 しんぶん を よみます。|かいしゃ へ いく まえ に、 しんぶん を よむ。|অফিসে যাওয়ার আগে পত্রিকা পড়ি।|いく まえに = যাওয়ার আগে|よみます→よむ
+🙏|しょくじ の まえ に、 おいのり を します。|しょくじ の まえ に、 おいのり を する。|খাওয়ার আগে প্রার্থনা করি।|N の まえに = ...-এর আগে (の বসে)|します→する
+📝|じゅぎょう の まえ に、 しゅくだい を します。|じゅぎょう の まえ に、 しゅくだい を する。|ক্লাসের আগে হোমওয়ার্ক করি।|N の まえに = ...-এর আগে (の বসে)|します→する
+🗓️|さんねんまえ に、 にほん へ きました。|さんねんまえ に、 にほん へ きた。|৩ বছর আগে জাপানে এসেছি।|3ねんまえに = ৩ বছর আগে (の নেই)|きました→きた
+🍜|さんじゅっぷんまえ に、 ひるごはん を たべました。|さんじゅっぷんまえ に、 ひるごはん を たべた。|৩০ মিনিট আগে দুপুরের খাবার খেয়েছি।|30ぷんまえに = ৩০ মিনিট আগে|たべました→たべた
+🛬|にじかんまえ に、 くうこう に つきました。|にじかんまえ に、 くうこう に ついた。|২ ঘণ্টা আগে বিমানবন্দরে পৌঁছেছি।|2じかんまえに = ২ ঘণ্টা আগে|つきました→ついた
+🌕|いっかげつまえ に、 くに へ かえりました。|いっかげつまえ に、 くに へ かえった。|১ মাস আগে দেশে ফিরেছি।|1かげつまえに = ১ মাস আগে|かえりました→かえった
+🧳|りょこう の まえ に、 ホテル を よやくします。|りょこう の まえ に、 ホテル を よやくする。|ভ্রমণের আগে হোটেল বুক করি।|N の まえに = ভ্রমণের আগে|よやくします→よやくする
+🧹|かえる まえ に、 へや を そうじします。|かえる まえ に、 へや を そうじする。|ফিরে যাওয়ার আগে ঘর পরিষ্কার করি।|かえる まえに = ফেরার আগে|そうじします→そうじする
+💡|でかける まえ に、 でんき を けします。|でかける まえ に、 でんき を けす。|বের হওয়ার আগে বাতি নিভাই।|でかける まえに = বের হওয়ার আগে|けします→けす
+🎓|しけん の まえ に、 たくさん べんきょうします。|しけん の まえ に、 たくさん べんきょうする。|পরীক্ষার আগে অনেক পড়ি।|N の まえに = পরীক্ষার আগে|べんきょうします→べんきょうする
+🍺|うんてんする まえ に、 おさけ を のみません。|うんてんする まえ に、 おさけ を のまない。|গাড়ি চালানোর আগে মদ খাই না।|うんてんする まえに = চালানোর আগে|のみません→のまない
+☎️|せんせい に あう まえ に、 でんわ を します。|せんせい に あう まえ に、 でんわ を する。|শিক্ষকের সাথে দেখা করার আগে ফোন করি।|あう まえに = দেখা করার আগে|します→する
+🤝|ぶちょう に はなす まえ に、 かちょう に ききます。|ぶちょう に はなす まえ に、 かちょう に きく。|বিভাগীয় প্রধানকে বলার আগে সেকশন প্রধানকে জিজ্ঞেস করি।|はなす まえに = বলার আগে|ききます→きく
+🤔|しゅみ は なん です か。|しゅみ は なに？|শখ কী?|なん = কী? (প্রশ্ন)|ですか→？
+🐎|うま に のる こと です。|うま に のる こと だ。|ঘোড়ায় চড়া।|ことです = উত্তর: ঘোড়ায় চড়া|です→だ
+😲|へえ、 いい しゅみ です ね。|へえ、 いい しゅみ だ ね。|ওহ, ভালো শখ তো!|へえ = ওহ! (অবাক হওয়া)|です→だ
+😮|ほんとう です か。|ほんとう？|সত্যি নাকি?|ほんとうですか = সত্যি নাকি?|ですか→？
+😄|それ は おもしろい です ね。|それ は おもしろい ね。|সেটা মজার তো!|おもしろいですね = মজার তো!|です বাদ
+⌛|なかなか じかん が ありません。|なかなか じかん が ない。|সময় সহজে হয়ে ওঠে না (সময় পাই না)।|なかなか + না = সহজে হয় না|ありません→ない
+🧑‍🤝‍🧑|にほん で は なかなか ともだち が できません。|にほん で は なかなか ともだち が できない。|জাপানে সহজে বন্ধু হয় না।|なかなか + না = সহজে হয় না|できません→できない
+👀|ぜひ にほん の かいしゃ を けんがくしたい です。|ぜひ にほん の かいしゃ を けんがくしたい。|অবশ্যই জাপানের কোম্পানি দেখতে চাই।|ぜひ ~たいです = অবশ্যই চাই|です বাদ
+👋|ぜひ また きて ください。|ぜひ また きて。|অবশ্যই আবার আসবেন।|ぜひ = অবশ্যই|てください→て
+🥁|なにか がっき が できます か。|なにか がっき が できる？|কোনো বাদ্যযন্ত্র বাজাতে পারেন কি?|が できますか = পারেন কি?|できます→できる, か→？`;
+const LW18=`まいにち=প্রতিদিন;ピアノ=পিয়ানো;ひきます=বাজাই
+にちようび=রবিবার;うた=গান;うたいます=গাই
+まいあさ=প্রতি সকালে;かお=মুখ;あらいます=ধুই
+わたし=আমি;ふるい=পুরোনো;きって=ডাকটিকিট;あつめます=সংগ্রহ করি
+いらない=দরকার নেই এমন;かみ=কাগজ;すてます=ফেলে দিই
+えん=ইয়েন;ドル=ডলার;かえます=বদলাই
+あに=বড় ভাই;まいにち=প্রতিদিন;くるま=গাড়ি;うんてんします=চালাই
+らいしゅう=আগামী সপ্তাহ;ホテル=হোটেল;よやくします=বুক করি
+あした=কাল;こうじょう=কারখানা;けんがくします=পরিদর্শন করি
+のみます=পান করি;じしょけい=ডিকশনারি ফর্ম;のむ=পান করা
+たべます=খাই;じしょけい=ডিকশনারি ফর্ম;たべる=খাওয়া
+かきます=লিখি;じしょけい=ডিকশনারি ফর্ম;かく=লেখা
+します=করি;じしょけい=ডিকশনারি ফর্ম;する=করা
+きます=আসি;じしょけい=ডিকশনারি ফর্ম;くる=আসা
+およぎます=সাঁতার কাটি;じしょけい=ডিকশনারি ফর্ম;およぐ=সাঁতার কাটা
+かいます=কিনি;じしょけい=ডিকশনারি ফর্ম;かう=কেনা
+まちます=অপেক্ষা করি;じしょけい=ডিকশনারি ফর্ম;まつ=অপেক্ষা করা
+はなします=বলি;じしょけい=ডিকশনারি ফর্ম;はなす=বলা
+どうぶつえん=চিড়িয়াখানা;うま=ঘোড়া;みます=দেখি
+しゃちょう=প্রেসিডেন্ট;ぶちょう=বিভাগীয় প্রধান;かちょう=সেকশন প্রধান;かいぎしつ=মিটিং রুম;います=আছেন
+ミラーさん=মিলার;にほんご=জাপানি ভাষা;できます=পারি/করা যায়
+わたし=আমি;えいご=ইংরেজি;できます=পারি/করা যায়
+やまださん=ইয়ামাদা;ピアノ=পিয়ানো;できます=পারি/করা যায়
+わたし=আমি;スキー=স্কি;できません=পারি না
+この=এই;みせ=দোকান;よやく=বুকিং;できます=পারি/করা যায়
+たなかさん=তানাকা;うんてん=গাড়ি চালানো;できます=পারি/করা যায়
+わたし=আমি;りょうり=রান্না;できます=পারি/করা যায়
+おとうと=ছোট ভাই;すいえい=সাঁতার;できません=পারি না
+はい=হ্যাঁ;すこし=একটু;できます=পারি/করা যায়
+いいえ=না;ぜんぜん=একদম (না);できません=পারি না
+わたし=আমি;にほんご=জাপানি ভাষা;あまり=তেমন (না);できません=পারি না
+ワットさん=ওয়াট;ピアノ=পিয়ানো;できます=পারি/করা যায়
+なに=কী;できます=পারি/করা যায়
+パソコン=কম্পিউটার;できます=পারি/করা যায়
+この=এই;へや=ঘর;べんきょう=পড়াশোনা;できます=পারি/করা যায়
+わたし=আমি;にほんご=জাপানি ভাষা;はなす=বলা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+やまださん=ইয়ামাদা;およぐ=সাঁতার কাটা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ミラーさん=মিলার;かんじ=কানজি;よむ=পড়া;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+わたし=আমি;かんじ=কানজি;かく=লেখা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+わたし=আমি;くるま=গাড়ি;うんてんする=চালানো;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ここ=এখানে;きって=ডাকটিকিট;かう=কেনা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+としょかん=লাইব্রেরি;ほん=বই;かりる=ধার নেওয়া;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+この=এই;カード=কার্ড;かいもの=কেনাকাটা;する=করা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+にちようび=রবিবার;かいしゃ=অফিস;いく=যাওয়া;こと=(ক্রিয়াকে বিশেষ্য করে);できません=পারি না
+ここ=এখানে;たばこ=সিগারেট;すう=টানা (ধূমপান);こと=(ক্রিয়াকে বিশেষ্য করে);できません=পারি না
+わたし=আমি;うま=ঘোড়া;のる=চড়া;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ひとり=একা;にほんりょうり=জাপানি খাবার;つくる=বানানো;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ギター=গিটার;ひく=বাজানো;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+にほんご=জাপানি ভাষা;うた=গান;うたう=গাওয়া;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ひゃくメートル=১০০ মিটার;およぐ=সাঁতার কাটা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ここ=এখানে;おかね=টাকা;かえる=বদলানো;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+びじゅつかん=জাদুঘর;しゃしん=ছবি;とる=তোলা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+よる=রাত;おそく=দেরিতে;でんわ=ফোন;かける=করা (ফোন);こと=(ক্রিয়াকে বিশেষ্য করে);できません=পারি না
+まいあさ=প্রতি সকালে;ろくじ=৬টা;おきる=ওঠা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+インターネット=ইন্টারনেট;ホテル=হোটেল;よやくする=বুক করা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+こうじょう=কারখানা;けんがくする=পরিদর্শন করা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+にほん=জাপান;かいしゃ=অফিস;はたらく=কাজ করা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+ひとり=একা;えき=স্টেশন;いく=যাওয়া;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+にほんご=জাপানি ভাষা;にっき=ডায়েরি;かく=লেখা;こと=(ক্রিয়াকে বিশেষ্য করে);できます=পারি/করা যায়
+じゅぎょうちゅう=ক্লাসের সময়;たべる=খাওয়া;こと=(ক্রিয়াকে বিশেষ্য করে);できません=পারি না
+わたし=আমি;しゅみ=শখ;おんがく=গান/সংগীত;きく=শোনা;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;えいが=সিনেমা;みる=দেখা;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;きって=ডাকটিকিট;あつめる=সংগ্রহ করা;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;え=ছবি (আঁকা);かく=আঁকা;こと=(ক্রিয়াকে বিশেষ্য করে)
+やまださん=ইয়ামাদা;しゅみ=শখ;ピアノ=পিয়ানো;ひく=বাজানো;こと=(ক্রিয়াকে বিশেষ্য করে)
+ミラーさん=মিলার;しゅみ=শখ;りょうり=রান্না;つくる=বানানো;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;にっき=ডায়েরি;かく=লেখা;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;うた=গান;うたう=গাওয়া;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;ほん=বই;よむ=পড়া;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;どうぶつ=পশুপাখি;みる=দেখা;こと=(ক্রিয়াকে বিশেষ্য করে)
+しゅみ=শখ;なん=কী;しゃしん=ছবি;とる=তোলা;こと=(ক্রিয়াকে বিশেষ্য করে)
+わたし=আমি;しゅみ=শখ;りょこうする=ভ্রমণ করা;こと=(ক্রিয়াকে বিশেষ্য করে)
+ねる=ঘুমানো;まえ=আগে;は=দাঁত;みがきます=মাজি
+ごはん=ভাত;たべる=খাওয়া;まえ=আগে;て=হাত;あらいます=ধুই
+ねる=ঘুমানো;まえ=আগে;にっき=ডায়েরি;かきます=লিখি
+にほん=জাপান;くる=আসা;まえ=আগে;にほんご=জাপানি ভাষা;べんきょうしました=পড়েছিলাম
+かいしゃ=অফিস;いく=যাওয়া;まえ=আগে;しんぶん=পত্রিকা;よみます=পড়ি
+しょくじ=খাওয়া/খাবার;まえ=আগে;おいのり=প্রার্থনা;します=করি
+じゅぎょう=ক্লাস;まえ=আগে;しゅくだい=হোমওয়ার্ক;します=করি
+さんねんま=৩ বছর আগে;にほん=জাপান;きました=এসেছি
+さんじゅっぷんま=৩০ মিনিট আগে;ひるごはん=দুপুরের খাবার;たべました=খেয়েছি
+にじかんま=২ ঘণ্টা আগে;くうこう=বিমানবন্দর;つきました=পৌঁছেছি
+いっかげつま=১ মাস আগে;くに=দেশ;かえりました=ফিরেছি
+りょこう=ভ্রমণ;まえ=আগে;ホテル=হোটেল;よやくします=বুক করি
+かえる=ফেরা;まえ=আগে;へや=ঘর;そうじします=পরিষ্কার করি
+でかける=বের হওয়া;まえ=আগে;でんき=বিদ্যুৎ/বাতি;けします=নিভাই
+しけん=পরীক্ষা;まえ=আগে;たくさん=অনেক;べんきょうします=পড়ি
+うんてんする=চালানো;まえ=আগে;おさけ=মদ;のみません=পান করি না
+せんせい=শিক্ষক;あう=দেখা করা;まえ=আগে;でんわ=ফোন;します=করি
+ぶちょう=বিভাগীয় প্রধান;はなす=বলা;まえ=আগে;かちょう=সেকশন প্রধান;ききます=শুনি/জিজ্ঞেস করি
+しゅみ=শখ;なん=কী
+うま=ঘোড়া;のる=চড়া;こと=(ক্রিয়াকে বিশেষ্য করে)
+へえ=ওহ!;いい=ভালো;しゅみ=শখ
+ほんとう=সত্যি
+それ=সেটা;おもしろい=মজার
+なかなか=সহজে (না);じかん=সময়;ありません=নেই/নয়
+にほん=জাপান;なかなか=সহজে (না);ともだち=বন্ধু;できません=পারি না
+ぜひ=অবশ্যই;にほん=জাপান;かいしゃ=অফিস;けんがくしたい=পরিদর্শন করতে চাই
+ぜひ=অবশ্যই;また=আবার;きて=এসে;ください=দয়া করে
+なに=কী;がっき=বাদ্যযন্ত্র;できます=পারি/করা যায়`.split(&#x27;\n&#x27;);
+
 /* কার্ড তৈরি */
 function build(DATA,WORDS,grid){
 DATA.split(&#x27;\n&#x27;).forEach((line,i)=&gt;{
@@ -1653,6 +2126,7 @@ DATA.split(&#x27;\n&#x27;).forEach((line,i)=&gt;{
 });
 }
 build(D,W,document.getElementById(&#x27;grid&#x27;));
+build(L18,LW18,document.getElementById(&#x27;grid18&#x27;));
 build(L23,LW,document.getElementById(&#x27;grid23&#x27;));
 build(L24,LW24,document.getElementById(&#x27;grid24&#x27;));
 build(L25,LW25,document.getElementById(&#x27;grid25&#x27;));
@@ -1668,7 +2142,7 @@ function setTab(t){
 }
 tabBtns.forEach(b=&gt;b.onclick=()=&gt;setTab(b.dataset.tab));
 let savedTab;try{savedTab=localStorage.getItem(&#x27;tab&#x27;)}catch(e){}
-setTab([&#x27;base&#x27;,&#x27;l23&#x27;,&#x27;l24&#x27;,&#x27;l25&#x27;].includes(savedTab)?savedTab:&#x27;base&#x27;);
+setTab([&#x27;base&#x27;,&#x27;l18&#x27;,&#x27;l23&#x27;,&#x27;l24&#x27;,&#x27;l25&#x27;].includes(savedTab)?savedTab:&#x27;base&#x27;);
 &lt;/script&gt;
 &lt;script&gt;
 document.addEventListener(&#x27;click&#x27;, function(e){
@@ -1884,6 +2358,25 @@ footer a{color:var(--acc)}
 .dsj.hid rt{visibility:hidden}
 .nofuri .dsj rt{display:ruby-text}
 .dsj .tg{font-size:1.08em}
+
+.sech{margin:12px 0 6px;font-size:16px;color:var(--cc,var(--acc));font-weight:700}
+.tblw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.tblw table{width:100%;border-collapse:collapse;font-size:15px}
+.tblw th{text-align:left;font-size:13px;color:var(--sub);font-weight:600;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tblw td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tblw tr:last-child td{border-bottom:0}
+.tblw .jp{font-size:22px;font-weight:700;white-space:nowrap}
+.tblw .jp mark{background:none;color:var(--cc,var(--acc));font-weight:800}
+.tblw .kn{font-size:16px;white-space:nowrap}
+.tblw .kn small{font-size:12px;opacity:.7}
+.tblw .rom{font-style:italic;color:var(--sub);white-space:nowrap}
+.tblw .bnm{font-weight:600}
+.tblw tr.exr td{padding:0 12px 10px;font-size:14px}
+.tblw .exj{font-size:16px}
+.tblw .exb{color:var(--sub)}
+.tblw .sp{width:32px;height:32px}
+.tblw .sp.sm{width:26px;height:26px;font-size:12px}
+@media(max-width:640px){.tblw .jp{font-size:19px}.tblw td,.tblw th{padding:7px 8px}.tblw table{font-size:14px}}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -1935,108 +2428,110 @@ footer a{color:var(--acc)}
 &lt;script&gt;
 &quot;use strict&quot;;
 const SD={&quot;一&quot;:[&quot;M11,54.25c3.19,0.62,6.25,0.75,9.73,0.5c20.64-1.5,50.39-5.12,68.58-5.24c3.6-0.02,5.77,0.24,7.57,0.49&quot;],&quot;二&quot;:[&quot;M25.25,32.4c1.77,0.37,4.78,0.56,6.55,0.37c10.82-1.15,28.82-3.4,41.24-3.76c2.95-0.09,4.73,0.18,6.21,0.36&quot;,&quot;M12,80.75c2.37,0.5,6.73,0.67,9.09,0.5c23.79-1.75,45.04-4.12,67.49-4.74c3.95-0.11,6.32,0.24,8.3,0.49&quot;],&quot;三&quot;:[&quot;M27.5,23.65c3.09,0.73,6.29,0.36,9.4,0.06c10.2-1,27-2.94,38.97-3.57c3.06-0.16,6.09-0.2,9.14,0.23&quot;,&quot;M28.75,55.14c3.13,0.76,6.46,0.43,9.64,0.2c10.03-0.72,23.97-2.63,34.73-3.12c2.7-0.12,5.45-0.16,8.13,0.3&quot;,&quot;M13,87.83c3.94,1.01,7.72,0.96,11.75,0.72c18.41-1.07,41.27-3.39,61.12-4.07c3.63-0.13,7.2-0.1,10.75,0.78&quot;],&quot;四&quot;:[&quot;M14.5,31.48c1.51,1.51,2.25,3.27,2.53,5.2c1.14,7.9,2.61,25.18,4.39,40.83c0.29,2.55,0.34,3.81,0.64,6.24&quot;,&quot;M17.85,34.04c21.65-1.92,51.52-3.92,67.82-4.3c4.85-0.11,6.31,2.62,6.04,5.38c-0.9,9.02-4.17,28.29-6.41,39.62c-0.49,2.49-0.94,4.6-1.3,6.13&quot;,&quot;M40.5,36c0.08,0.64,0.12,1.65-0.16,2.57c-2.22,7.3-5.1,14.55-13.35,22.68&quot;,&quot;M59.75,34.25c0.8,1.05,1.44,2.29,1.49,3.92c0.11,3.62,0.05,7.05,0.05,9.89c0,6.94,0.71,7.54,9.47,7.54c4.99,0,8.86-0.72,10.25-1.72&quot;,&quot;M22.73,79.32c13.77-0.57,43.64-1.8,61.18-2.08&quot;],&quot;五&quot;:[&quot;M31.75,23.15c2.8,0.67,5.54,0.42,8.36,0.12c9.3-0.99,22.18-2.4,34.14-3.21c2.49-0.17,5.04-0.33,7.5,0.2&quot;,&quot;M55.75,25.25c0.62,1.25,1.02,3.01,0.5,5c-3.12,11.88-14,44.12-19.75,59&quot;,&quot;M25.5,55.25c2.07,1.24,4.73,1.03,7,0.81c15.49-1.45,29.89-3.03,42.25-4.06c3-0.25,4.25,1.75,3.5,3.75c-2.24,5.96-6,20.75-7.75,31.5&quot;,&quot;M11.25,90.5c3.04,0.81,6.52,0.63,9.63,0.41c15.71-1.1,43.9-2.8,67.75-3.8c3.41-0.14,6.9-0.4,10.25,0.39&quot;],&quot;六&quot;:[&quot;M51.87,17.5c1.78,1.78,2.71,3.48,2.71,6.5c0,6.46,0.12,9.16,0.12,14.35&quot;,&quot;M13.5,42.13c3.27,0.74,7.11,0.89,9.93,0.64c21.56-1.9,41.78-5.02,61.41-5.47c4.8-0.11,7.49,0.31,11.06,1.07&quot;,&quot;M38.11,58.6c0.51,1.37,0.42,3.67-0.49,5.29C33.38,71.38,24,82.38,15.41,88.75&quot;,&quot;M70.16,59.92c9.96,8.61,18.18,18.54,23.16,28.99&quot;],&quot;七&quot;:[&quot;M15.5,51.75c1.82,0.5,4.38,0.88,6.96,0.5c16.91-2.45,50.92-8.12,64.44-8.74c3.02-0.14,4.84,0.24,6.35,0.49&quot;,&quot;M43,20c1.38,1.38,2.15,3.25,2.15,5.26C45.15,29.5,45,71.84,45,76c0,10.5,2.25,12.25,20.25,12.25c18.75,0,20-3.75,20-2.75&quot;],&quot;八&quot;:[&quot;M37.22,45c0.28,1.5,0.2,3.21-0.86,5.48c-4.23,9.02-11.48,20.4-24.1,32.02&quot;,&quot;M48,27.25c9.38,0.25,21.12,30,37.27,45.72c3.79,3.69,6.73,5.66,9.98,7.03&quot;],&quot;九&quot;:[&quot;M41.88,14.38c1,1.38,1.5,3.25,1.5,5.12c0,40.13-9.12,57.5-28.5,68.75&quot;,&quot;M13.5,45.75c2.88,0.85,5.78,0.05,8.58-0.66c8.47-2.14,39.88-9.79,40.92-9.84c2.5-0.12,4.75,0.5,4.25,4.75c-0.5,4.25-5.5,20.75-7,32.5c-2.23,17.46,2,19.37,18.21,19.37c13.79,0,19.01-1.07,19.27-10.12&quot;],&quot;十&quot;:[&quot;M11.88,50.98c3.18,0.89,6.62,0.61,9.87,0.35c19.92-1.58,45.23-4.76,63.38-5.82c3.85-0.23,7.23-0.07,11,0.56&quot;,&quot;M52.22,11.63c1.4,1.4,2.2,3.96,2.2,6.26c0,1.13-0.03,51.22-0.19,73.41c-0.03,3.96-0.06,6.83-0.08,8.08&quot;],&quot;百&quot;:[&quot;M16.13,20.23c2.22,0.54,6.29,0.75,8.51,0.54c21.49-2.02,41.86-4.39,59.22-4.98c3.7-0.12,5.92,0.26,7.77,0.53&quot;,&quot;M52.31,21.75c0.19,1.38,0.19,2.5-0.38,3.93c-1.65,4.19-4.81,9.19-8.66,14.68&quot;,&quot;M30.75,42.82c0.96,0.96,1.64,2.45,1.72,4.19c0.41,8.74,0.96,32.92,1.18,43.74c0.05,2.48,0.08,4.12,0.1,4.5&quot;,&quot;M33.55,44.8c10.35-1.37,35.73-4.38,38.78-4.59c3.15-0.22,4.92,1.17,4.92,4.24c0,4.48-0.68,32-0.92,44.06c-0.06,3.02-0.1,5.05-0.11,5.48&quot;,&quot;M34.14,66.95c10.24-1.08,32.11-3.2,41.44-3.57&quot;,&quot;M34.97,92.87c8.78-0.87,30.53-2.12,40.06-2.39&quot;],&quot;千&quot;:[&quot;M70.38,10.17c-0.13,1.58-0.83,2.64-2.17,3.67c-5.71,4.41-21.46,11.91-41.57,16.82&quot;,&quot;M12.13,50.83c3.36,0.94,7.21,0.75,10.63,0.49c17.76-1.34,37.63-4.16,66.24-4.94c3.08-0.08,6.08-0.14,9.13,0.38&quot;,&quot;M54.56,25.25c1.03,1.03,2.01,3,2.01,5.18c0,0.9-0.07,46.38-0.19,63.58c-0.02,2.93-0.04,5.04-0.06,5.99&quot;],&quot;万&quot;:[&quot;M14.38,24.73c2.3,0.54,6.52,0.78,8.81,0.54c21.57-2.27,44.44-5.64,64.9-5.98c3.83-0.06,6.12,0.26,8.04,0.53&quot;,&quot;M51,41.5c1.45,0.7,3.19,1.43,5.19,1.74c7.31,1.14,17.05,1.94,22.64,1.5c4.64-0.37,6.38,1.08,5.17,4.73C77.88,68,72.75,78.75,63.87,90.4c-7.6,9.97-10.12,3.22-12.62,0.2&quot;,&quot;M51.75,25.5c0.5,2,0.22,3.78-0.21,5.89C48.95,43.8,34.75,73.38,13.56,87.97&quot;],&quot;円&quot;:[&quot;M21.75,19.8c0.91,0.91,1.47,3.23,1.5,5.45c0.2,13.9,0.03,47.69,0.03,62.5c0,2-0.03,4.99-0.03,6&quot;,&quot;M24.06,21.56c15.07-1.68,49.46-5.58,57.92-6.31c2.9-0.25,4.78,1.88,4.78,4.27c0,13.48,0,53.21,0,67.48c0,9.75-4.25,6.5-8.5,1.5&quot;,&quot;M52.25,20.75c0.88,0.88,1.5,2,1.5,3.71c0,6.76,0,27.54,0,31.04&quot;,&quot;M24.75,59.75c14.62-1.75,43-4.25,60.5-5.25&quot;],&quot;日&quot;:[&quot;M31.5,24.5c1.12,1.12,1.74,2.75,1.74,4.75c0,1.6-0.16,38.11-0.09,53.5c0.02,3.82,0.05,6.35,0.09,6.75&quot;,&quot;M33.48,26c0.8-0.05,37.67-3.01,40.77-3.25c3.19-0.25,5,1.75,5,4.25c0,4-0.22,40.84-0.23,56c0,3.48,0,5.72,0,6&quot;,&quot;M34.22,55.25c7.78-0.5,35.9-2.5,44.06-2.75&quot;,&quot;M34.23,86.5c10.52-0.75,34.15-2.12,43.81-2.25&quot;],&quot;月&quot;:[&quot;M34.25,16.25c1,1,1.48,2.38,1.5,4c0.38,33.62,2.38,59.38-11,73.25&quot;,&quot;M36.25,19c4.12-0.62,31.49-4.78,33.25-5c4-0.5,5.5,1.12,5.5,4.75c0,2.76-0.5,49.25-0.5,69.5c0,13-6.25,4-8.75,1.75&quot;,&quot;M37.25,38c10.25-1.5,27.25-3.75,36.25-4.5&quot;,&quot;M37,58.25c8.75-1.12,27-3.5,36.25-4&quot;],&quot;火&quot;:[&quot;M24.25,34c3.27,3.33,8.5,13,9.5,17.75&quot;,&quot;M83,27.25c0.5,1.38,0.22,2.74-0.5,4.25c-2.38,5-7.5,12.12-12.75,17.25&quot;,&quot;M52.5,14.25c1,1.25,1.5,3.12,1.5,5C54,69,39.62,80,21,91.5&quot;,&quot;M52.75,50c12.49,14.06,25.01,28.42,33.62,36.13c2.7,2.42,4.9,4.02,8.38,4.87&quot;],&quot;水&quot;:[&quot;M52.77,15.08c1.08,1.08,1.67,2.49,1.76,5.52c0.4,14.55-0.26,62.16-0.26,67.12c0,9.78-7.52,0.03-9.02-1.22&quot;,&quot;M17.5,45.75c1.75,0.62,3.73,0.43,5.25,0C25.88,44.88,36.09,41,38.59,40s4.47,1.24,3.75,3.5C39,54,28.25,69,19,74.75&quot;,&quot;M81.22,27.5c-0.22,1.25-0.72,2.25-1.52,2.97c-5.64,5.1-12.45,9.78-22.45,13.78&quot;,&quot;M57,46c8.82,10.73,19.23,21.46,28.42,27.42c2.16,1.4,4.52,3,7.08,3.58&quot;],&quot;木&quot;:[&quot;M19.5,39.86c2.45,0.57,5.23,0.8,8.04,0.57C40.75,39.38,63,36.5,79.78,36.15c2.8-0.06,4.54,0.1,7.34,0.5&quot;,&quot;M51.75,10.5c1.19,1.19,2,3,2,5c0,8.65,0,55.15-0.14,74.75c-0.03,4.19-0.07,7.15-0.11,8.25&quot;,&quot;M50.75,39.5c0,1.12-0.61,2.44-1.42,3.95C41.75,57.5,26.7,73.93,15.75,80.25&quot;,&quot;M54.5,39c4.62,6,23,25.75,31.76,34.61c2.27,2.29,4.61,4.39,7.49,5.64&quot;],&quot;金&quot;:[&quot;M51.75,11.88c0.25,1.52-0.22,3.57-0.8,4.84C47.73,23.79,33.13,47.1,14.5,58&quot;,&quot;M52.25,18.25c9.5,7.5,34.14,30.88,37.21,32.67c3.12,1.82,4.14,2.66,5.54,2.83&quot;,&quot;M34.02,47.08c1.69,0.65,3.85,0.36,5.6,0.21c6.91-0.6,14.33-1.69,23.99-2.64c2.07-0.2,4.1-0.4,6.15,0.12&quot;,&quot;M30.18,64.96c1.95,0.67,4.47,0.31,6.47,0.12c9.24-0.87,17.42-1.58,31.35-2.53c2.3-0.16,4.68-0.36,6.96,0.08&quot;,&quot;M51.47,48.82c0.89,0.85,0.89,3.76,0.89,4.43c0,3.64,0.27,38.71,0.22,39.82&quot;,&quot;M31,74.75c3.25,3,7.48,9.27,8.5,12&quot;,&quot;M73.01,72.11c0.24,1.14,0.11,2.46-0.54,3.51C70.38,79,66.44,83.22,63,86&quot;,&quot;M18.5,94.86c2.88,1.01,6.41,0.4,9.37,0.15c16.55-1.42,32.95-2.12,51.51-3c3.13-0.15,6.32-0.27,9.38,0.59&quot;],&quot;土&quot;:[&quot;M26.63,50.89c1.63,0.4,4.64,0.6,6.26,0.4C43.5,50,62.12,48,75.66,46.92c2.71-0.22,4.36,0.19,5.72,0.39&quot;,&quot;M52.17,17.37c1.17,1.17,2.02,3.13,2.02,4.64c0,10.25,0.14,61.06,0.14,63.36&quot;,&quot;M15.38,87.73c2.12,0.54,6.01,0.73,8.12,0.54C46,86.25,69,84.62,90.34,83.79c3.53-0.14,5.65,0.26,7.41,0.53&quot;],&quot;曜&quot;:[&quot;M15.5,29.81c1,0.69,1.61,2.1,1.61,3.52c0,1.42-0.2,40.33-0.2,41.04c0,0.71-0.05,1.76-0.05,2.88&quot;,&quot;M18.06,31.1c4.41-0.66,14.19-2.61,15.41-2.61c1.78,0,2.54,1.75,2.54,3.02c0,2.14-0.31,25.27-0.3,40.9c0,1.61-0.1,2.31-0.1,3.38&quot;,&quot;M18.42,51.59c3.71-0.46,11.71-1.59,15.98-2.03&quot;,&quot;M18.12,74.29c4.38-0.42,10.63-1.67,16.08-2.17&quot;,&quot;M41.5,16.5c1.5,0.75,2.5,0.75,4.75,0.5S56.5,15.5,58,15.25s3.5,1.5,3.5,3c0,1.22-0.17,14.07-0.23,20c-0.01,1.35-0.02,2.33-0.02,2.75&quot;,&quot;M43.75,28.25c1.25,0.38,2.98,0.16,4,0c2.38-0.38,9.75-2,12-2.25&quot;,&quot;M45,38.75c1.25,0.38,2.5,0.25,3.5,0s9.25-2,11.5-2.25&quot;,&quot;M70.75,14.75c1.5,0.75,2.75,1,5,0.75s12.5-1.75,14-2s3.5,1.5,3.5,3c0,1.19-0.16,13.38-0.22,19.5C93.01,37.6,93,38.78,93,39.25&quot;,&quot;M74.25,24.5c1.25,0.5,2.99,0.45,4,0.25c2.5-0.5,11.25-2,13.5-2.25&quot;,&quot;M74,35.75c1.5,0.38,3,0.25,4,0s11.5-2,13.75-2.25&quot;,&quot;M54.25,45c0.15,1.27-0.04,2.93-0.52,4.02c-3.07,6.93-6.95,12.8-13.98,21.23&quot;,&quot;M50.55,57.79c0.45,0.96,0.65,1.7,0.7,2.95c0.24,7.07-0.2,22.81-0.27,31.26c-0.02,2.51-0.01,4.47,0.06,5.5&quot;,&quot;M74.25,42.75c0.05,0.54-0.01,1.25-0.17,1.72c-1,2.96-2.27,5.25-4.57,8.86&quot;,&quot;M50.98,56.53c5.87-0.68,25.46-2.41,34.02-3.27c1.92-0.19,3.25-0.26,4.86,0.08&quot;,&quot;M69.83,55.88c0.67,1.12,1.12,2.27,1.12,2.83c0,5.71,0.29,22.65,0.08,31.64&quot;,&quot;M52.51,68.36c5.25-0.53,21.05-2.1,29.5-2.84c2-0.17,3.25-0.02,4.91,0.03&quot;,&quot;M52.18,79.71c5.66-0.46,22.39-1.91,31.08-2.66c2.3-0.2,3.23-0.05,4.61,0.09&quot;,&quot;M52.11,93.02c5.61-0.65,26.25-2.06,36.63-2.86c2.93-0.23,4.26-0.16,5.7,0&quot;],&quot;年&quot;:[&quot;M40.01,11.89c0.24,1.61-0.01,2.86-0.84,4.46c-2.53,4.84-6.91,11.4-15.86,19.62&quot;,&quot;M39.13,23.62c2.25,0.38,4.4,0.18,5.79,0.03c11.7-1.27,21.33-2.9,33.22-4.07c2.3-0.23,4.2,0,5.35,0.26&quot;,&quot;M30.13,43.59c1.36,0.33,3.87,0.46,5.21,0.33c10.91-1.05,28.53-3.42,40.78-4.26c2.26-0.15,3.63,0.16,4.76,0.32&quot;,&quot;M33.75,44.5c1,1.25,1,1.97,1.01,3.5C34.8,52.33,35,65.29,35,66.25&quot;,&quot;M13.88,67.74c1.97,0.47,5.61,0.66,7.57,0.47c20.21-2.03,36.35-4.62,66.65-5.31c3.29-0.08,5.26,0.22,6.91,0.46&quot;,&quot;M56.56,25.46c1.12,1.12,1.79,3.54,1.79,4.94c0,0.89-0.05,44.26-0.13,61.6c-0.01,3.12-0.03,5.39-0.05,6.38&quot;],&quot;時&quot;:[&quot;M16,29.84c0.75,0.66,1.21,1.62,1.21,3.07c0,1.18-0.16,30.08-0.21,40.85c-0.01,2.42-0.02,3.95-0.02,4.08&quot;,&quot;M17.78,30.74c4.65-0.63,16.12-2.07,17.6-2.25c1.52-0.18,3,1.5,2.88,2.57c-0.24,2.17-0.36,24.9-0.35,40.79c0,1.63-0.12,3.35-0.12,4.43&quot;,&quot;M18.75,52c4.5-0.75,13.5-2.12,18.22-2.35&quot;,&quot;M17.8,74.52c6.2-0.92,11.45-1.89,18.94-2.7&quot;,&quot;M51.44,29.03c1.37,0.44,3.63,0.34,5,0.19c9.79-1.09,16.34-2.34,25.62-3.08c2.27-0.18,3.9-0.04,5.04,0.18&quot;,&quot;M67.59,11.37c0.89,0.9,1.59,2.24,1.59,3.75c0,8.39,0.03,27.02,0.03,27.6&quot;,&quot;M45.38,45.35c1.49,0.44,4.21,0.59,5.71,0.44c11.29-1.16,25.66-3.29,39.2-3.99c2.48-0.13,3.97,0.21,5.21,0.43&quot;,&quot;M46,60.99c1.43,0.46,4.04,0.58,5.49,0.46c12.01-1.07,26.89-3.07,39.07-3.89c2.38-0.16,4.41,0.22,5.6,0.44&quot;,&quot;M78.07,46.08c1.11,1.11,1.66,2.56,1.71,5.06c0.23,12.03-0.09,34.43-0.09,38.52c0,9.83-5.42,2.19-7.66-0.04&quot;,&quot;M56.75,70.38c2.87,1.76,6.55,6.38,7.27,9.12&quot;],&quot;分&quot;:[&quot;M41.12,19.38c0.25,1.24-0.44,3.01-1.1,4.08C34.31,32.72,27.13,40.62,13,51.25&quot;,&quot;M54.69,13.75c7.56-0.12,20.68,19.17,29.41,25.95c3.07,2.39,6.02,4.05,10.4,5.3&quot;,&quot;M29.35,55.37c2.42,0.83,4.97,0.75,7.42,0.37c11.06-1.7,28.87-5.3,34.1-5.76c3.69-0.33,5.08,1.48,4.88,3.77c-0.54,6.05-5.94,29.03-10.5,36.3c-4.99,7.96-5.74,4.21-9.84-0.49&quot;,&quot;M49.12,57.25c0.15,1.49,0.06,2.72-0.56,4.08C43.5,72.5,35.75,82,22.5,90.75&quot;],&quot;半&quot;:[&quot;M26.02,22.58c3.9,2.41,10.07,9.89,11.04,13.63&quot;,&quot;M82.75,18.75c0.16,1.19-0.39,2.25-1.01,3.2c-2.57,3.96-7.16,8.76-12.62,12.92&quot;,&quot;M28.3,48.57c1.78,0.38,5.07,0.21,6.83,0.03c10.62-1.09,29.12-2.99,38.5-3.67c2.97-0.22,4.75-0.17,6.24,0.02&quot;,&quot;M13.5,67.22c2.25,0.91,6.85,1.03,9.22,0.78c18.28-1.87,40.4-3.58,62.61-4.38c4-0.14,6.41,0.25,8.42,0.52&quot;,&quot;M52.67,11.5c1.23,1.23,1.85,3.17,1.85,4.4c0,7.6,0.1,54.35,0.1,75.1c0,3.18-0.07,5.46-0.11,6.5&quot;],&quot;今&quot;:[&quot;M49.42,14.25c0.1,1.11-0.11,2.93-0.71,4.47C44.5,29.5,32,47.25,11.5,61.75&quot;,&quot;M50.66,18.99c6.1,7.28,32.37,31.03,39.1,36.36c2.28,1.81,5.21,2.58,7.49,3.09&quot;,&quot;M39.23,50.26c1.27,0.24,2.64,0.37,4.13,0.18c5.39-0.68,11.02-1.69,15.86-2.31c1.8-0.23,3.66-0.38,4.8-0.08&quot;,&quot;M33.25,67.75c2.12,0.38,3.57,0.61,6,0.25c6.31-0.93,18.5-3.25,25.24-4.44C68.48,62.85,70,65,68,68.75C63.33,77.5,58.75,85,53,94.5&quot;],&quot;毎&quot;:[&quot;M44.13,10.62c0.11,1.39-0.04,2.48-0.54,3.78c-2.23,5.81-9.37,16.73-16.84,22.34&quot;,&quot;M43.77,23.04c1.73,0.08,3.68,0.03,4.73-0.04c6.88-0.46,19.87-3.02,27.66-4.42c2.11-0.38,3.74-0.39,5.84-0.14&quot;,&quot;M41.55,34.87c1.1,0.91,1.96,3.97,1.36,6.3C40.25,51.5,33.25,67,29.45,72.74c-1.98,2.99-0.52,4.58,1.57,4.62c11.98,0.26,25.1,1.88,37.95,5.72c5.92,1.77,11.28,4.6,15.77,7.92&quot;,&quot;M44.26,37.32c9.17-1.07,22.11-2.57,28.58-3.32c3.9-0.45,6.36,2.01,6.1,5.12c-1.44,17.51-4.81,42.51-11.32,56.07c-2.99,6.22-6.5-1.15-7.52-2.27&quot;,&quot;M58.71,39.5c0.51,1,0.75,2.74,0.53,4c-1.53,8.5-7.11,27-9.92,35&quot;,&quot;M10.88,58.99c2.46,0.56,6.98,0.49,9.45,0.31c21.05-1.54,44.8-3.42,69.3-3.88c4.11-0.08,6.57,0.26,8.62,0.54&quot;],&quot;週&quot;:[&quot;M45.93,17.66c1.02,1.02,1.67,2.55,1.67,4.3c0,21.04,2.53,45.54-8.1,58.79&quot;,&quot;M48.49,18.95c9.79-1.25,32.29-4.39,33.41-4.45c4.34-0.24,5.42,1.26,5.42,5.64c0,1.93,0.17,52.16,0.17,56.6c0,9.53-5.28,4.86-8.4,1.69&quot;,&quot;M55.43,31.42c0.83,0.25,2.88,0.54,3.72,0.51c4.54-0.18,13.51-1.92,16.84-2.23c1.39-0.13,2.22-0.07,2.91,0.03&quot;,&quot;M65.84,22.3c0.99,0.99,1.51,2.32,1.51,3.39c0,3.19-0.07,10.44-0.07,16.81&quot;,&quot;M53.61,44.53c1,0.35,2.64,0.41,4.31,0.23C65,44,70.38,43.38,77.01,42.4c1.84-0.27,3.25-0.4,4.81-0.26&quot;,&quot;M56.17,53.75c1.08,0.75,1.6,2.01,1.71,2.97c0.5,4.53,1.05,6.63,1.48,10.27c0.17,1.46,0.3,2.58,0.34,2.94&quot;,&quot;M58.6,55.4c5.86-1.39,13.69-2.83,16.29-3.02c1.73-0.13,2.48,1,2.28,2.58c-0.38,2.92-1.34,5.94-2.12,9.61&quot;,&quot;M60.65,67.64c2.32-0.44,8.3-1.1,13.1-1.63c1.43-0.16,2.69-0.28,3.61-0.34&quot;,&quot;M20.71,19c3.1,1.41,8.02,5.8,8.79,8&quot;,&quot;M13.25,54.95c2.25,0.92,4.29,0.84,5.25,0.48c2.5-0.93,8.31-4.06,9.75-4.68c2.88-1.24,4.14,0.9,1.5,3.78c-6.38,6.98-6,8.23-0.75,14.1c1.83,2.04,2.03,3.44-1.5,6.12c-5.25,4-7.5,5.75-10.75,8.5&quot;,&quot;M13.75,85.75c4.12-0.88,10.41-0.97,15-0.5c7.25,0.75,29.97,5.13,34.5,6c13,2.5,21.25,4.5,30.25,2.75&quot;],&quot;間&quot;:[&quot;M18.64,15.3c0.71,0.71,1.18,1.82,1.18,3.43c0,3.89-0.05,56.65-0.19,72.77c-0.02,1.92-0.03,4.03-0.05,4.65&quot;,&quot;M21.01,16.81c5.75-0.6,18.73-2.74,20.5-2.84c1.85-0.1,2.86,0.28,2.9,2.02c0.06,2.75-0.5,16.1-0.85,20.76c-0.12,1.55-0.19,2.57-0.19,2.7&quot;,&quot;M20.95,27.27c5.99-0.61,14.92-2.02,21.88-2.6&quot;,&quot;M21.02,39.04c8.11-1.19,14.14-2.1,21.31-2.64&quot;,&quot;M63.19,13.1c0.98,0.98,1.34,2.15,1.34,2.97c0,5.8-0.08,12.65-0.06,18.93c0.01,2.01,0.02,3.4,0.06,3.58&quot;,&quot;M65.32,14.77c5.97-0.68,20.69-3.19,22.38-3.28c1.8-0.09,2.81,0.88,2.81,2.82c0,17-0.22,66.12-0.22,78.44c0,10.5-6.35,1.36-7.72,0.23&quot;,&quot;M65.63,24.79c4.49-0.42,19.73-1.99,23.35-1.99&quot;,&quot;M65.22,36.07c6.41-0.32,16.53-1.32,23.49-1.81&quot;,&quot;M40.56,50.95c0.74,0.74,1.04,1.93,1.04,2.99c0,0.83-0.08,20.84-0.05,29.06c0.01,2.25,0.02,2.77,0.05,3&quot;,&quot;M42.26,52.09c5.56-0.48,19.71-1.98,21.3-2.1c1.68-0.13,2.76,1.46,2.63,2.24c-0.21,1.24-0.41,20.66-0.48,29.02c-0.02,2.29-0.03,3.8-0.03,3.97&quot;,&quot;M42.64,66.6c5.11-0.48,17.36-1.73,21.88-2.07&quot;,&quot;M42.25,82.8c5.13-0.3,17-1.55,22.26-2.05&quot;],&quot;午&quot;:[&quot;M37.5,9.14c0.06,0.7,0.22,1.85-0.11,2.83C35.25,18.25,27,29.62,17.5,39&quot;,&quot;M32.13,27.28c2.75,0.09,4.3-0.07,5.82-0.21c12.92-1.2,20.78-2.82,33.1-4.68c2.49-0.38,4.69-0.24,5.95,0.03&quot;,&quot;M13.88,54.53c3,0.72,7.23,0.71,9.74,0.46c19.64-1.99,42.64-4.99,63-6.16c4.22-0.24,6.77,0.22,8.89,0.45&quot;,&quot;M53.06,28.13c1.03,1.03,1.79,2.37,1.79,4.33c0,0.88-0.02,44.17-0.13,61.04c-0.02,2.88-0.03,4.96-0.05,5.88&quot;],&quot;前&quot;:[&quot;M33.5,14.5c3.34,2.07,8.64,8.5,9.48,11.72&quot;,&quot;M72.67,12c0.26,1.14,0.07,2.23-0.52,3.19c-2.12,3.41-6.02,8.65-8.6,11.31&quot;,&quot;M13.38,33.24c2.63,0.72,7.46,0.94,10.08,0.72c21.67-1.83,39.8-3.58,62.68-4.61c4.37-0.2,7.01,0.34,9.2,0.7&quot;,&quot;M24.65,45.46c1.1,1.29,1.63,2.92,1.63,4.17c0,3.05,0.1,28.65,0.08,40.62c0,3.23-0.03,5.46-0.1,6&quot;,&quot;M27.01,46.8c2.3-0.41,13.37-2.3,17.2-2.9c2.2-0.34,3.51,1.1,3.51,3.24c0,1.02-0.16,30.82-0.16,44.63c0,5.48-3.79,2.98-5.93,0.53&quot;,&quot;M27.65,60.01c5.72-0.76,13.63-1.81,18.59-2.32&quot;,&quot;M27.57,73.47c4.41-0.51,13.3-1.54,18.4-1.89&quot;,&quot;M62.27,47.58c1.2,1.2,1.76,2.67,1.76,4.58c0,8.93-0.01,15.1-0.09,18.59c-0.04,1.49-0.09,2.76-0.16,4.05&quot;,&quot;M78.85,39.25c1.26,1.26,2.01,2.88,2.01,5.02c0,14.56-0.01,42.91-0.01,47.87c0,8.62-5.96,1-7.46-0.25&quot;],&quot;後&quot;:[&quot;M34.25,18.38c0,1.3-0.24,2.26-0.93,3.05c-3.57,4.07-8.94,8.7-15.91,13.39&quot;,&quot;M38.75,36.62c0.14,1.32-0.42,2.67-1.13,3.79c-3.45,5.4-11.43,14.17-22.37,22.71&quot;,&quot;M28.4,54.36c0.81,0.81,1.38,2.02,1.38,3.28c0,0.68,0.03,25.57-0.07,35.86c-0.02,1.74-0.04,3.05-0.05,3.75&quot;,&quot;M61.16,12.62c0.29,1.07,0.21,2.43-0.39,3.54c-2.52,4.6-6.1,9.01-9.88,12.93c-1.01,1.05-1.26,2.17,0,2.68c2.96,1.19,6.3,3.11,8.88,5.07&quot;,&quot;M76.35,20.12c0.27,1.25-0.3,2.56-1,3.31c-7.6,8.19-16.6,16.57-26.61,25.32c-1.25,1.1-0.74,1.76,0.74,1.41C55.72,48.69,74.5,44.4,82.5,43&quot;,&quot;M77.88,36.25c3.66,2.21,9.46,9.07,10.38,12.5&quot;,&quot;M57.75,53c0.09,1.13,0.02,2.27-0.4,3.33c-2.2,5.51-7.08,13.22-15.6,20.92&quot;,&quot;M59.31,59.82c1.17,0.13,2.31,0.02,3.29-0.09c2.65-0.29,9.84-1.39,13.62-2.29c2.59-0.62,3.24,0.68,2.67,2.4C75.25,70.75,59.25,88.88,43.02,96.5&quot;,&quot;M54.75,67.5c2.52,0,19.5,15.75,31.17,24.23c2.31,1.68,4.74,3.38,7.58,4.01&quot;],&quot;上&quot;:[&quot;M52.31,15.88c1.15,1.15,2.01,3.12,2.01,5.12c0,0.82-0.22,63.62-0.25,64.63&quot;,&quot;M58,44.75c7-0.62,14.25-2.5,17.75-3c1.38-0.2,3.5-0.38,4.75,0&quot;,&quot;M13.38,88.28c3.6,1.15,7.45,0.62,11.13,0.34c16.23-1.23,41.16-2.66,60.24-2.92c3.65-0.05,7.47-0.32,11,0.82&quot;],&quot;下&quot;:[&quot;M13.25,22.5c0.94,0.23,5.18,0.96,7.74,0.75c17.87-1.5,46.54-4.75,66.38-4.75c2.92,0,6.42,0.75,7.88,1.25&quot;,&quot;M52.97,23.25c0.93,1.07,1.56,2.75,1.56,5.3c0,8.65-0.2,39.42-0.27,57.2c-0.02,3.86-0.02,5.89-0.02,8.25&quot;,&quot;M67.83,37.17C72.75,39.5,79.88,47.62,82,52.12&quot;],&quot;左&quot;:[&quot;M20.75,40.17c2.95,0.49,5.68,0.29,8.64-0.05c14.5-1.68,29.75-4.47,47.22-5.96c2.83-0.24,5.87-0.58,8.64,0.26&quot;,&quot;M55.48,12.5c0.27,1.57,0.21,4.18-0.29,5.93C46.59,48.64,32.07,74.14,11.25,91&quot;,&quot;M43.25,64.59c1.25,0.29,2.38,0.29,3.86,0.17c4.86-0.37,17.91-2.17,26.92-3.77c1.88-0.33,3.97-0.5,5.97-0.11&quot;,&quot;M58.54,66.75c1.04,1.04,1.91,2.62,1.91,4.03c0,6.84,0.04,13.22,0.04,18.72&quot;,&quot;M28.5,92.25c2.76,0.84,5.92,0.51,8.75,0.34c14.54-0.9,32.08-2.65,48.13-3.26c3.25-0.12,6.38-0.17,9.49,0.93&quot;],&quot;右&quot;:[&quot;M53.5,21.5c0.62,1.12,0.69,2.23,0.25,4C49.62,42,39.5,61,25.25,74.25&quot;,&quot;M13,42.15c1.9,0.56,5.9,0.52,7.79,0.34c23.41-2.24,49.76-5.74,67.67-6.3c3.24-0.1,6.45,0.31,9.17,0.81&quot;,&quot;M41.75,66.5c0.75,0.75,1.35,1.93,1.54,2.95c0.94,5,2.38,16.66,3.07,22.76c0.24,2.15,0.39,2.8,0.39,3.54&quot;,&quot;M43.25,68c5.25-0.5,29.75-3.25,37-3.75c1.75-0.12,3.24,1.52,3,2.75c-1,5.12-3.38,18-4.5,23.25&quot;,&quot;M47,93.25c5.79-0.2,19.51-1.58,28.25-2.23c2.21-0.17,4.18-0.27,5.75-0.27&quot;],&quot;中&quot;:[&quot;M19.89,36.87c1,1,1.74,2.25,2.01,3.65c1.13,5.71,2.58,13.06,4.17,22.97c0.27,1.68,0.55,4.43,0.83,6.26&quot;,&quot;M23.33,39.51C37.12,37.62,70.88,34,84,33.24c4.38-0.25,6,1.14,5.12,4.42c-1.53,5.7-5.61,20.18-6.12,22.09&quot;,&quot;M27.74,64.84C40.12,63.62,61.86,62.2,79,60.77c2.36-0.2,5.75-0.27,7.25-0.27&quot;,&quot;M52.5,11.5c1.44,1.44,2.25,3.5,2.25,5.06c0,0.9,0.06,56.6-0.15,76.69c-0.03,3.3-0.07,5.6-0.1,6.5&quot;],&quot;外&quot;:[&quot;M35.44,15.75c0.53,1.77,0.62,3.56,0.13,5.33C33.25,29.5,26.75,44.75,16.5,55&quot;,&quot;M36.72,28.81c1.47,0.25,3.12,0.16,4.56-0.14c3.52-0.72,5.83-1.04,9.45-2.2c3.61-1.17,4.39,1.7,3.77,3.54c-5.46,16.06-22.18,50.32-39.75,58.5&quot;,&quot;M27.5,47c3.71,1.68,9.57,6.89,10.5,9.5&quot;,&quot;M65.56,12.13c1.09,1.09,1.76,2.87,1.76,5.25c0,0.78-0.07,54.62-0.19,73.62c-0.02,3.16-0.04,5.33-0.06,6.13&quot;,&quot;M71.5,42.5c7.85,3.75,20.29,15.42,22.25,21.25&quot;],&quot;北&quot;:[&quot;M13.25,48.75c2.61,0.5,3.52,0.51,6.12,0.25c3.76-0.38,14.13-3.38,17.63-3.75&quot;,&quot;M37.25,21.5c1.19,1.19,2,3.25,2,4.75c0,1,0.25,48,0.25,50.75&quot;,&quot;M12.75,88.75c1.88,1.12,4.29,0.87,6.5-0.25C32.5,81.75,36.5,80,43.5,76.25&quot;,&quot;M90.25,33c-0.25,1.75-1.13,3.26-2.19,4.07C82.12,41.62,73.75,46.5,65,49.75&quot;,&quot;M60.37,19.5c1.38,1.5,1.91,3.25,1.91,5.3c0,1.12-0.28,33.71-0.28,47.7c0,14,2,15.75,17.25,15.75c15.5,0,16.5-1.5,16.5-12.49&quot;],&quot;南&quot;:[&quot;M27.38,28.25c1.82,0.38,4.2,0.45,7.22,0.2c11.52-0.95,28.37-3.2,40.58-3.7c3.03-0.12,4.92-0.23,6.82,0&quot;,&quot;M52.35,10.75c0.95,0.95,1.55,2.86,1.55,3.96c0,7.3,0,19.47,0,28.54&quot;,&quot;M20.25,45.75c1.25,1.25,1.89,2.74,2,5c0.19,4.06,0.83,27.03,1.12,37.99c0.08,3.23,0.13,5.48,0.13,6.01&quot;,&quot;M22.78,47.6c16.31-1.76,59.32-6.35,60.97-6.35c5,0,6.25,1.62,6.25,6.75c0,5.25-0.25,37.3-0.25,43.05c0,7.7-3.5,6.45-9.5,0.95&quot;,&quot;M38.5,49.38c2.58,1.74,6.66,7.14,7.31,9.84&quot;,&quot;M66.25,45.5c0.05,0.89-0.07,1.75-0.37,2.59c-0.8,2.73-2.75,6.92-5.26,9.66&quot;,&quot;M34.78,61.67c1.81,0.39,4.55,0.55,6.36,0.39c9.11-0.8,18.63-1.54,27.63-2.39c2.99-0.28,4.83-0.32,6.33-0.12&quot;,&quot;M33.13,74.19c1.81,0.49,4.55,0.83,6.38,0.74c10.73-0.56,22.66-1.94,31.04-2.66c3-0.26,4.82-0.02,6.33,0.23&quot;,&quot;M53.5,62.5c0.75,0.75,1,2.14,0.99,3.5c-0.04,6.22-0.15,18.46-0.21,25.26c-0.02,2.19-0.03,3.81-0.03,4.49&quot;],&quot;東&quot;:[&quot;M30.63,25.23c2.36,0.62,4.86,0.47,7.25,0.22c8.24-0.86,22.7-2.7,32.4-3.57c2.38-0.21,4.51-0.14,6.85,0.22&quot;,&quot;M26.77,37.86c1.03,1.03,1.78,2.05,2.07,3.44c0.86,4.14,3.61,16.02,4.97,21.91c0.43,1.87,0.72,3.14,0.76,3.36&quot;,&quot;M29.55,39.31c14.7-2.12,34.45-4.37,48.18-5.5c2.89-0.24,4.02,2.01,3.49,4.2c-1.33,5.48-2.84,12.21-5.27,19.87c-0.52,1.65-1.08,3.3-1.7,4.94&quot;,&quot;M32.25,51.07c8.12-0.88,37.75-4.12,45.57-4.4&quot;,&quot;M35.76,63.99c8.99-1.05,28.37-2.68,38.3-3.23&quot;,&quot;M51.25,12.32c1.5,1.5,2.25,3.5,2.25,5.25c0,4.5,0.06,55.21-0.14,75.75c-0.04,3.7-0.07,5.29-0.11,6.25&quot;,&quot;M51.62,63.94c-0.24,1.91-0.81,2.76-1.27,3.45c-6.59,9.83-20.19,21.12-31.6,26.42&quot;,&quot;M55,64.44c7.5,7.2,21.77,17.49,29.78,22.16c2.81,1.64,6.1,3.51,9.34,4.09&quot;],&quot;西&quot;:[&quot;M20.63,24.22c2.31,0.34,6.05,0.3,8.35,0.09c15.15-1.43,36.18-3.38,49.83-4.02c3.84-0.18,6.66-0.09,8.58,0.08&quot;,&quot;M18.25,48.63c1.25,1.25,2.14,3.42,2.33,4.49c1.25,6.77,3.24,20.18,5.12,33.35c0.27,1.87,0.53,3.72,0.77,5.53&quot;,&quot;M20.75,50.26c17.77-1.6,53.73-5.05,63.68-5.27c4.51-0.1,7.27,2.79,6.55,6.54c-1.6,8.35-4.1,21.97-6.49,32.97c-0.36,1.68-0.61,2.5-1.13,4.6&quot;,&quot;M42.75,26.75c0.5,1.25,0.81,3.99,0.85,5.73C43.98,48.84,42,64.5,30.64,73.77&quot;,&quot;M60.6,24.46c0.94,1.12,1.74,2.94,1.74,4.67c0,13.33-0.45,21.61-0.45,27.37c0,10.25,0.62,11.14,11.36,11.14c6.38,0,8.94-0.54,10.55-1.53&quot;,&quot;M27.34,88.55C40.75,88,66.69,86.2,83,85.97&quot;],&quot;大&quot;:[&quot;M19.38,48.25c1.49,0.51,5.03,0.89,7.6,0.49C41.12,46.5,63,43,77.19,42.44c2.7-0.11,4.87-0.06,7.31,0.33&quot;,&quot;M49.5,18c0.88,2.12,1.03,4.16,0.99,6.32C50,57,37.75,81.12,18,91.75&quot;,&quot;M49.5,46c9,10.5,28.5,36.25,37.49,43.28c3.06,2.39,5.62,3.75,7.01,3.97&quot;],&quot;小&quot;:[&quot;M54.71,18.37c1.4,1.4,2.26,3.13,2.26,5.77c0,14.56-0.26,54.91-0.26,59.87c0,11.25-7.21,1.5-8.71,0.25&quot;,&quot;M31.95,47.68c0.17,0.82,0.1,1.72-0.34,2.9C29.5,56.38,24.38,66.25,16.75,73&quot;,&quot;M80.96,47.12C86.62,52,95.25,64.62,97,72&quot;],&quot;長&quot;:[&quot;M34,14.75C35.25,16,36,18,36,19.5s0,33.5,0,35.75&quot;,&quot;M37.75,16c9.6-0.15,21.73-3.26,26.63-4.2c1.97-0.38,3.9-0.41,5.87,0.06&quot;,&quot;M37.25,29.5C48.12,28.25,57,27,64,25.72c1.96-0.36,3.76-0.25,5.25,0.06&quot;,&quot;M37.5,42.5c8.88-0.86,21.62-2.62,26.75-3.53c1.97-0.35,3.88-0.32,5.75,0&quot;,&quot;M10.88,58.23c3.14,0.86,6.44,0.68,9.62,0.29c19.73-2.35,44.86-6.1,65-7.61c2.97-0.22,5.7-0.08,8.63,0.4&quot;,&quot;M31.25,60.25c0.94,0.94,1.39,2.38,1.39,4c0,11.82-0.7,28.19-0.7,30.19s1.65,3.14,3.74,1.64c2.09-1.5,17.25-11.09,20.03-12.59&quot;,&quot;M76.52,55.25c0.23,1.25-0.33,2.45-1.05,3.41C73.5,61.25,69.62,65,64.62,68.75&quot;,&quot;M46.5,62.25c8.21,0,34.52,25.9,44.28,29.5C93.12,92.61,94.51,93,97,93.5&quot;],&quot;高&quot;:[&quot;M52.47,11.75c1.08,1.08,1.48,2.25,1.48,4.22c0,1.53-0.12,4.28-0.12,5.45&quot;,&quot;M22.9,25.7c2.68,0.3,4.96,0.26,7.47-0.04c14.76-1.78,35.83-4.16,49.3-5.17c2.89-0.22,4.99-0.12,6.81,0.33&quot;,&quot;M36.25,34.75c1,0.63,1.5,1.5,1.78,2.89c0.72,3.59,1.36,7.37,2.05,11.85c0.2,1.3,0.17,1.82,0.44,3.01&quot;,&quot;M39.05,36.33c9.95-1.71,23.99-3.65,29.61-4.1c2.96-0.23,3.83,1.02,3.14,3.31c-0.88,2.93-2.17,7.01-3.32,10.2&quot;,&quot;M41.28,49.94c6.57-0.42,16.36-1.87,25.72-2.71c1.3-0.12,2.59-0.22,3.85-0.31&quot;,&quot;M21,60.25c1.31,1.31,1.9,2.76,2.21,5c0.79,5.62,2.21,18.19,3.16,26.99c0.15,1.39,0.28,2.67,0.38,3.76&quot;,&quot;M24.06,64c16.08-1.51,58.63-6.55,60.19-6.75c3.75-0.5,6,1.5,5.25,6.25c-1.49,9.45-2.62,19.62-5.25,28.25c-2.05,6.75-5.38,2.5-7.8,0&quot;,&quot;M41.5,71.68c0.66,0.66,1.16,1.63,1.31,2.47c0.89,2.82,1.58,7.24,2.39,11.81c0.21,1.16,0.4,1.78,0.56,2.79&quot;,&quot;M44.02,73.08c6.79-1.36,17.1-2.86,20.92-3.35c1.81-0.23,3.31,1.02,3.13,2.5c-0.35,2.92-1.96,8.31-3.12,11.75&quot;,&quot;M46.44,87.05c4.61-0.4,11.01-1.31,17.32-1.94c0.88-0.09,1.77-0.17,2.65-0.26&quot;],&quot;安&quot;:[&quot;M53.06,13.73c0.92,0.92,1.63,2.6,1.6,3.75c-0.09,3.62-0.09,7.03-0.09,10.33&quot;,&quot;M26.67,28.85c0,3.6-3.32,13.5-4.83,15.9&quot;,&quot;M27.53,30.96c12.72-1.58,40.97-4.21,54.14-4.86c9.82-0.48,1.45,6.65-2.17,9.9&quot;,&quot;M49.87,36.87c0.51,1.45,0.52,3.55,0,5.32c-2.74,9.22-7.03,20.09-13.85,30.42c-1.43,2.17-0.76,2.95,1.26,3.14c8.23,0.75,21.61,4.5,33.74,11.77c4.36,2.61,8.24,5.98,10.24,9.48&quot;,&quot;M70,50c0.38,1.48,0.22,3.46-0.26,5.13c-3.88,13.52-17.45,34.6-43.24,42.49&quot;,&quot;M15.13,60.22c2.85,0.74,6.22,0.42,9.12,0.2c11.33-0.85,40.73-4.55,64.72-4.64c2.27-0.01,6.19,0.33,8.03,0.96&quot;],&quot;新&quot;:[&quot;M33.72,12.76c0.88,0.88,1.53,2.49,1.53,4.35c0,2.63,0.01,1.9,0.02,9.04&quot;,&quot;M18.32,28.69c1.19,0.11,2.61,0.17,3.79,0.03c7.4-0.84,18.02-2.59,25.62-3.22c1.98-0.16,3.19-0.03,4.18,0.02&quot;,&quot;M23.62,34.38c3.39,4.82,4.03,8.08,4.34,11.36&quot;,&quot;M45.59,29.5c0.62,1.09,0.38,2.59-0.08,3.75c-1.65,4.12-4.74,10.59-5.88,12.61&quot;,&quot;M14.17,50.95c1.78,0.27,3.57,0.27,5.34,0.05c7.96-1.02,21.06-2.74,29.12-3.36c1.96-0.15,3.91-0.03,5.87,0.11&quot;,&quot;M16.76,63.42c0.83,0.22,3.05,0.44,5.23,0.18c8.88-1.09,17.01-2.34,26.08-3.01c2.2-0.16,2.76-0.23,4.13,0&quot;,&quot;M34.38,51c1.12,1.12,1.5,2.75,1.5,4.22c0,1.31-0.15,24.25-0.25,34.78c-0.02,2.8-0.05,4.69-0.06,5&quot;,&quot;M34.25,62.84c0,1.41-0.35,2.47-0.87,3.37c-4.25,7.45-12.94,17.12-19.63,21.04&quot;,&quot;M39.25,68.5c4.71,2.98,7.9,5.97,9.49,8.43&quot;,&quot;M82.74,17.44c-0.12,0.93-0.46,2.3-1.27,3.21C76.25,26.5,70.5,30.62,61.69,35.7&quot;,&quot;M59.2,35.14c0.83,0.83,1.53,2.28,1.53,3.96c0,29.15-2.36,38.52-8.98,48.4&quot;,&quot;M62.89,47.36c1.98-0.11,3.36-0.31,4.54-0.48c7.82-1.13,18.82-2.38,26.29-3.3c1.18-0.15,3.25-0.17,3.99,0&quot;,&quot;M80.32,48.54c0.95,0.95,1.59,2.21,1.59,3.8c0,0.93,0.24,27.72,0.16,40.16c-0.02,2.33-0.04,4.17-0.06,5.25&quot;],&quot;古&quot;:[&quot;M11.25,43.25c2.75,0.62,5.54,0.83,9.53,0.5c23.85-2,49.47-4.12,67.35-4.75c4.02-0.14,6.87,0,9.12,0.5&quot;,&quot;M52.41,12.5c1.42,1.42,2.13,3.25,2.13,5.06c0,17.05-0.14,39.31-0.14,48.94&quot;,&quot;M31,67.77c1.12,1.12,2,2.73,2.24,4.48c0.61,4.43,1.87,12.12,3.22,20.93c0.2,1.31,0.39,2.59,0.57,3.83&quot;,&quot;M33.77,69.3c11.97-1.17,36.4-3.39,42.99-3.81c3.74-0.24,5.11,1.39,4.26,4.71c-1.18,4.63-3.81,13.6-5.23,20.06&quot;,&quot;M37.88,94.42c7.81-0.36,23.99-1.88,35.14-2.65c1.87-0.13,3.61-0.24,5.18-0.32&quot;],&quot;多&quot;:[&quot;M45.82,11.92c0.18,1.08-0.22,2.3-0.66,3.01C42.5,19.25,37,26.33,28.5,31.25&quot;,&quot;M48.24,16.65c1.38,0.22,3.15,0.08,4.79-0.12c5.59-0.66,9.72-1.28,14.9-2.3c3.15-0.62,4.07,1.15,3.01,3.46c-4.46,9.74-24.82,31.44-44.28,37.66&quot;,&quot;M40,28.25c2.67,1.56,7,6.5,7.75,9&quot;,&quot;M58.5,42.25c0.25,1.5-0.11,2.78-0.48,3.6C55.25,52,48.75,59.5,33.75,68.5&quot;,&quot;M60.42,48.62c1.58,0.13,3.01,0.09,4.6-0.09c5.86-0.66,9.23-1.16,13.48-2.03c3.13-0.64,4.62,1.62,3.48,4.09c-5,10.79-23.61,34.91-54.73,48.16&quot;,&quot;M48.25,63c2.93,1.73,7.67,7.22,8.5,10&quot;],&quot;少&quot;:[&quot;M53.46,14c0.9,0.9,1.76,2.23,1.76,4.33c0,12.04-0.01,37.2-0.01,40.65c0,9.77-6.71,2.04-8.21,1.17&quot;,&quot;M36.65,29.04c0.12,1.26-0.02,2.17-0.58,3.32c-2.85,5.83-11.53,15.7-18.65,20.56&quot;,&quot;M77,30c7.23,2.73,16.13,9.04,19.25,14.5&quot;,&quot;M76.75,41c0.14,1.34,0.06,3.54-0.79,5.39C68.67,62.17,49.7,86.63,24,98&quot;],&quot;白&quot;:[&quot;M55,13c0.38,1.5,0,3.25-0.57,4.29C51.32,22.93,46,31.12,36.81,40.22&quot;,&quot;M25.5,40.47c1.14,1.14,1.63,2.81,1.63,4.63c0,1.55,0.95,32.47,1.32,47.14c0.06,2.58,0.13,4.66,0.18,6&quot;,&quot;M28.27,43.98c13.98-1.73,39.08-4.47,49.67-5.48c5.19-0.5,7.37,0.76,7.06,5.38c-0.62,9.12-2.09,30.3-3.29,46.88c-0.17,2.42-0.33,4.65-0.46,6.57&quot;,&quot;M29.13,67.44C42.25,66,72.38,63.62,82.57,63.4&quot;,&quot;M29.69,94.49C43,93.75,66.62,92,80.19,91.41&quot;],&quot;山&quot;:[&quot;M52.49,15.5c1.38,1.38,2.26,3.5,2.26,5.75c0,0.75-0.22,58.3-0.25,59.25&quot;,&quot;M21.49,54.5c0.88,0.88,1.39,2.25,1.26,3.75c-0.58,6.99-1,16-2.5,23c-0.7,3.26,0.11,4,2,3.75c17-2.25,47.12-5.12,65.5-6&quot;,&quot;M89.24,49c0.94,0.94,1.64,2.38,1.51,4.25c-0.25,3.68-1.83,20.3-2.55,28.77c-0.22,2.64-0.39,4.51-0.45,4.98&quot;],&quot;川&quot;:[&quot;M27.22,25.68c0.91,1.57,1.18,3.45,1.19,5.37C28.5,43.5,28.5,69,17.39,84.15&quot;,&quot;M53.75,23.63c0.94,0.94,1.41,2.37,1.41,3.9c0,0.58-0.01,28.48-0.08,41.71c-0.02,3.31-0.04,5.74-0.06,6.63&quot;,&quot;M85.56,15.63c1.09,1.09,1.76,2.62,1.76,4.25c0,0.74,0.23,46.86,0.09,66.12c-0.03,4.31-0.06,7.61-0.09,8.63&quot;],&quot;田&quot;:[&quot;M18.25,27.48c1.2,1.2,2.11,2.68,2.28,3.95C22,42.25,23.52,62.11,24.81,80c0.17,2.4,0.34,3.75,0.49,6&quot;,&quot;M20.85,29.29c8.52-0.54,50.04-3.17,61.58-4.05c4.84-0.37,7.32,2.01,7.04,5.63c-0.69,8.8-2.83,30.69-3.99,46.64c-0.18,2.44-0.34,4.75-0.47,6.86&quot;,&quot;M53.25,29c0.88,0.88,1.19,2.12,1.19,3.5c0,9.52,0.31,46.37,0.31,47.25&quot;,&quot;M24,55.5c5.75-0.5,55.12-3.25,62.5-3.5&quot;,&quot;M25.98,83.07c14.77-0.82,39.39-2.07,58.18-2.83&quot;],&quot;天&quot;:[&quot;M21.63,24.83c1.81,0.46,5.14,0.4,6.94,0.21c14.55-1.53,35.18-4.16,50.1-5.25c3.01-0.22,4.83,0.22,6.34,0.45&quot;,&quot;M25.31,51.64c2.09,0.31,3.47,0.4,5.94,0.11c10.62-1.25,35.88-4.38,45.96-4.93c1.74-0.1,3.62,0.03,5.99,0.45&quot;,&quot;M50.32,26c0.68,1,1.3,3.43,1.29,5.37c-0.24,30.51-14.86,50.88-33.86,60.25&quot;,&quot;M50.1,51.39C58.71,60,75.07,78.48,86.59,87.05c2.33,1.73,4.41,3.08,7.91,4.2&quot;],&quot;気&quot;:[&quot;M37.75,9.25c0.25,1.62-0.25,2.75-1,4.25C35.63,15.74,28,25.25,24,29&quot;,&quot;M36.5,21.25c1.33-0.03,3.29-0.05,4.8-0.32c9.2-1.68,18.17-3.46,26.98-5.27c1.63-0.33,3.71-0.64,5.21-0.91&quot;,&quot;M31.25,32.75c1.5,0.38,3.3,0.26,4.96,0.08c7.67-0.83,19.54-2.58,29.14-4.39c1.94-0.37,3.64-0.41,4.91-0.45&quot;,&quot;M18.5,47c1.88,0.75,4,0.88,6.25,0.5c15.08-2.51,35-5.62,48.25-8c4.73-0.85,5.6,0.47,4.5,6.25c-4,21,0.71,40.32,11.5,50c7.25,6.5,6.5,0.75,6-5.25&quot;,&quot;M57,51.75c0.12,1.62-0.17,3.03-1,4.75C49.5,70,40.25,82.75,25.75,93.25&quot;,&quot;M30,63.75C41.5,68,54.5,78,62.25,90.5&quot;],&quot;雨&quot;:[&quot;M25.75,22.37c1.87,0.4,4.47,0.62,6.32,0.4c11.68-1.39,28.28-3.77,41.25-4.64c2.49-0.17,4.37-0.12,7.18,0.28&quot;,&quot;M15.5,41.25c1.25,1.5,1.66,3.26,1.89,5.19c1.24,10.69,2.19,26.61,2.66,36.31c0.13,2.7,0.2,5,0.2,6&quot;,&quot;M18.25,44.25c1.42-0.09,62.76-5.33,69.5-6c2.5-0.25,4.61,1,4.5,3.75c-0.5,12.75-1.77,28.11-6,44.75c-1.88,7.38-5.38,1.88-8.5-1.25&quot;,&quot;M52.25,23.5C53.31,24.56,54,26.25,54,28c0,0.82-0.25,37.8-0.43,53c-0.04,3.43-0.07,5.74-0.07,6.25&quot;,&quot;M31,53.5c4.21,1.24,8.95,3.94,11.25,6&quot;,&quot;M30.5,68.75c3.8,1.26,9.68,5.89,11.75,8&quot;,&quot;M66.88,48.88c4.98,1.99,10.63,5.97,12.62,7.62&quot;,&quot;M67.25,66.5c2.75,1,9,5.5,11,7.75&quot;],&quot;花&quot;:[&quot;M17,29.77c3,0.73,6.35,0.54,9.37,0.29c16.22-1.35,36.31-4.64,56.76-4.79c2.4-0.02,4.77,0.04,7.12,0.51&quot;,&quot;M32.25,16c1.25,0.5,2.25,1.62,2.5,2.75c1.33,5.97,4.86,19.92,5,20.75&quot;,&quot;M71.25,12.5c0.42,1.18,0.47,3.05,0,4.5c-2.19,6.77-6.14,19.12-6.75,20.75&quot;,&quot;M38.25,48.25c0.25,1.75-0.37,3.31-0.98,4.44C33.25,60,24.8,69.67,19.5,74.5&quot;,&quot;M30.75,65.5c0.75,1,1.12,1.97,1.12,3c0,6.64-0.08,16.47-0.11,24c-0.01,1.96-0.01,3.82-0.01,5.5&quot;,&quot;M84.25,50.25c-0.12,1.62-0.84,2.87-2,3.75c-4.62,3.5-11,6.75-19,9.75&quot;,&quot;M58.25,43.75c1.06,1.06,1.5,2.5,1.5,4.75c0,2.96-0.22,20.59-0.22,31.25C59.53,93,63,94.15,77,94.15c16.25,0,18-2.65,18-11.15&quot;],&quot;人&quot;:[&quot;M54.5,20c0.37,2.12,0.23,4.03-0.22,6.27C51.68,39.48,38.25,72.25,16.5,87.25&quot;,&quot;M46,54.25c6.12,6,25.51,22.24,35.52,29.72c3.66,2.73,6.94,4.64,11.48,5.53&quot;],&quot;子&quot;:[&quot;M33.28,19.04c1.84,0.71,3.7,0.86,5.4,0.63c4.95-0.67,27.95-4.58,29.86-4.92c3.46-0.62,4.06,1.36,2.11,3.58c-1.95,2.22-11.41,13.17-16.35,17.19&quot;,&quot;M52.48,37.74c6.42,2.97,11.75,30.73,5.24,52.57c-2.8,9.38-8.09,2.96-10.47,0.99&quot;,&quot;M12.25,51.48c3.75,1.14,8.79,1.03,12.48,0.49c16.77-2.47,42.86-5.84,58.53-6.75c4.26-0.25,9.11-0.34,13.11,0.57&quot;],&quot;女&quot;:[&quot;M53.21,18.37c0.54,2.13,0.26,3.41-0.25,5.25C50.38,33,42.62,52.75,35.75,64c-1.39,2.27-1,3.5,1,3.5c11.63,0,28.46,7.48,38.83,16.41c2.56,2.21,4.68,4.51,6.17,6.84&quot;,&quot;M69.62,42.18c0.5,1.7,0.63,3.57-0.01,5.93C65.93,61.8,54.61,81.6,27,91.75&quot;,&quot;M13.88,50.43c3.48,1.39,7.26,0.85,10.88,0.53c19.52-1.7,42.04-4.08,60.61-4.63c3.66-0.11,7.21-0.1,10.62,1.42&quot;],&quot;男&quot;:[&quot;M26.5,14.25c0.88,0.88,1.56,1.99,1.73,2.98c0.84,4.77,2.47,16.75,3.34,26.04c0.18,1.95,0.37,2.37,0.55,4.23&quot;,&quot;M29,15.95c11.38-1.45,41.21-4.57,49.56-4.71c3.9-0.07,5.44,1.51,4.91,5.29c-0.45,3.21-3.15,15.19-4.94,22.23c-0.41,1.62-0.79,2.99-1.4,4.19&quot;,&quot;M54,15.97c0.77,0.77,1,1.91,1,2.79c0.02,6.32,0.2,22,0.2,22.75&quot;,&quot;M30.98,30.82C45,29.12,57.12,28,80.53,26.34&quot;,&quot;M32.87,44.74c11.38-1.24,28.38-2.99,44.14-3.7&quot;,&quot;M19.98,60.98c2.15,0.67,4.58,0.78,6.77,0.53c13.46-1.53,42.24-5.66,51.88-6.86c5.26-0.66,6.86,1.04,5.72,6.27c-1.92,8.83-9,27.39-15.66,33.19c-5.11,4.45-7.44,2.14-9.69-0.86&quot;,&quot;M53.22,46.43c0.28,1.32,0.29,3.04-0.2,4.57C49.12,63.12,38,81.25,17.14,92.06&quot;],&quot;父&quot;:[&quot;M38.49,18.25c0.39,1.38,0.07,2.89-0.59,4.16C32,33.91,26.32,39.13,18.75,45.62&quot;,&quot;M69.38,19.5c7.25,4,14.29,9.68,18.88,15.5&quot;,&quot;M67.7,39.68c0.55,1.57,0.31,3.8-0.42,5.92C60.63,64.87,48,80.25,23,90.25&quot;,&quot;M34.25,47c4.83,0,29,25.38,45.99,37.02c3.54,2.43,7.39,4.55,11.51,5.77&quot;],&quot;母&quot;:[&quot;M34.82,19.37c1.14,1.02,1.72,3.42,1.41,6.09c-1.46,12.62-8.22,32.3-13.04,44.1c-1.47,3.6-0.44,5.27,3.63,5.2c11.37-0.18,27.52,2.13,40.68,7.24c4.98,1.93,9.54,4.26,13.25,7.01&quot;,&quot;M37.32,22.07c4.81,0.56,13.81-1.32,39.18-6.07c4-0.75,5.92,0.77,5.5,4.25c-2.25,18.62-7,49-16.06,69.18c-3.36,7.49-9.86,1.68-11.42,0&quot;,&quot;M49,28.5c3.88,1.98,10.03,8.16,11,11.25&quot;,&quot;M45.25,57.62c3.79,1.96,9.8,8.07,10.75,11.12&quot;,&quot;M9.88,51.45c2.21,0.63,6.26,0.87,8.46,0.63C46.77,49,67.12,47,90.65,46.07c3.68-0.15,5.89,0.3,7.72,0.61&quot;],&quot;友&quot;:[&quot;M17.88,37.23c2.13,0.54,5.78,0.58,7.89,0.29c17.48-2.39,35.98-4.39,54.65-5.48c3.54-0.21,5.68,0.01,7.46,0.28&quot;,&quot;M48.22,14.14c0.53,2.11,0.53,4.3,0.31,6.73C47,38,33,72.5,15.5,85.25&quot;,&quot;M42.66,54.86c1.09,0.27,2.51,0.28,3.59,0.14c6.88-0.88,16.62-3.25,22.43-4.88c3.45-0.97,4.6,1.45,3.11,4.55C66.5,65.62,48.12,87.75,24,96.5&quot;,&quot;M41.25,63.5c5.15,0.45,27.5,18.62,40.93,26.36c3.2,1.84,6.65,3.76,10.32,4.39&quot;],&quot;先&quot;:[&quot;M37.51,21c0.07,0.62,0.15,1.61-0.14,2.49C35.25,29.88,31.62,37.38,24.5,45&quot;,&quot;M38.13,32.04c1.5,0.09,3.95-0.16,4.64-0.22c6.48-0.57,20.36-1.82,27.82-2.94c1.65-0.25,3.66-0.13,5.16,0.27&quot;,&quot;M52.81,12.38c1.28,1.28,2.01,3.12,2.01,4.75c0,0.75-0.05,31.92-0.07,32.87&quot;,&quot;M15.88,53.26c3.42,0.98,7.15,0.5,10.62,0.22c15.99-1.3,38.99-3.55,59-4.4c2.94-0.13,5.84-0.03,8.75,0.47&quot;,&quot;M45.18,55.68c0.32,1.45,0.15,2.48-0.15,3.85C43.24,67.65,35,86.62,20,96.38&quot;,&quot;M60.49,53.62c1.07,1.07,1.38,2.71,1.38,4.98c0,7.78-0.22,14.88-0.22,21.89c0,15.14,1.1,16.04,15.85,16.04c14.62,0,15.64-1.78,15.64-11.29&quot;],&quot;生&quot;:[&quot;M31.26,25.89c0.36,1.36,0.35,2.65-0.05,3.79c-2.34,6.69-7.24,17.22-14.96,24.19&quot;,&quot;M31.13,40.67c2.37,0.33,4.03,0.07,5.64-0.12c9.5-1.1,25.15-4.12,35.35-5.83c2.51-0.42,4.86-0.73,7.38-0.33&quot;,&quot;M52.31,12.63c1.28,1.28,2.01,3.12,2.01,5.23c0,4.01,0,65.14,0,69.77&quot;,&quot;M29.38,64.03c2.64,0.67,5.38,0.31,8.04-0.02C49.45,62.51,62.16,61,72.5,59.86c2.38-0.26,4.99-0.76,7.38-0.23&quot;,&quot;M15.75,90.25c3.04,0.75,6.21,0.94,8.4,0.8C40.62,90,68.12,86.5,83.3,85.75c3.63-0.18,7.68,0,10.07,0.73&quot;],&quot;学&quot;:[&quot;M29.5,17.25c3.5,3,6.5,7.25,7.75,9.75&quot;,&quot;M49,12c1.25,2,4.75,8.25,5.25,11.5&quot;,&quot;M75,11c0.25,1.75-0.12,2.75-0.75,4.25c-1.29,3.1-4.25,7.38-6.5,9.75&quot;,&quot;M21.25,33.75c-0.12,4.75-2,12.5-3.75,16.25&quot;,&quot;M23.5,36.5c17-1.62,42.38-5.5,60-5.75c9.5-0.13,4.12,5.12,0,9&quot;,&quot;M37.25,46.5c1,0.25,3.75,0.25,5.5-0.25s18.25-4,20-4s2.75,0.75,1,2.25S54.5,53.5,53,54.75&quot;,&quot;M50.75,55.75c4,8.75,7.18,24.67,1.75,38c-2.75,6.75-7.75,1.25-9.75-2&quot;,&quot;M15.75,67.75c1.75,1,4.64,1.36,7.5,1c15.88-2,44.43-6.25,61.37-5.5c2.5,0.11,4.72,0.25,6.39,1&quot;],&quot;校&quot;:[&quot;M11.53,40.68c1.1,0.32,2.6,0.45,4.53,0.32c5.4-0.35,16.57-3,23.14-4.04c1.25-0.2,2.3-0.18,3.07,0&quot;,&quot;M28.99,17.25c1.07,1.07,1.76,3.25,1.76,5.25c0,0.77-0.03,48.09-0.18,65.25c-0.03,3.03-0.05,5.16-0.07,6&quot;,&quot;M30.25,40.75c0,1.25-0.49,2.66-0.96,3.77C25.28,53.91,20.88,62.25,15,70&quot;,&quot;M33.75,51.25c2.75,1.5,6,5.25,7.25,7.75&quot;,&quot;M66.39,15.5c0.99,0.99,1.38,1.88,1.38,3.62c0,4.25-0.02,7.62-0.08,10.41&quot;,&quot;M48.12,31.71c2.3,0.29,3.9,0.44,6.09,0.2c10.28-1.16,20.32-2.66,32.45-3.53c2.35-0.17,4.03-0.01,5.33,0.32&quot;,&quot;M59.24,38.93c0.2,0.53,0.06,2.27-0.4,3.14C57,45.5,53.75,49.5,50,52.5&quot;,&quot;M79.27,38.5c4.34,3.07,8.73,8.68,10.9,12.41&quot;,&quot;M79.15,49.18c0.35,1.32,0.17,2.62-0.54,4.18C72.25,67.25,58.75,83.25,44,91.25&quot;,&quot;M55.95,55.88c6.3,3.37,21.64,22.12,31.45,30.33c2.64,2.21,5.07,4.15,8.6,4.44&quot;],&quot;語&quot;:[&quot;M26,15.25c2.82,1.41,7.29,5.8,8,8&quot;,&quot;M12.37,32.97c1.25,0.28,2.88,0.66,4.36,0.53c7.02-0.59,17.78-1.75,25.95-3c1.52-0.23,3.57-0.38,5.16,0.03&quot;,&quot;M18.73,45.76c0.38,0.18,2.71,0.2,3.1,0.18c3.97-0.21,9.79-1.19,14.46-2.31c1.67-0.4,2.71-0.38,3.86-0.08&quot;,&quot;M18.73,58.89c0.89,0.23,1.89,0.36,3.35,0.15c3.89-0.54,10.71-1.51,14.85-2.29c0.7-0.13,1.82-0.26,2.61-0.1&quot;,&quot;M17.14,71.9c0.63,0.62,1.12,1.65,1.23,2.57c0.63,5.03,1.51,10.28,2.23,15.59c0.14,1.03,0.27,2.02,0.41,2.93&quot;,&quot;M19.37,73.6c5.67-0.94,15.47-2.73,20.36-3.48c1.49-0.22,2.39,1.05,2.18,2.08c-0.71,3.44-2.27,9.75-3.23,13.89&quot;,&quot;M21.47,89.02c3.95-0.45,10.71-1.19,16.28-1.61c1.21-0.09,2.36-0.17,3.41-0.22&quot;,&quot;M51.79,17.49c1.38,0.26,3.91,0.28,5.27,0.15C63.88,17,72.62,15.62,80,15.32c2.3-0.1,3.67,0.04,4.81,0.15&quot;,&quot;M67.75,20.25c0.37,1.25,0.5,2.38,0.23,3.75c-0.75,3.78-6.03,23.83-7.96,31.58&quot;,&quot;M52.18,36.96c1.82,0.66,4.17,0.95,5.84,0.66c8.48-1.5,16.13-3.06,22.74-4.1c2.49-0.39,4.05,1.27,3.71,2.93c-0.6,2.93-2.48,11.43-3.74,17.86&quot;,&quot;M46.33,58.46c1.13,0.24,3.94,0.2,5.07,0.08c12.34-1.29,19.11-2.39,40.88-4.02c1.88-0.14,3.75-0.02,4.69,0.09&quot;,&quot;M52.5,69.88c0.93,0.93,1.42,2.28,1.54,3.31c0.71,6.06,1.42,12.65,2.06,19.3c0.15,1.5,0.28,2.44,0.4,3.75&quot;,&quot;M54.99,71.67c9.47-1.45,23.75-3.41,28.85-3.9c2.14-0.21,3.28,0.98,2.86,2.93c-0.84,3.88-3.08,12.57-4.39,17.58&quot;,&quot;M57.2,91.49c5.94-0.55,14.67-1.24,23.54-1.76c1.3-0.08,2.63-0.13,3.97-0.2&quot;],&quot;本&quot;:[&quot;M20.5,33.5c1.93,0.62,4.91,1.07,8.1,0.75C42.43,32.88,66,30.75,79.64,30c3.2-0.18,7.22,0.25,9.23,0.5&quot;,&quot;M52.1,11.12c1.25,1.25,2.05,3.23,2.05,4.99c0,0.84,0,57.16-0.02,76.76c-0.01,3.96-0.01,6.42-0.02,6.62&quot;,&quot;M51.75,33.5c0,1-0.41,2.22-1.29,3.88C43.62,50.25,30.12,65.5,13.25,75.5&quot;,&quot;M54.75,35.5c4.92,5.74,23.48,23.33,32.85,31.27c2.58,2.18,5.16,4.41,8.52,5.23&quot;,&quot;M33.88,73.92c1.5,0.46,2.74,0.75,5.3,0.59c9.95-0.63,21.2-2.13,27.96-2.95c1.93-0.23,3.62-0.31,6-0.02&quot;],&quot;名&quot;:[&quot;M54.2,12.64c0.3,1.61-0.07,2.99-0.69,4.24c-3.49,7.13-13.28,19.29-25.96,27.54&quot;,&quot;M53.25,24.16c0.88,0.47,1.95,0.5,3.28,0.37c4.37-0.43,11.99-2.47,17.81-4.1c4.18-1.17,5.46,1.02,4.41,3.51C72.25,39.38,43.88,69.62,16,77.5&quot;,&quot;M43.62,40.88c3.62,2,8,6,9.68,9.58&quot;,&quot;M42,67.81c0.91,0.91,1.62,2.19,1.83,3.33c0.5,2.82,2.15,14.38,3.05,20.86c0.3,2.12,0.52,3.7,0.59,4.25&quot;,&quot;M44.53,69.52c10.82-1.38,32.39-4.4,38.01-4.53c2.76-0.06,4.08,1.63,3.25,4.64c-1.13,4.06-3.52,14.04-4.64,20.36&quot;,&quot;M47.99,93.99c7.26-0.61,19.65-1.61,29.54-2.37c2.19-0.17,4.24-0.28,6.04-0.31&quot;],&quot;何&quot;:[&quot;M32.5,13.75c0.23,2.1-0.19,3.81-0.8,5.66c-3.95,11.84-9.67,23.37-20.45,37.34&quot;,&quot;M26.76,36.5c1.24,1.5,1.54,3.04,1.54,5.5c0,9.46-0.13,30.79-0.17,44.62c-0.01,2.6-0.01,4.94-0.01,6.88&quot;,&quot;M38.88,26.64c1.74,0.5,4.68,0.67,6.41,0.5c13.21-1.27,33.84-4.77,46.26-5.86c2.88-0.25,4.63,0.24,6.08,0.49&quot;,&quot;M40.87,44c0.75,0.75,1.26,1.62,1.36,2.21c0.67,4.06,1.44,10.16,2.25,16.3c0.27,2.04,0.26,2.01,0.47,3.75&quot;,&quot;M43.27,45.6c6.28-1.17,15.14-2.97,19.73-3.72c3.13-0.51,4.4,0.31,3.68,3.51c-0.86,3.86-2.49,10.33-3.28,14.14&quot;,&quot;M45.59,63.17c3.71-0.39,9.45-1.24,14.45-1.85c1.89-0.23,3.82-0.47,5.75-0.69&quot;,&quot;M83.25,24.75c1,1,1.74,2.18,1.81,4.99c0.33,13.52-0.21,56.44-0.21,61.04c0,10.71-6.35,2.71-9.18-0.77&quot;],&quot;国&quot;:[&quot;M19,16.82c1.09,1.09,1.61,2.51,1.61,4.41c0,14.65-0.22,44.9-0.22,71.53c0,1.95-0.06,3.86-0.09,5.75&quot;,&quot;M21.52,18.67C41.38,16.75,74.03,13.5,85,13.5c3.38,0,5,1.85,5,5.25c0,15.36-0.04,47.89-0.08,70.62c0,1.68,0,3.31,0,4.88&quot;,&quot;M35.12,33.88c1.32,0.28,4.2,0.44,5.51,0.28c10.47-1.29,20.62-2.54,28.62-3.13c2.02-0.15,3.88-0.19,5.56,0.04&quot;,&quot;M52.8,34.89c0.96,0.97,1.47,2.48,1.47,3.81c0,3.99-0.13,24.74-0.09,33.55&quot;,&quot;M37.58,52.16c1.79,0.22,3.41,0.14,5.36-0.08c7.56-0.83,17.56-1.99,25.38-2.8c1.25-0.13,4.02-0.15,5.89,0.17&quot;,&quot;M31.08,75.14c1.54,0.36,3.85,0.28,5.19,0.16c9.98-0.92,25.85-2.67,37.03-3.54c2.15-0.17,5.04-0.18,6.12,0.13&quot;,&quot;M67.75,56.62c3,1.75,6.12,5.12,8,8.38&quot;,&quot;M21.5,93.01c14.25-0.51,48.38-1.89,67-2.51&quot;],&quot;車&quot;:[&quot;M26,26c2.85,0.69,6.1,0.14,8.98-0.1c11.09-0.93,25.8-2.64,38.89-3.51c2.68-0.18,5.22-0.16,7.88,0.23&quot;,&quot;M27.5,37.92c0.81,0.5,1.83,2.39,1.98,3.05c0.85,3.73,1.83,11.31,2.95,18.54c0.32,2.09,0.41,3.2,0.75,5.24&quot;,&quot;M30.36,39.49c14.52-1.61,36.14-4.11,47.63-4.5c3.46-0.12,4.17,1.57,4.03,3.08c-0.42,4.32-2.01,13.81-3.5,20.19c-0.21,0.89-0.51,1.87-0.76,3&quot;,&quot;M32.5,51.25c13.75-1.5,34.25-3.75,47-4.25&quot;,&quot;M34.25,63.25C46,61.62,65,59.75,77,59.25&quot;,&quot;M16,77.86c3.62,0.89,7.38,0.77,10.63,0.39c18.51-2.14,39.85-4.55,57.12-5.45c3.05-0.16,6.5-0.05,9.5,0.63&quot;,&quot;M52.5,11.51c1.36,1.36,2.06,2.78,2.14,6.02c0.03,1.07-0.07,48.79-0.19,70.7c-0.02,4.27-0.05,7.36-0.07,8.65&quot;],&quot;電&quot;:[&quot;M34.66,16.19c2.31,0.7,4.78,0.25,7.11-0.04c6.03-0.75,16.15-1.97,23.49-2.76c2.19-0.23,4.03-0.14,6.05,0.1&quot;,&quot;M19.51,29.11c-0.2,5.55-1.93,11.7-3.21,17.3&quot;,&quot;M20.85,32.18C37.62,30.38,70,25.62,86.4,25.2c9.1-0.24,2.35,6.05-0.78,9.53&quot;,&quot;M50.92,17.26c1.1,1.1,1.83,2.49,1.83,3.76c0,3.98-0.16,17.08-0.23,23.73c-0.02,2.1-0.04,3.56-0.04,3.89&quot;,&quot;M32.75,36.46c3.42,0.53,8.09,2.12,9.96,3&quot;,&quot;M31.25,45c3.16,0.57,8.05,2.68,9.77,3.64&quot;,&quot;M65.5,33.47c3.66,0.79,7.81,2.37,9.28,3.03&quot;,&quot;M65.54,41.89c2.82,0.77,6.67,3.06,8.21,4.34&quot;,&quot;M25.86,55.87c0.89,1.04,1.07,1.52,1.21,2.88c0.47,4.62,2.55,21.84,2.55,22.22c0,0.43,0.19,1.93,0.37,2.79&quot;,&quot;M28.04,57.11c10.79-1,41.49-4.23,43.85-4.37c4.11-0.24,5.36,1.76,4.73,4.82c-0.27,1.31-2.37,9.94-4.05,17.74c-0.2,0.95-0.69,2.39-0.69,3.04&quot;,&quot;M29.46,68.34c7.42-0.97,36.17-3.47,44.14-3.8&quot;,&quot;M31.02,80.34C42.25,79,59.5,77.75,71.25,76.75&quot;,&quot;M48.42,57.62c1.08,1.13,1.45,2.8,1.45,4.78c0,4.85-0.1,12.75-0.1,18.85c0,12.75,1.48,14.5,20.5,14.5c19.23,0,20.18-2.75,20.18-10.82&quot;],&quot;店&quot;:[&quot;M56.81,11.13c1.28,1.28,2.01,2.74,2.01,4.15c0,0.79,0.08,4.65-0.07,9.46&quot;,&quot;M25.63,27.23c2.62,0.77,4.72,0.67,6.39,0.54C48,26.5,63.11,24.75,84.3,23.04c2.76-0.22,4.44,0.26,5.83,0.53&quot;,&quot;M28.99,28.5c0.88,0.88,1.18,2,1.16,3.38C29.88,54.88,27.25,78.75,14.5,91&quot;,&quot;M57.87,32.88c0.93,0.93,1.62,2.62,1.62,4.09c0,3.03-0.21,27.9-0.21,32.77&quot;,&quot;M60.28,50.84c8.22-0.96,16.22-1.96,22.11-2.82c1.04-0.15,2.96,0,3.8,0.21&quot;,&quot;M39.49,71.71c1,0.98,1.37,1.56,1.64,3c1.24,6.54,2.21,13.16,3.22,20.24c0.17,1.21,0.33,2.37,0.48,3.45&quot;,&quot;M41.78,73.18c12.31-1.73,32.97-3.68,39.91-4.33c3.3-0.31,4.47,2.39,4.16,3.79c-1.04,4.67-3.04,13.25-4.41,18.9&quot;,&quot;M45.8,95.62C51.66,95,67.7,93.74,78,92.83c1.96-0.17,3.7-0.32,5.11-0.44&quot;],&quot;駅&quot;:[&quot;M16.24,17.12c0.76,0.63,1.5,1.69,1.49,2.88c-0.04,7.8-0.57,24.25-0.67,34.5c-0.02,2.35,0.09,3.32-0.31,5.75&quot;,&quot;M18.23,18.15c4.39-0.65,17.37-2.21,22.41-2.87c1.63-0.21,3.26-0.51,4.9-0.21&quot;,&quot;M30.31,17.82c0.49,0.49,0.95,1.46,0.95,2.49c0,6.17-0.25,26.44-0.25,35.66&quot;,&quot;M18.41,32.09c5.46-0.51,16.44-2.11,21.13-2.77c1.19-0.17,3.34-0.57,4.56-0.25&quot;,&quot;M18.51,44.88c5.61-0.52,16.7-1.95,21.02-2.57c1.15-0.17,3.05-0.71,4.17-0.2&quot;,&quot;M17.74,59.65c6.17-1.41,20.29-4.04,23.68-4.63c4.33-0.76,4.19,2.81,3.95,6.45C44.7,71.81,42.59,83.13,39.75,90c-3,7.25-5.62,1.62-7.21-0.86&quot;,&quot;M9.79,73.5c0.28,6.41-0.57,12.04-0.87,13.32&quot;,&quot;M17.5,71.5c1.08,2.1,2,4.75,2.25,8.5&quot;,&quot;M25.44,68.22C26,69.25,28,72.64,28.25,76&quot;,&quot;M32.75,65.25c1.25,2.01,3.3,4.09,3.75,6.75&quot;,&quot;M55.22,20.32c1.16,0.77,2.9,0.9,4.14,0.79c7.4-0.61,19.18-2.64,21.85-2.97c3.3-0.4,4.77,1.69,4.42,3.94C84.97,26.2,83.6,34.25,82,40.32&quot;,&quot;M58.61,44.25c3.51-0.38,13.46-1.53,20.43-2.42c2.36-0.3,3.58-0.33,5.1-0.09&quot;,&quot;M56.84,21.12c0.91,0.88,1.04,2.43,1.05,3.38c0.67,41.32-3.54,54.77-10.14,66.5&quot;,&quot;M64.28,44.75c5.1,9.38,16.09,30.23,25.17,40.55c2.13,2.42,4.99,5.29,8.05,6.45&quot;],&quot;道&quot;:[&quot;M49.38,14.88c2.61,1.78,6.73,7.3,7.38,10.06&quot;,&quot;M77.25,12.5c0.06,0.84-0.03,1.66-0.37,2.42c-1.38,3.08-3.38,6.7-6.63,10.2&quot;,&quot;M42.06,32.6c1.75,0.45,4.97,0.38,6.7,0.2c9.99-1.05,25.86-2.93,36.82-3.2c2.91-0.07,4.8,0.15,6.12,0.44&quot;,&quot;M64.26,33.62c0.25,0.1-0.23,1.75-0.39,2.04c-1.03,1.93-2.08,4.55-4.5,7.09&quot;,&quot;M51.06,43.52c0.77,0.77,1.13,1.71,1.13,2.82c0,0.9-0.1,22.98-0.06,31.9c0.01,2.08,0.03,3.45,0.06,3.66&quot;,&quot;M53.01,45.09c6.24-0.71,22.66-2.75,24.6-2.88c1.96-0.14,3.35,0.55,3.35,2.81c0,1.08-0.57,23.4-0.8,32.24c-0.05,2-0.09,3.28-0.12,3.43&quot;,&quot;M52.9,55.9c6.1-0.4,20.85-2.15,26.64-2.34&quot;,&quot;M53.11,67.65c6.85-0.47,19.47-1.75,26.13-1.75&quot;,&quot;M53.36,79.25c5.14,0,18.66-1.07,25.31-1.07&quot;,&quot;M19.75,20c3.38,1.75,8,6.12,9.5,8.75&quot;,&quot;M13,51.53c2.25,0.86,3.75,0.43,4.75,0.22s9-3.47,10.5-3.9c2.96-0.85,4.22,0.21,2.44,3.03c-6.56,10.38-6.81,8.5-0.11,14.4c2.39,2.1,2.15,3.52-0.57,5.48C25.5,74,21.75,76.25,17.5,79.04&quot;,&quot;M12.5,81.71c3.11-0.47,9.22-0.87,13.97-0.71c7.15,0.25,31.13,8.25,35.71,9.46C74.61,93.76,81.62,95.5,91,96.05&quot;],&quot;目&quot;:[&quot;M29.75,19.05c1.35,1.35,1.86,3.21,1.86,5.47c0,1.77,0.19,42.37,0.06,60.23c-0.04,4.91-0.06,8.11-0.06,8.36&quot;,&quot;M32.54,21.39c10.92-1.23,38.33-4.11,41.42-4.38c3.25-0.28,5.54,1.25,5.54,4.18c0,8.95-0.26,39.93-0.26,64.82c0,3,0.01,3.75,0.01,6&quot;,&quot;M33.05,43.64c12.45-1.51,34.83-3.51,45.18-4.09&quot;,&quot;M32.9,65.95C44.25,65,66,62.88,77.72,62.56&quot;,&quot;M33,90.5c9.75-0.5,33.25-2.5,44.79-2.53&quot;],&quot;耳&quot;:[&quot;M20.25,20c3.03,0.85,6.17,0.58,9.24,0.21c14.62-1.76,31.45-3.95,48.12-5.06c3.33-0.22,6.59-0.2,9.89,0.35&quot;,&quot;M36.68,22.5c1.1,1.1,1.64,2.71,1.64,4.73c0,1.6-0.33,40.02-0.33,41.52&quot;,&quot;M39.5,35.5c6.75-0.88,24-2.75,32.25-3.25&quot;,&quot;M39.25,51.25c7-0.5,24.62-2.75,32.25-3&quot;,&quot;M17.25,71c0.75,1.12,2.01,1.81,3.75,1.5c7-1.25,48-8.75,58.75-10.75&quot;,&quot;M71,18.5c1,1,1.75,2.5,1.75,4.25c0,1.05,0.18,44.73,0.23,64.75c0.01,3.74,0.02,6.64,0.02,8.25&quot;],&quot;口&quot;:[&quot;M22.25,33.25c1.25,1.25,2,2.88,2.26,4.43c1.16,7.03,3.15,23.61,4.68,37.85C29.46,78.09,29.73,80.6,30,83&quot;,&quot;M25.29,35.67c17.46-2.17,41.59-5.04,55.49-5.93c3.94-0.25,6.33,2.72,5.72,5.14c-2.25,8.87-6.62,26.5-9,38.87&quot;,&quot;M30.25,77.75c10.5-0.5,30.53-2.3,44.99-3.04c2.05-0.11,3.99-0.18,5.76-0.21&quot;],&quot;手&quot;:[&quot;M61.48,11.5c0.02,1-0.61,1.88-1.67,2.9c-3.27,3.15-13.69,8.23-28.57,11.85&quot;,&quot;M26.38,42.92c1.8,0.46,3.61,0.67,5.68,0.38C46,41.38,58.4,39,71.37,37.75c1.92-0.19,4.62-0.38,7.25,0.04&quot;,&quot;M13.27,62.87c2.71,0.63,4.86,0.6,7.22,0.38c22.63-2.12,46.13-5.62,67.7-7c2.01-0.13,4.83,0,7.46,0.37&quot;,&quot;M48.88,23.55C60.38,31,62.73,63.66,57.83,89.87c-2.08,11.13-8.64,2.34-9.89,1.17&quot;],&quot;足&quot;:[&quot;M29.75,18.99c0.82,0.82,1.43,1.68,1.66,2.33c1.15,3.39,3.44,13.48,4.61,18.68c0.34,1.51,0.59,2.61,0.68,3&quot;,&quot;M31.56,19.63c12.09-1.87,34.1-5.01,40.27-5.14c2.89-0.06,3.98,2.41,3.7,3.88c-0.73,3.84-3.94,15.23-4.51,17.27&quot;,&quot;M37.25,40.74c7.07-0.43,20.75-2.48,31.53-3.73c1.71-0.2,3.34-0.14,4.86-0.32&quot;,&quot;M52.75,41c0.81,0.81,1.4,1.75,1.4,3.62c0,5.11,0.37,32.49,0.35,33.88&quot;,&quot;M55.75,59.25C56.94,59.25,66.25,57.75,73.54,56.53C75.08,56.27,76.53,56.25,77.75,56.25&quot;,&quot;M36.49,55c0.13,1.5,0.14,3.05-0.2,4.35c-2.04,7.78-10.16,24.15-17.79,30.9&quot;,&quot;M33.25,70.75C41.75,72.12,67,87.38,82,92.5c2.94,1,6.85,1.68,9.75,2&quot;],&quot;見&quot;:[&quot;M32.5,15.46c0.96,0.96,1.18,2.1,1.18,3.52c0,1.12,0.07,27.43-0.02,39.27c-0.02,3.12-0.02,5.21,0.02,5.5&quot;,&quot;M34.65,17.15c9.23-1.27,22.23-2.65,31.1-3.65c2.99-0.34,4.26,1.01,4.26,3.55c0,2.5-0.1,28.08-0.14,38.96c-0.01,2.91-0.02,4.75-0.02,4.79&quot;,&quot;M34.84,31.1c7.28-0.6,25.03-2.98,33.9-3.38&quot;,&quot;M34.86,44.63C43.38,44,59,42.12,68.6,41.51&quot;,&quot;M34.71,59.66C44.5,59,58.38,57.5,68.45,57.03&quot;,&quot;M41.99,66.75c0.26,1.5,0.01,2.99-0.41,4.04c-2.7,6.83-13.83,20.83-28.41,27.87&quot;,&quot;M54.49,61.37c1.07,1.07,1.33,2.59,1.38,4.43c0.2,8.19,0.04,6.2,0.04,18.2c0,10.12,1.23,11.53,18.54,11.53c18.81,0,19.81-1.53,19.81-10.12&quot;],&quot;聞&quot;:[&quot;M16.14,17.97c0.94,0.94,1.51,2.16,1.51,3.25c0,0.77-0.03,48.45-0.18,66.29c-0.03,3.16-0.05,5.37-0.07,6.21&quot;,&quot;M19.01,19.6c6.86-1.22,18.49-3.1,21.08-3.39c1.9-0.21,3.03,0.79,3,2.46c-0.04,1.84-0.59,10.46-1.44,20.02c-0.09,1.04-0.15,2-0.15,2.69&quot;,&quot;M18.81,30.43c6.94-1.05,15.82-2.55,22.41-2.9&quot;,&quot;M17.86,42.57C26.25,41.25,33,40,40.42,39.4&quot;,&quot;M66.21,14.22c0.66,0.66,1.17,1.78,1.17,2.93c0,0.56,0.12,13.19,0.17,19.1c0.02,1.71,0.03,2.83,0.03,2.91&quot;,&quot;M68.51,16.1c6.89-1.1,19.28-3.26,21.17-3.36c1.96-0.1,3.57,1.38,3.57,2.98c0,18.78-0.26,60.28-0.26,73.89c0,11.13-6.37,2.13-8.21,0.25&quot;,&quot;M68.59,25.94c5.16-0.69,18.16-2.44,23-2.71&quot;,&quot;M69.13,36.75c6.37-0.75,15.12-2,22.15-2.53&quot;,&quot;M33.5,51.24c1.71,0.31,4.02,0.25,5.71,0.06c9.6-1.05,20.21-3.05,30.66-4.05c2.83-0.27,4.57-0.1,6,0.05&quot;,&quot;M42.71,53c0.89,0.89,1.3,2.26,1.3,3.51S44,79.31,44,83.84&quot;,&quot;M45.13,61.43c4.49-0.43,13.74-2.05,19.78-2.36&quot;,&quot;M44.81,71.67c5.72-0.67,12.31-1.92,20.12-2.95&quot;,&quot;M32.51,85.14c0.99,0.86,2.2,1.23,3.25,0.92c4.87-1.43,28.2-7.83,34.76-9.39&quot;,&quot;M64.84,49.66c0.62,0.63,1.05,1.71,1.05,2.99c0,0.66,0.12,27.55,0.15,39.1c0.01,1.88,0.01,3.36,0.01,4.25&quot;],&quot;食&quot;:[&quot;M52.75,10.5c0.11,0.98-0.19,2.67-0.97,3.93C45,25.34,31.75,41.19,14,51.5&quot;,&quot;M52.75,16.25c5.09,4.8,25.71,19.61,33.7,24.9c2.68,1.78,5.37,2.79,8.55,3.35&quot;,&quot;M52.25,29.25c1,1,1.5,2.25,1.5,3.5c0,2,0,3,0,5.5&quot;,&quot;M38,40c0.83,0.47,2.19,1,3.86,0.83c9.39-0.96,21.95-2.76,23.25-2.84c1.67-0.1,3.14,0.88,3.11,2.53C68.2,41.8,67,53.25,66.34,62.4c-0.07,0.94-0.13,1.36-0.13,1.99&quot;,&quot;M40.83,51.73C47.25,51.25,59.5,50,66,49.75&quot;,&quot;M40.69,63.9c7.04-0.52,16.55-1.62,24.6-2.04&quot;,&quot;M38.25,40.25c1.12,1.12,1.5,2.62,1.5,4c0,9.12,0,43.62,0,47.25c0,4,1,4.88,4.12,2.88c2.93-1.87,6.75-5.25,10.88-8.38&quot;,&quot;M74,64c0.25,1.25,0.09,2.57-0.75,3.5c-3.5,3.88-4.5,4.88-7.25,7.5&quot;,&quot;M51.5,71C55.75,71,77,90,81,92.75c2.49,1.71,4.62,2.62,7.5,3.5&quot;],&quot;飲&quot;:[&quot;M31.53,14.5c0.06,0.73,0.24,1.94-0.12,2.92c-2.96,8.1-11.79,20.97-21.04,27.95&quot;,&quot;M33.5,19.5c5.48,2.15,11.9,6.21,15,10.75&quot;,&quot;M32.79,32.26c0.85,0.85,1.28,2.38,1.28,3.32c0,3.54-0.08,5.92-0.08,8.2&quot;,&quot;M20.01,46.32c1.61,0.8,2.86,0.43,4.86,0.03c5.87-1.17,15.18-2.91,16.08-3.04c2.3-0.32,2.98,1.17,2.77,2.63c-0.71,4.9-2.07,13.76-2.78,18.54c-0.27,1.86-0.45,3.1-0.45,3.26&quot;,&quot;M22.71,57.53c4.17-0.91,13.42-2.41,18.53-3.16&quot;,&quot;M22.37,68.85c5.51-0.98,11.63-1.73,17.21-2.47&quot;,&quot;M20.37,47.01c0.69,0.69,1.03,1.8,1.03,2.74c0,5.75-0.29,36.68-0.33,38.97C21,92.75,21.5,93.75,26,90.5c2.1-1.52,7-5,12.5-8.25&quot;,&quot;M37.25,74.25c1.59,2.03,4.09,7.46,5,11.75&quot;,&quot;M61.5,14.25c0.25,1.12,0.42,2.14,0.18,3.31C60,25.75,55.82,40.12,49,49.5&quot;,&quot;M58.22,37.74c1.9,0.39,3.14,0.18,4.51-0.14c1.67-0.39,21.21-5.25,22.76-5.6c6.75-1.5,3.5,4.5-3,11.25&quot;,&quot;M64.85,47.5c0.78,1.5,0.86,2.88,0.62,4.52C63,68.62,57.25,84.5,42.25,95.75&quot;,&quot;M65.42,60.5c3.56,6.77,15.26,21.56,22.62,29.46c1.89,2.03,3.98,4.66,6.71,5.54&quot;],&quot;行&quot;:[&quot;M32.49,12c-0.12,1-0.45,1.9-1.1,2.62C28.29,18.06,22.2,22.6,12.5,28&quot;,&quot;M36.5,31.75c0.07,0.73,0.08,2.28-0.39,3.18C32.12,42.5,23.83,52.5,11,62.75&quot;,&quot;M25.57,51.75c0.9,0.9,1.23,2.25,1.23,3.26c0,0.72,0.04,24.47-0.07,35.49c-0.02,2.19-0.04,3.87-0.07,4.75&quot;,&quot;M50.5,18.45c1.44,0.35,3.81,0.52,5.23,0.35c7.14-0.8,16.01-2.43,24.49-3.06c2.38-0.18,3.83-0.06,5.02,0.11&quot;,&quot;M43.13,41.42c1.5,0.38,4.27,0.58,5.76,0.38c12.86-1.67,28.86-4.05,41.85-5.38c2.49-0.26,4.01,0.18,5.26,0.37&quot;,&quot;M71.52,41.33c1.26,1.26,1.76,2.79,1.76,5.27c0,14.56-0.26,38.66-0.26,43.62c0,8.03-7.21-0.5-8.71-1.75&quot;],&quot;来&quot;:[&quot;M25.54,28.33c1.61,0.39,4.58,0.53,6.19,0.39c16.32-1.46,27.01-3.46,43.69-3.67c2.69-0.03,4.31,0.18,5.65,0.38&quot;,&quot;M30.12,37.62c2.85,2.07,7.16,7.91,7.88,11.12&quot;,&quot;M74.52,33c0.08,0.98-0.11,1.9-0.58,2.77c-1.33,3.04-4.7,7.77-9.06,10.86&quot;,&quot;M16.62,57c2.28,0.5,4.9,0.74,8.42,0.5c14.81-1,39.08-3.5,58.03-4.25c3.54-0.14,6.33,0.25,8.55,0.5&quot;,&quot;M51.67,10.75c1.33,1,2.18,2.75,2.18,4.5c0,0.9,0.06,58.96-0.17,78c-0.03,2.77-0.07,4.71-0.1,5.5&quot;,&quot;M49.75,56.5c0,1.5-0.44,2.48-0.82,3.11C42.37,70.49,29,83.75,15.75,90.5&quot;,&quot;M55,56.25c4.38,3.88,19.75,19,29.73,26.28c2.82,2.06,6.52,4.5,10.02,5.22&quot;],&quot;出&quot;:[&quot;M52.76,13.38c1.42,1.42,1.86,2.91,1.86,5.31c0,3.18,0.19,61.81,0.19,68.31&quot;,&quot;M29.02,36.13c0.98,1.12,1.23,2.87,1.06,4.04c-0.4,2.82-1.02,7.67-2.78,13.4c-0.43,1.41,0.07,2.84,1.55,2.39c10.61-3.24,33.9-5.33,55.97-6.28&quot;,&quot;M86.31,30.63c0.94,1.37,1.17,3,0.94,4.87c-0.62,5.12-0.86,7.07-1.66,13.48c-0.15,1.19-0.34,1.9-0.51,3.4&quot;,&quot;M25.27,71.13c1.11,1.11,1.6,2.74,1.31,4.29c-0.53,2.8-1.27,8.92-3.03,14.65c-0.43,1.41,0.57,3.11,2.05,2.64c12.9-4.08,41.9-6.21,59.47-7.03&quot;,&quot;M85.06,66.88c1.06,1.49,1.56,3.12,1.44,5.37c-0.27,4.8-0.23,9.14-0.45,13.51c-0.08,1.54-0.17,3.17-0.3,4.99&quot;],&quot;入&quot;:[&quot;M54.75,48.75c-0.5,2-1.1,3.2-2.07,4.62C44.22,65.8,27.98,81.44,14.5,88&quot;,&quot;M36.5,20c8.25,1.38,15.12,34,48.81,62.08c2.71,2.26,5.56,4.8,9.44,6.42&quot;],&quot;立&quot;:[&quot;M51.51,15c1.43,1.43,2.24,3.25,2.24,5.81c0,4.06,0,9.56,0,13.69&quot;,&quot;M22,37.86c2.62,0.51,4.75,0.34,7,0.16c11.38-0.9,36.13-3.4,50.65-4.26c2.38-0.14,4.86-0.01,6.86,0.4&quot;,&quot;M32,49c4.75,9.75,8.25,22.5,9.5,31.5&quot;,&quot;M74,39c0.75,1.38,0.81,3.29,0.5,4.5c-2.88,11.12-8.5,30.38-12.75,42&quot;,&quot;M15.25,88.8c2.33,0.45,5.89,0.53,7.82,0.39c18.3-1.32,40.31-1.94,64.83-2.75c3.24-0.11,6.14,0.05,8.47,0.88&quot;],&quot;休&quot;:[&quot;M35,16.5c0.25,1.75,0.25,4.25-0.88,6.8C28.91,35.01,22.37,46.02,10.5,60.29&quot;,&quot;M26.28,42.5c0.72,1.25,1.26,3.48,1.26,4.75c0,12.75-0.07,29.88-0.26,42.25c-0.02,1.54-0.04,2.97-0.04,4.25&quot;,&quot;M37.65,38.83c2.45,0.97,5.18,0.75,7.73,0.54c11.76-0.97,24.94-3.35,37.49-4.01c2.65-0.14,5.39-0.22,7.99,0.39&quot;,&quot;M61.43,14c0.82,0.75,1.87,2.12,1.87,3.7c0,8.8,0.05,53.72-0.12,72.05c-0.03,2.88-0.06,4.91-0.08,5.75&quot;,&quot;M62.43,38.32c0,2.18-1.1,4.31-1.9,6.04C54.57,57.4,44.96,71.84,35,78.75&quot;,&quot;M64.12,38.08c4.45,8.37,16.21,25.33,24.99,33.19c1.96,1.76,4.35,4.18,6.9,5&quot;],&quot;読&quot;:[&quot;M22.38,14.75c2.25,1.63,5.81,6.71,6.37,9.25&quot;,&quot;M10.37,33.08c1.61,0.48,3.62,0.35,5.27,0.14c5.96-0.76,13.52-1.42,20.1-2.38c1.5-0.22,3.09-0.43,4.6-0.16&quot;,&quot;M16.23,46.31c1.17,0.37,2.73,0.18,3.93-0.01c3.99-0.62,8.33-1.2,11.58-1.97c1.35-0.32,3.26-0.58,4.65-0.58&quot;,&quot;M16.73,58.58c1.02,0.35,2.46,0.15,3.53,0.04c3.8-0.4,9.57-1.17,12.55-1.77c1.45-0.29,2.94-0.48,4.22-0.14&quot;,&quot;M15.64,70.4c0.71,0.61,1.08,1.37,1.12,2.29c0.79,3.76,1.71,9.85,2.52,15.05c0.16,1.05,0.32,2.06,0.48,3&quot;,&quot;M17.75,72.05c6.09-0.91,11.59-1.7,17.42-2.67c1.7-0.28,2.73,1.3,2.49,2.58c-0.85,4.46-1.61,6.91-2.88,12.78&quot;,&quot;M20.47,88.3c4.06-0.46,7.76-1.19,12.79-1.92c0.92-0.13,1.88-0.26,2.9-0.39&quot;,&quot;M46.37,26.71c2.31,0.59,4.67,0.42,7,0.15c9.97-1.14,21.82-2.23,29.77-3.06c2.36-0.25,4.38-0.21,6.71,0.14&quot;,&quot;M65.76,13.25c1.06,1.06,1.59,2.08,1.59,3.25c0,8.5-0.07,17.03-0.19,20.46&quot;,&quot;M52.53,38.58c2.22,0.42,4.15,0.3,5.98,0.08C64,38,71.21,37.1,78,36.47c1.61-0.15,3.63-0.29,5.23,0.04&quot;,&quot;M46.14,48.1c-0.11,3.93-1.7,12-2.6,14.35&quot;,&quot;M47,49.96c11.42-1.27,28-3.71,41.35-4.28c9.15-0.39,0.43,7.14-0.74,8.35&quot;,&quot;M59.49,59.25c0.5,1.52,0.71,3.09,0.29,4.83c-2.76,11.61-6.54,22.94-15.26,30.61&quot;,&quot;M71.64,56.26c1.11,1.24,1.65,2.67,1.69,4.37c0.11,4.62-0.13,16.99-0.13,24.62c0,9.5,0.8,10.52,11.3,10.52c11,0,11.38-1.02,11.38-7.31&quot;],&quot;書&quot;:[&quot;M30.74,20.63c2.01,0.49,3.84,0.58,5.91,0.39c9.45-0.89,28.54-2.97,37.54-3.64c2.92-0.22,4.18,1.24,3.66,3.55c-0.4,1.76-2.56,9.62-3.88,16.56&quot;,&quot;M11.89,32.34c3.17,0.66,5.87,0.47,9.58,0.19c20.16-1.52,48.41-3.9,67.91-4.64c4.08-0.16,7.07,0.26,8.91,0.59&quot;,&quot;M29.86,41.38c1.64,0.49,3.39,0.52,4.84,0.44c9.67-0.57,27.55-2.07,37.43-2.85c1.93-0.15,3.14-0.08,4.59,0.07&quot;,&quot;M30.04,52.06c1.47,0.26,3.65,0.54,5.12,0.43c12.34-0.98,25.59-2.23,36.78-3.31c2.43-0.23,4.41-0.19,5.63-0.07&quot;,&quot;M17,63.44c2,0.58,5.67,0.57,7.66,0.41c20.78-1.7,42.92-3.93,61.09-4.48c3.33-0.1,5.33,0.15,6.99,0.42&quot;,&quot;M52.69,9.52c1.33,1.33,1.95,2.98,1.95,4.71c0,5.67,0.22,33.72,0.31,45.77&quot;,&quot;M31.25,71.75c0.43,0.46,1.24,1.44,1.43,2.7c1.11,7.42,2.22,14.33,3.18,20.74c0.18,1.2,0.34,2.38,0.49,3.57&quot;,&quot;M33.75,73.75c14.98-2.05,36.1-3.71,44.41-4.26c3.33-0.22,5.09,1.76,4.6,4.33c-0.99,5.22-2.01,11.55-3.81,19.41c-0.3,1.31-0.74,2.55-1.15,3.72&quot;,&quot;M35.5,83.75C46.79,83.03,65.75,81.5,80.25,81&quot;,&quot;M37.25,95.25c10.7-0.68,26.5-1.38,40.5-2&quot;],&quot;話&quot;:[&quot;M24.99,14c2.36,1.5,6.1,6.17,6.7,8.5&quot;,&quot;M11.37,32.83c1.41,0.42,3.07,0.29,4.51,0.17c8.29-0.7,16.95-1.9,23.59-2.81c1.28-0.17,3.22,0.11,3.87,0.23&quot;,&quot;M17.78,47.06c1.05,0.32,2.15,0.35,3.23,0.29c4.11-0.23,10.69-1.59,14.43-1.97c1.31-0.13,2.68-0.13,4.04-0.13&quot;,&quot;M18.58,59.33c1.2,0.36,2.8,0.13,4.04,0.08c3.71-0.16,8.38-0.79,12.92-1.36c1.43-0.18,2.85-0.34,4.3-0.08&quot;,&quot;M17.4,71.9c0.81,0.68,1.33,1.82,1.49,2.87c0.73,4.61,1.4,8.31,2.2,13.18c0.22,1.33,0.43,2.62,0.63,3.8&quot;,&quot;M19.64,73.54c6.67-1.14,13.31-2.75,19.46-3.66c1.85-0.27,2.96,1.26,2.7,2.51c-0.89,4.19-2.46,8.16-4.05,14.07&quot;,&quot;M22.49,89.55c4.76-0.55,8.86-1.17,14.02-1.72c0.93-0.1,1.91,0.04,2.97-0.09&quot;,&quot;M81.75,13.75c-0.12,1.25-0.79,2.39-1.66,3.06c-4.84,3.69-15.34,9.94-29.34,14.94&quot;,&quot;M45.39,45.8c1.55,0.34,4.36,0.62,6.73,0.34C62.8,44.9,76.37,43.07,91,42.23c2.28-0.13,4.49-0.01,6.75,0.29&quot;,&quot;M68.87,27.19c1.4,1.4,1.85,3.06,1.85,4.88c0,1.44-0.21,28.18-0.21,35.16&quot;,&quot;M52.07,67.83c0.93,1.17,1.22,1.76,1.35,2.34c1.38,6.2,2.13,12.33,3.08,20.33c0.13,1.14,0.27,2.31,0.42,3.53&quot;,&quot;M54.62,69.29c12.9-1.37,25.41-2.73,32.68-3.31c2.94-0.24,3.79,2.4,3.37,3.8c-1.47,4.87-3.03,11.64-5.04,18.35&quot;,&quot;M56.64,91.74c7.5-0.57,16.99-1.13,27.14-1.93c1.37-0.11,2.75-0.22,4.13-0.34&quot;],&quot;言&quot;:[&quot;M48.38,11.25c4.38,2.5,8.88,7.75,10.38,11.5&quot;,&quot;M14.88,33.98c2.52,0.54,6.91,0.76,9.42,0.54c22.95-2.02,40.82-4.02,59.99-4.73c4.2-0.16,6.73,0.26,8.83,0.53&quot;,&quot;M38.63,46.65C40,47,41,47,42.45,46.88c7.06-0.6,18.6-2.27,22.81-2.6c1.86-0.15,3.36-0.15,4.74,0.22&quot;,&quot;M37.88,61.4c1.5,0.23,2.75,0.35,4.16,0.23c7.68-0.67,20.23-2.28,24.8-2.85c2.16-0.27,3.66-0.15,5.17,0.22&quot;,&quot;M37,74.75c0.81,0.81,1.4,1.76,1.53,2.77c0.85,6.73,1.9,11.43,2.89,18.45c0.18,1.24,0.35,2.43,0.54,3.53&quot;,&quot;M39.53,76.74c9.24-1.7,22.59-3.37,30.29-4.25c2.21-0.25,3.55,1.17,3.24,2.32c-0.69,2.52-3.74,12.7-4.94,16.98&quot;,&quot;M42.2,95.16c6.19-0.53,16.55-1.39,25.32-2.22c1.33-0.13,2.73-0.12,3.95-0.12&quot;],&quot;買&quot;:[&quot;M20.5,14.64c0.49,0.49,1.44,1.59,1.66,2.43c1.09,4.17,1.51,6.88,2.4,11.91c0.2,1.15,0.39,2.26,0.55,3.26&quot;,&quot;M23.25,16.2c15.2-1.38,58.15-3.72,64.01-4.22c2.74-0.23,4.12,1.39,3.32,3.95c-1.08,3.44-1.82,5.56-3.62,10.4c-0.38,1.02-0.87,1.99-1.32,2.94&quot;,&quot;M43.25,16.5c0.75,0.75,0.68,1.25,0.85,2.27c0.6,3.64,1.21,7.47,1.4,9.23&quot;,&quot;M66.25,14.5c0.5,0.75,0.42,2.03,0.29,3.01c-0.54,4.37-0.79,6.62-1.29,9.24&quot;,&quot;M26.3,30.62c8.83-0.74,51.2-3.49,59.17-3.65&quot;,&quot;M34.7,38.87c1.09,1.09,1.57,2.82,1.57,4.01c0,1.2,0.07,32.68,0.07,33.28s-0.07,2.47-0.07,3.8&quot;,&quot;M37.02,40.77c8.15-0.63,32.05-3.03,34.84-3.03c2.89,0,4.19,1.26,4.19,3.7c0,2.44-0.08,19.9-0.06,33.08c0,1.35,0.04,2.86,0.04,4.34&quot;,&quot;M37.53,52.38c5.97-0.26,31.44-2.43,37.25-2.43&quot;,&quot;M37.5,64.75C46.25,64,65,62.5,74.59,62.1&quot;,&quot;M37.76,76.86c8.24-0.48,27.49-1.73,36.87-2.04&quot;,&quot;M43.77,83c0.23,1.5-0.38,2.82-1.5,3.83C38.75,90,30.5,95.5,21.5,99&quot;,&quot;M69.84,83.97C75,87.91,80.38,94.38,82.5,98.5&quot;],&quot;会&quot;:[&quot;M52.25,14c0.25,2.28-0.52,3.59-1.8,5.62c-5.76,9.14-17.9,27-39.2,39.88&quot;,&quot;M54.5,19.25c6.73,7.3,24.09,24.81,32.95,31.91c2.73,2.18,5.61,3.8,9.05,4.59&quot;,&quot;M37.36,50.16c1.64,0.34,4.04,0.36,4.98,0.25c6.79-0.79,14.29-1.91,19.66-2.4c1.56-0.14,3.25-0.39,4.66,0&quot;,&quot;M23,65.98c2.12,0.52,4.25,0.64,7.01,0.3c13.77-1.71,30.99-3.66,46.35-3.74c3.04-0.02,4.87,0.14,6.4,0.29&quot;,&quot;M47.16,66.38c0.62,1.65-0.03,2.93-0.92,4.28c-5.17,7.8-8.02,11.38-14.99,18.84c-2.11,2.25-1.5,4.18,2,3.75c7.35-0.91,28.19-5.83,40.16-7.95&quot;,&quot;M66.62,77.39c4.52,3.23,11,12.73,13.06,18.82&quot;]};
-const RAW=`一|n|এক|one|イチ,イツ|ひと.つ|একটাই আড়াআড়ি দাগ — একটি জিনিস মানেই এক।|一人~ひとり~একজন;一つ~ひとつ~একটি;一月~いちがつ~জানুয়ারি;一日~ついたち~মাসের ১ তারিখ|きょうしつに{一人[ひとり]}います。~ক্লাসরুমে একজন আছে।;りんごを{一[ひと]つ}ください。~একটা আপেল দিন।
-二|n|দুই|two|ニ|ふた.つ|দুটি দাগ = দুই। ওপরের দাগ ছোট, নিচেরটা বড়।|二人~ふたり~দুজন;二つ~ふたつ~দুটি;二月~にがつ~ফেব্রুয়ারি;二日~ふつか~মাসের ২ তারিখ|{二人[ふたり]}で食[た]べます。~দুজনে খাই।;{二月[にがつ]}はさむいです。~ফেব্রুয়ারি ঠান্ডা।
-三|n|তিন|three|サン|み.っつ|তিনটি দাগ = তিন। মাঝেরটা সবচেয়ে ছোট।|三人~さんにん~তিনজন;三つ~みっつ~তিনটি;三月~さんがつ~মার্চ;三日~みっか~মাসের ৩ তারিখ|かぞくは{三人[さんにん]}です。~পরিবারে তিনজন।;みかんを{三[みっ]つ}買[か]いました。~তিনটি কমলা কিনেছি।
-四|n|চার|four|シ|よ.っつ,よん|চার দেয়ালের একটি ঘর, ভেতরে দুই পা — &quot;চার&quot; কোণা।|四人~よにん~চারজন;四つ~よっつ~চারটি;四月~しがつ~এপ্রিল;四日~よっか~মাসের ৪ তারিখ|{四月[しがつ]}に学校[がっこう]がはじまります。~এপ্রিলে স্কুল শুরু হয়।;たまごを{四[よっ]つ}買[か]います。~চারটি ডিম কিনব।
-五|n|পাঁচ|five|ゴ|いつ.つ|দুই দাগের মাঝে হাতের পাঁচ আঙুলের মতো মোচড় = পাঁচ।|五人~ごにん~পাঁচজন;五つ~いつつ~পাঁচটি;五月~ごがつ~মে;五日~いつか~মাসের ৫ তারিখ|{五月[ごがつ]}は花[はな]がきれいです。~মে মাসে ফুল সুন্দর।;{五人[ごにん]}の友[とも]だちが来[き]ます。~পাঁচজন বন্ধু আসবে।
-六|n|ছয়|six|ロク|む.っつ|মাথায় ছোট ছাতা, নিচে দুই পা — ছাতা ও দুই পা মিলে &quot;ছয়&quot;।|六人~ろくにん~ছয়জন;六つ~むっつ~ছয়টি;六月~ろくがつ~জুন;六日~むいか~মাসের ৬ তারিখ|{六時[ろくじ]}におきます。~ছয়টায় উঠি।;いすが{六[むっ]つ}あります。~ছয়টি চেয়ার আছে।
-七|n|সাত|seven|シチ|なな.つ,なな|ইংরেজি 7-এর মতো একটি কাটা দাগ — সাত।|七人~しちにん~সাতজন;七つ~ななつ~সাতটি;七月~しちがつ~জুলাই;七日~なのか~মাসের ৭ তারিখ|{七時[しちじ]}にうちを出[で]ます。~সাতটায় বাড়ি থেকে বের হই।;{七月[しちがつ]}はあついです。~জুলাই গরম।
-八|n|আট|eight|ハチ|やっ.つ|দুই পা ছড়িয়ে নিচে নেমে গেছে — ছড়ানো = আট (শুভ সংখ্যা)।|八人~はちにん~আটজন;八つ~やっつ~আটটি;八月~はちがつ~আগস্ট;八日~ようか~মাসের ৮ তারিখ|{八時[はちじ]}に学校[がっこう]へ行[い]きます。~আটটায় স্কুলে যাই।;パンを{八[やっ]つ}買[か]いました。~আটটি রুটি কিনেছি।
-九|n|নয়|nine|キュウ,ク|ここの.つ|৯-এর মতো ঘোরানো লেজ — নয়।|九人~きゅうにん~নয়জন;九つ~ここのつ~নয়টি;九月~くがつ~সেপ্টেম্বর;九日~ここのか~মাসের ৯ তারিখ|{九月[くがつ]}に日本[にほん]へ行[い]きます。~সেপ্টেম্বরে জাপানে যাব।;{九時[くじ]}にねます。~নয়টায় ঘুমাই।
-十|n|দশ|ten|ジュウ,ジッ|とお|যোগ চিহ্ন (+) — আড়াআড়ি ও খাড়া দুই দাগ মিলে দশ।|十人~じゅうにん~দশজন;十~とお~দশটি;十月~じゅうがつ~অক্টোবর;十日~とおか~মাসের ১০ তারিখ|{十人[じゅうにん]}の学生[がくせい]がいます。~দশজন ছাত্র আছে।;{十月[じゅうがつ]}に友[とも]だちに会[あ]います。~অক্টোবরে বন্ধুর সাথে দেখা করব।
-百|n|একশো|hundred|ヒャク|-|一 (এক) + 白 (সাদা): এক পাতা সাদা কাগজে একশো লেখা।|百円~ひゃくえん~১০০ ইয়েন;三百~さんびゃく~৩০০;六百~ろっぴゃく~৬০০;八百~はっぴゃく~৮০০|このパンは{百円[ひゃくえん]}です。~এই রুটি ১০০ ইয়েন।;{三百円[さんびゃくえん]}です。~৩০০ ইয়েন।
-千|n|হাজার|thousand|セン|ち|十 (দশ)-এর মাথায় একটি দাগ — দশের ওপর আরও গুণ = হাজার।|千円~せんえん~১০০০ ইয়েন;三千~さんぜん~৩০০০;八千~はっせん~৮০০০;千人~せんにん~১০০০ জন|この本[ほん]は{千円[せんえん]}です。~এই বইয়ের দাম ১০০০ ইয়েন।;この店[みせ]の本[ほん]は{三千円[さんぜんえん]}です。~এই দোকানের বই ৩০০০ ইয়েন।
-万|n|দশ হাজার|ten thousand|マン,バン|-|বাঁকানো বড় আকৃতির দাগ — বিশাল সংখ্যা ১০,০০০।|一万円~いちまんえん~১০,০০০ ইয়েন;十万~じゅうまん~১,০০,০০০;三万~さんまん~৩০,০০০;万年筆~まんねんひつ~ফাউন্টেন পেন|このとけいは{一万円[いちまんえん]}です。~এই ঘড়ি ১০,০০০ ইয়েন।;{十万人[じゅうまんにん]}の人[ひと]が来[き]ました。~এক লাখ মানুষ এসেছিল।
-円|n|ইয়েন, গোল|yen, circle|エン|まる.い|গোল মুদ্রার চারপাশে ফ্রেম, ভেতরে দুই দাগ — ইয়েন মুদ্রা।|円~えん~ইয়েন;千円~せんえん~১০০০ ইয়েন;五百円~ごひゃくえん~৫০০ ইয়েন;円い~まるい~গোল|これは{五百円[ごひゃくえん]}です。~এটা ৫০০ ইয়েন।;おべんとうは{八百円[はっぴゃくえん]}です。~লাঞ্চবক্স ৮০০ ইয়েন।
-日|w|দিন, সূর্য|day, sun|ニチ,ジツ|ひ,か|সূর্যের ছবি (জানালার মতো চৌকো) — দিন/সূর্য।|今日~きょう~আজ;毎日~まいにち~প্রতিদিন;日曜日~にちようび~রবিবার;二日~ふつか~২ তারিখ/২ দিন|{今日[きょう]}は雨[あめ]です。~আজ বৃষ্টি।;{毎日[まいにち]}学校[がっこう]へ行[い]きます。~প্রতিদিন স্কুলে যাই।
-月|w|চাঁদ, মাস|moon, month|ゲツ,ガツ|つき|বাঁকা চাঁদের ছবি, ভেতরে দুই দাগ = চাঁদ।|月曜日~げつようび~সোমবার;今月~こんげつ~এই মাস;一月~いちがつ~জানুয়ারি;月~つき~চাঁদ|{今月[こんげつ]}はいそがしいです。~এই মাসে ব্যস্ত।;{月曜日[げつようび]}に会[あ]いましょう。~সোমবারে দেখা করি।
-火|w|আগুন|fire|カ|ひ|আগুনের শিখা, দুই পাশে ফুলকি ছিটকে পড়ছে।|火曜日~かようび~মঙ্গলবার;火~ひ~আগুন;花火~はなび~আতশবাজি;火事~かじ~অগ্নিকাণ্ড|{火曜日[かようび]}は休[やす]みです。~মঙ্গলবার ছুটি।;{花火[はなび]}を見[み]ました。~আতশবাজি দেখলাম।
-水|w|পানি|water|スイ|みず|মাঝে স্রোত, দুই পাশে ছিটকে পড়া জলের ফোঁটা।|水曜日~すいようび~বুধবার;水~みず~পানি;水道~すいどう~পানির লাইন;水着~みずぎ~সুইমিং স্যুট|{水[みず]}をください。~পানি দিন।;{水曜日[すいようび]}にテストがあります。~বুধবারে পরীক্ষা আছে।
-木|w|গাছ|tree, wood|モク,ボク|き|কাণ্ড, ডাল ও শিকড়সহ গাছের ছবি।|木曜日~もくようび~বৃহস্পতিবার;木~き~গাছ;木々~きぎ~গাছপালা;大木~たいぼく~বিশাল গাছ|{木[き]}の下[した]にいます。~গাছের নিচে আছি।;{木曜日[もくようび]}に買[か]いものをします。~বৃহস্পতিবার কেনাকাটা করি।
-金|w|সোনা, টাকা|gold, money|キン,コン|かね|ছাদের নিচে মাটির ভেতর সোনার দুই টুকরো।|金曜日~きんようび~শুক্রবার;お金~おかね~টাকা;金~きん~সোনা;大金~たいきん~মোটা টাকা|{金曜日[きんようび]}に友[とも]だちに会[あ]います。~শুক্রবারে বন্ধুর সাথে দেখা করি।;{お金[かね]}がありません。~টাকা নেই।
-土|w|মাটি|earth, soil|ド,ト|つち|মাটি ফুঁড়ে ওঠা চারা: 十 + নিচে এক দাগ।|土曜日~どようび~শনিবার;土~つち~মাটি;土地~とち~জমি;土産~みやげ~উপহার|{土曜日[どようび]}は休[やす]みです。~শনিবার ছুটি।;{土[つち]}の上[うえ]に花[はな]があります。~মাটির ওপর ফুল আছে।
-曜|w|সপ্তাহের বার|day of the week|ヨウ|-|日 (সূর্য) + পাখির পালক — সাত বারকে আকাশের গ্রহের নামে ডাকা হয়।|曜日~ようび~সপ্তাহের বার;何曜日~なんようび~কোন বার;日曜日~にちようび~রবিবার;土曜日~どようび~শনিবার|今日[きょう]は何[なん]{曜日[ようび]}ですか。~আজ কোন বার?;{日曜日[にちようび]}は学校[がっこう]へ行[い]きません。~রবিবারে স্কুলে যাই না।
-年|t|বছর|year|ネン|とし|ফসল ফলার এক চক্র — এক বছরে এক ফসল।|今年~ことし~এ বছর;来年~らいねん~আগামী বছর;毎年~まいとし~প্রতি বছর;二年~にねん~২ বছর|{今年[ことし]}日本[にほん]へ行[い]きます。~এ বছর জাপানে যাব।;{来年[らいねん]}、大学[だいがく]に入[はい]ります。~আগামী বছর বিশ্ববিদ্যালয়ে ঢুকব।
-時|t|সময়, ...টা|time, o&#x27;clock|ジ|とき|日 (সূর্য) + 寺 (মন্দির): মন্দিরের ঘণ্টা সূর্য দেখে সময় জানায়।|時間~じかん~সময়;三時~さんじ~তিনটা;何時~なんじ~কটা;時~とき~যখন|今[いま]{三時[さんじ]}です。~এখন তিনটা।;{時間[じかん]}がありません。~সময় নেই।
-分|t|মিনিট, ভাগ|minute, part|フン,ブン,プン|わ.かる|八 (ভাগ করা) + 刀 (ছুরি): ছুরি দিয়ে ভাগ = মিনিট/অংশ।|五分~ごふん~৫ মিনিট;十分~じゅっぷん~১০ মিনিট;半分~はんぶん~অর্ধেক;分かる~わかる~বোঝা|{十分[じゅっぷん]}まってください。~১০ মিনিট অপেক্ষা করুন।;ここから駅[えき]まで{五分[ごふん]}です。~এখান থেকে স্টেশন ৫ মিনিট।
-半|t|অর্ধেক|half|ハン|なか.ば|মাঝখানে একটি খাড়া দাগ, ওপরে-নিচে সমান ভাগ = অর্ধেক।|半~はん~সাড়ে (সময়ে);三時半~さんじはん~সাড়ে তিনটা;半分~はんぶん~অর্ধেক;半年~はんとし~ছয় মাস|{七時半[しちじはん]}におきます。~সাড়ে সাতটায় উঠি।;パンを{半分[はんぶん]}食[た]べました。~রুটির অর্ধেক খেলাম।
-今|t|এখন|now|コン,キン|いま|ছাদের নিচে একটি মুহূর্ত ধরে রাখা = এখন।|今~いま~এখন;今日~きょう~আজ;今月~こんげつ~এই মাস;今週~こんしゅう~এই সপ্তাহ|{今[いま]}何時[なんじ]ですか。~এখন কটা বাজে?;{今週[こんしゅう]}はいそがしいです。~এই সপ্তাহে ব্যস্ত।
-毎|t|প্রতি|every|マイ|-|মা (母)-র মাথায় 人 — মা রোজ সন্তানের যত্ন নেন = প্রতিদিন।|毎日~まいにち~প্রতিদিন;毎週~まいしゅう~প্রতি সপ্তাহ;毎年~まいとし~প্রতি বছর;毎月~まいつき~প্রতি মাস|{毎日[まいにち]}水[みず]を飲[の]みます。~প্রতিদিন পানি খাই।;{毎週[まいしゅう]}土曜日[どようび]に会[あ]います。~প্রতি সপ্তাহে শনিবারে দেখা করি।
-週|t|সপ্তাহ|week|シュウ|-|辶 (চলা) + 周 (ঘুরে আসা): সাত দিন ঘুরে আসে = সপ্তাহ।|今週~こんしゅう~এই সপ্তাহ;来週~らいしゅう~আগামী সপ্তাহ;先週~せんしゅう~গত সপ্তাহ;一週間~いっしゅうかん~এক সপ্তাহ|{来週[らいしゅう]}テストがあります。~আগামী সপ্তাহে পরীক্ষা আছে।;{先週[せんしゅう]}、友[とも]だちに会[あ]いました。~গত সপ্তাহে বন্ধুর সাথে দেখা করেছি।
-間|t|মাঝে, সময়কাল|interval, between|カン,ケン|あいだ,ま|দরজার (門) ফাঁক দিয়ে সূর্য (日) দেখা যায় — মাঝখানের ফাঁক।|時間~じかん~সময়;一週間~いっしゅうかん~এক সপ্তাহ;間~あいだ~মাঝে;二時間~にじかん~দুই ঘণ্টা|{一週間[いっしゅうかん]}休[やす]みます。~এক সপ্তাহ ছুটি নেব।;学校[がっこう]と駅[えき]の{間[あいだ]}に店[みせ]があります。~স্কুল ও স্টেশনের মাঝে দোকান আছে।
-午|t|দুপুর|noon|ゴ|-|ঘড়ির কাঁটার মতো সোজা দাগ — দুপুরে সূর্য ঠিক মাথার ওপর।|午前~ごぜん~সকাল (AM);午後~ごご~বিকাল (PM);正午~しょうご~ঠিক দুপুর;午~うま~ঘোড়া (রাশি)|{午前[ごぜん]}九時[くじ]に会[あ]います。~সকাল ৯টায় দেখা করব।;{午後[ごご]}は休[やす]みです。~বিকেলে ছুটি।
-前|t|আগে, সামনে|before, front|ゼン|まえ|নৌকা আর ছুরি: নৌকা এগিয়ে গিয়ে সামনে — &quot;আগে&quot;।|前~まえ~আগে, সামনে;名前~なまえ~নাম;午前~ごぜん~সকাল;駅前~えきまえ~স্টেশনের সামনে|お{名前[なまえ]}は何[なん]ですか。~আপনার নাম কী?;ねる{前[まえ]}に本[ほん]を読[よ]みます。~ঘুমানোর আগে বই পড়ি।
-後|t|পরে, পেছনে|after, behind|ゴ,コウ|あと,うし.ろ,のち|পথে (彳) ছোট সুতো ও ধীর পা — ধীরে চলে পেছনে পড়া = পরে।|午後~ごご~বিকাল;後~あと~পরে;後ろ~うしろ~পেছনে;後で~あとで~পরে|{午後[ごご]}、雨[あめ]がふります。~বিকেলে বৃষ্টি হবে।;学校[がっこう]の{後[あと]}で会[あ]いましょう。~স্কুলের পরে দেখা করি।
-上|d|ওপর|above, up|ジョウ|うえ,あ.がる,のぼ.る|মাটির দাগের (一) ওপরে ছোট দাগ = ওপরে।|上~うえ~ওপর;上手~じょうず~দক্ষ;上がる~あがる~ওঠা;上着~うわぎ~জ্যাকেট|つくえの{上[うえ]}に本[ほん]があります。~টেবিলের ওপর বই আছে।;日本語[にほんご]が{上手[じょうず]}ですね。~আপনার জাপানি ভালো তো!
-下|d|নিচ|below, down|カ,ゲ|した,さ.がる,くだ.さる|মাটির দাগের (一) নিচে ছোট দাগ = নিচে।|下~した~নিচ;下手~へた~আনাড়ি;下さい~ください~দয়া করে দিন;地下~ちか~ভূগর্ভ|いすの{下[した]}にねこがいます。~চেয়ারের নিচে বিড়াল আছে।;ここに名前[なまえ]を書[か]いて{下[くだ]}さい。~এখানে নাম লিখুন।
-左|d|বাঁ|left|サ|ひだり|কাজের যন্ত্র (工) ধরে সাহায্য করে বাঁ হাত। প্রথম দাগ বাঁদিকে ঝুঁকে।|左~ひだり~বাঁ;左手~ひだりて~বাঁ হাত;左足~ひだりあし~বাঁ পা;左側~ひだりがわ~বাঁ পাশ|{左[ひだり]}にまがってください。~বাঁদিকে ঘুরুন।;{左手[ひだりて]}で書[か]きます。~বাঁ হাতে লিখি।
-右|d|ডান|right|ウ,ユウ|みぎ|ডান হাতে (ノ+一) মুখে (口) খাবার তোলা হয়। প্রথম দাগ আড়াআড়ি।|右~みぎ~ডান;右手~みぎて~ডান হাত;右足~みぎあし~ডান পা;右側~みぎがわ~ডান পাশ|{右[みぎ]}に駅[えき]があります。~ডানে স্টেশন আছে।;{右手[みぎて]}でごはんを食[た]べます。~ডান হাতে ভাত খাই।
-中|d|ভেতর, মাঝ|inside, middle|チュウ,ジュウ|なか|চৌকোর ঠিক মাঝখান দিয়ে সোজা দাগ = ভেতর/মাঝ।|中~なか~ভেতর;中国~ちゅうごく~চীন;一日中~いちにちじゅう~সারাদিন;中学校~ちゅうがっこう~মিডল স্কুল|かばんの{中[なか]}に本[ほん]があります。~ব্যাগের ভেতরে বই আছে।;{中国[ちゅうごく]}へ行[い]きたいです。~চীনে যেতে চাই।
-外|d|বাইরে|outside|ガイ,ゲ|そと,ほか|夕 (সন্ধ্যা) + ト (ফাটল): সন্ধ্যায় ঘরের বাইরে।|外~そと~বাইরে;外国~がいこく~বিদেশ;外国人~がいこくじん~বিদেশি;外国語~がいこくご~বিদেশি ভাষা|{外[そと]}は雨[あめ]です。~বাইরে বৃষ্টি।;{外国[がいこく]}の友[とも]だちがいます。~বিদেশি বন্ধু আছে।
-北|d|উত্তর|north|ホク|きた|দুজন মানুষ পিঠে পিঠ দিয়ে — উত্তরের ঠান্ডায় পিঠ ফেরানো।|北~きた~উত্তর;北口~きたぐち~উত্তর গেট;北東~ほくとう~উত্তর-পূর্ব;北海道~ほっかいどう~হোক্কাইদো|{北[きた]}はさむいです。~উত্তর দিক ঠান্ডা।;駅[えき]の{北口[きたぐち]}で会[あ]います。~স্টেশনের উত্তর গেটে দেখা করি।
-南|d|দক্ষিণ|south|ナン|みなみ|দক্ষিণের রোদে ঘেরা ঘর — 十 আর ঘরের ছাদ।|南~みなみ~দক্ষিণ;南口~みなみぐち~দক্ষিণ গেট;南西~なんせい~দক্ষিণ-পশ্চিম;東南~とうなん~দক্ষিণ-পূর্ব|{南[みなみ]}はあたたかいです。~দক্ষিণ দিক উষ্ণ।;駅[えき]の{南口[みなみぐち]}にあります。~স্টেশনের দক্ষিণ গেটে আছে।
-東|d|পূর্ব|east|トウ|ひがし|গাছের (木) পেছনে সূর্য (日) ওঠে = পূর্ব।|東~ひがし~পূর্ব;東京~とうきょう~টোকিও;東口~ひがしぐち~পূর্ব গেট;東北~とうほく~উত্তর-পূর্ব|うちは駅[えき]の{東[ひがし]}にあります。~বাড়ি স্টেশনের পূর্ব দিকে।;日[ひ]が{東[ひがし]}から出[で]ます。~সূর্য পূর্ব দিক থেকে ওঠে।
-西|d|পশ্চিম|west|セイ,サイ|にし|ঝুড়ির ওপর পাখি বসেছে — সূর্যাস্তে ঘরে ফেরে = পশ্চিম।|西~にし~পশ্চিম;西口~にしぐち~পশ্চিম গেট;西洋~せいよう~পাশ্চাত্য;関西~かんさい~কানসাই অঞ্চল|{西[にし]}に山[やま]があります。~পশ্চিমে পাহাড় আছে।;駅[えき]の{西口[にしぐち]}でまちます。~স্টেশনের পশ্চিম গেটে অপেক্ষা করি।
-大|s|বড়|big|ダイ,タイ|おお.きい|হাত-পা ছড়িয়ে দাঁড়ানো মানুষ = বড়।|大きい~おおきい~বড়;大学~だいがく~বিশ্ববিদ্যালয়;大人~おとな~প্রাপ্তবয়স্ক;大切~たいせつ~গুরুত্বপূর্ণ|{大[おお]きい}いぬがいます。~বড় কুকুর আছে।;{大学[だいがく]}で日本語[にほんご]をべんきょうします。~বিশ্ববিদ্যালয়ে জাপানি পড়ি।
-小|s|ছোট|small|ショウ|ちい.さい,こ-,お-|মাঝে একটি দাগ, দুই পাশে ছোট ফোঁটা = ছোট।|小さい~ちいさい~ছোট;小学校~しょうがっこう~প্রাইমারি স্কুল;小川~おがわ~ছোট নদী;小雨~こさめ~গুঁড়ি বৃষ্টি|{小[ちい]さい}かばんです。~ছোট ব্যাগ।;{小学校[しょうがっこう]}の先生[せんせい]です。~প্রাইমারি স্কুলের শিক্ষক।
-長|s|লম্বা|long|チョウ|なが.い|লম্বা চুলওয়ালা বুড়ো মানুষ — লম্বা/প্রধান।|長い~ながい~লম্বা;校長~こうちょう~প্রধান শিক্ষক;社長~しゃちょう~কোম্পানির প্রধান;長さ~ながさ~দৈর্ঘ্য|この川[かわ]は{長[なが]い}です。~এই নদী লম্বা।;{校長[こうちょう]}先生[せんせい]に会[あ]います。~প্রধান শিক্ষকের সাথে দেখা করব।
-高|s|উঁচু, দামি|tall, expensive|コウ|たか.い|উঁচু মিনার: ওপরে ছাদ, নিচে দরজা = উঁচু।|高い~たかい~উঁচু, দামি;高校~こうこう~হাই স্কুল;高さ~たかさ~উচ্চতা;高校生~こうこうせい~হাই স্কুলের ছাত্র|この山[やま]は{高[たか]い}です。~এই পাহাড় উঁচু।;{高校[こうこう]}に行[い]っています。~হাই স্কুলে পড়ছি।
-安|s|সস্তা, নিরাপদ|cheap, safe|アン|やす.い|ছাদের (宀) নিচে নারী (女) — ঘরে শান্তি = নিরাপদ।|安い~やすい~সস্তা;安心~あんしん~স্বস্তি;安全~あんぜん~নিরাপদ;安売り~やすうり~সেল|この店[みせ]は{安[やす]い}です。~এই দোকান সস্তা।;この車[くるま]は{安[やす]く}ありません。~এই গাড়ি সস্তা নয়।
-新|s|নতুন|new|シン|あたら.しい|কুঠার (斤) দিয়ে গাছ (木) কেটে নতুন কাঠ বের করা।|新しい~あたらしい~নতুন;新聞~しんぶん~খবরের কাগজ;新年~しんねん~নববর্ষ;新人~しんじん~নবীন|{新[あたら]しい}車[くるま]を買[か]いました。~নতুন গাড়ি কিনেছি।;{新聞[しんぶん]}を読[よ]みます。~খবরের কাগজ পড়ি।
-古|s|পুরনো|old (things)|コ|ふる.い|十 (দশ) + 口 (মুখ): দশ প্রজন্মের মুখে মুখে ফেরা = পুরনো।|古い~ふるい~পুরনো;古本~ふるほん~পুরনো বই;中古~ちゅうこ~সেকেন্ডহ্যান্ড;古里~ふるさと~জন্মস্থান|この本[ほん]は{古[ふる]い}です。~এই বইটি পুরনো।;{古本[ふるほん]}を買[か]いました。~পুরনো বই কিনেছি।
-多|s|অনেক|many|タ|おお.い|夕 (মাংসের টুকরো) দুটি একটার ওপর আরেকটা = অনেক।|多い~おおい~অনেক;多分~たぶん~সম্ভবত;多く~おおく~অনেকটা;多少~たしょう~কমবেশি|ここは人[ひと]が{多[おお]い}です。~এখানে মানুষ অনেক।;{多分[たぶん]}雨[あめ]です。~সম্ভবত বৃষ্টি।
-少|s|অল্প|few, a little|ショウ|すく.ない,すこ.し|小 (ছোট)-র ওপর আরেকটি কাটা দাগ — আরও কমে গেছে = অল্প।|少ない~すくない~কম;少し~すこし~একটু;少々~しょうしょう~সামান্য;多少~たしょう~কমবেশি|お金[かね]が{少[すく]ない}です。~টাকা কম।;{少[すこ]し}まってください。~একটু অপেক্ষা করুন।
-白|s|সাদা|white|ハク,ビャク|しろ.い,しろ|সূর্যের (日) মাথায় এক ফোঁটা আলো = সাদা।|白い~しろい~সাদা;白~しろ~সাদা রং;真っ白~まっしろ~ধবধবে সাদা;白黒~しろくろ~সাদা-কালো|{白[しろ]}の車[くるま]がほしいです。~সাদা গাড়ি চাই।;{白[しろ]い}花[はな]がきれいです。~সাদা ফুল সুন্দর।
-山|x|পাহাড়|mountain|サン|やま|তিন চূড়াওয়ালা পাহাড়ের ছবি।|山~やま~পাহাড়;富士山~ふじさん~ফুজি পর্বত;山道~やまみち~পাহাড়ি পথ;火山~かざん~আগ্নেয়গিরি|{山[やま]}にのぼります。~পাহাড়ে উঠি।;あの{山[やま]}は高[たか]いです。~ওই পাহাড় উঁচু।
-川|x|নদী|river|セン|かわ|তিনটি বয়ে চলা ধারা = নদী।|川~かわ~নদী;小川~おがわ~ছোট নদী;大川~おおかわ~বড় নদী;川口~かわぐち~মোহনা|{川[かわ]}で水[みず]を飲[の]みます。~নদীতে পানি খাই।;{小川[おがわ]}さんは先生[せんせい]です。~ওগাওয়াসান শিক্ষক।
-田|x|ধানক্ষেত|rice field|デン|た|আল দিয়ে চার ভাগ করা ধানক্ষেত।|田~た~ধানক্ষেত;田中~たなか~তানাকা (পদবি);山田~やまだ~ইয়ামাদা (পদবি);田んぼ~たんぼ~ধানক্ষেত|{田中[たなか]}さんは学生[がくせい]です。~তানাকাসান ছাত্র।;{田[た]}に水[みず]を入[い]れます。~ক্ষেতে পানি দিই।
-天|x|আকাশ|sky, heaven|テン|あま,あめ|মানুষের (大) মাথার ওপর একটি দাগ (一) = আকাশ।|天気~てんき~আবহাওয়া;天ぷら~てんぷら~টেম্পুরা;天国~てんごく~স্বর্গ;天~てん~আকাশ|{天気[てんき]}がいいです。~আবহাওয়া ভালো।;{天[てん]ぷら}を食[た]べます。~টেম্পুরা খাই।
-気|x|মন, শক্তি|spirit, air|キ,ケ|-|ভাত (米) রান্নার ভাপ — প্রাণশক্তি/মনের ভাব।|天気~てんき~আবহাওয়া;元気~げんき~সুস্থ, প্রাণবন্ত;人気~にんき~জনপ্রিয়তা;気をつける~きをつける~সাবধান হওয়া|{気[き]}をつけてください。~সাবধান থাকুন।;この店[みせ]は{人気[にんき]}があります。~এই দোকান জনপ্রিয়।
-雨|x|বৃষ্টি|rain|ウ|あめ|আকাশ (一) নিচে মেঘ (冂) আর ফোঁটা — বৃষ্টি।|雨~あめ~বৃষ্টি;大雨~おおあめ~ভারী বৃষ্টি;小雨~こさめ~গুঁড়ি বৃষ্টি;雨天~うてん~বৃষ্টির দিন|{雨[あめ]}がふっています。~বৃষ্টি হচ্ছে।;{大雨[おおあめ]}でした。~ভারী বৃষ্টি ছিল।
-花|x|ফুল|flower|カ|はな|ঘাস (艹) + 化 (রূপান্তর): কুঁড়ি ফুলে বদলে যায়।|花~はな~ফুল;花火~はなび~আতশবাজি;花見~はなみ~ফুল দেখা;花屋~はなや~ফুলের দোকান|{花[はな]}がきれいです。~ফুল সুন্দর।;{花見[はなみ]}に行[い]きます。~ফুল দেখতে যাই।
-人|p|মানুষ|person|ジン,ニン|ひと|পাশ থেকে দেখা দুই পায়ে হাঁটা মানুষ।|人~ひと~মানুষ;日本人~にほんじん~জাপানি;三人~さんにん~তিনজন;大人~おとな~প্রাপ্তবয়স্ক|あの{人[ひと]}は先生[せんせい]です。~ওই মানুষটি শিক্ষক।;{日本人[にほんじん]}の友[とも]だちがいます。~জাপানি বন্ধু আছে।
-子|p|শিশু|child|シ,ス|こ|হাত ছড়ানো ছোট্ট শিশুর ছবি।|子~こ~শিশু;子ども~こども~শিশু;女の子~おんなのこ~মেয়ে;男の子~おとこのこ~ছেলে|{子[こ]}どもが三人[さんにん]います。~তিনটি সন্তান আছে।;あそこに女[おんな]の{子[こ]}がいます。~ওখানে একটি মেয়ে আছে।
-女|p|নারী|woman|ジョ,ニョ|おんな|হাঁটু গেড়ে বসা নারীর ছবি।|女~おんな~নারী;女の人~おんなのひと~মহিলা;女の子~おんなのこ~মেয়ে;彼女~かのじょ~সে (নারী)|{女[おんな]}の人[ひと]がいます。~একজন মহিলা আছেন।;{女[おんな]}の先生[せんせい]に会[あ]いました。~মহিলা শিক্ষকের সাথে দেখা হলো।
-男|p|পুরুষ|man|ダン,ナン|おとこ|田 (ক্ষেত) + 力 (শক্তি): ক্ষেতে পরিশ্রম করা পুরুষ।|男~おとこ~পুরুষ;男の人~おとこのひと~পুরুষ মানুষ;男の子~おとこのこ~ছেলে;男性~だんせい~পুরুষ|{男[おとこ]}の人[ひと]がいます。~একজন পুরুষ আছেন।;{男[おとこ]}の子[こ]は十人[じゅうにん]います。~ছেলে দশজন আছে।
-父|p|বাবা|father|フ|ちち|হাতে লাঠি/কুঠার নিয়ে পরিবার রক্ষা করা বাবা।|父~ちち~আমার বাবা;お父さん~おとうさん~বাবা (সম্মানে);父の日~ちちのひ~ফাদার্স ডে;祖父~そふ~দাদা|{父[ちち]}は毎日[まいにち]出[で]かけます。~বাবা প্রতিদিন বের হন।;{お父[とう]さん}はどこですか。~বাবা কোথায়?
-母|p|মা|mother|ボ|はは|মায়ের দুই স্তন বিন্দু — সন্তান লালন করা মা।|母~はは~আমার মা;お母さん~おかあさん~মা (সম্মানে);母の日~ははのひ~মাদার্স ডে;祖母~そぼ~দিদিমা|{母[はは]}はりょうりが上手[じょうず]です。~মা রান্নায় দক্ষ।;{お母[かあ]さん}はうちにいます。~মা বাড়িতে আছেন।
-友|p|বন্ধু|friend|ユウ|とも|দুটি হাত (又) একসাথে ধরা = বন্ধু।|友達~ともだち~বন্ধু;友人~ゆうじん~বন্ধু (লেখ্য);親友~しんゆう~ঘনিষ্ঠ বন্ধু;友~とも~সঙ্গী|{友[とも]}だちと話[はな]します。~বন্ধুর সাথে কথা বলি।;{友人[ゆうじん]}に会[あ]いました。~বন্ধুর সাথে দেখা হলো।
-先|p|আগে|previous, ahead|セン|さき|পা (儿) আগে বাড়িয়ে যে আগে চলে = আগে/সামনে।|先生~せんせい~শিক্ষক;先週~せんしゅう~গত সপ্তাহ;先月~せんげつ~গত মাস;先~さき~আগে, সামনে|{先生[せんせい]}は男[おとこ]の人[ひと]です。~শিক্ষক একজন পুরুষ।;{先月[せんげつ]}、日本[にほん]へ行[い]きました。~গত মাসে জাপানে গিয়েছিলাম।
-生|p|জন্ম, জীবন|life, birth|セイ,ショウ|い.きる,う.まれる,なま|মাটি থেকে চারা গজাচ্ছে = জন্ম/জীবন।|学生~がくせい~ছাত্র;先生~せんせい~শিক্ষক;生まれる~うまれる~জন্মানো;一年生~いちねんせい~প্রথম বর্ষের ছাত্র|わたしは{学生[がくせい]}です。~আমি ছাত্র।;{生[う]まれた}ところはとうきょうです。~জন্মস্থান টোকিও।
-学|e|শেখা|study, learn|ガク|まな.ぶ|ছাদের নিচে শিশু (子) পড়ছে = শেখা।|学校~がっこう~স্কুল;大学~だいがく~বিশ্ববিদ্যালয়;学生~がくせい~ছাত্র;学ぶ~まなぶ~শেখা|{学校[がっこう]}は九時[くじ]にはじまります。~স্কুল ৯টায় শুরু হয়।;{大学[だいがく]}で日本語[にほんご]をべんきょうします。~বিশ্ববিদ্যালয়ে জাপানি পড়ি।
-校|e|স্কুল|school|コウ|-|木 (কাঠ) + 交 (বিনিময়): কাঠের ভবনে শিক্ষা আদান-প্রদান = স্কুল।|学校~がっこう~স্কুল;高校~こうこう~হাই স্কুল;校長~こうちょう~প্রধান শিক্ষক;小学校~しょうがっこう~প্রাইমারি স্কুল|{高校[こうこう]}の先生[せんせい]です。~হাই স্কুলের শিক্ষক।;{小学校[しょうがっこう]}はちかいです。~প্রাইমারি স্কুল কাছে।
-語|e|ভাষা|language|ゴ|かた.る|言 (কথা) + 五 + 口 (মুখ): পাঁচ মুখে বলা কথা = ভাষা।|日本語~にほんご~জাপানি ভাষা;外国語~がいこくご~বিদেশি ভাষা;英語~えいご~ইংরেজি;言語~げんご~ভাষা|{日本語[にほんご]}を話[はな]します。~জাপানি বলি।;{外国語[がいこくご]}をべんきょうします。~বিদেশি ভাষা শিখি।
-本|e|বই, মূল|book, origin|ホン|もと|গাছের (木) গোড়ায় একটি দাগ — গাছের মূল = মূল/বই।|本~ほん~বই;日本~にほん~জাপান;本当~ほんとう~সত্যি;書店~しょてん~বইয়ের দোকান|{本[ほん]}を読[よ]みます。~বই পড়ি।;{日本[にほん]}へ行[い]きます。~জাপানে যাই।
-名|e|নাম|name|メイ,ミョウ|な|夕 (সন্ধ্যা) + 口 (মুখ): অন্ধকারে মুখে নাম ডাকা।|名前~なまえ~নাম;名~な~নাম;有名~ゆうめい~বিখ্যাত;名刺~めいし~ভিজিটিং কার্ড|お{名前[なまえ]}は何[なん]ですか。~আপনার নাম কী?;{名[な]}を書[か]いてください。~নাম লিখুন।
-何|e|কী|what|カ|なに,なん|人 (মানুষ) + 可: মানুষ প্রশ্ন করছে — কী/কত?|何~なに~কী;何時~なんじ~কটা;何人~なんにん~কতজন;何曜日~なんようび~কোন বার|これは{何[なん]}ですか。~এটা কী?;{何人[なんにん]}いますか。~কতজন আছে?
-国|l|দেশ|country|コク|くに|সীমানা (囗) ভেতরে রত্ন (玉) = দেশ।|国~くに~দেশ;外国~がいこく~বিদেশ;中国~ちゅうごく~চীন;国語~こくご~জাতীয় ভাষা|どこの{国[くに]}の人[ひと]ですか。~কোন দেশের মানুষ?;{外国[がいこく]}へ行[い]きたいです。~বিদেশে যেতে চাই।
-車|l|গাড়ি|car, vehicle|シャ|くるま|ওপর থেকে দেখা গাড়ির চাকা ও অক্ষ।|車~くるま~গাড়ি;電車~でんしゃ~ট্রেন;自転車~じてんしゃ~সাইকেল;車内~しゃない~গাড়ির ভেতর|{車[くるま]}で行[い]きます。~গাড়িতে যাই।;{電車[でんしゃ]}にのります。~ট্রেনে চড়ি।
-電|l|বিদ্যুৎ|electricity|デン|-|বৃষ্টির (雨) মেঘে বিদ্যুৎ চমক = বিদ্যুৎ।|電車~でんしゃ~ট্রেন;電話~でんわ~ফোন;電気~でんき~বিদ্যুৎ, বাতি;電気代~でんきだい~বিদ্যুৎ বিল|{電話[でんわ]}をかけます。~ফোন করি।;{電車[でんしゃ]}は九時[くじ]に出[で]ます。~ট্রেন ৯টায় ছাড়ে।
-店|l|দোকান|shop|テン|みせ|ঘরে (广) জিনিস সাজিয়ে (占) রাখা = দোকান।|店~みせ~দোকান;店員~てんいん~দোকানের কর্মী;書店~しょてん~বইয়ের দোকান;喫茶店~きっさてん~ক্যাফে|この{店[みせ]}は安[やす]いです。~এই দোকান সস্তা।;あの{店[みせ]}で本[ほん]を買[か]いました。~ওই দোকানে বই কিনেছি।
-駅|l|স্টেশন|station|エキ|-|ঘোড়া (馬) বদলের ঘাঁটি = স্টেশন।|駅~えき~স্টেশন;駅前~えきまえ~স্টেশনের সামনে;駅員~えきいん~স্টেশনের কর্মী;東京駅~とうきょうえき~টোকিও স্টেশন|{駅[えき]}まであるきます。~স্টেশন পর্যন্ত হাঁটি।;{駅前[えきまえ]}に店[みせ]があります。~স্টেশনের সামনে দোকান আছে।
-道|l|পথ|road, way|ドウ|みち|辶 (চলা) + 首 (মাথা): মাথা উঁচু করে চলার পথ।|道~みち~পথ;北海道~ほっかいどう~হোক্কাইদো;近道~ちかみち~শর্টকাট;道路~どうろ~রাস্তা|この{道[みち]}をまっすぐ行[い]きます。~এই পথ সোজা যাই।;{道[みち]}がわかりません。~পথ চিনি না।
-目|b|চোখ|eye|モク,ボク|め|কাত করে রাখা চোখের ছবি।|目~め~চোখ;目薬~めぐすり~চোখের ওষুধ;二人目~ふたりめ~দ্বিতীয় জন;目的~もくてき~উদ্দেশ্য|{目[め]}がいたいです。~চোখ ব্যথা করছে।;わたしの{目[め]}は大[おお]きいです。~আমার চোখ বড়।
-耳|b|কান|ear|ジ|みみ|কানের ভাঁজের ছবি।|耳~みみ~কান;右耳~みぎみみ~ডান কান;左耳~ひだりみみ~বাঁ কান;耳たぶ~みみたぶ~কানের লতি|{耳[みみ]}がいたいです。~কান ব্যথা করছে।;{右耳[みぎみみ]}が聞[き]こえません。~ডান কানে শুনতে পাই না।
-口|b|মুখ|mouth|コウ,ク|くち|হাঁ করা মুখের ছবি।|口~くち~মুখ;入口~いりぐち~প্রবেশপথ;出口~でぐち~বাইরে যাওয়ার পথ;人口~じんこう~জনসংখ্যা|{口[くち]}を大[おお]きくあけます。~মুখ বড় করে হাঁ করি।;駅[えき]の{出口[でぐち]}で会[あ]いましょう。~স্টেশনের বের হওয়ার পথে দেখা করি।
-手|b|হাত|hand|シュ|て|পাঁচ আঙুলসহ হাতের ছবি।|手~て~হাত;上手~じょうず~দক্ষ;下手~へた~আনাড়ি;手紙~てがみ~চিঠি|{手[て]}をあらいます。~হাত ধুই।;{下手[へた]}ですが、話[はな]します。~আনাড়ি, তবু কথা বলি।
-足|b|পা|foot, leg|ソク|あし,た.りる|হাঁটু (口) আর পা (止) — পায়ের ছবি।|足~あし~পা;足りる~たりる~যথেষ্ট হওয়া;一足~いっそく~একজোড়া (জুতো);足元~あしもと~পায়ের কাছে|{足[あし]}がいたいです。~পা ব্যথা করছে।;お金[かね]が{足[た]りません}。~টাকা যথেষ্ট নয়।
-見|v|দেখা|see, look|ケン|み.る,み.せる|চোখ (目) আর পা (儿): চোখ নিয়ে হেঁটে দেখা।|見る~みる~দেখা;見せる~みせる~দেখানো;花見~はなみ~ফুল দেখা;見学~けんがく~ঘুরে দেখা|テレビを{見[み]ます}。~টিভি দেখি।;えいがを{見[み]ました}。~সিনেমা দেখেছি।
-聞|v|শোনা|hear, ask|ブン,モン|き.く|দরজায় (門) কান (耳) পেতে শোনা।|聞く~きく~শোনা, জিজ্ঞাসা করা;新聞~しんぶん~খবরের কাগজ;聞こえる~きこえる~শোনা যায়;聞き方~ききかた~শোনার উপায়|おんがくを{聞[き]きます}。~গান শুনি।;先生[せんせい]の話[はなし]を{聞[き]いて}ください。~শিক্ষকের কথা শুনুন।
-食|v|খাওয়া|eat|ショク|た.べる|ঢাকনার নিচে ভালো (良) খাবার = খাওয়া।|食べる~たべる~খাওয়া;食べ物~たべもの~খাবার;食事~しょくじ~খাবার;朝食~ちょうしょく~সকালের নাস্তা|ごはんを{食[た]べます}。~ভাত খাই।;{食[た]べもの}がすきです。~খাবার ভালো লাগে।
-飲|v|পান করা|drink|イン|の.む|食 + 欠 (হাঁ করা): হাঁ করে পান করা।|飲む~のむ~পান করা;飲み物~のみもの~পানীয়;飲食~いんしょく~খাওয়া-দাওয়া;飲み方~のみかた~খাওয়ার নিয়ম|水[みず]を{飲[の]みます}。~পানি খাই।;{飲[の]みもの}はありますか。~পানীয় আছে কি?
-行|v|যাওয়া|go|コウ,ギョウ|い.く,ゆ.く|চৌরাস্তার ছবি — রাস্তা ধরে যাওয়া।|行く~いく~যাওয়া;銀行~ぎんこう~ব্যাংক;旅行~りょこう~ভ্রমণ;行き方~いきかた~যাওয়ার উপায়|学校[がっこう]へ{行[い]きます}。~স্কুলে যাই।;日本[にほん]へ{行[い]きたい}です。~জাপানে যেতে চাই।
-来|v|আসা|come|ライ|く.る,き.ます|গমের শীষের ছবি — মাঠ থেকে আসা = আসা।|来る~くる~আসা;来週~らいしゅう~আগামী সপ্তাহ;来月~らいげつ~আগামী মাস;来年~らいねん~আগামী বছর|友[とも]だちが{来[き]ます}。~বন্ধু আসে।;{来年[らいねん]}、日本[にほん]へ行[い]きます。~আগামী বছর জাপানে যাব।
-出|v|বের হওয়া|go out, exit|シュツ|で.る,だ.す|পাহাড়ের ওপর পাহাড়ের মতো ভেতর থেকে বেরিয়ে আসা।|出る~でる~বের হওয়া;出す~だす~বের করা, জমা দেওয়া;出口~でぐち~বের হওয়ার পথ;出かける~でかける~বাইরে যাওয়া|うちを{出[で]ます}。~বাড়ি থেকে বের হই।;てがみを{出[だ]します}。~চিঠি পাঠাই।
-入|v|ঢোকা|enter|ニュウ|い.る,はい.る,い.れる|ঢোকার তীর বা ফানেলের ছবি।|入る~はいる~ঢোকা;入れる~いれる~ঢোকানো;入口~いりぐち~প্রবেশপথ;入学~にゅうがく~ভর্তি|へやに{入[はい]ります}。~ঘরে ঢুকি।;{入口[いりぐち]}でまちます。~প্রবেশপথে অপেক্ষা করি।
-立|v|দাঁড়ানো|stand|リツ|た.つ|মাটিতে (一) দাঁড়ানো মানুষের আকৃতি।|立つ~たつ~দাঁড়ানো;国立~こくりつ~জাতীয়;立ち上がる~たちあがる~উঠে দাঁড়ানো;立場~たちば~অবস্থান|ここに{立[た]って}ください。~এখানে দাঁড়ান।;{国立[こくりつ]}大学[だいがく]に入[はい]ります。~জাতীয় বিশ্ববিদ্যালয়ে ঢুকব।
-休|v|বিশ্রাম|rest|キュウ|やす.む|মানুষ (亻) গাছে (木) হেলান দিয়ে বিশ্রাম নিচ্ছে।|休む~やすむ~বিশ্রাম নেওয়া;休み~やすみ~ছুটি;休日~きゅうじつ~ছুটির দিন;夏休み~なつやすみ~গ্রীষ্মের ছুটি|あしたは{休[やす]み}です。~আগামীকাল ছুটি।;なつ{休[やす]み}に日本[にほん]へ行[い]きます。~গ্রীষ্মের ছুটিতে জাপানে যাব।
-読|v|পড়া|read|ドク|よ.む|言 (কথা) + 売 (বিক্রি): লেখা কথা জোরে ঘোষণা = পড়া।|読む~よむ~পড়া;読み方~よみかた~পড়ার নিয়ম;読書~どくしょ~বই পড়া;読み物~よみもの~পাঠ্যবস্তু|本[ほん]を{読[よ]みます}。~বই পড়ি।;この本[ほん]を{読[よ]んで}ください。~এই বই পড়ুন।
-書|v|লেখা|write|ショ|か.く|তুলি (聿) ও রোজকার (日) কথা = লেখা।|書く~かく~লেখা;辞書~じしょ~অভিধান;書き方~かきかた~লেখার নিয়ম;書類~しょるい~কাগজপত্র|名前[なまえ]を{書[か]きます}。~নাম লিখি।;ノートに名前[なまえ]を{書[か]いて}ください。~খাতায় নাম লিখুন।
-話|v|কথা বলা|talk|ワ|はな.す,はなし|言 (কথা) + 舌 (জিভ): জিভ নেড়ে কথা বলা।|話す~はなす~বলা;話~はなし~গল্প, কথা;電話~でんわ~ফোন;会話~かいわ~কথোপকথন|ともだちと{話[はな]します}。~বন্ধুর সাথে কথা বলি।;先生[せんせい]の{話[はなし]}は長[なが]いです。~শিক্ষকের কথা লম্বা।
-言|v|বলা|say|ゲン,ゴン|い.う,こと|মুখ (口) থেকে বেরোনো কথার ঢেউ।|言う~いう~বলা;言葉~ことば~শব্দ, ভাষা;一言~ひとこと~এক কথা;言語~げんご~ভাষা|日本語[にほんご]で{言[い]います}。~জাপানিতে বলি।;もういちど{言[い]って}ください。~আরেকবার বলুন।
-買|v|কেনা|buy|バイ|か.う|জাল (罒) ও কড়ি (貝): কড়ি দিয়ে জিনিস কেনা।|買う~かう~কেনা;買い物~かいもの~কেনাকাটা;買い方~かいかた~কেনার উপায়;買い手~かいて~ক্রেতা|本[ほん]を{買[か]います}。~বই কিনি।;{買[か]いもの}に行[い]きます。~কেনাকাটা করতে যাই।
-会|v|দেখা করা|meet|カイ,エ|あ.う|মানুষ জড়ো হয়ে মেঘের মতো মিলিত হয় = দেখা হওয়া।|会う~あう~দেখা করা;会社~かいしゃ~কোম্পানি;会話~かいわ~কথোপকথন;会議~かいぎ~সভা|友[とも]だちに{会[あ]います}。~বন্ধুর সাথে দেখা করি।;駅[えき]で{会[あ]いましょう}。~স্টেশনে দেখা করি।`;
+const RAW=`
+一|n|এক|one|イチ,イツ|ひと.つ|একটাই আড়াআড়ি দাগ — একটি জিনিস মানেই এক।|一人~ひとり~একজন;一つ~ひとつ~একটি;一月~いちがつ~জানুয়ারি;一日~ついたち~মাসের ১ তারিখ;一緒~いっしょ~একসাথে;一番~いちばん~সবচেয়ে ভালো / প্রথম;一階~いっかい~একতলা;一年~いちねん~এক বছর|きょうしつに{一人[ひとり]}います。~ক্লাসরুমে একজন আছে।;りんごを{一[ひと]つ}ください。~একটা আপেল দিন।
+二|n|দুই|two|ニ|ふた.つ|দুটি দাগ = দুই। ওপরের দাগ ছোট, নিচেরটা বড়।|二人~ふたり~দুজন;二つ~ふたつ~দুটি;二月~にがつ~ফেব্রুয়ারি;二日~ふつか~মাসের ২ তারিখ;二階~にかい~দোতলা;二番~にばん~দ্বিতীয়;二十~にじゅう~বিশ;二時~にじ~দুটো|{二人[ふたり]}で食[た]べます。~দুজনে খাই।;{二月[にがつ]}はさむいです。~ফেব্রুয়ারি ঠান্ডা।
+三|n|তিন|three|サン|み.っつ|তিনটি দাগ = তিন। মাঝেরটা সবচেয়ে ছোট।|三人~さんにん~তিনজন;三つ~みっつ~তিনটি;三月~さんがつ~মার্চ;三日~みっか~মাসের ৩ তারিখ;三階~さんがい~তিনতলা;三十~さんじゅう~ত্রিশ;三番~さんばん~তৃতীয়;三時~さんじ~তিনটা|かぞくは{三人[さんにん]}です。~পরিবারে তিনজন।;みかんを{三[みっ]つ}買[か]いました。~তিনটি কমলা কিনেছি।
+四|n|চার|four|シ|よ.っつ,よん|চার দেয়ালের একটি ঘর, ভেতরে দুই পা — &quot;চার&quot; কোণা।|四人~よにん~চারজন;四つ~よっつ~চারটি;四月~しがつ~এপ্রিল;四日~よっか~মাসের ৪ তারিখ;四階~よんかい~চারতলা;四十~よんじゅう~চল্লিশ;四時~よじ~চারটা;四番~よんばん~চতুর্থ|{四月[しがつ]}に学校[がっこう]がはじまります。~এপ্রিলে স্কুল শুরু হয়।;たまごを{四[よっ]つ}買[か]います。~চারটি ডিম কিনব।
+五|n|পাঁচ|five|ゴ|いつ.つ|দুই দাগের মাঝে হাতের পাঁচ আঙুলের মতো মোচড় = পাঁচ।|五人~ごにん~পাঁচজন;五つ~いつつ~পাঁচটি;五月~ごがつ~মে;五日~いつか~মাসের ৫ তারিখ;五階~ごかい~পাঁচতলা;五十~ごじゅう~পঞ্চাশ;五時~ごじ~পাঁচটা;五百~ごひゃく~পাঁচশো|{五月[ごがつ]}は花[はな]がきれいです。~মে মাসে ফুল সুন্দর।;{五人[ごにん]}の友[とも]だちが来[き]ます。~পাঁচজন বন্ধু আসবে।
+六|n|ছয়|six|ロク|む.っつ|মাথায় ছোট ছাতা, নিচে দুই পা — ছাতা ও দুই পা মিলে &quot;ছয়&quot;।|六人~ろくにん~ছয়জন;六つ~むっつ~ছয়টি;六月~ろくがつ~জুন;六日~むいか~মাসের ৬ তারিখ;六階~ろっかい~ছয়তলা;六十~ろくじゅう~ষাট;六時~ろくじ~ছয়টা;六百~ろっぴゃく~ছয়শো|{六時[ろくじ]}におきます。~ছয়টায় উঠি।;いすが{六[むっ]つ}あります。~ছয়টি চেয়ার আছে।
+七|n|সাত|seven|シチ|なな.つ,なな|ইংরেজি 7-এর মতো একটি কাটা দাগ — সাত।|七人~しちにん~সাতজন;七つ~ななつ~সাতটি;七月~しちがつ~জুলাই;七日~なのか~মাসের ৭ তারিখ;七階~ななかい~সাততলা;七十~ななじゅう~সত্তর;七時~しちじ~সাতটা;七百~ななひゃく~সাতশো|{七時[しちじ]}にうちを出[で]ます。~সাতটায় বাড়ি থেকে বের হই।;{七月[しちがつ]}はあついです。~জুলাই গরম।
+八|n|আট|eight|ハチ|やっ.つ|দুই পা ছড়িয়ে নিচে নেমে গেছে — ছড়ানো = আট (শুভ সংখ্যা)।|八人~はちにん~আটজন;八つ~やっつ~আটটি;八月~はちがつ~আগস্ট;八日~ようか~মাসের ৮ তারিখ;八階~はっかい~আটতলা;八十~はちじゅう~আশি;八時~はちじ~আটটা;八百~はっぴゃく~আটশো|{八時[はちじ]}に学校[がっこう]へ行[い]きます。~আটটায় স্কুলে যাই।;パンを{八[やっ]つ}買[か]いました。~আটটি রুটি কিনেছি।
+九|n|নয়|nine|キュウ,ク|ここの.つ|৯-এর মতো ঘোরানো লেজ — নয়।|九人~きゅうにん~নয়জন;九つ~ここのつ~নয়টি;九月~くがつ~সেপ্টেম্বর;九日~ここのか~মাসের ৯ তারিখ;九階~きゅうかい~নয়তলা;九十~きゅうじゅう~নব্বই;九時~くじ~নটা;九百~きゅうひゃく~নয়শো|{九月[くがつ]}に日本[にほん]へ行[い]きます。~সেপ্টেম্বরে জাপানে যাব।;{九時[くじ]}にねます。~নয়টায় ঘুমাই।
+十|n|দশ|ten|ジュウ,ジッ|とお|যোগ চিহ্ন (+) — আড়াআড়ি ও খাড়া দুই দাগ মিলে দশ।|十人~じゅうにん~দশজন;十~とお~দশটি;十月~じゅうがつ~অক্টোবর;十日~とおか~মাসের ১০ তারিখ;十一~じゅういち~এগারো;十時~じゅうじ~দশটা;十年~じゅうねん~দশ বছর;十円~じゅうえん~দশ ইয়েন|{十人[じゅうにん]}の学生[がくせい]がいます。~দশজন ছাত্র আছে।;{十月[じゅうがつ]}に友[とも]だちに会[あ]います。~অক্টোবরে বন্ধুর সাথে দেখা করব।
+百|n|একশো|hundred|ヒャク|-|一 (এক) + 白 (সাদা): এক পাতা সাদা কাগজে একশো লেখা।|百円~ひゃくえん~১০০ ইয়েন;三百~さんびゃく~৩০০;六百~ろっぴゃく~৬০০;八百~はっぴゃく~৮০০;百年~ひゃくねん~একশো বছর;百人~ひゃくにん~একশো জন;百点~ひゃくてん~একশো নম্বর;百貨店~ひゃっかてん~ডিপার্টমেন্ট স্টোর|このパンは{百円[ひゃくえん]}です。~এই রুটি ১০০ ইয়েন।;{三百円[さんびゃくえん]}です。~৩০০ ইয়েন।
+千|n|হাজার|thousand|セン|ち|十 (দশ)-এর মাথায় একটি দাগ — দশের ওপর আরও গুণ = হাজার।|千円~せんえん~১০০০ ইয়েন;三千~さんぜん~৩০০০;八千~はっせん~৮০০০;千人~せんにん~১০০০ জন;千年~せんねん~হাজার বছর;千回~せんかい~হাজার বার;千万~せんまん~এক কোটি;数千~すうせん~কয়েক হাজার|この本[ほん]は{千円[せんえん]}です。~এই বইয়ের দাম ১০০০ ইয়েন।;この店[みせ]の本[ほん]は{三千円[さんぜんえん]}です。~এই দোকানের বই ৩০০০ ইয়েন।
+万|n|দশ হাজার|ten thousand|マン,バン|-|বাঁকানো বড় আকৃতির দাগ — বিশাল সংখ্যা ১০,০০০।|一万円~いちまんえん~১০,০০০ ইয়েন;十万~じゅうまん~১,০০,০০০;三万~さんまん~৩০,০০০;万年筆~まんねんひつ~ফাউন্টেন পেন;万歳~ばんざい~জয় হোক;万一~まんいち~যদি কখনো;万年~まんねん~দীর্ঘ যুগ;万円~まんえん~দশ হাজার ইয়েন|このとけいは{一万円[いちまんえん]}です。~এই ঘড়ি ১০,০০০ ইয়েন।;{十万人[じゅうまんにん]}の人[ひと]が来[き]ました。~এক লাখ মানুষ এসেছিল।
+円|n|ইয়েন, গোল|yen, circle|エン|まる.い|গোল মুদ্রার চারপাশে ফ্রেম, ভেতরে দুই দাগ — ইয়েন মুদ্রা।|円~えん~ইয়েন;千円~せんえん~১০০০ ইয়েন;五百円~ごひゃくえん~৫০০ ইয়েন;円い~まるい~গোল;百円~ひゃくえん~একশো ইয়েন;十円~じゅうえん~দশ ইয়েন;円高~えんだか~ইয়েনের দাম বেশি;円安~えんやす~ইয়েনের দাম কম|これは{五百円[ごひゃくえん]}です。~এটা ৫০০ ইয়েন।;おべんとうは{八百円[はっぴゃくえん]}です。~লাঞ্চবক্স ৮০০ ইয়েন।
+日|w|দিন, সূর্য|day, sun|ニチ,ジツ|ひ,か|সূর্যের ছবি (জানালার মতো চৌকো) — দিন/সূর্য।|今日~きょう~আজ;毎日~まいにち~প্রতিদিন;日曜日~にちようび~রবিবার;二日~ふつか~২ তারিখ/২ দিন;日本~にほん~জাপান;日本語~にほんご~জাপানি ভাষা;日記~にっき~ডায়েরি;日付~ひづけ~তারিখ|{今日[きょう]}は雨[あめ]です。~আজ বৃষ্টি।;{毎日[まいにち]}学校[がっこう]へ行[い]きます。~প্রতিদিন স্কুলে যাই।
+月|w|চাঁদ, মাস|moon, month|ゲツ,ガツ|つき|বাঁকা চাঁদের ছবি, ভেতরে দুই দাগ = চাঁদ।|月曜日~げつようび~সোমবার;今月~こんげつ~এই মাস;一月~いちがつ~জানুয়ারি;月~つき~চাঁদ;来月~らいげつ~আগামী মাস;先月~せんげつ~গত মাস;月末~げつまつ~মাসের শেষ;月給~げっきゅう~মাসিক বেতন|{今月[こんげつ]}はいそがしいです。~এই মাসে ব্যস্ত।;{月曜日[げつようび]}に会[あ]いましょう。~সোমবারে দেখা করি।
+火|w|আগুন|fire|カ|ひ|আগুনের শিখা, দুই পাশে ফুলকি ছিটকে পড়ছে।|火曜日~かようび~মঙ্গলবার;火~ひ~আগুন;花火~はなび~আতশবাজি;火事~かじ~অগ্নিকাণ্ড;火山~かざん~আগ্নেয়গিরি;火星~かせい~মঙ্গল গ্রহ;火傷~やけど~পোড়া;火花~ひばな~স্ফুলিঙ্গ|{火曜日[かようび]}は休[やす]みです。~মঙ্গলবার ছুটি।;{花火[はなび]}を見[み]ました。~আতশবাজি দেখলাম।
+水|w|পানি|water|スイ|みず|মাঝে স্রোত, দুই পাশে ছিটকে পড়া জলের ফোঁটা।|水曜日~すいようび~বুধবার;水~みず~পানি;水道~すいどう~পানির লাইন;水着~みずぎ~সুইমিং স্যুট;水泳~すいえい~সাঁতার;水色~みずいろ~হালকা নীল;水族館~すいぞくかん~অ্যাকোয়ারিয়াম;水筒~すいとう~পানির বোতল|{水[みず]}をください。~পানি দিন।;{水曜日[すいようび]}にテストがあります。~বুধবারে পরীক্ষা আছে।
+木|w|গাছ|tree, wood|モク,ボク|き|কাণ্ড, ডাল ও শিকড়সহ গাছের ছবি।|木曜日~もくようび~বৃহস্পতিবার;木~き~গাছ;木々~きぎ~গাছপালা;大木~たいぼく~বিশাল গাছ;木材~もくざい~কাঠ;木の葉~このは~গাছের পাতা;林~はやし~বন;森~もり~বড় বন|{木[き]}の下[した]にいます。~গাছের নিচে আছি।;{木曜日[もくようび]}に買[か]いものをします。~বৃহস্পতিবার কেনাকাটা করি।
+金|w|সোনা, টাকা|gold, money|キン,コン|かね|ছাদের নিচে মাটির ভেতর সোনার দুই টুকরো।|金曜日~きんようび~শুক্রবার;お金~おかね~টাকা;金~きん~সোনা;大金~たいきん~মোটা টাকা;金魚~きんぎょ~গোল্ডফিশ;金額~きんがく~অর্থের পরিমাণ;金色~きんいろ~সোনালি;金持ち~かねもち~ধনী|{金曜日[きんようび]}に友[とも]だちに会[あ]います。~শুক্রবারে বন্ধুর সাথে দেখা করি।;{お金[かね]}がありません。~টাকা নেই।
+土|w|মাটি|earth, soil|ド,ト|つち|মাটি ফুঁড়ে ওঠা চারা: 十 + নিচে এক দাগ।|土曜日~どようび~শনিবার;土~つち~মাটি;土地~とち~জমি;土産~みやげ~উপহার;土日~どにち~শনি ও রবি;土手~どて~বাঁধ;土色~つちいろ~মাটির রং;土足~どそく~জুতা পরে ভেতরে|{土曜日[どようび]}は休[やす]みです。~শনিবার ছুটি।;{土[つち]}の上[うえ]に花[はな]があります。~মাটির ওপর ফুল আছে।
+曜|w|সপ্তাহের বার|day of the week|ヨウ|-|日 (সূর্য) + পাখির পালক — সাত বারকে আকাশের গ্রহের নামে ডাকা হয়।|曜日~ようび~সপ্তাহের বার;何曜日~なんようび~কোন বার;日曜日~にちようび~রবিবার;土曜日~どようび~শনিবার;水曜~すいよう~বুধবার;木曜~もくよう~বৃহস্পতিবার;金曜~きんよう~শুক্রবার;火曜~かよう~মঙ্গলবার|今日[きょう]は何[なん]{曜日[ようび]}ですか。~আজ কোন বার?;{日曜日[にちようび]}は学校[がっこう]へ行[い]きません。~রবিবারে স্কুলে যাই না।
+年|t|বছর|year|ネン|とし|ফসল ফলার এক চক্র — এক বছরে এক ফসল।|今年~ことし~এ বছর;来年~らいねん~আগামী বছর;毎年~まいとし~প্রতি বছর;二年~にねん~২ বছর;去年~きょねん~গত বছর;年齢~ねんれい~বয়স;年末~ねんまつ~বছরের শেষ;三年生~さんねんせい~তৃতীয় বর্ষ|{今年[ことし]}日本[にほん]へ行[い]きます。~এ বছর জাপানে যাব।;{来年[らいねん]}、大学[だいがく]に入[はい]ります。~আগামী বছর বিশ্ববিদ্যালয়ে ঢুকব।
+時|t|সময়, ...টা|time, o&#x27;clock|ジ|とき|日 (সূর্য) + 寺 (মন্দির): মন্দিরের ঘণ্টা সূর্য দেখে সময় জানায়।|時間~じかん~সময়;三時~さんじ~তিনটা;何時~なんじ~কটা;時~とき~যখন;時計~とけい~ঘড়ি;時々~ときどき~মাঝে মাঝে;時代~じだい~যুগ;時期~じき~সময়কাল|今[いま]{三時[さんじ]}です。~এখন তিনটা।;{時間[じかん]}がありません。~সময় নেই।
+分|t|মিনিট, ভাগ|minute, part|フン,ブン,プン|わ.かる|八 (ভাগ করা) + 刀 (ছুরি): ছুরি দিয়ে ভাগ = মিনিট/অংশ।|五分~ごふん~৫ মিনিট;十分~じゅっぷん~১০ মিনিট;半分~はんぶん~অর্ধেক;分かる~わかる~বোঝা;自分~じぶん~নিজে;分ける~わける~ভাগ করা;大分~だいぶ~অনেকটা;分け方~わけかた~ভাগ করার নিয়ম|{十分[じゅっぷん]}まってください。~১০ মিনিট অপেক্ষা করুন।;ここから駅[えき]まで{五分[ごふん]}です。~এখান থেকে স্টেশন ৫ মিনিট।
+半|t|অর্ধেক|half|ハン|なか.ば|মাঝখানে একটি খাড়া দাগ, ওপরে-নিচে সমান ভাগ = অর্ধেক।|半~はん~সাড়ে (সময়ে);三時半~さんじはん~সাড়ে তিনটা;半分~はんぶん~অর্ধেক;半年~はんとし~ছয় মাস;半額~はんがく~অর্ধেক দাম;半袖~はんそで~হাফ হাতা;一時半~いちじはん~দেড়টা;四時半~よじはん~সাড়ে চারটা|{七時半[しちじはん]}におきます。~সাড়ে সাতটায় উঠি।;パンを{半分[はんぶん]}食[た]べました。~রুটির অর্ধেক খেলাম।
+今|t|এখন|now|コン,キン|いま|ছাদের নিচে একটি মুহূর্ত ধরে রাখা = এখন।|今~いま~এখন;今日~きょう~আজ;今月~こんげつ~এই মাস;今週~こんしゅう~এই সপ্তাহ;今度~こんど~এবার / পরের বার;今朝~けさ~আজ সকালে;今夜~こんや~আজ রাতে;今年~ことし~এ বছর|{今[いま]}何時[なんじ]ですか。~এখন কটা বাজে?;{今週[こんしゅう]}はいそがしいです。~এই সপ্তাহে ব্যস্ত।
+毎|t|প্রতি|every|マイ|-|মা (母)-র মাথায় 人 — মা রোজ সন্তানের যত্ন নেন = প্রতিদিন।|毎日~まいにち~প্রতিদিন;毎週~まいしゅう~প্রতি সপ্তাহ;毎年~まいとし~প্রতি বছর;毎月~まいつき~প্রতি মাস;毎朝~まいあさ~প্রতি সকালে;毎晩~まいばん~প্রতি রাতে;毎回~まいかい~প্রতিবার;毎度~まいど~প্রতিবার|{毎日[まいにち]}水[みず]を飲[の]みます。~প্রতিদিন পানি খাই।;{毎週[まいしゅう]}土曜日[どようび]に会[あ]います。~প্রতি সপ্তাহে শনিবারে দেখা করি।
+週|t|সপ্তাহ|week|シュウ|-|辶 (চলা) + 周 (ঘুরে আসা): সাত দিন ঘুরে আসে = সপ্তাহ।|今週~こんしゅう~এই সপ্তাহ;来週~らいしゅう~আগামী সপ্তাহ;先週~せんしゅう~গত সপ্তাহ;一週間~いっしゅうかん~এক সপ্তাহ;週末~しゅうまつ~সপ্তাহান্ত;週間~しゅうかん~সপ্তাহ;二週間~にしゅうかん~দুই সপ্তাহ;三週間~さんしゅうかん~তিন সপ্তাহ|{来週[らいしゅう]}テストがあります。~আগামী সপ্তাহে পরীক্ষা আছে।;{先週[せんしゅう]}、友[とも]だちに会[あ]いました。~গত সপ্তাহে বন্ধুর সাথে দেখা করেছি।
+間|t|মাঝে, সময়কাল|interval, between|カン,ケン|あいだ,ま|দরজার (門) ফাঁক দিয়ে সূর্য (日) দেখা যায় — মাঝখানের ফাঁক।|時間~じかん~সময়;一週間~いっしゅうかん~এক সপ্তাহ;間~あいだ~মাঝে;二時間~にじかん~দুই ঘণ্টা;人間~にんげん~মানুষ;期間~きかん~সময়কাল;間に合う~まにあう~সময়মতো পৌঁছানো;昼間~ひるま~দিনের বেলা|{一週間[いっしゅうかん]}休[やす]みます。~এক সপ্তাহ ছুটি নেব।;学校[がっこう]と駅[えき]の{間[あいだ]}に店[みせ]があります。~স্কুল ও স্টেশনের মাঝে দোকান আছে।
+午|t|দুপুর|noon|ゴ|-|ঘড়ির কাঁটার মতো সোজা দাগ — দুপুরে সূর্য ঠিক মাথার ওপর।|午前~ごぜん~সকাল (AM);午後~ごご~বিকাল (PM);正午~しょうご~ঠিক দুপুর;午~うま~ঘোড়া (রাশি);午前中~ごぜんちゅう~সকালের দিকে;午前十時~ごぜんじゅうじ~সকাল ১০টা;午後三時~ごごさんじ~বিকাল ৩টা;午前二時~ごぜんにじ~রাত ২টা|{午前[ごぜん]}九時[くじ]に会[あ]います。~সকাল ৯টায় দেখা করব।;{午後[ごご]}は休[やす]みです。~বিকেলে ছুটি।
+前|t|আগে, সামনে|before, front|ゼン|まえ|নৌকা আর ছুরি: নৌকা এগিয়ে গিয়ে সামনে — &quot;আগে&quot;।|前~まえ~আগে, সামনে;名前~なまえ~নাম;午前~ごぜん~সকাল;駅前~えきまえ~স্টেশনের সামনে;前後~ぜんご~আগে-পরে;前日~ぜんじつ~আগের দিন;前回~ぜんかい~আগের বার;前もって~まえもって~আগেভাগে|お{名前[なまえ]}は何[なん]ですか。~আপনার নাম কী?;ねる{前[まえ]}に本[ほん]を読[よ]みます。~ঘুমানোর আগে বই পড়ি।
+後|t|পরে, পেছনে|after, behind|ゴ,コウ|あと,うし.ろ,のち|পথে (彳) ছোট সুতো ও ধীর পা — ধীরে চলে পেছনে পড়া = পরে।|午後~ごご~বিকাল;後~あと~পরে;後ろ~うしろ~পেছনে;後で~あとで~পরে;最後~さいご~শেষ;後日~ごじつ~পরবর্তী দিন;後半~こうはん~দ্বিতীয়ার্ধ;後輩~こうはい~জুনিয়র|{午後[ごご]}、雨[あめ]がふります。~বিকেলে বৃষ্টি হবে।;学校[がっこう]の{後[あと]}で会[あ]いましょう。~স্কুলের পরে দেখা করি।
+上|d|ওপর|above, up|ジョウ|うえ,あ.がる,のぼ.る|মাটির দাগের (一) ওপরে ছোট দাগ = ওপরে।|上~うえ~ওপর;上手~じょうず~দক্ষ;上がる~あがる~ওঠা;上着~うわぎ~জ্যাকেট;屋上~おくじょう~ছাদ;以上~いじょう~উপরোক্ত;上げる~あげる~তোলা;上り~のぼり~উপরের দিকে যাওয়া|つくえの{上[うえ]}に本[ほん]があります。~টেবিলের ওপর বই আছে।;日本語[にほんご]が{上手[じょうず]}ですね。~আপনার জাপানি ভালো তো!
+下|d|নিচ|below, down|カ,ゲ|した,さ.がる,くだ.さる|মাটির দাগের (一) নিচে ছোট দাগ = নিচে।|下~した~নিচ;下手~へた~আনাড়ি;下さい~ください~দয়া করে দিন;地下~ちか~ভূগর্ভ;下がる~さがる~নেমে যাওয়া;下りる~おりる~নামা;下着~したぎ~আন্ডারওয়্যার;以下~いか~নিচের|いすの{下[した]}にねこがいます。~চেয়ারের নিচে বিড়াল আছে।;ここに名前[なまえ]を書[か]いて{下[くだ]}さい。~এখানে নাম লিখুন।
+左|d|বাঁ|left|サ|ひだり|কাজের যন্ত্র (工) ধরে সাহায্য করে বাঁ হাত। প্রথম দাগ বাঁদিকে ঝুঁকে।|左~ひだり~বাঁ;左手~ひだりて~বাঁ হাত;左足~ひだりあし~বাঁ পা;左側~ひだりがわ~বাঁ পাশ;左右~さゆう~বাম-ডান;左折~させつ~বাঁয়ে মোড়;左利き~ひだりきき~বাঁ-হাতি;左目~ひだりめ~বাঁ চোখ|{左[ひだり]}にまがってください。~বাঁদিকে ঘুরুন।;{左手[ひだりて]}で書[か]きます。~বাঁ হাতে লিখি।
+右|d|ডান|right|ウ,ユウ|みぎ|ডান হাতে (ノ+一) মুখে (口) খাবার তোলা হয়। প্রথম দাগ আড়াআড়ি।|右~みぎ~ডান;右手~みぎて~ডান হাত;右足~みぎあし~ডান পা;右側~みぎがわ~ডান পাশ;右折~うせつ~ডানে মোড়;右利き~みぎきき~ডান-হাতি;右目~みぎめ~ডান চোখ;右左~みぎひだり~ডানে-বাঁয়ে|{右[みぎ]}に駅[えき]があります。~ডানে স্টেশন আছে।;{右手[みぎて]}でごはんを食[た]べます。~ডান হাতে ভাত খাই।
+中|d|ভেতর, মাঝ|inside, middle|チュウ,ジュウ|なか|চৌকোর ঠিক মাঝখান দিয়ে সোজা দাগ = ভেতর/মাঝ।|中~なか~ভেতর;中国~ちゅうごく~চীন;一日中~いちにちじゅう~সারাদিন;中学校~ちゅうがっこう~মিডল স্কুল;中央~ちゅうおう~কেন্দ্র;中止~ちゅうし~বাতিল;途中~とちゅう~রাস্তার মাঝে;中身~なかみ~ভেতরের জিনিস|かばんの{中[なか]}に本[ほん]があります。~ব্যাগের ভেতরে বই আছে।;{中国[ちゅうごく]}へ行[い]きたいです。~চীনে যেতে চাই।
+外|d|বাইরে|outside|ガイ,ゲ|そと,ほか|夕 (সন্ধ্যা) + ト (ফাটল): সন্ধ্যায় ঘরের বাইরে।|外~そと~বাইরে;外国~がいこく~বিদেশ;外国人~がいこくじん~বিদেশি;外国語~がいこくご~বিদেশি ভাষা;外食~がいしょく~বাইরে খাওয়া;外側~そとがわ~বাইরের দিক;海外~かいがい~বিদেশ;外に~そとに~বাইরে|{外[そと]}は雨[あめ]です。~বাইরে বৃষ্টি।;{外国[がいこく]}の友[とも]だちがいます。~বিদেশি বন্ধু আছে।
+北|d|উত্তর|north|ホク|きた|দুজন মানুষ পিঠে পিঠ দিয়ে — উত্তরের ঠান্ডায় পিঠ ফেরানো।|北~きた~উত্তর;北口~きたぐち~উত্তর গেট;北東~ほくとう~উত্তর-পূর্ব;北海道~ほっかいどう~হোক্কাইদো;北側~きたがわ~উত্তর দিক;北部~ほくぶ~উত্তরাঞ্চল;北国~きたぐに~উত্তরের দেশ;北風~きたかぜ~উত্তরের বাতাস|{北[きた]}はさむいです。~উত্তর দিক ঠান্ডা।;駅[えき]の{北口[きたぐち]}で会[あ]います。~স্টেশনের উত্তর গেটে দেখা করি।
+南|d|দক্ষিণ|south|ナン|みなみ|দক্ষিণের রোদে ঘেরা ঘর — 十 আর ঘরের ছাদ।|南~みなみ~দক্ষিণ;南口~みなみぐち~দক্ষিণ গেট;南西~なんせい~দক্ষিণ-পশ্চিম;東南~とうなん~দক্ষিণ-পূর্ব;南側~みなみがわ~দক্ষিণ দিক;南部~なんぶ~দক্ষিণাঞ্চল;南国~なんごく~দক্ষিণের দেশ;南風~みなみかぜ~দক্ষিণের বাতাস|{南[みなみ]}はあたたかいです。~দক্ষিণ দিক উষ্ণ।;駅[えき]の{南口[みなみぐち]}にあります。~স্টেশনের দক্ষিণ গেটে আছে।
+東|d|পূর্ব|east|トウ|ひがし|গাছের (木) পেছনে সূর্য (日) ওঠে = পূর্ব।|東~ひがし~পূর্ব;東京~とうきょう~টোকিও;東口~ひがしぐち~পূর্ব গেট;東北~とうほく~উত্তর-পূর্ব;東側~ひがしがわ~পূর্ব দিক;東洋~とうよう~প্রাচ্য;東西~とうざい~পূর্ব-পশ্চিম;東部~とうぶ~পূর্বাঞ্চল|うちは駅[えき]の{東[ひがし]}にあります。~বাড়ি স্টেশনের পূর্ব দিকে।;日[ひ]が{東[ひがし]}から出[で]ます。~সূর্য পূর্ব দিক থেকে ওঠে।
+西|d|পশ্চিম|west|セイ,サイ|にし|ঝুড়ির ওপর পাখি বসেছে — সূর্যাস্তে ঘরে ফেরে = পশ্চিম।|西~にし~পশ্চিম;西口~にしぐち~পশ্চিম গেট;西洋~せいよう~পাশ্চাত্য;関西~かんさい~কানসাই অঞ্চল;西側~にしがわ~পশ্চিম দিক;西暦~せいれき~খ্রিস্টাব্দ;西部~せいぶ~পশ্চিমাঞ্চল;西瓜~すいか~তরমুজ|{西[にし]}に山[やま]があります。~পশ্চিমে পাহাড় আছে।;駅[えき]の{西口[にしぐち]}でまちます。~স্টেশনের পশ্চিম গেটে অপেক্ষা করি।
+大|s|বড়|big|ダイ,タイ|おお.きい|হাত-পা ছড়িয়ে দাঁড়ানো মানুষ = বড়।|大きい~おおきい~বড়;大学~だいがく~বিশ্ববিদ্যালয়;大人~おとな~প্রাপ্তবয়স্ক;大切~たいせつ~গুরুত্বপূর্ণ;大学生~だいがくせい~বিশ্ববিদ্যালয়ের ছাত্র;大変~たいへん~খুব কঠিন / অনেক;大好き~だいすき~খুব পছন্দ;大丈夫~だいじょうぶ~ঠিক আছে|{大[おお]きい}いぬがいます。~বড় কুকুর আছে।;{大学[だいがく]}で日本語[にほんご]をべんきょうします。~বিশ্ববিদ্যালয়ে জাপানি পড়ি।
+小|s|ছোট|small|ショウ|ちい.さい,こ-,お-|মাঝে একটি দাগ, দুই পাশে ছোট ফোঁটা = ছোট।|小さい~ちいさい~ছোট;小学校~しょうがっこう~প্রাইমারি স্কুল;小川~おがわ~ছোট নদী;小雨~こさめ~গুঁড়ি বৃষ্টি;小学生~しょうがくせい~প্রাথমিক বিদ্যালয়ের ছাত্র;小型~こがた~ছোট আকার;小説~しょうせつ~উপন্যাস;小さな~ちいさな~ছোট্ট|{小[ちい]さい}かばんです。~ছোট ব্যাগ।;{小学校[しょうがっこう]}の先生[せんせい]です。~প্রাইমারি স্কুলের শিক্ষক।
+長|s|লম্বা|long|チョウ|なが.い|লম্বা চুলওয়ালা বুড়ো মানুষ — লম্বা/প্রধান।|長い~ながい~লম্বা;校長~こうちょう~প্রধান শিক্ষক;社長~しゃちょう~কোম্পানির প্রধান;長さ~ながさ~দৈর্ঘ্য;長年~ながねん~দীর্ঘ বছর;店長~てんちょう~দোকানের ম্যানেজার;長男~ちょうなん~বড় ছেলে;長女~ちょうじょ~বড় মেয়ে|この川[かわ]は{長[なが]い}です。~এই নদী লম্বা।;{校長[こうちょう]}先生[せんせい]に会[あ]います。~প্রধান শিক্ষকের সাথে দেখা করব।
+高|s|উঁচু, দামি|tall, expensive|コウ|たか.い|উঁচু মিনার: ওপরে ছাদ, নিচে দরজা = উঁচু।|高い~たかい~উঁচু, দামি;高校~こうこう~হাই স্কুল;高さ~たかさ~উচ্চতা;高校生~こうこうせい~হাই স্কুলের ছাত্র;高級~こうきゅう~উচ্চমানের;最高~さいこう~সবচেয়ে ভালো;高速~こうそく~দ্রুতগতি;高原~こうげん~পাহাড়ি মালভূমি|この山[やま]は{高[たか]い}です。~এই পাহাড় উঁচু।;{高校[こうこう]}に行[い]っています。~হাই স্কুলে পড়ছি।
+安|s|সস্তা, নিরাপদ|cheap, safe|アン|やす.い|ছাদের (宀) নিচে নারী (女) — ঘরে শান্তি = নিরাপদ।|安い~やすい~সস্তা;安心~あんしん~স্বস্তি;安全~あんぜん~নিরাপদ;安売り~やすうり~সেল;安定~あんてい~স্থিতিশীল;不安~ふあん~উদ্বেগ;格安~かくやす~অত্যন্ত সস্তা;安らか~やすらか~শান্ত|この店[みせ]は{安[やす]い}です。~এই দোকান সস্তা।;この車[くるま]は{安[やす]く}ありません。~এই গাড়ি সস্তা নয়।
+新|s|নতুন|new|シン|あたら.しい|কুঠার (斤) দিয়ে গাছ (木) কেটে নতুন কাঠ বের করা।|新しい~あたらしい~নতুন;新聞~しんぶん~খবরের কাগজ;新年~しんねん~নববর্ষ;新人~しんじん~নবীন;新幹線~しんかんせん~বুলেট ট্রেন;新鮮~しんせん~তাজা;最新~さいしん~সর্বশেষ;新品~しんぴん~নতুন জিনিস|{新[あたら]しい}車[くるま]を買[か]いました。~নতুন গাড়ি কিনেছি।;{新聞[しんぶん]}を読[よ]みます。~খবরের কাগজ পড়ি।
+古|s|পুরনো|old (things)|コ|ふる.い|十 (দশ) + 口 (মুখ): দশ প্রজন্মের মুখে মুখে ফেরা = পুরনো।|古い~ふるい~পুরনো;古本~ふるほん~পুরনো বই;中古~ちゅうこ~সেকেন্ডহ্যান্ড;古里~ふるさと~জন্মস্থান;古典~こてん~ক্লাসিক;古代~こだい~প্রাচীন যুগ;古文~こぶん~প্রাচীন সাহিত্য;古着~ふるぎ~পুরনো পোশাক|この本[ほん]は{古[ふる]い}です。~এই বইটি পুরনো।;{古本[ふるほん]}を買[か]いました。~পুরনো বই কিনেছি।
+多|s|অনেক|many|タ|おお.い|夕 (মাংসের টুকরো) দুটি একটার ওপর আরেকটা = অনেক।|多い~おおい~অনেক;多分~たぶん~সম্ভবত;多く~おおく~অনেকটা;多少~たしょう~কমবেশি;多数~たすう~অনেক;多様~たよう~বৈচিত্র্যময়;多目的~たもくてき~বহুমুখী;多国籍~たこくせき~বহুজাতিক|ここは人[ひと]が{多[おお]い}です。~এখানে মানুষ অনেক।;{多分[たぶん]}雨[あめ]です。~সম্ভবত বৃষ্টি।
+少|s|অল্প|few, a little|ショウ|すく.ない,すこ.し|小 (ছোট)-র ওপর আরেকটি কাটা দাগ — আরও কমে গেছে = অল্প।|少ない~すくない~কম;少し~すこし~একটু;少々~しょうしょう~সামান্য;多少~たしょう~কমবেশি;少年~しょうねん~কিশোর;少女~しょうじょ~কিশোরী;少数~しょうすう~অল্প সংখ্যক;少なく~すくなく~কম করে|お金[かね]が{少[すく]ない}です。~টাকা কম।;{少[すこ]し}まってください。~একটু অপেক্ষা করুন।
+白|s|সাদা|white|ハク,ビャク|しろ.い,しろ|সূর্যের (日) মাথায় এক ফোঁটা আলো = সাদা।|白い~しろい~সাদা;白~しろ~সাদা রং;真っ白~まっしろ~ধবধবে সাদা;白黒~しろくろ~সাদা-কালো;白紙~はくし~সাদা কাগজ;白髪~しらが~সাদা চুল;白鳥~はくちょう~রাজহাঁস;白米~はくまい~সাদা চাল|{白[しろ]}の車[くるま]がほしいです。~সাদা গাড়ি চাই।;{白[しろ]い}花[はな]がきれいです。~সাদা ফুল সুন্দর।
+山|x|পাহাড়|mountain|サン|やま|তিন চূড়াওয়ালা পাহাড়ের ছবি।|山~やま~পাহাড়;富士山~ふじさん~ফুজি পর্বত;山道~やまみち~পাহাড়ি পথ;火山~かざん~আগ্নেয়গিরি;山登り~やまのぼり~পাহাড়ে ওঠা;山小屋~やまごや~পাহাড়ের কুঁড়েঘর;山の上~やまのうえ~পাহাড়ের উপর;山火事~やまかじ~বনের আগুন|{山[やま]}にのぼります。~পাহাড়ে উঠি।;あの{山[やま]}は高[たか]いです。~ওই পাহাড় উঁচু।
+川|x|নদী|river|セン|かわ|তিনটি বয়ে চলা ধারা = নদী।|川~かわ~নদী;小川~おがわ~ছোট নদী;大川~おおかわ~বড় নদী;川口~かわぐち~মোহনা;川岸~かわぎし~নদীর পাড়;川沿い~かわぞい~নদীর ধার;川辺~かわべ~নদীর তীর;川原~かわら~নদীর তীরের মাঠ|{川[かわ]}で水[みず]を飲[の]みます。~নদীতে পানি খাই।;{小川[おがわ]}さんは先生[せんせい]です。~ওগাওয়াসান শিক্ষক।
+田|x|ধানক্ষেত|rice field|デン|た|আল দিয়ে চার ভাগ করা ধানক্ষেত।|田~た~ধানক্ষেত;田中~たなか~তানাকা (পদবি);山田~やまだ~ইয়ামাদা (পদবি);田んぼ~たんぼ~ধানক্ষেত;田舎~いなか~গ্রাম;田植え~たうえ~ধান রোপণ;水田~すいでん~ধানক্ষেত;田畑~たはた~ক্ষেত-খামার|{田中[たなか]}さんは学生[がくせい]です。~তানাকাসান ছাত্র।;{田[た]}に水[みず]を入[い]れます。~ক্ষেতে পানি দিই।
+天|x|আকাশ|sky, heaven|テン|あま,あめ|মানুষের (大) মাথার ওপর একটি দাগ (一) = আকাশ।|天気~てんき~আবহাওয়া;天ぷら~てんぷら~টেম্পুরা;天国~てんごく~স্বর্গ;天~てん~আকাশ;天井~てんじょう~ছাদ;天使~てんし~দেবদূত;天候~てんこう~আবহাওয়া;天の川~あまのがわ~আকাশগঙ্গা|{天気[てんき]}がいいです。~আবহাওয়া ভালো।;{天[てん]ぷら}を食[た]べます。~টেম্পুরা খাই।
+気|x|মন, শক্তি|spirit, air|キ,ケ|-|ভাত (米) রান্নার ভাপ — প্রাণশক্তি/মনের ভাব।|天気~てんき~আবহাওয়া;元気~げんき~সুস্থ, প্রাণবন্ত;人気~にんき~জনপ্রিয়তা;気をつける~きをつける~সাবধান হওয়া;気持ち~きもち~অনুভূতি;気分~きぶん~মেজাজ;空気~くうき~বাতাস;病気~びょうき~অসুস্থতা|{気[き]}をつけてください。~সাবধান থাকুন।;この店[みせ]は{人気[にんき]}があります。~এই দোকান জনপ্রিয়।
+雨|x|বৃষ্টি|rain|ウ|あめ|আকাশ (一) নিচে মেঘ (冂) আর ফোঁটা — বৃষ্টি।|雨~あめ~বৃষ্টি;大雨~おおあめ~ভারী বৃষ্টি;小雨~こさめ~গুঁড়ি বৃষ্টি;雨天~うてん~বৃষ্টির দিন;雨具~あまぐ~বৃষ্টির উপকরণ;雨雲~あまぐも~বৃষ্টির মেঘ;梅雨~つゆ~বর্ষাকাল;雨の日~あめのひ~বৃষ্টির দিন|{雨[あめ]}がふっています。~বৃষ্টি হচ্ছে।;{大雨[おおあめ]}でした。~ভারী বৃষ্টি ছিল।
+花|x|ফুল|flower|カ|はな|ঘাস (艹) + 化 (রূপান্তর): কুঁড়ি ফুলে বদলে যায়।|花~はな~ফুল;花火~はなび~আতশবাজি;花見~はなみ~ফুল দেখা;花屋~はなや~ফুলের দোকান;花束~はなたば~ফুলের তোড়া;花びら~はなびら~পাপড়ি;花瓶~かびん~ফুলদানি;花畑~はなばたけ~ফুলের মাঠ|{花[はな]}がきれいです。~ফুল সুন্দর।;{花見[はなみ]}に行[い]きます。~ফুল দেখতে যাই।
+人|p|মানুষ|person|ジン,ニン|ひと|পাশ থেকে দেখা দুই পায়ে হাঁটা মানুষ।|人~ひと~মানুষ;日本人~にほんじん~জাপানি;三人~さんにん~তিনজন;大人~おとな~প্রাপ্তবয়স্ক;人形~にんぎょう~পুতুল;人々~ひとびと~মানুষজন;人柄~ひとがら~স্বভাব;旅人~たびびと~ভ্রমণকারী|あの{人[ひと]}は先生[せんせい]です。~ওই মানুষটি শিক্ষক।;{日本人[にほんじん]}の友[とも]だちがいます。~জাপানি বন্ধু আছে।
+子|p|শিশু|child|シ,ス|こ|হাত ছড়ানো ছোট্ট শিশুর ছবি।|子~こ~শিশু;子ども~こども~শিশু;女の子~おんなのこ~মেয়ে;男の子~おとこのこ~ছেলে;親子~おやこ~মা-বাবা ও সন্তান;子犬~こいぬ~কুকুরছানা;子猫~こねこ~বিড়ালছানা;子供~こども~শিশু|{子[こ]}どもが三人[さんにん]います。~তিনটি সন্তান আছে।;あそこに女[おんな]の{子[こ]}がいます。~ওখানে একটি মেয়ে আছে।
+女|p|নারী|woman|ジョ,ニョ|おんな|হাঁটু গেড়ে বসা নারীর ছবি।|女~おんな~নারী;女の人~おんなのひと~মহিলা;女の子~おんなのこ~মেয়ে;彼女~かのじょ~সে (নারী);女性~じょせい~নারী;女優~じょゆう~অভিনেত্রী;女王~じょおう~রানী;女子~じょし~মেয়েরা|{女[おんな]}の人[ひと]がいます。~একজন মহিলা আছেন।;{女[おんな]}の先生[せんせい]に会[あ]いました。~মহিলা শিক্ষকের সাথে দেখা হলো।
+男|p|পুরুষ|man|ダン,ナン|おとこ|田 (ক্ষেত) + 力 (শক্তি): ক্ষেতে পরিশ্রম করা পুরুষ।|男~おとこ~পুরুষ;男の人~おとこのひと~পুরুষ মানুষ;男の子~おとこのこ~ছেলে;男性~だんせい~পুরুষ;男性~だんせい~পুরুষ;男子~だんし~ছেলেরা;男女~だんじょ~নারী-পুরুষ;男優~だんゆう~অভিনেতা|{男[おとこ]}の人[ひと]がいます。~একজন পুরুষ আছেন।;{男[おとこ]}の子[こ]は十人[じゅうにん]います。~ছেলে দশজন আছে।
+父|p|বাবা|father|フ|ちち|হাতে লাঠি/কুঠার নিয়ে পরিবার রক্ষা করা বাবা।|父~ちち~আমার বাবা;お父さん~おとうさん~বাবা (সম্মানে);父の日~ちちのひ~ফাদার্স ডে;祖父~そふ~দাদা;父親~ちちおや~বাবা;父母~ふぼ~মা-বাবা;父さん~とうさん~বাবা (ডাকে);父方~ちちかた~বাবার দিক|{父[ちち]}は毎日[まいにち]出[で]かけます。~বাবা প্রতিদিন বের হন।;{お父[とう]さん}はどこですか。~বাবা কোথায়?
+母|p|মা|mother|ボ|はは|মায়ের দুই স্তন বিন্দু — সন্তান লালন করা মা।|母~はは~আমার মা;お母さん~おかあさん~মা (সম্মানে);母の日~ははのひ~মাদার্স ডে;祖母~そぼ~দিদিমা;母親~ははおや~মা;母国~ぼこく~মাতৃভূমি;母さん~かあさん~মা (ডাকে);母語~ぼご~মাতৃভাষা|{母[はは]}はりょうりが上手[じょうず]です。~মা রান্নায় দক্ষ।;{お母[かあ]さん}はうちにいます。~মা বাড়িতে আছেন।
+友|p|বন্ধু|friend|ユウ|とも|দুটি হাত (又) একসাথে ধরা = বন্ধু।|友達~ともだち~বন্ধু;友人~ゆうじん~বন্ধু (লেখ্য);親友~しんゆう~ঘনিষ্ঠ বন্ধু;友~とも~সঙ্গী;友情~ゆうじょう~বন্ধুত্ব;友好~ゆうこう~বন্ধুত্বপূর্ণ;女友達~おんなともだち~মেয়ে বন্ধু;男友達~おとこともだち~ছেলে বন্ধু|{友[とも]}だちと話[はな]します。~বন্ধুর সাথে কথা বলি।;{友人[ゆうじん]}に会[あ]いました。~বন্ধুর সাথে দেখা হলো।
+先|p|আগে|previous, ahead|セン|さき|পা (儿) আগে বাড়িয়ে যে আগে চলে = আগে/সামনে।|先生~せんせい~শিক্ষক;先週~せんしゅう~গত সপ্তাহ;先月~せんげつ~গত মাস;先~さき~আগে, সামনে;先輩~せんぱい~সিনিয়র;先日~せんじつ~কয়েকদিন আগে;先に~さきに~আগে;先ほど~さきほど~কিছুক্ষণ আগে|{先生[せんせい]}は男[おとこ]の人[ひと]です。~শিক্ষক একজন পুরুষ।;{先月[せんげつ]}、日本[にほん]へ行[い]きました。~গত মাসে জাপানে গিয়েছিলাম।
+生|p|জন্ম, জীবন|life, birth|セイ,ショウ|い.きる,う.まれる,なま|মাটি থেকে চারা গজাচ্ছে = জন্ম/জীবন।|学生~がくせい~ছাত্র;先生~せんせい~শিক্ষক;生まれる~うまれる~জন্মানো;一年生~いちねんせい~প্রথম বর্ষের ছাত্র;生活~せいかつ~জীবন / জীবনযাপন;生徒~せいと~ছাত্র;生き物~いきもの~প্রাণী;誕生日~たんじょうび~জন্মদিন|わたしは{学生[がくせい]}です。~আমি ছাত্র।;{生[う]まれた}ところはとうきょうです。~জন্মস্থান টোকিও।
+学|e|শেখা|study, learn|ガク|まな.ぶ|ছাদের নিচে শিশু (子) পড়ছে = শেখা।|学校~がっこう~স্কুল;大学~だいがく~বিশ্ববিদ্যালয়;学生~がくせい~ছাত্র;学ぶ~まなぶ~শেখা;学習~がくしゅう~অধ্যয়ন;学部~がくぶ~অনুষদ;留学~りゅうがく~বিদেশে পড়াশোনা;科学~かがく~বিজ্ঞান|{学校[がっこう]}は九時[くじ]にはじまります。~স্কুল ৯টায় শুরু হয়।;{大学[だいがく]}で日本語[にほんご]をべんきょうします。~বিশ্ববিদ্যালয়ে জাপানি পড়ি।
+校|e|স্কুল|school|コウ|-|木 (কাঠ) + 交 (বিনিময়): কাঠের ভবনে শিক্ষা আদান-প্রদান = স্কুল।|学校~がっこう~স্কুল;高校~こうこう~হাই স্কুল;校長~こうちょう~প্রধান শিক্ষক;小学校~しょうがっこう~প্রাইমারি স্কুল;校門~こうもん~স্কুলের গেট;校庭~こうてい~স্কুলের মাঠ;登校~とうこう~স্কুলে যাওয়া;下校~げこう~স্কুল থেকে ফেরা|{高校[こうこう]}の先生[せんせい]です。~হাই স্কুলের শিক্ষক।;{小学校[しょうがっこう]}はちかいです。~প্রাইমারি স্কুল কাছে।
+語|e|ভাষা|language|ゴ|かた.る|言 (কথা) + 五 + 口 (মুখ): পাঁচ মুখে বলা কথা = ভাষা।|日本語~にほんご~জাপানি ভাষা;外国語~がいこくご~বিদেশি ভাষা;英語~えいご~ইংরেজি;言語~げんご~ভাষা;単語~たんご~শব্দ;語学~ごがく~ভাষাশিক্ষা;国語~こくご~জাতীয় ভাষা;物語~ものがたり~গল্প|{日本語[にほんご]}を話[はな]します。~জাপানি বলি।;{外国語[がいこくご]}をべんきょうします。~বিদেশি ভাষা শিখি।
+本|e|বই, মূল|book, origin|ホン|もと|গাছের (木) গোড়ায় একটি দাগ — গাছের মূল = মূল/বই।|本~ほん~বই;日本~にほん~জাপান;本当~ほんとう~সত্যি;書店~しょてん~বইয়ের দোকান;本屋~ほんや~বইয়ের দোকান;本棚~ほんだな~বইয়ের তাক;絵本~えほん~ছবির বই;本物~ほんもの~আসল জিনিস|{本[ほん]}を読[よ]みます。~বই পড়ি।;{日本[にほん]}へ行[い]きます。~জাপানে যাই।
+名|e|নাম|name|メイ,ミョウ|な|夕 (সন্ধ্যা) + 口 (মুখ): অন্ধকারে মুখে নাম ডাকা।|名前~なまえ~নাম;名~な~নাম;有名~ゆうめい~বিখ্যাত;名刺~めいし~ভিজিটিং কার্ড;名字~みょうじ~পদবি;名所~めいしょ~দর্শনীয় স্থান;名札~なふだ~নামফলক;名人~めいじん~দক্ষ ব্যক্তি|お{名前[なまえ]}は何[なん]ですか。~আপনার নাম কী?;{名[な]}を書[か]いてください。~নাম লিখুন।
+何|e|কী|what|カ|なに,なん|人 (মানুষ) + 可: মানুষ প্রশ্ন করছে — কী/কত?|何~なに~কী;何時~なんじ~কটা;何人~なんにん~কতজন;何曜日~なんようび~কোন বার;何度~なんど~কতবার;何か~なにか~কিছু;何でも~なんでも~যেকোনো কিছু;何年~なんねん~কত বছর|これは{何[なん]}ですか。~এটা কী?;{何人[なんにん]}いますか。~কতজন আছে?
+国|l|দেশ|country|コク|くに|সীমানা (囗) ভেতরে রত্ন (玉) = দেশ।|国~くに~দেশ;外国~がいこく~বিদেশ;中国~ちゅうごく~চীন;国語~こくご~জাতীয় ভাষা;国内~こくない~দেশের ভেতরে;国際~こくさい~আন্তর্জাতিক;国旗~こっき~জাতীয় পতাকা;国民~こくみん~নাগরিক|どこの{国[くに]}の人[ひと]ですか。~কোন দেশের মানুষ?;{外国[がいこく]}へ行[い]きたいです。~বিদেশে যেতে চাই।
+車|l|গাড়ি|car, vehicle|シャ|くるま|ওপর থেকে দেখা গাড়ির চাকা ও অক্ষ।|車~くるま~গাড়ি;電車~でんしゃ~ট্রেন;自転車~じてんしゃ~সাইকেল;車内~しゃない~গাড়ির ভেতর;駐車場~ちゅうしゃじょう~পার্কিং;車椅子~くるまいす~হুইলচেয়ার;洗車~せんしゃ~গাড়ি ধোয়া;車庫~しゃこ~গ্যারেজ|{車[くるま]}で行[い]きます。~গাড়িতে যাই।;{電車[でんしゃ]}にのります。~ট্রেনে চড়ি।
+電|l|বিদ্যুৎ|electricity|デン|-|বৃষ্টির (雨) মেঘে বিদ্যুৎ চমক = বিদ্যুৎ।|電車~でんしゃ~ট্রেন;電話~でんわ~ফোন;電気~でんき~বিদ্যুৎ, বাতি;電気代~でんきだい~বিদ্যুৎ বিল;電子~でんし~ইলেকট্রনিক;電池~でんち~ব্যাটারি;電灯~でんとう~বিদ্যুতের বাতি;停電~ていでん~বিদ্যুৎ বিভ্রাট|{電話[でんわ]}をかけます。~ফোন করি।;{電車[でんしゃ]}は九時[くじ]に出[で]ます。~ট্রেন ৯টায় ছাড়ে।
+店|l|দোকান|shop|テン|みせ|ঘরে (广) জিনিস সাজিয়ে (占) রাখা = দোকান।|店~みせ~দোকান;店員~てんいん~দোকানের কর্মী;書店~しょてん~বইয়ের দোকান;喫茶店~きっさてん~ক্যাফে;店内~てんない~দোকানের ভেতরে;本店~ほんてん~প্রধান দোকান;支店~してん~শাখা;売店~ばいてん~স্টল|この{店[みせ]}は安[やす]いです。~এই দোকান সস্তা।;あの{店[みせ]}で本[ほん]を買[か]いました。~ওই দোকানে বই কিনেছি।
+駅|l|স্টেশন|station|エキ|-|ঘোড়া (馬) বদলের ঘাঁটি = স্টেশন।|駅~えき~স্টেশন;駅前~えきまえ~স্টেশনের সামনে;駅員~えきいん~স্টেশনের কর্মী;東京駅~とうきょうえき~টোকিও স্টেশন;次の駅~つぎのえき~পরবর্তী স্টেশন;駅長~えきちょう~স্টেশন মাস্টার;駅弁~えきべん~স্টেশনের প্যাকেট খাবার;駅構内~えきこうない~স্টেশন চত্বর|{駅[えき]}まであるきます。~স্টেশন পর্যন্ত হাঁটি।;{駅前[えきまえ]}に店[みせ]があります。~স্টেশনের সামনে দোকান আছে।
+道|l|পথ|road, way|ドウ|みち|辶 (চলা) + 首 (মাথা): মাথা উঁচু করে চলার পথ।|道~みち~পথ;北海道~ほっかいどう~হোক্কাইদো;近道~ちかみち~শর্টকাট;道路~どうろ~রাস্তা;道路~どうろ~রাস্তা;歩道~ほどう~ফুটপাথ;車道~しゃどう~গাড়ি চলাচলের রাস্তা;道具~どうぐ~যন্ত্রপাতি|この{道[みち]}をまっすぐ行[い]きます。~এই পথ সোজা যাই।;{道[みち]}がわかりません。~পথ চিনি না।
+目|b|চোখ|eye|モク,ボク|め|কাত করে রাখা চোখের ছবি।|目~め~চোখ;目薬~めぐすり~চোখের ওষুধ;二人目~ふたりめ~দ্বিতীয় জন;目的~もくてき~উদ্দেশ্য;目次~もくじ~সূচিপত্র;目立つ~めだつ~চোখে পড়া;注目~ちゅうもく~মনোযোগ;目玉~めだま~প্রধান আকর্ষণ|{目[め]}がいたいです。~চোখ ব্যথা করছে।;わたしの{目[め]}は大[おお]きいです。~আমার চোখ বড়।
+耳|b|কান|ear|ジ|みみ|কানের ভাঁজের ছবি।|耳~みみ~কান;右耳~みぎみみ~ডান কান;左耳~ひだりみみ~বাঁ কান;耳たぶ~みみたぶ~কানের লতি;耳元~みみもと~কানের কাছে;耳鼻科~じびか~কান-নাক-গলার চিকিৎসা;耳寄り~みみより~উপকারী খবর;耳鳴り~みみなり~কানে শোঁ শোঁ শব্দ|{耳[みみ]}がいたいです。~কান ব্যথা করছে।;{右耳[みぎみみ]}が聞[き]こえません。~ডান কানে শুনতে পাই না।
+口|b|মুখ|mouth|コウ,ク|くち|হাঁ করা মুখের ছবি।|口~くち~মুখ;入口~いりぐち~প্রবেশপথ;出口~でぐち~বাইরে যাওয়ার পথ;人口~じんこう~জনসংখ্যা;口紅~くちべに~লিপস্টিক;口元~くちもと~মুখের কাছে;窓口~まどぐち~কাউন্টার;口語~こうご~কথ্য ভাষা|{口[くち]}を大[おお]きくあけます。~মুখ বড় করে হাঁ করি।;駅[えき]の{出口[でぐち]}で会[あ]いましょう。~স্টেশনের বের হওয়ার পথে দেখা করি।
+手|b|হাত|hand|シュ|て|পাঁচ আঙুলসহ হাতের ছবি।|手~て~হাত;上手~じょうず~দক্ষ;下手~へた~আনাড়ি;手紙~てがみ~চিঠি;手袋~てぶくろ~গ্লাভস;手足~てあし~হাতপা;手伝う~てつだう~সাহায্য করা;手続き~てつづき~প্রক্রিয়া|{手[て]}をあらいます。~হাত ধুই।;{下手[へた]}ですが、話[はな]します。~আনাড়ি, তবু কথা বলি।
+足|b|পা|foot, leg|ソク|あし,た.りる|হাঁটু (口) আর পা (止) — পায়ের ছবি।|足~あし~পা;足りる~たりる~যথেষ্ট হওয়া;一足~いっそく~একজোড়া (জুতো);足元~あしもと~পায়ের কাছে;足音~あしおと~পায়ের শব্দ;足首~あしくび~গোড়ালি;足跡~あしあと~পায়ের ছাপ;遠足~えんそく~পিকনিক / ভ্রমণ|{足[あし]}がいたいです。~পা ব্যথা করছে।;お金[かね]が{足[た]りません}。~টাকা যথেষ্ট নয়।
+見|v|দেখা|see, look|ケン|み.る,み.せる|চোখ (目) আর পা (儿): চোখ নিয়ে হেঁটে দেখা।|見る~みる~দেখা;見せる~みせる~দেখানো;花見~はなみ~ফুল দেখা;見学~けんがく~ঘুরে দেখা;見える~みえる~দেখা যাওয়া;見つける~みつける~খুঁজে পাওয়া;見物~けんぶつ~ঘুরে দেখা;見方~みかた~দেখার ধরন|テレビを{見[み]ます}。~টিভি দেখি।;えいがを{見[み]ました}。~সিনেমা দেখেছি।
+聞|v|শোনা|hear, ask|ブン,モン|き.く|দরজায় (門) কান (耳) পেতে শোনা।|聞く~きく~শোনা, জিজ্ঞাসা করা;新聞~しんぶん~খবরের কাগজ;聞こえる~きこえる~শোনা যায়;聞き方~ききかた~শোনার উপায়;聞き取る~ききとる~কান পেতে বোঝা;聞き手~ききて~শ্রোতা;聞き間違い~ききまちがい~ভুল শোনা;聞き返す~ききかえす~পুনরায় জিজ্ঞেস করা|おんがくを{聞[き]きます}。~গান শুনি।;先生[せんせい]の話[はなし]を{聞[き]いて}ください。~শিক্ষকের কথা শুনুন।
+食|v|খাওয়া|eat|ショク|た.べる|ঢাকনার নিচে ভালো (良) খাবার = খাওয়া।|食べる~たべる~খাওয়া;食べ物~たべもの~খাবার;食事~しょくじ~খাবার;朝食~ちょうしょく~সকালের নাস্তা;食品~しょくひん~খাদ্যদ্রব্য;食堂~しょくどう~ক্যান্টিন;食後~しょくご~খাওয়ার পর;食べ過ぎ~たべすぎ~অতিরিক্ত খাওয়া|ごはんを{食[た]べます}。~ভাত খাই।;{食[た]べもの}がすきです。~খাবার ভালো লাগে।
+飲|v|পান করা|drink|イン|の.む|食 + 欠 (হাঁ করা): হাঁ করে পান করা।|飲む~のむ~পান করা;飲み物~のみもの~পানীয়;飲食~いんしょく~খাওয়া-দাওয়া;飲み方~のみかた~খাওয়ার নিয়ম;飲料~いんりょう~পানীয়;飲食店~いんしょくてん~রেস্তোরাঁ;飲み込む~のみこむ~গিলে ফেলা;飲み放題~のみほうだい~অবাধ পান|水[みず]を{飲[の]みます}。~পানি খাই।;{飲[の]みもの}はありますか。~পানীয় আছে কি?
+行|v|যাওয়া|go|コウ,ギョウ|い.く,ゆ.く|চৌরাস্তার ছবি — রাস্তা ধরে যাওয়া।|行く~いく~যাওয়া;銀行~ぎんこう~ব্যাংক;旅行~りょこう~ভ্রমণ;行き方~いきかた~যাওয়ার উপায়;行う~おこなう~করা;行事~ぎょうじ~অনুষ্ঠান;行列~ぎょうれつ~সারি / লাইন;修行~しゅぎょう~অনুশীলন|学校[がっこう]へ{行[い]きます}。~স্কুলে যাই।;日本[にほん]へ{行[い]きたい}です。~জাপানে যেতে চাই।
+来|v|আসা|come|ライ|く.る,き.ます|গমের শীষের ছবি — মাঠ থেকে আসা = আসা।|来る~くる~আসা;来週~らいしゅう~আগামী সপ্তাহ;来月~らいげつ~আগামী মাস;来年~らいねん~আগামী বছর;来日~らいにち~জাপানে আগমন;将来~しょうらい~ভবিষ্যৎ;来客~らいきゃく~অতিথি;出来る~できる~পারা|友[とも]だちが{来[き]ます}。~বন্ধু আসে।;{来年[らいねん]}、日本[にほん]へ行[い]きます。~আগামী বছর জাপানে যাব।
+出|v|বের হওয়া|go out, exit|シュツ|で.る,だ.す|পাহাড়ের ওপর পাহাড়ের মতো ভেতর থেকে বেরিয়ে আসা।|出る~でる~বের হওয়া;出す~だす~বের করা, জমা দেওয়া;出口~でぐち~বের হওয়ার পথ;出かける~でかける~বাইরে যাওয়া;出会う~であう~দেখা হওয়া;出発~しゅっぱつ~যাত্রা;出身~しゅっしん~নিজ এলাকা;出張~しゅっちょう~সরকারি / ব্যবসায়িক সফর|うちを{出[で]ます}。~বাড়ি থেকে বের হই।;てがみを{出[だ]します}。~চিঠি পাঠাই।
+入|v|ঢোকা|enter|ニュウ|い.る,はい.る,い.れる|ঢোকার তীর বা ফানেলের ছবি।|入る~はいる~ঢোকা;入れる~いれる~ঢোকানো;入口~いりぐち~প্রবেশপথ;入学~にゅうがく~ভর্তি;入院~にゅういん~হাসপাতালে ভর্তি;入浴~にゅうよく~গোসল;入国~にゅうこく~দেশে প্রবেশ;入場~にゅうじょう~ভেতরে প্রবেশ|へやに{入[はい]ります}。~ঘরে ঢুকি।;{入口[いりぐち]}でまちます。~প্রবেশপথে অপেক্ষা করি।
+立|v|দাঁড়ানো|stand|リツ|た.つ|মাটিতে (一) দাঁড়ানো মানুষের আকৃতি।|立つ~たつ~দাঁড়ানো;国立~こくりつ~জাতীয়;立ち上がる~たちあがる~উঠে দাঁড়ানো;立場~たちば~অবস্থান;立派~りっぱ~সুন্দর / মহৎ;独立~どくりつ~স্বাধীনতা;成立~せいりつ~গঠিত হওয়া;役立つ~やくだつ~কাজে লাগা|ここに{立[た]って}ください。~এখানে দাঁড়ান।;{国立[こくりつ]}大学[だいがく]に入[はい]ります。~জাতীয় বিশ্ববিদ্যালয়ে ঢুকব।
+休|v|বিশ্রাম|rest|キュウ|やす.む|মানুষ (亻) গাছে (木) হেলান দিয়ে বিশ্রাম নিচ্ছে।|休む~やすむ~বিশ্রাম নেওয়া;休み~やすみ~ছুটি;休日~きゅうじつ~ছুটির দিন;夏休み~なつやすみ~গ্রীষ্মের ছুটি;休暇~きゅうか~ছুটি;休憩~きゅうけい~বিরতি;休止~きゅうし~বিরতি / স্থগিত;休業~きゅうぎょう~ব্যবসা বন্ধ|あしたは{休[やす]み}です。~আগামীকাল ছুটি।;なつ{休[やす]み}に日本[にほん]へ行[い]きます。~গ্রীষ্মের ছুটিতে জাপানে যাব।
+読|v|পড়া|read|ドク|よ.む|言 (কথা) + 売 (বিক্রি): লেখা কথা জোরে ঘোষণা = পড়া।|読む~よむ~পড়া;読み方~よみかた~পড়ার নিয়ম;読書~どくしょ~বই পড়া;読み物~よみもの~পাঠ্যবস্তু;読者~どくしゃ~পাঠক;読解~どっかい~পাঠ বোঝা;朗読~ろうどく~জোরে পড়া;読み返す~よみかえす~আবার পড়া|本[ほん]を{読[よ]みます}。~বই পড়ি।;この本[ほん]を{読[よ]んで}ください。~এই বই পড়ুন।
+書|v|লেখা|write|ショ|か.く|তুলি (聿) ও রোজকার (日) কথা = লেখা।|書く~かく~লেখা;辞書~じしょ~অভিধান;書き方~かきかた~লেখার নিয়ম;書類~しょるい~কাগজপত্র;書道~しょどう~সুলেখা;書面~しょめん~লিখিত;書物~しょもつ~বই;書記~しょき~সম্পাদক|名前[なまえ]を{書[か]きます}。~নাম লিখি।;ノートに名前[なまえ]を{書[か]いて}ください。~খাতায় নাম লিখুন।
+話|v|কথা বলা|talk|ワ|はな.す,はなし|言 (কথা) + 舌 (জিভ): জিভ নেড়ে কথা বলা।|話す~はなす~বলা;話~はなし~গল্প, কথা;電話~でんわ~ফোন;会話~かいわ~কথোপকথন;話題~わだい~আলোচ্য বিষয়;話し合い~はなしあい~আলোচনা;世話~せわ~দেখাশোনা;話し方~はなしかた~কথা বলার ধরন|ともだちと{話[はな]します}。~বন্ধুর সাথে কথা বলি।;先生[せんせい]の{話[はなし]}は長[なが]いです。~শিক্ষকের কথা লম্বা।
+言|v|বলা|say|ゲン,ゴン|い.う,こと|মুখ (口) থেকে বেরোনো কথার ঢেউ।|言う~いう~বলা;言葉~ことば~শব্দ, ভাষা;一言~ひとこと~এক কথা;言語~げんご~ভাষা;言い方~いいかた~বলার ধরন;言い訳~いいわけ~অজুহাত;独り言~ひとりごと~একা কথা বলা;無言~むごん~নীরবতা|日本語[にほんご]で{言[い]います}。~জাপানিতে বলি।;もういちど{言[い]って}ください。~আরেকবার বলুন।
+買|v|কেনা|buy|バイ|か.う|জাল (罒) ও কড়ি (貝): কড়ি দিয়ে জিনিস কেনা।|買う~かう~কেনা;買い物~かいもの~কেনাকাটা;買い方~かいかた~কেনার উপায়;買い手~かいて~ক্রেতা;買い換える~かいかえる~বদলে নতুন কেনা;買い置き~かいおき~মজুদ রাখা;買い取る~かいとる~কিনে নেওয়া;買い出し~かいだし~বাজার করা|本[ほん]を{買[か]います}。~বই কিনি।;{買[か]いもの}に行[い]きます。~কেনাকাটা করতে যাই।
+会|v|দেখা করা|meet|カイ,エ|あ.う|মানুষ জড়ো হয়ে মেঘের মতো মিলিত হয় = দেখা হওয়া।|会う~あう~দেখা করা;会社~かいしゃ~কোম্পানি;会話~かいわ~কথোপকথন;会議~かいぎ~সভা;会場~かいじょう~অনুষ্ঠানস্থল;会員~かいいん~সদস্য;会計~かいけい~বিল / হিসাব;社会~しゃかい~সমাজ|友[とも]だちに{会[あ]います}。~বন্ধুর সাথে দেখা করি।;駅[えき]で{会[あ]いましょう}。~স্টেশনে দেখা করি।
+`;
 
 /* ---------- ছোট সহায়ক ---------- */
 const $=(s,r=document)=&gt;r.querySelector(s),$$=(s,r=document)=&gt;[...r.querySelectorAll(s)];
@@ -2525,6 +3020,34 @@ function applyFilter(){
 
 /* ---------- মডাল কার্ড ---------- */
 let cur=0,ST=null,QV=null,modalList=null;
+const toHira=s=&gt;[...s].map(hira).join(&#x27;&#x27;);
+const markK=(w,k)=&gt;w.split(k).join(&#x27;&lt;mark&gt;&#x27;+k+&#x27;&lt;/mark&gt;&#x27;);
+function exOf(c,w){return c.s.find(s=&gt;s.j.replace(/[{}]/g,&#x27;&#x27;).replace(RB,&#x27;$1&#x27;).includes(w))}
+function tRead(c){
+  const rows=(arr,lab)=&gt;arr.map(r=&gt;{const p=kanaOnly(r),ro=conv(p)[0];return `&lt;tr&gt;&lt;td&gt;${lab}&lt;/td&gt;&lt;td class=&quot;kn&quot;&gt;${kr(toHira(r))}&lt;/td&gt;&lt;td class=&quot;rom&quot;&gt;${ro}&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${p}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;`}).join(&#x27;&#x27;);
+  return rows(c.on,&#x27;音読み (On-yomi)&#x27;)+rows(c.kun,&#x27;訓読み (Kun-yomi)&#x27;)||&#x27;&lt;tr&gt;&lt;td colspan=&quot;4&quot; class=&quot;note&quot;&gt;— N5 স্তরে এই পড়া নেই&lt;/td&gt;&lt;/tr&gt;&#x27;;
+}
+function matchSent(c){
+  const used=new Set();
+  return c.w.map(x=&gt;{
+    const ex=c.s.find(s=&gt;!used.has(s)&amp;&amp;s.j.replace(/[{}]/g,&#x27;&#x27;).replace(RB,&#x27;$1&#x27;).includes(x.w));
+    if(ex)used.add(ex);
+    return ex||null;
+  });
+}
+function wordRows(c){
+  const M=matchSent(c);
+  return c.w.map((x,i)=&gt;{
+    const ro=conv(x.r)[0], ex=M[i];
+    const exr=ex?`&lt;tr class=&quot;exr&quot;&gt;&lt;td colspan=&quot;5&quot;&gt;&lt;span class=&quot;exj&quot;&gt;${rubyH(ex.j,false)}&lt;/span&gt; &lt;span class=&quot;exb&quot;&gt;— ${ex.bn}&lt;/span&gt; &lt;button class=&quot;sp sm&quot; data-say=&quot;${sKana(ex.j)}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;`:&#x27;&#x27;;
+    return `&lt;tr&gt;&lt;td class=&quot;jp&quot;&gt;${markK(x.w,c.k)}&lt;/td&gt;&lt;td class=&quot;kn&quot;&gt;${x.r}&lt;/td&gt;&lt;td class=&quot;rom&quot;&gt;${ro}&lt;/td&gt;&lt;td class=&quot;bnm&quot;&gt;${x.bn}&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${x.r}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;${exr}`;
+  }).join(&#x27;&#x27;);
+}
+function restHTML(c){
+  const used=new Set(matchSent(c).filter(Boolean));
+  const rest=c.s.filter(s=&gt;!used.has(s));
+  return rest.length?`&lt;div class=&quot;sec&quot;&gt;&lt;h3&gt;📝 আরও উদাহরণ বাক্য&lt;/h3&gt;${rest.map(s=&gt;`&lt;div class=&quot;srow&quot;&gt;&lt;div class=&quot;sj&quot;&gt;${rubyH(s.j,FURI)}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${sKana(s.j)}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;div class=&quot;sbn&quot;&gt;${s.bn}&lt;/div&gt;&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;`:&#x27;&#x27;;
+}
 function frontHTML(c){
   const cat=CAT[c.c];
   const chips=(arr)=&gt;arr.length?arr.map(r=&gt;{const p=kanaOnly(r),[ro,bn]=conv(p);return `&lt;button class=&quot;rchip&quot; data-say=&quot;${p}&quot;&gt;&lt;span class=&quot;kana&quot;&gt;${kr(r)}&lt;/span&gt;&lt;span class=&quot;rr&quot;&gt;${ro}&lt;/span&gt;&lt;span class=&quot;rb&quot;&gt;${bn}&lt;/span&gt;&lt;i&gt;🔊&lt;/i&gt;&lt;/button&gt;`}).join(&#x27;&#x27;):&#x27;&lt;span class=&quot;note&quot;&gt;— N5 স্তরে এই পড়া নেই&lt;/span&gt;&#x27;;
@@ -2537,12 +3060,11 @@ function frontHTML(c){
 &lt;h2&gt;${c.bn}&lt;/h2&gt;&lt;div class=&quot;en&quot;&gt;${c.en}&lt;/div&gt;
 &lt;div class=&quot;story&quot;&gt;💡 &lt;b&gt;মনে রাখার গল্প:&lt;/b&gt; ${c.mn}&lt;/div&gt;
 &lt;div class=&quot;stmsg&quot; id=&quot;stmsg&quot;&gt;কাঞ্জির ওপর ক্লিক করলে স্ট্রোক অ্যানিমেশন শুরু হবে&lt;/div&gt;
-&lt;div class=&quot;rdbox&quot;&gt;&lt;div class=&quot;rlab&quot;&gt;音読み (অন) · カタカナ &lt;span class=&quot;note&quot;&gt;— ক্লিকে শুনুন 🔊&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;chips&quot;&gt;${chips(c.on)}&lt;/div&gt;
-&lt;div class=&quot;rlab&quot;&gt;訓読み (কুন) · ひらがな &lt;span class=&quot;note&quot;&gt;(ছোট অক্ষর = ওকুরিগানা)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;chips&quot;&gt;${chips(c.kun)}&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;rdbox&quot;&gt;&lt;h4 class=&quot;sech&quot;&gt;১. ${c.k}-এর উচ্চারণ (Reading)&lt;/h4&gt;&lt;div class=&quot;tblw&quot;&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Reading&lt;/th&gt;&lt;th&gt;Hiragana&lt;/th&gt;&lt;th&gt;Romaji&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;${tRead(c)}&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;acts sm&quot;&gt;&lt;button class=&quot;btn&quot; data-a=&quot;fav&quot; aria-pressed=&quot;false&quot;&gt;☆ ফেভারিট&lt;/button&gt;&lt;button class=&quot;btn&quot; data-a=&quot;done&quot; aria-pressed=&quot;false&quot;&gt;○ শেখা হয়েছে&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;sec&quot;&gt;&lt;h3&gt;🔢 স্ট্রোক ক্রম (${c.st}টি)&lt;/h3&gt;&lt;div class=&quot;orders&quot; id=&quot;orders&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;sec&quot;&gt;&lt;h3&gt;📚 এই কাঞ্জি দিয়ে শব্দ&lt;/h3&gt;${c.w.map(x=&gt;{const[ro,bn]=conv(x.r);return `&lt;div class=&quot;wrow&quot;&gt;&lt;div&gt;&lt;div class=&quot;wk&quot;&gt;${FURI?`&lt;ruby&gt;${mark(x.w)}&lt;rt&gt;${x.r}&lt;/rt&gt;&lt;/ruby&gt;`:mark(x.w)}&lt;/div&gt;&lt;div class=&quot;wr&quot;&gt;${x.r} · &lt;span&gt;${ro}&lt;/span&gt; · &lt;span class=&quot;bnp&quot;&gt;${bn}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wm&quot;&gt;${x.bn}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${x.r}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;/div&gt;`}).join(&#x27;&#x27;)}&lt;/div&gt;
-&lt;div class=&quot;sec&quot;&gt;&lt;h3&gt;📝 উদাহরণ বাক্য (N5 পরীক্ষার ধাঁচ)&lt;/h3&gt;${c.s.map(s=&gt;`&lt;div class=&quot;srow&quot;&gt;&lt;div class=&quot;sj&quot;&gt;${rubyH(s.j,FURI)}&lt;/div&gt;&lt;button class=&quot;sp&quot; data-say=&quot;${sKana(s.j)}&quot; aria-label=&quot;শুনুন&quot;&gt;🔊&lt;/button&gt;&lt;div class=&quot;sbn&quot;&gt;${s.bn}&lt;/div&gt;&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;
+&lt;div class=&quot;sec&quot;&gt;&lt;h3&gt;📚 ২. এই কাঞ্জি দিয়ে শব্দ (${c.w.length}টি)&lt;/h3&gt;&lt;div class=&quot;tblw&quot;&gt;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Japanese&lt;/th&gt;&lt;th&gt;Hiragana&lt;/th&gt;&lt;th&gt;Romaji&lt;/th&gt;&lt;th&gt;বাংলা অর্থ&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;${wordRows(c)}&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+${restHTML(c)}
 &lt;div class=&quot;foot&quot;&gt;&lt;button class=&quot;btn pri big&quot; data-a=&quot;flip&quot;&gt;🔄 ফ্লিপ করে কুইজ দিন&lt;/button&gt;&lt;/div&gt;`;
 }
 function orderSvg(c){
@@ -2944,6 +3466,7 @@ document.addEventListener(&#x27;click&#x27;, function(e){
 &lt;/body&gt;&lt;/html&gt;
 "></iframe>
 </div>
+
 <script>
 var PAGES = ['n5-grammar','n5-sentence','n5-kanji','n5-vocab'];
 function route(){
@@ -2966,5 +3489,6 @@ function route(){
 window.addEventListener('hashchange', route);
 route();
 </script>
+
 </body>
 </html>
