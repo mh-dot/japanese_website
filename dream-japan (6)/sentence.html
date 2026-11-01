@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<script src="js/theme-init.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>জাপানি N5 – জটিল বাক্য কার্ড</title>
+
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/sentence.css">
+</head>
+<body>
+<div class="nav-wrap">
+  <nav class="nav" aria-label="প্রধান নেভিগেশন">
+    <a href="index.html" class="logo" aria-label="Dream Japan">
+      <span class="logo-mark">夢</span>
+      <span class="brand-name">Dream Japan</span>
+    </a>
+
+    <div class="menu" id="menu">
+      <a href="index.html">হোম</a>
+      <a href="grammar.html">গ্রামার</a>
+      <a href="sentence.html" class="active">বাক্য</a>
+      <a href="kanji.html">কানজি</a>
+      <a href="vocab.html">শব্দভান্ডার</a>
+      <a href="mock-test.html">মক টেস্ট</a>
+      <a href="listening.html" class="menu-only">লিসেনিং</a>
+    </div>
+
+    <div class="nav-actions">
+      <a href="listening.html" class="btn-ghost-link">লিসেনিং</a>
+      <a href="grammar.html" class="btn-dark">শুরু করুন</a>
+      <button class="theme-toggle" id="themeBtn" type="button" aria-label="ডার্ক মোড" title="Day / Night">
+        <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+        <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="মেনু খুলুন"><span></span></button>
+    </div>
+  </nav>
+</div>
+<header>
+<h1>জাপানি N5 – জটিল বাক্য কার্ড</h1>
+<p>প্রতিটি কার্ডে ছবি, জাপানি বাক্য, বাংলা উচ্চারণ, রোমাজি এবং Polite ও Plain রূপ আলাদাভাবে আছে। 🔊 চাপলে শুনতে পাবেন।</p>
+<div class="bar">
+<div class="theme" role="group" aria-label="থিম"><button data-t="light" aria-pressed="true">☀️ Light</button><button data-t="dark" aria-pressed="false">🌙 Dark</button></div>
+<div class="seg" role="group" aria-label="ভয়েস"><button data-g="f" aria-pressed="true">👩 Female</button><button data-g="m" aria-pressed="false">👨 Male</button></div>
+<select id="rate" aria-label="শোনার গতি"><option value="0.65">🐢 খুব ধীর</option><option value="0.8">N5 গতি (ধীর)</option><option value="1">N4 গতি (মাঝারি)</option><option value="1.2">দ্রুত (স্বাভাবিক)</option></select>
+<div class="seg kseg" role="group" aria-label="কাঞ্জি"><button data-k="0" aria-pressed="true">かな</button><button data-k="1" aria-pressed="false">漢字+ふりがな</button></div>
+<select id="flt" aria-label="ফিল্টার"><option value="all">সব কার্ড</option><option value="star">⭐ ফেভারিট</option><option value="todo">বাকি আছে</option><option value="done">✅ শেখা শেষ</option></select>
+<div id="cnt"></div>
+<div id="vinfo"></div>
+</div>
+</header>
+<section class="tabbox">
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" data-tab="base">📘 মূল N5 কার্ড</button>
+<button class="tab" role="tab" data-tab="l18">📒 Lesson 18</button>
+<button class="tab" role="tab" data-tab="l23">📗 Lesson 23</button>
+<button class="tab" role="tab" data-tab="l24">📙 Lesson 24</button>
+<button class="tab" role="tab" data-tab="l24g">🎁 Lesson 24 · দেওয়া-নেওয়া</button>
+<button class="tab" role="tab" data-tab="l25">📕 Lesson 25</button>
+</div>
+<p class="tabnote">একটা ট্যাব চাপলে সেই অংশের কার্ড দেখা যাবে।</p>
+</section>
+<main class="grid" id="grid" data-tab="base"></main>
+<main class="grid" id="grid18" data-tab="l18" hidden></main>
+<main class="grid" id="grid23" data-tab="l23" hidden></main>
+<main class="grid" id="grid24" data-tab="l24" hidden></main>
+<div class="secbar" id="secbar25" data-tab="l25" data-grid="grid25" role="group" aria-label="নিয়ম অনুযায়ী ফিল্টার" hidden><button data-s="all" aria-pressed="true">সব (৫০)</button><button data-s="tara-v" aria-pressed="false">たら · ক্রিয়া</button><button data-s="tara-ai" aria-pressed="false">たら · い/な</button><button data-s="te-v" aria-pressed="false">ても · ক্রিয়া</button><button data-s="te-ai" aria-pressed="false">ても · い/な</button><button data-s="moshi" aria-pressed="false">もし…たら</button><button data-s="ikura" aria-pressed="false">いくら…ても</button><button data-s="vs" aria-pressed="false">たら বনাম ても</button></div>
+<main class="grid" id="grid25" data-tab="l25" hidden></main>
+<div class="secbar" id="secbar24g" data-tab="l24g" data-grid="grid24g" role="group" aria-label="নিয়ম অনুযায়ী ফিল্টার" hidden><button data-s="all" aria-pressed="true">সব (৫০)</button><button data-s="g-ag" aria-pressed="false">あげます</button><button data-s="g-tg" aria-pressed="false">てあげます</button><button data-s="g-ku" aria-pressed="false">くれます</button><button data-s="g-tk" aria-pressed="false">てくれます</button><button data-s="g-mo" aria-pressed="false">もらいます</button><button data-s="g-tm" aria-pressed="false">てもらいます</button><button data-s="g-mx" aria-pressed="false">মিশ্র</button></div>
+<main class="grid" id="grid24g" data-tab="l24g" hidden></main>
+<footer>শব্দ না এলে Chrome বা Edge ব্যবহার করুন এবং ডিভাইসে Japanese ভয়েস চালু আছে কিনা দেখুন। বাংলা উচ্চারণ স্বয়ংক্রিয়ভাবে তৈরি, তাই মোটামুটি সঠিক; আসল উচ্চারণ শুনে মিলিয়ে নিন।</footer>
+<script src="js/sentence-1.js"></script>
+<script src="js/sentence-2.js"></script>
+<script src="js/sentence-3.js"></script>
+
+<script src="js/app.js"></script>
+</body>
+</html>

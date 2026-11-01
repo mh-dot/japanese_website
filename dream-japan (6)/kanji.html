@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<script src="js/theme-init.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N5 কাঞ্জি মাস্টার</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Yuji+Syuku&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/kanji.css">
+</head>
+<body>
+<div class="nav-wrap">
+  <nav class="nav" aria-label="প্রধান নেভিগেশন">
+    <a href="index.html" class="logo" aria-label="Dream Japan">
+      <span class="logo-mark">夢</span>
+      <span class="brand-name">Dream Japan</span>
+    </a>
+
+    <div class="menu" id="menu">
+      <a href="index.html">হোম</a>
+      <a href="grammar.html">গ্রামার</a>
+      <a href="sentence.html">বাক্য</a>
+      <a href="kanji.html" class="active">কানজি</a>
+      <a href="vocab.html">শব্দভান্ডার</a>
+      <a href="mock-test.html">মক টেস্ট</a>
+      <a href="listening.html" class="menu-only">লিসেনিং</a>
+    </div>
+
+    <div class="nav-actions">
+      <a href="listening.html" class="btn-ghost-link">লিসেনিং</a>
+      <a href="grammar.html" class="btn-dark">শুরু করুন</a>
+      <button class="theme-toggle" id="themeBtn" type="button" aria-label="ডার্ক মোড" title="Day / Night">
+        <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+        <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="মেনু খুলুন"><span></span></button>
+    </div>
+  </nav>
+</div>
+<header class="top">
+  <div class="brand"><div class="big" aria-hidden="true">漢字</div><div><h1>N5 কাঞ্জি মাস্টার</h1><p>১০২টি N5 কাঞ্জি · ব্রাশ ফন্ট · স্ট্রোক অ্যানিমেশন · নিজে আঁকা · N5-ধাঁচের কুইজ</p></div></div>
+  <div class="stats">
+    <div class="stat">✅ শেখা <b id="sDone">0</b>/<span id="sTot">0</span></div>
+    <div class="stat">🎯 আজ <b id="sToday">0</b>/5 নতুন</div>
+    <div class="stat">🔥 ধারাবাহিক <b id="sStreak">0</b> দিন</div>
+    <div class="stat">⏰ রিভিউ বাকি <b id="sDue">0</b></div>
+    <div class="pbar" aria-label="অগ্রগতি"><i id="pfill" style="width:0"></i></div>
+  </div>
+  <div class="tools">
+    <div class="seg" role="group" aria-label="থিম"><button data-t="light" aria-pressed="true">☀️ Light</button><button data-t="dark" aria-pressed="false">🌙 Dark</button></div>
+    <div class="seg" role="group" aria-label="ফুরিগানা"><button data-f="1" aria-pressed="true">ふりがな ON</button><button data-f="0" aria-pressed="false">OFF</button></div>
+    <div class="seg" role="group" aria-label="ব্রাশ সাউন্ড"><button data-b="1" aria-pressed="true">🔊 ব্রাশ সাউন্ড</button><button data-b="0" aria-pressed="false">OFF</button></div>
+    <select id="rate" aria-label="শোনার গতি"><option value="0.65">🐢 খুব ধীর</option><option value="0.8">ধীর (N5)</option><option value="1">স্বাভাবিক</option></select>
+    <span id="vinfo" class="note"></span>
+  </div>
+</header>
+<nav class="tabs" role="tablist">
+  <button role="tab" data-tab="cards" aria-selected="true">📚 কাঞ্জি কার্ড</button>
+  <button role="tab" data-tab="drill" aria-selected="false">🔥 বাক্যে অনুশীলন</button>
+  <button role="tab" data-tab="quiz" aria-selected="false">🎯 কুইজ ও রিভিউ</button>
+  <button role="tab" data-tab="guide" aria-selected="false">💡 দ্রুত শেখার গাইড</button>
+</nav>
+<main>
+  <section id="tab-cards" class="panel">
+    <div class="filters" id="catf"></div>
+    <div class="filters">
+      <input class="inp" id="q" type="search" placeholder="🔍 কাঞ্জি, অর্থ বা পড়া খুঁজুন" aria-label="খুঁজুন">
+      <select id="flt" aria-label="ফিল্টার"><option value="all">সব কার্ড</option><option value="star">⭐ ফেভারিট</option><option value="todo">বাকি আছে</option><option value="done">✅ শেখা শেষ</option><option value="due">⏰ রিভিউ বাকি</option></select>
+      <span class="count" id="cnt"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+  <section id="tab-drill" class="panel" hidden><div class="qwrap" id="drillRoot"></div></section>
+  <section id="tab-quiz" class="panel" hidden><div class="qwrap" id="quizRoot"></div></section>
+  <section id="tab-guide" class="panel guide" hidden></section>
+</main>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="কাঞ্জি কার্ড">
+  <div class="mwrap">
+    <div class="mbar"><a href="#" id="mback">← সব কাঞ্জি</a><button id="mprev" aria-label="আগের কার্ড">◀</button><span id="mpos"></span><button id="mnext" aria-label="পরের কার্ড">▶</button><button id="mclose" aria-label="বন্ধ করুন">✕ বন্ধ</button></div>
+    <div class="sheet cat" id="sheet"></div>
+  </div>
+</div>
+<footer>শব্দ না এলে Chrome বা Edge ব্যবহার করুন এবং ডিভাইসে Japanese ভয়েস চালু আছে কিনা দেখুন। ব্রাশ ফন্ট (Yuji Boku, OFL) ফাইলের ভেতরেই বসানো — ইন্টারনেট ছাড়াও চলবে। বাংলা উচ্চারণ স্বয়ংক্রিয়, মোটামুটি সঠিক — আসল উচ্চারণ শুনে মিলিয়ে নিন।<br>
+স্ট্রোক ডেটা: <a href="https://kanjivg.tagaini.net/" target="_blank" rel="noopener">KanjiVG</a> © Ulrich Apel, লাইসেন্স CC BY-SA 3.0।</footer>
+<script src="js/kanji-1.js"></script>
+<script src="js/kanji-2.js"></script>
+<script src="js/kanji-3.js"></script>
+
+<script src="js/kanji-4.js"></script>
+<script src="js/kanji-5.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

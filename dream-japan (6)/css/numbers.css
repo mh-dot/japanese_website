@@ -1,0 +1,2 @@
+.vf-map td,.vf-map th{white-space:nowrap}
+@media(max-width:600px){.vf-map{font-size:12.5px}.vf-map td,.vf-map th{white-space:normal;padding:6px 4px}}
