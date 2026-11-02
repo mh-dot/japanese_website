@@ -3,7 +3,7 @@
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const LX={g(k,d){try{const v=localStorage.getItem('g5_'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},s(k,v){try{localStorage.setItem('g5_'+k,JSON.stringify(v))}catch(e){}}};
 const shuf=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-const HUE=[220,150,30,280,340,190,60,320,120,10],bd=n=>String(n).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
+const HUE=[203,189,166,214,226,197,172,222,183,162],bd=n=>String(n).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
 let FURI=LX.g('furi',true),RATE=LX.g('rate',.8);
 const FAV=new Set(LX.g('lfav',[])),DONE=new Set(LX.g('ldone',[])),KN=new Set(LX.g('kn',[]));
 /* কানা → রোমাজি + বাংলা উচ্চারণ */
@@ -311,10 +311,14 @@ const exH=e=>{const k=kana(e.j),[ro,bn]=conv(k);return `<div class="srow"><div c
 let VIS=[],cur=1;
 const grid=$('#grid'),eN=l=>l.g.reduce((a,g)=>a+g.e.length,0);
 $('#catf').hidden=true;
-grid.innerHTML=LS.map(l=>`<button class="tile cat" style="--h:${HUE[l.n-1]}" data-i="${l.n}"><span class="sc">লেসন ${bd(l.n)}</span><span class="mk"></span><span class="bk">${l.t.split(' · ')[0]}</span><span class="tm" lang="ja">${l.t.split(' · ')[1]||''}</span><span class="tr">${bd(l.g.length)}টি নিয়ম · ${bd(eN(l))}টি উদাহরণ</span></button>`).join('');
+grid.innerHTML=LS.map(l=>`<button class="tile" data-i="${l.n}" title="${l.t}" aria-label="লেসন ${bd(l.n)}: ${l.t}"><span class="bk">লেসন ${bd(l.n)} · ${l.t.split(' · ')[0]}</span><span class="mk"></span></button>`).join('');
+/* lesson list goes into the sidebar; the lesson detail (modal) moves into the content column, below the search row */
+const side=$('aside.side');
+if(side){const sl=document.createElement('div');sl.className='side-lab';sl.textContent='লেসন তালিকা';side.appendChild(sl);side.appendChild(grid)}
+$('#tab-cards').appendChild($('#modal'));
 LS.forEach(l=>l._s=(l.t+l.g.map(g=>g.p+g.nm+g.fm+g.ex+g.e.map(e=>kana(e.j)+e.b).join('')).join('')).toLowerCase());
-$$('.tile',grid).forEach(t=>t.onclick=()=>openCard(+t.dataset.i));
-function paintTiles(){$$('.tile',grid).forEach(t=>{const i=+t.dataset.i;$('.mk',t).innerHTML=(FAV.has(i)?'★':'')+(DONE.has(i)?'<span class="d">✓</span>':'');t.classList.toggle('fin',DONE.has(i))})}
+$$('.tile',grid).forEach(t=>t.onclick=()=>{setTab('cards');openCard(+t.dataset.i);const a=$('.app-shell');if(a&&matchMedia('(max-width:860px)').matches)a.classList.add('is-closed');$('#modal').scrollIntoView({block:'start'})});
+function paintTiles(){$$('.tile',grid).forEach(t=>{const i=+t.dataset.i;$('.mk',t).innerHTML=(FAV.has(i)?'★':'')+(DONE.has(i)?'<span class="d">✓</span>':'');t.classList.toggle('fin',DONE.has(i));t.classList.toggle('on',i===cur)})}
 function applyFilter(){const f=$('#flt').value,q=$('#q').value.trim().toLowerCase();VIS=[];
   $$('.tile',grid).forEach(t=>{const i=+t.dataset.i,l=LS[i-1];const s=(!q||l._s.includes(q))&&(f==='all'||(f==='star'&&FAV.has(i))||(f==='todo'&&!DONE.has(i))||(f==='done'&&DONE.has(i)));t.hidden=!s;if(s)VIS.push(i)});
   $('#cnt').textContent=`${bd(VIS.length)}টি লেসন দেখাচ্ছে`;$('#lt').textContent=''}
@@ -324,15 +328,14 @@ function openCard(n,keep){cur=n;const l=LS[n-1],sh=$('#sheet');sh.style.setPrope
   sh.innerHTML=`<div class="hd"><span class="pill">লেসন ${bd(n)} · ${bd(l.g.length)}টি নিয়ম · ${bd(eN(l))}টি উদাহরণ</span><h2>${l.t.split(' · ')[0]}</h2><div class="en" lang="ja">${l.t.split(' · ')[1]||''}</div><div class="acts"><button class="btn" data-a="fav">☆ ফেভারিট</button><button class="btn" data-a="done">○ লেসন শেখা হয়েছে</button></div></div>`+
   l.g.map((g,k)=>`<div class="sec"><h3>${bd(k+1)}. <span lang="ja">${g.p}</span> — ${g.nm.split(' · ')[0]}</h3><div class="fm"><b>গঠন</b><span lang="ja">${g.fm}</span></div><div class="story">📖 <b>ব্যাখ্যা:</b> ${g.ex}</div><div class="story">💡 ${g.tp}</div><div class="rlab">📝 উদাহরণ</div>${g.e.map(exH).join('')}</div>`).join('')+
   `<div class="foot"><button class="btn pri big" data-a="fl">🔄 ফ্লিপ করে পরীক্ষা দিন</button><button class="btn big" data-a="sb">✍️ বাক্য বানান</button></div>`;
-  $('#modal').hidden=false;document.body.style.overflow='hidden';const p=VIS.indexOf(n);$('#mpos').textContent=p>=0?`${bd(p+1)} / ${bd(VIS.length)}`:'';paintMarks();$('#modal').scrollTop=0}
+  $('#modal').hidden=false;const p=VIS.indexOf(n);$('#mpos').textContent=p>=0?`${bd(p+1)} / ${bd(VIS.length)}`:'';paintMarks();paintTiles()}
 function closeModal(){$('#modal').hidden=true;document.body.style.overflow='';if(synth)synth.cancel();paintTiles()}
 $('#sheet').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
   if(a==='fav')toggle(FAV,cur,'lfav');else if(a==='done')toggle(DONE,cur,'ldone');
-  else if(a==='fl'){const n=cur;closeModal();setTab('flash');flRun(CARDS.filter(c=>c.g.l===n),'mix')}
-  else if(a==='sb'){bl=cur;closeModal();setTab('build')}});
+  else if(a==='fl'){const n=cur;setTab('flash');flRun(CARDS.filter(c=>c.g.l===n),'mix')}
+  else if(a==='sb'){bl=cur;setTab('build')}});
 const step=d=>{if(!VIS.length)return;let p=VIS.indexOf(cur);p=(p+d+VIS.length)%VIS.length;openCard(VIS[p],true)};
 $('#mprev').onclick=()=>step(-1);$('#mnext').onclick=()=>step(1);$('#mclose').onclick=closeModal;
-$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 /* ট্যাব ২: ফ্ল্যাশকার্ড (উল্টে টেস্ট) */
 let FK=null;
 function sides(c,d){const g=c.g;
@@ -382,5 +385,4 @@ $$('[data-t]').forEach(b=>b.onclick=()=>setTheme(b.dataset.t));$$('[data-f]').fo
 $('#rate').value=String(RATE);$('#rate').onchange=e=>{RATE=+e.target.value;LX.s('rate',RATE)};
 $('#flt').onchange=applyFilter;$('#q').oninput=applyFilter;
 setTheme(LX.g('theme',null)||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));setFuri(FURI);
-paintTiles();applyFilter();stats();vinfo();if(synth){synth.getVoices();synth.onvoiceschanged=vinfo}
-document.addEventListener('keydown',e=>{if($('#modal').hidden||e.target.matches('input,select,textarea'))return;if(e.key==='Escape')closeModal();else if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1)});
+paintTiles();applyFilter();openCard(1);stats();vinfo();if(synth){synth.getVoices();synth.onvoiceschanged=vinfo}

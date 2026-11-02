@@ -13,5 +13,5 @@
 .kq-opt{font-size:18px;padding:10px 22px;font-weight:700}
 .kq-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
 .kq-msg{min-height:24px;font-size:15px;font-weight:700;margin-top:10px}
-.kq-msg.ok{color:#1f8a4c}.kq-msg.bad{color:#c0392b}
+.kq-msg.ok{color:#1f8a6f}.kq-msg.bad{color:#c03f2b}
 @media(max-width:600px){.kq-box{grid-template-columns:1fr}.kq-glyph{font-size:84px}.kn-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}

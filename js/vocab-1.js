@@ -59,19 +59,166 @@ function showHome(){
     box.appendChild(a);
   });
 }
+
+/* ---------- hiragana/katakana -> romaji ---------- */
+var R1={あ:'a',い:'i',う:'u',え:'e',お:'o',か:'ka',き:'ki',く:'ku',け:'ke',こ:'ko',さ:'sa',し:'shi',す:'su',せ:'se',そ:'so',た:'ta',ち:'chi',つ:'tsu',て:'te',と:'to',な:'na',に:'ni',ぬ:'nu',ね:'ne',の:'no',は:'ha',ひ:'hi',ふ:'fu',へ:'he',ほ:'ho',ま:'ma',み:'mi',む:'mu',め:'me',も:'mo',や:'ya',ゆ:'yu',よ:'yo',ら:'ra',り:'ri',る:'ru',れ:'re',ろ:'ro',わ:'wa',を:'o',ん:'n',が:'ga',ぎ:'gi',ぐ:'gu',げ:'ge',ご:'go',ざ:'za',じ:'ji',ず:'zu',ぜ:'ze',ぞ:'zo',だ:'da',ぢ:'ji',づ:'zu',で:'de',ど:'do',ば:'ba',び:'bi',ぶ:'bu',べ:'be',ぼ:'bo',ぱ:'pa',ぴ:'pi',ぷ:'pu',ぺ:'pe',ぽ:'po',ぁ:'a',ぃ:'i',ぅ:'u',ぇ:'e',ぉ:'o'};
+var R2={きゃ:'kya',きゅ:'kyu',きょ:'kyo',しゃ:'sha',しゅ:'shu',しょ:'sho',ちゃ:'cha',ちゅ:'chu',ちょ:'cho',にゃ:'nya',にゅ:'nyu',にょ:'nyo',ひゃ:'hya',ひゅ:'hyu',ひょ:'hyo',みゃ:'mya',みゅ:'myu',みょ:'myo',りゃ:'rya',りゅ:'ryu',りょ:'ryo',ぎゃ:'gya',ぎゅ:'gyu',ぎょ:'gyo',じゃ:'ja',じゅ:'ju',じょ:'jo',びゃ:'bya',びゅ:'byu',びょ:'byo',ぴゃ:'pya',ぴゅ:'pyu',ぴょ:'pyo',ふぁ:'fa',ふぃ:'fi',ふぇ:'fe',ふぉ:'fo',てぃ:'ti',でぃ:'di',うぃ:'wi',うぇ:'we',うぉ:'wo',ゔぁ:'va',しぇ:'she',じぇ:'je',ちぇ:'che'};
+function toRomaji(str){
+  var t = (str || '').replace(/[\u30A1-\u30F6]/g, function(c){ return String.fromCharCode(c.charCodeAt(0) - 0x60); });
+  var out = '', i = 0, dbl = false;
+  while(i < t.length){
+    var c = t[i], two = t.substr(i, 2);
+    if(c === 'っ'){ dbl = true; i++; continue; }
+    var r;
+    if(R2[two]){ r = R2[two]; i += 2; }
+    else if(R1[c]){ r = R1[c]; i++; }
+    else if(c === 'ー'){ var m = out.match(/[aiueo]$/); r = m ? m[0] : ''; i++; }
+    else if(c === '～' || c === '〜' || c === '~'){ r = '~'; i++; }
+    else { r = c; i++; }
+    if(dbl){ r = (/^(ch)/.test(r) ? 't' : r.charAt(0)) + r; dbl = false; }
+    out += r;
+  }
+  return out;
+}
+
+/* ---------- lesson view: flashcards + table ---------- */
+var FC = { list: [], i: 0, flipped: false, rev: LS.get('rev', false), kanji: LS.get('kanji', true) };
+function fcFront(w){ return FC.rev ? { main: w.b, sub: '', jp: false } : { main: (FC.kanji && w.k) ? w.k : w.r, sub: '', jp: true }; }
+function fcBack(w){
+  return FC.rev ? { main: (FC.kanji && w.k) ? w.k : w.r, sub: (w.k && FC.kanji ? w.r + ' · ' : '') + toRomaji(w.r), jp: true }
+                : { main: w.b, sub: toRomaji(w.r) + (w.k && !FC.kanji ? '' : ''), jp: false };
+}
+function renderCard(){
+  var w = FC.list[FC.i]; if(!w) return;
+  var f = fcFront(w), b = fcBack(w);
+  var card = document.getElementById('fcCard');
+  var ff = card.querySelector('.fc-front'), fb = card.querySelector('.fc-back');
+  ff.textContent = ''; fb.textContent = '';
+  var fm = el('div', 'fc-main' + (f.jp ? ' jp' : ''), f.main); ff.appendChild(fm);
+  ff.appendChild(el('div', 'fc-hint', 'ফ্লিপ করুন'));
+  fb.appendChild(el('div', 'fc-main' + (b.jp ? ' jp' : ''), b.main));
+  if(b.sub) fb.appendChild(el('div', 'fc-sub', b.sub));
+  if(w.s){ fb.appendChild(el('div', 'fc-ex jp', w.s)); if(w.sb) fb.appendChild(el('div', 'fc-exb', w.sb)); }
+  card.classList.toggle('flipped', FC.flipped);
+  document.getElementById('fcCount').textContent = 'CARD ' + bn(FC.i + 1) + ' / ' + bn(FC.list.length);
+  var bar = document.getElementById('fcBar'); if(bar) bar.style.width = ((FC.i + 1) / FC.list.length * 100) + '%';
+  var lb = document.getElementById('fcLearn');
+  var on = learned.has(w.id);
+  lb.textContent = on ? 'শিখেছি ✓' : 'শিখিনি'; lb.classList.toggle('on', on);
+}
+function fcGo(d){ FC.i = (FC.i + d + FC.list.length) % FC.list.length; FC.flipped = false; renderCard(); }
+function fcFlip(){ FC.flipped = !FC.flipped; document.getElementById('fcCard').classList.toggle('flipped', FC.flipped); }
+function openGuide(open){ document.getElementById('fcGuide').hidden = !open; }
+
 function showLesson(n){
-  var L = LESSONS.filter(function(x){ return x.n === n; })[0];
-  if(!L){ location.hash = ''; return; }
+  var idx = -1;
+  LESSONS.forEach(function(x, k){ if(x.n === n) idx = k; });
+  if(idx < 0){ location.hash = ''; return; }
+  var L = LESSONS[idx];
   document.getElementById('home').hidden = true;
   var v = document.getElementById('view'); v.textContent = ''; v.hidden = false;
-  var back = el('a', 'back', '← সব পাঠ'); back.href = '#';
-  v.appendChild(back);
-  v.appendChild(el('div', 'lt', 'পাঠ ' + bn(L.n) + ' · ' + L.t));
+
+  var back = el('a', 'back', '← সব পাঠ'); back.href = '#'; v.appendChild(back);
+  v.appendChild(el('div', 'lt', 'N5 শব্দ · পাঠ ' + bn(L.n)));
   var n2 = L.w.filter(function(w){ return learned.has(w.id); }).length;
-  v.appendChild(el('div', 'lc', bn(L.w.length) + 'টি শব্দ · শেখা ' + bn(n2)));
-  var g = el('div', 'cards'); L.w.forEach(function(w){ g.appendChild(wordCard(w)); }); v.appendChild(g);
+  v.appendChild(el('div', 'lc', L.t + ' · ' + bn(L.w.length) + 'টি শব্দ · শেখা ' + bn(n2)));
+
+  /* flashcard section */
+  FC.list = L.w.slice(); FC.i = 0; FC.flipped = false;
+  var sec = el('section', 'fc-sec');
+  var head = el('div', 'fc-head');
+  head.appendChild(el('h2', '', 'শব্দার্থ ফ্ল্যাশকার্ড'));
+  var gb = el('button', 'fc-link', 'লার্নিং গাইড'); gb.type = 'button'; gb.addEventListener('click', function(){ openGuide(true); });
+  head.appendChild(gb); sec.appendChild(head);
+
+  var tools = el('div', 'fc-tools');
+  var dirB = el('button', 'fc-pill', FC.rev ? 'BN ➔ JP' : 'JP ➔ BN'); dirB.type = 'button';
+  dirB.addEventListener('click', function(){ FC.rev = !FC.rev; LS.set('rev', FC.rev); dirB.textContent = FC.rev ? 'BN ➔ JP' : 'JP ➔ BN'; FC.flipped = false; renderCard(); });
+  var kB = el('button', 'fc-pill' + (FC.kanji ? ' on' : ''), '漢字'); kB.type = 'button';
+  kB.addEventListener('click', function(){ FC.kanji = !FC.kanji; LS.set('kanji', FC.kanji); kB.classList.toggle('on', FC.kanji); renderCard(); });
+  var shB = el('button', 'fc-pill', 'শাফল'); shB.type = 'button';
+  shB.addEventListener('click', function(){
+    for(var i = FC.list.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = FC.list[i]; FC.list[i] = FC.list[j]; FC.list[j] = t; }
+    FC.i = 0; FC.flipped = false; renderCard();
+  });
+  tools.appendChild(dirB); tools.appendChild(kB); tools.appendChild(shB); sec.appendChild(tools);
+
+  var stage = el('div', 'fc-stage');
+  var card = el('div', 'fc-card'); card.id = 'fcCard'; card.tabIndex = 0;
+  card.innerHTML = '<div class="fc-face fc-front"></div><div class="fc-face fc-back"></div>';
+  card.addEventListener('click', fcFlip);
+  stage.appendChild(card); sec.appendChild(stage);
+
+  var prog = el('div', 'fc-prog'); prog.innerHTML = '<i id="fcBar"></i>'; sec.appendChild(prog);
+  var ctr = el('div', 'fc-ctrl');
+  var pv = el('button', 'fc-nav', '‹'); pv.type = 'button'; pv.setAttribute('aria-label', 'আগের কার্ড'); pv.addEventListener('click', function(){ fcGo(-1); });
+  var cnt = el('div', 'fc-count'); cnt.id = 'fcCount';
+  var nx = el('button', 'fc-nav', '›'); nx.type = 'button'; nx.setAttribute('aria-label', 'পরের কার্ড'); nx.addEventListener('click', function(){ fcGo(1); });
+  ctr.appendChild(pv); ctr.appendChild(cnt); ctr.appendChild(nx); sec.appendChild(ctr);
+  var act = el('div', 'fc-act');
+  var sp = el('button', 'fc-pill', '🔊 শুনুন'); sp.type = 'button';
+  sp.addEventListener('click', function(){ var w = FC.list[FC.i]; speak((w.k || w.r).replace(/\s*\[[^\]]*\]/g, '').replace(/[～~]/g, '') || w.r); });
+  var lb = el('button', 'fc-pill', 'শিখিনি'); lb.id = 'fcLearn'; lb.type = 'button';
+  lb.addEventListener('click', function(){ var w = FC.list[FC.i]; if(learned.has(w.id)) learned.delete(w.id); else learned.add(w.id); saveLearned(); renderCard(); var r = document.querySelector('[data-wid="' + w.id + '"]'); if(r) r.classList.toggle('done', learned.has(w.id)); });
+  act.appendChild(sp); act.appendChild(lb); sec.appendChild(act);
+  v.appendChild(sec);
+
+  /* guide modal */
+  var gm = el('div', 'fc-modal'); gm.id = 'fcGuide'; gm.hidden = true;
+  gm.innerHTML =
+    '<div class="fc-mbox" role="dialog" aria-modal="true"><button type="button" class="fc-x" aria-label="বন্ধ করুন">×</button>' +
+    '<h3>ফ্ল্যাশকার্ড কেন প্রয়োজন?</h3>' +
+    '<p>ফ্ল্যাশকার্ড হলো শব্দ শেখার একটি কার্যকরী পদ্ধতি। এটি <b>Active Recall</b> ব্যবহার করে — আপনি শুধু পড়েন না, মস্তিষ্ককে অর্থ মনে করতে বাধ্য করেন। এতে শব্দ অনেকদিন মনে থাকে।</p>' +
+    '<h4>শব্দ দ্রুত মুখস্থ করার নিয়ম</h4>' +
+    '<ol class="fc-steps"><li>কার্ডের জাপানিজ শব্দটি দেখুন।</li><li><b>কার্ড উল্টানোর আগেই</b> অর্থটি মনে করার চেষ্টা করুন। (সবচেয়ে জরুরি ধাপ)</li><li>এরপর কার্ড ট্যাপ করে উত্তর মিলিয়ে নিন।</li></ol>' +
+    '<button type="button" class="fc-go">বুঝেছি, শুরু করুন!</button></div>';
+  gm.addEventListener('click', function(e){ if(e.target === gm || e.target.classList.contains('fc-x') || e.target.classList.contains('fc-go')) openGuide(false); });
+  v.appendChild(gm);
+
+  /* table */
+  var tb = el('div', 'vt-sec');
+  var openList = LS.get('listOpen', true);
+  var vtb = el('button', 'vt-toggle'); vtb.type = 'button'; vtb.setAttribute('aria-expanded', openList ? 'true' : 'false');
+  vtb.innerHTML = '<span class="vt-ttl"></span><span class="vt-meta"></span><svg class="vt-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  vtb.querySelector('.vt-ttl').textContent = 'পাঠ ' + bn(L.n) + ' এর জন্য প্রয়োজনীয় শব্দার্থ সমূহ';
+  vtb.querySelector('.vt-meta').textContent = bn(L.w.length) + 'টি শব্দ';
+  tb.appendChild(vtb);
+  var wrap = el('div', 'vt-wrap'); wrap.id = 'vtWrap'; wrap.hidden = !openList;
+  vtb.addEventListener('click', function(){
+    var o = wrap.hidden; wrap.hidden = !o;
+    vtb.setAttribute('aria-expanded', o ? 'true' : 'false'); LS.set('listOpen', o);
+  });
+  var tbl = el('table', 'vt');
+  tbl.innerHTML = '<thead><tr><th>জাপানিজ (কানা)</th><th>রোমাজি / উচ্চারণ</th><th>বাংলা অর্থ</th></tr></thead>';
+  var tbd = document.createElement('tbody');
+  L.w.forEach(function(w){
+    var tr = el('tr', learned.has(w.id) ? 'done' : ''); tr.setAttribute('data-wid', w.id);
+    var td1 = el('td', 'jp'); td1.appendChild(el('span', 'vt-kana', w.r));
+    if(w.k && w.k !== w.r) td1.appendChild(el('span', 'vt-kanji', w.k));
+    tr.appendChild(td1);
+    tr.appendChild(el('td', 'vt-ro', toRomaji(w.r)));
+    tr.appendChild(el('td', 'vt-bn', w.b));
+    tbd.appendChild(tr);
+  });
+  tbl.appendChild(tbd); wrap.appendChild(tbl); tb.appendChild(wrap); v.appendChild(tb);
+
+  /* prev / next lesson */
+  var pn = el('div', 'vt-pn');
+  if(idx > 0){ var pa = el('a', '', '← পাঠ ' + bn(LESSONS[idx - 1].n)); pa.href = '#L' + LESSONS[idx - 1].n; pn.appendChild(pa); } else pn.appendChild(el('span'));
+  if(idx < LESSONS.length - 1){ var na = el('a', '', 'পাঠ ' + bn(LESSONS[idx + 1].n) + ' →'); na.href = '#L' + LESSONS[idx + 1].n; pn.appendChild(na); }
+  v.appendChild(pn);
+
+  renderCard();
   window.scrollTo(0, 0);
 }
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('fcCard') || document.getElementById('view').hidden) return;
+  if(/INPUT|TEXTAREA/.test((e.target.tagName || ''))) return;
+  if(e.key === 'ArrowRight') fcGo(1);
+  else if(e.key === 'ArrowLeft') fcGo(-1);
+  else if(e.key === ' ' && e.target.id !== 'fcLearn'){ e.preventDefault(); fcFlip(); }
+  else if(e.key === 'Escape') openGuide(false);
+});
 function route(){
   var m = location.hash.match(/^#L(\d+)$/);
   if(m) showLesson(parseInt(m[1], 10)); else showHome();

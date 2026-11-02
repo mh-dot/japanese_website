@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+<script src="js/loader.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>সংখ্যা, সময় ও তারিখ | Dream Japan</title>
 <script src="js/theme-init.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/verb-forms.css">
 <link rel="stylesheet" href="css/numbers.css">
+<link rel="stylesheet" href="css/layout.css">
 </head>
-<body>
+<body class="page-sub page-num">
 <div class="nav-wrap">
   <nav class="nav" aria-label="প্রধান নেভিগেশন">
     <a href="index.html" class="logo" aria-label="Dream Japan">
@@ -19,7 +22,7 @@
 
     <div class="menu" id="menu">
       <a href="index.html">হোম</a>
-      <a href="grammar.html">গ্রামার</a>
+      <div class="has-dd"><a href="grammar.html" class="active">গ্রামার</a><div class="dd"><a href="grammar.html">গ্রামার</a><a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a><a href="numbers.html" class="active">সংখ্যা, সময় ও তারিখ</a><a href="katakana.html">কাতাকানা</a></div></div>
       <a href="sentence.html">বাক্য</a>
       <a href="kanji.html">কানজি</a>
       <a href="vocab.html">শব্দভান্ডার</a>
@@ -38,11 +41,21 @@
     </div>
   </nav>
 </div>
-<div class="vf-wrap">
-  <h1 class="vf-title">সংখ্যা, সময় ও তারিখ</h1>
-  <p class="vf-sub">০ থেকে শুরু করে সংখ্যা, মাস, বার, বছর, তারিখ, সময় আর কাউন্টার — এক পেজে</p>
-
-  <section class="vf-sec">
+<header class="top"><div class="brand"><div class="big" aria-hidden="true">数字</div><div><h1>সংখ্যা, সময় ও তারিখ</h1><p>০ থেকে শুরু করে সংখ্যা, মাস, বার, বছর, তারিখ, সময় আর কাউন্টার — এক পেজে</p></div></div></header>
+<nav class="tabs" role="tablist">
+  <button role="tab" data-tab="n1" aria-selected="true">🔢 মূল সংখ্যা ০–১০</button>
+  <button role="tab" data-tab="n2" aria-selected="false">➕ বড় সংখ্যার নিয়ম</button>
+  <button role="tab" data-tab="n3" aria-selected="false">🧭 on-yomi না kun-yomi?</button>
+  <button role="tab" data-tab="n4" aria-selected="false">🖐️ জাপানি গণনা (ひとつ…)</button>
+  <button role="tab" data-tab="n5" aria-selected="false">🧮 কাউন্টার (助数詞)</button>
+  <button role="tab" data-tab="n6" aria-selected="false">📅 মাস, বার ও তারিখ</button>
+  <button role="tab" data-tab="n7" aria-selected="false">⏰ সময় (時・分) ও ঘড়ি</button>
+  <button role="tab" data-tab="n8" aria-selected="false">📏 মাপ ও পরিমাপ</button>
+  <button role="tab" data-tab="n9" aria-selected="false">🎂 বয়স, জন্মদিন ও বছর</button>
+  <button role="tab" data-tab="n10" aria-selected="false">💡 সংখ্যা মনে রাখার কৌশল</button>
+</nav>
+<main>
+  <section id="tab-n1" class="vf-sec panel">
     <h2>১. মূল সংখ্যা ০–১০</h2>
     <p class="note">প্রতিটি সংখ্যার দুইটি উচ্চারণ থাকে: <b>on-yomi</b> (চীনা ধাঁচ, সংখ্যা/তারিখে বেশি) আর এখানে কিছু <b>kun-yomi</b> (জাপানি, গণনায়)।</p>
     <table class="vf-map">
@@ -67,7 +80,7 @@
     </table>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n2" class="vf-sec panel" hidden>
     <h2>২. ১১ থেকে বড় সংখ্যা বলার নিয়ম</h2>
     <p class="note">দশকের সংখ্যা + এককের সংখ্যা। যেমন ২৩ = <b>にじゅうさん</b> (২০ + ৩)।</p>
     <table class="vf-map">
@@ -88,7 +101,7 @@
     <p class="note" style="margin-top:10px"><b>বড় সংখ্যার কৌশল:</b> জাপানিতে ১০০০০ = ১ "মান" (万)। তাই ১২৩৪৫৬ = ১২ মান ৩৪৫৬ → <b>じゅうにまん さんぜんよんひゃくごじゅうろく</b>। প্রথমে ৪ ঘর (万) দিয়ে ভাগ করুন।</p>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n3" class="vf-sec panel" hidden>
     <h2>৩. কোনটা কখন: on-yomi না kun-yomi?</h2>
     <p class="note">একই কাঞ্জির দুটি উচ্চারণ থাকে। সংখ্যা, তারিখ, যৌগ শব্দে সাধারণত on; একা বা জাপানি শব্দে kun।</p>
     <table class="vf-map">
@@ -106,7 +119,7 @@
     <p class="note" style="margin-top:10px"><b>মনে রাখার নিয়ম:</b> সংখ্যার পরে বা তারিখ/সময়ে এলে <b>on</b> (ichi, ni, san, gatsu, nichi)। একা থাকলে বা "এক/দুই" অর্থে জিনিস গোনার জন্য <b>kun</b> (hitotsu, futatsu, hitori)।</p>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n4" class="vf-sec panel" hidden>
     <h2>৪. ১ থেকে ১০ — জাপানি গণনা (ひとつ, ふたつ...)</h2>
     <p class="note">সাধারণ জিনিস গোনার জন্য (১০টি পর্যন্ত)। জিনিসের নাম না জানলে এটাই ব্যবহার হয়।</p>
     <table class="vf-map">
@@ -126,7 +139,7 @@
     </table>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n5" class="vf-sec panel" hidden>
     <h2>৫. কাউন্টার (助数詞) — কী দিয়ে গুনবেন</h2>
     <p class="note">জাপানিতে সংখ্যার সাথে জিনিসের ধরন অনুযায়ী আলাদা কাউন্টার বসে। নিচের টেবিলে ১–১০ সব এক জায়গায়।</p>
     <div style="overflow-x:auto">
@@ -149,7 +162,7 @@
     <p class="note" style="margin-top:10px">ব্যতিক্রম: ২০ বছর বয়স = <b>はたち</b>। ১ ব্যক্তি = <b>ひとり</b>, ২ ব্যক্তি = <b>ふたり</b> (তবে ৩ থেকে <b>にん</b>)।</p>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n6" class="vf-sec panel" hidden>
     <h2>৬. মাস, বার ও তারিখ</h2>
     <p class="note">মাসের নাম: সংখ্যা + 月 (がつ)। সব মাসের উচ্চারণ এক সাথে:</p>
     <table class="vf-map">
@@ -203,7 +216,7 @@
     <p class="note" style="margin-top:10px">পূর্ণ তারিখ: <b>2026年11月1日</b> = <b>にせんにじゅうろくねん じゅういちがつ ついたち</b> (বছর → মাস → দিন)।</p>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n7" class="vf-sec panel" hidden>
     <h2>৭. সময় (時・分) ও ঘড়ি</h2>
     <p class="note">ঘণ্টা: সংখ্যা + <b>時</b> (じ)। মিনিট: সংখ্যা + <b>分</b> (ふん/ぷん)। ৩০ মিনিট = <b>半</b> (はん)।</p>
     <table class="vf-map">
@@ -233,7 +246,7 @@
     <b>সময়কাল (時間 じかん):</b> 1時間 (いちじかん) = ১ ঘণ্টা, 30分 (さんじゅっぷん) = ৩০ মিনিট।</p>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n8" class="vf-sec panel" hidden>
     <h2>৮. মাপ ও পরিমাপ</h2>
     <p class="note">জিনিসের মাপ লিখতে সংখ্যার পরে এককের নাম বসে (সাধারণত ইংরেজি থেকে নেওয়া)।</p>
     <table class="vf-map">
@@ -251,7 +264,7 @@
     </table>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n9" class="vf-sec panel" hidden>
     <h2>৯. বয়স, জন্মদিন ও বছর — এক নজরে</h2>
     <table class="vf-map">
       <thead><tr><th>প্রশ্ন / বাক্য</th><th>জাপানি</th><th>বাংলা অর্থ</th></tr></thead>
@@ -265,7 +278,7 @@
     </table>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-n10" class="vf-sec panel" hidden>
     <h2>১০. সংখ্যা মনে রাখার কৌশল</h2>
     <div class="vf-rules">
       <div class="vf-rule"><h3>বাংলা ছড়ায় মনে রাখুন</h3><p>ইচি · নি · সান · শি · গো · রোকু · শিচি · হাচি · কিউ · জু। কয়েকবার বললে মুখস্থ হয়ে যায়।</p></div>
@@ -276,8 +289,10 @@
       <div class="vf-rule"><h3>কোন গণনা, কোন কাউন্টার?</h3><p>সাধারণ জিনিস = ひとつ-সিরিজ। মানুষ = ひとり-সিরিজ। কিন্তু কাউন্টার জানলে সঠিক উচ্চারণ নিজে থেকেই আসে।</p></div>
     </div>
   </section>
-</div>
+</main>
 
+<script src="js/layout.js"></script>
+<script src="js/subtabs.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

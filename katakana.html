@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+<script src="js/loader.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>কাতাকানা শিখুন | Dream Japan</title>
 <script src="js/theme-init.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/verb-forms.css">
 <link rel="stylesheet" href="css/katakana.css">
+<link rel="stylesheet" href="css/layout.css">
 </head>
-<body>
+<body class="page-sub page-kata">
 <div class="nav-wrap">
   <nav class="nav" aria-label="প্রধান নেভিগেশন">
     <a href="index.html" class="logo" aria-label="Dream Japan">
@@ -19,7 +22,7 @@
 
     <div class="menu" id="menu">
       <a href="index.html">হোম</a>
-      <a href="grammar.html">গ্রামার</a>
+      <div class="has-dd"><a href="grammar.html" class="active">গ্রামার</a><div class="dd"><a href="grammar.html">গ্রামার</a><a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a><a href="numbers.html">সংখ্যা, সময় ও তারিখ</a><a href="katakana.html" class="active">কাতাকানা</a></div></div>
       <a href="sentence.html">বাক্য</a>
       <a href="kanji.html">কানজি</a>
       <a href="vocab.html">শব্দভান্ডার</a>
@@ -38,11 +41,13 @@
     </div>
   </nav>
 </div>
-<div class="vf-wrap">
-  <h1 class="vf-title">কাতাকানা শিখুন</h1>
-  <p class="vf-sub">প্রতিটি অক্ষরে ক্লিক করলে উচ্চারণ শুনবেন। বাংলা উচ্চারণ, রোমাজি আর একটি উদাহরণ শব্দ একসাথে।</p>
-
-  <section class="vf-sec">
+<header class="top"><div class="brand"><div class="big" aria-hidden="true">カナ</div><div><h1>কাতাকানা শিখুন</h1><p>প্রতিটি অক্ষরে ক্লিক করলে উচ্চারণ শুনবেন — বাংলা উচ্চারণ, রোমাজি আর একটি উদাহরণ শব্দ</p></div></div></header>
+<nav class="tabs" role="tablist">
+  <button role="tab" data-tab="chart" aria-selected="true">🔤 অক্ষর চার্ট</button>
+  <button role="tab" data-tab="quiz" aria-selected="false">🎯 অনুশীলন</button>
+</nav>
+<main>
+  <section id="tab-chart" class="vf-sec panel">
     <div class="vf-bar" role="group" aria-label="ফিল্টার">
       <button class="vf-chip" data-kf="all" aria-pressed="true">সব</button>
       <button class="vf-chip" data-kf="seion" aria-pressed="false">মূল (清音)</button>
@@ -53,7 +58,7 @@
     <div class="kn-grid" id="kn-grid"></div>
   </section>
 
-  <section class="vf-sec">
+  <section id="tab-quiz" class="vf-sec panel" hidden>
     <h2>অনুশীলন: অক্ষর চিনুন</h2>
     <p class="note">অক্ষর দেখে সঠিক romaji বেছে নিন। স্কোর জমবে।</p>
     <div class="kq-box">
@@ -69,8 +74,10 @@
       </div>
     </div>
   </section>
-</div>
+</main>
 
+<script src="js/layout.js"></script>
+<script src="js/subtabs.js"></script>
 <script src="js/app.js"></script>
 <script src="js/katakana.js"></script>
 </body>

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+<script src="js/loader.js"></script>
 <script src="js/theme-init.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>জাপানি N5 – জটিল বাক্য কার্ড</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/sentence.css">
+<link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
 <div class="nav-wrap">
@@ -19,7 +22,7 @@
 
     <div class="menu" id="menu">
       <a href="index.html">হোম</a>
-      <a href="grammar.html">গ্রামার</a>
+      <div class="has-dd"><a href="grammar.html">গ্রামার</a><div class="dd"><a href="grammar.html">গ্রামার</a><a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a><a href="numbers.html">সংখ্যা, সময় ও তারিখ</a><a href="katakana.html">কাতাকানা</a></div></div>
       <a href="sentence.html" class="active">বাক্য</a>
       <a href="kanji.html">কানজি</a>
       <a href="vocab.html">শব্দভান্ডার</a>
@@ -71,6 +74,7 @@
 <div class="secbar" id="secbar24g" data-tab="l24g" data-grid="grid24g" role="group" aria-label="নিয়ম অনুযায়ী ফিল্টার" hidden><button data-s="all" aria-pressed="true">সব (৫০)</button><button data-s="g-ag" aria-pressed="false">あげます</button><button data-s="g-tg" aria-pressed="false">てあげます</button><button data-s="g-ku" aria-pressed="false">くれます</button><button data-s="g-tk" aria-pressed="false">てくれます</button><button data-s="g-mo" aria-pressed="false">もらいます</button><button data-s="g-tm" aria-pressed="false">てもらいます</button><button data-s="g-mx" aria-pressed="false">মিশ্র</button></div>
 <main class="grid" id="grid24g" data-tab="l24g" hidden></main>
 <footer>শব্দ না এলে Chrome বা Edge ব্যবহার করুন এবং ডিভাইসে Japanese ভয়েস চালু আছে কিনা দেখুন। বাংলা উচ্চারণ স্বয়ংক্রিয়ভাবে তৈরি, তাই মোটামুটি সঠিক; আসল উচ্চারণ শুনে মিলিয়ে নিন।</footer>
+<script src="js/layout.js"></script>
 <script src="js/sentence-1.js"></script>
 <script src="js/sentence-2.js"></script>
 <script src="js/sentence-3.js"></script>
