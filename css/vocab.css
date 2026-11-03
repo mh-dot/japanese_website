@@ -105,3 +105,9 @@ html,body{background:#f6fbfd!important}
 
 /* ===== one 1000px grid: nav + content share the same left/right edges ===== */
 .wrap{box-sizing:border-box!important;width:min(var(--cw,1000px),100% - 40px)!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}
+
+/* ===== v14.7: word table text centred + smooth chevron ===== */
+.vt th,.vt td{text-align:center}
+.vt td.jp{text-align:center}
+.vt-chev{transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.vt-wrap{will-change:height,clip-path}

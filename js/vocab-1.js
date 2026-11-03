@@ -184,9 +184,41 @@ function showLesson(n){
   vtb.querySelector('.vt-meta').textContent = bn(L.w.length) + 'টি শব্দ';
   tb.appendChild(vtb);
   var wrap = el('div', 'vt-wrap'); wrap.id = 'vtWrap'; wrap.hidden = !openList;
+  /* open / close the word list with a smooth reveal: grows downward from the top while the width opens out from the centre */
+  var listOpen = !!openList, listAnim = null;
+  function runListAnim(open){
+    if(listAnim){ listAnim.cancel(); listAnim = null; }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce || !wrap.animate){ wrap.hidden = !open; return; }
+    wrap.hidden = false;
+    var h = wrap.offsetHeight;
+    var shut = { height: '0px', opacity: 0, clipPath: 'inset(0 24% 0 24% round 14px)', transform: 'translateY(-8px)' };
+    var full = { height: h + 'px', opacity: 1, clipPath: 'inset(0 0% 0 0% round 14px)', transform: 'translateY(0)' };
+    wrap.style.overflow = 'hidden'; wrap.style.boxSizing = 'border-box';
+    var a = wrap.animate(open ? [shut, full] : [full, shut], {
+      duration: open ? 560 : 380,
+      easing: open ? 'cubic-bezier(.22,1,.36,1)' : 'cubic-bezier(.55,0,.55,.2)',
+      fill: 'forwards'
+    });
+    listAnim = a;
+    if(open){
+      var rows = wrap.querySelectorAll('tbody tr');
+      for(var i = 0; i < rows.length && i < 14; i++){
+        rows[i].animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'translateY(0)' }],
+          { duration: 420, delay: 140 + i * 28, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
+      }
+    }
+    a.onfinish = function(){
+      if(listAnim !== a) return;
+      wrap.hidden = !open;
+      wrap.style.overflow = ''; wrap.style.boxSizing = '';
+      a.cancel(); listAnim = null;
+    };
+  }
   vtb.addEventListener('click', function(){
-    var o = wrap.hidden; wrap.hidden = !o;
-    vtb.setAttribute('aria-expanded', o ? 'true' : 'false'); LS.set('listOpen', o);
+    listOpen = !listOpen;
+    vtb.setAttribute('aria-expanded', listOpen ? 'true' : 'false'); LS.set('listOpen', listOpen);
+    runListAnim(listOpen);
   });
   var tbl = el('table', 'vt');
   tbl.innerHTML = '<thead><tr><th>জাপানিজ (কানা)</th><th>রোমাজি / উচ্চারণ</th><th>বাংলা অর্থ</th></tr></thead>';

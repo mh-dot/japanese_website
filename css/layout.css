@@ -1,6 +1,16 @@
 /* ===== Layout pass: 1200px container, compact nav, collapsible sidebar,
    minimal pill tabs, unified card boxes ===== */
-:root{--wrap-max:1200px;--cw:1200px;--ring:rgba(43,35,90,.12);--pic:#f1f1f6}
+:root{--cw:1200px;--wrap-max:var(--cw);--ring:rgba(43,35,90,.12);--pic:#f1f1f6}
+
+/* ---- Container width per screen ----
+   Big monitors (27-inch / 2K / 4K, viewport >= 1540px): fixed 1200px, side gaps are naturally large.
+   Laptops (viewport < 1540px, e.g. 1280 / 1366 / 1440 / 1536 css px): the container shrinks
+   *with* the screen, so both sides always keep visible empty space instead of the page touching the edges.
+   Formula: 53vw + 385px  ->  1200px at 1540px, 1054px at 1265px, 1107px at 1366px, 860px at 900px (= old phone/tablet width).
+   Tune the look with the two numbers: bigger vw / smaller px = wider container, smaller gap. */
+@media (max-width:1539px){
+  :root{--cw:calc(53vw + 385px)}
+}
 html[data-theme=dark]{--ring:rgba(255,255,255,.12)}
 :root[data-theme=dark]{--pic:#221e3d}
 
@@ -281,3 +291,38 @@ body.page-sub .page-title .big{display:none}
 body.page-sub .kq-box{grid-template-columns:minmax(180px,240px) 1fr}
 body.page-sub .kq-glyph{font-size:96px;white-space:nowrap;display:grid;place-items:center;min-height:170px}
 @media(max-width:600px){body.page-sub .kq-box{grid-template-columns:1fr}}
+
+/* ===================================================================
+   v14.6: LAPTOP-ONLY extra narrowing for grammar / sentence / vocab / numbers pages
+   -------------------------------------------------------------------
+   Laptop band = viewport 1025px .. 1539px. Phones, tablets (<=1024px) and big monitors (>=1540px)
+   are NOT touched. The navbar keeps the laptop width from above (it needs the room for its links);
+   only the page body below it moves inward.
+   --narrow = total width removed from the body (half on each side).
+   It ramps from 0 at 1024px up to 400px at 1224px and stays there,
+   so on a ~1265px laptop each side gets ~200 css px more empty space.
+   (400px = 2 x 200 css px. On a laptop at 150% display scaling, 200 css px = 300 px on the real screen.)
+   To change the amount: edit the 400px in clamp() below.
+   =================================================================== */
+:root{--narrow:0px}
+@media (min-width:1025px) and (max-width:1539px){
+  :root{--narrow:clamp(0px,calc((100vw - 1024px) * 2),400px)}
+}
+
+/* grammar + sentence + numbers: content column (title row, filters, cards) is centred inside the shell,
+   whether the sidebar is open or closed */
+body.page-grammar .content,
+body.page-sentence .content,
+body.page-num .content{
+  width:100%;max-width:calc(var(--cw) - var(--narrow));justify-self:center;margin-left:auto;margin-right:auto;
+}
+
+/* vocab: the whole .wrap (title, search, lesson list, flashcards) moves inward */
+body.page-vocab .wrap{
+  width:min(calc(var(--cw) - var(--narrow)),100% - 40px)!important;
+}
+
+/* sentence cards: ONE card per row on laptops (big monitors / tablets / phones keep their own columns) */
+@media (min-width:1025px) and (max-width:1539px){
+  body.page-sentence .grid{grid-template-columns:minmax(0,1fr)}
+}
