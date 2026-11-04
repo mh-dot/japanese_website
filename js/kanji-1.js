@@ -224,26 +224,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(
 function setTheme(t){document.documentElement.dataset.theme=t;$$('[data-t]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===t));LS.s('theme',t);if(window.ST)ST.recolor&&ST.recolor()}
 function setFuri(on){FURI=on;$$('[data-f]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.f==='1')===on));LS.s('furi',on);document.body.classList.toggle('nofuri',!on);if(!$('#modal').hidden)openCard(cur,true)}
 
-/* ---------- ব্রাশ সাউন্ড ---------- */
-let BSND=LS.g('brush',true);
-const BR=(()=>{
-  let ac,g,f;
-  function init(){
-    if(ac)return true;const A=window.AudioContext||window.webkitAudioContext;if(!A)return false;
-    ac=new A();const len=ac.sampleRate*2,b=ac.createBuffer(1,len,ac.sampleRate),d=b.getChannelData(0);let l=0;
-    for(let i=0;i<len;i++){l=l*.6+(Math.random()*2-1)*.4;d[i]=l*1.6}
-    const s=ac.createBufferSource();s.buffer=b;s.loop=true;
-    f=ac.createBiquadFilter();f.type='bandpass';f.frequency.value=1500;f.Q.value=.7;
-    g=ac.createGain();g.gain.value=0;s.connect(f);f.connect(g);g.connect(ac.destination);s.start();return true;
-  }
-  return{
-    on(){if(!BSND||!init())return;if(ac.state==='suspended')ac.resume();g.gain.cancelScheduledValues(ac.currentTime);g.gain.setTargetAtTime(.05,ac.currentTime,.02)},
-    lv(v,w){if(!BSND||!ac)return;const t=ac.currentTime;g.gain.setTargetAtTime(Math.min(.3,.04+v*.18+w*.004),t,.03);f.frequency.setTargetAtTime(900+Math.min(v,2.5)*900,t,.03)},
-    off(){if(!ac)return;g.gain.setTargetAtTime(0,ac.currentTime,.06)}
-  };
-})();
-function setBrush(on){BSND=on;$$('[data-b]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.b==='1')===on));LS.s('brush',on);if(!on)BR.off()}
-
 /* ---------- স্ট্রোক ও আঁকা (Stage) ---------- */
 const NS='http://www.w3.org/2000/svg';
 function Stage(root,c,cb){
@@ -276,14 +256,14 @@ function Stage(root,c,cb){
       const p=mk(D[i],cls);group.appendChild(p);
       const L=refs[i].getTotalLength()||1;
       p.style.strokeDasharray=L+' '+(L+2);p.style.strokeDashoffset=L;
-      const dur=Math.max(320,Math.min(950,L*16))/(speed||1),my=tok;let st=null;BR.on();
+      const dur=Math.max(320,Math.min(950,L*16))/(speed||1),my=tok;let st=null;
       const step=t=>{
-        if(my!==tok){BR.off();res(false);return}
+        if(my!==tok){res(false);return}
         if(st==null)st=t;
         const q=Math.min(1,(t-st)/dur),e=q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2;
         p.style.strokeDashoffset=L*(1-e);
         const pt=refs[i].getPointAtLength(L*e);pen.setAttribute('cx',pt.x);pen.setAttribute('cy',pt.y);
-        if(q<1){BR.lv(.9*Math.sin(Math.PI*q)+.15,9);requestAnimationFrame(step)}else{BR.off();res(true)}
+        if(q<1){requestAnimationFrame(step)}else{res(true)}
       };
       requestAnimationFrame(step);
     });
@@ -368,7 +348,7 @@ function Stage(root,c,cb){
   cv.addEventListener('pointerdown',e=>{
     if(mode!=='trace'&&mode!=='memory'&&mode!=='free')return;
     e.preventDefault();cv.setPointerCapture(e.pointerId);
-    const p=pt(e);drawing={pts:[p],last:p,t:performance.now(),w:9,seg:[]};BR.on();
+    const p=pt(e);drawing={pts:[p],last:p,t:performance.now(),w:9,seg:[]};
     ctx.strokeStyle=inkCol();ctx.fillStyle=inkCol();ctx.beginPath();ctx.arc(p[0],p[1],4,0,7);ctx.fill();
   });
   cv.addEventListener('pointermove',e=>{
@@ -376,14 +356,14 @@ function Stage(root,c,cb){
     const p=pt(e),now=performance.now(),d=Math.hypot(p[0]-drawing.last[0],p[1]-drawing.last[1]);
     if(d<1.2)return;
     const v=d/Math.max(1,now-drawing.t),tw=Math.max(3.5,Math.min(14,15-v*7));
-    drawing.w=drawing.w*.7+tw*.3;BR.lv(v,drawing.w);
+    drawing.w=drawing.w*.7+tw*.3;
     ctx.lineWidth=drawing.w;ctx.beginPath();ctx.moveTo(drawing.last[0],drawing.last[1]);ctx.lineTo(p[0],p[1]);ctx.stroke();
     drawing.seg.push({x1:drawing.last[0],y1:drawing.last[1],x2:p[0],y2:p[1],w:drawing.w});
     drawing.pts.push(p);drawing.last=p;drawing.t=now;
   });
   const up=e=>{
     if(!drawing)return;
-    const d=drawing;drawing=null;BR.off();
+    const d=drawing;drawing=null;
     if(mode==='free'){free.push(d.seg.length?d.seg:[{x1:d.pts[0][0],y1:d.pts[0][1],x2:d.pts[0][0]+.1,y2:d.pts[0][1],w:8}]);return}
     ctx.clearRect(0,0,size,size);
     const u=d.pts.map(p=>[p[0]/size*109,p[1]/size*109]),r=evalStroke(u,cur);
@@ -571,7 +551,7 @@ function buildTiles(){
   grid.innerHTML=K.map(c=>{
     const r=c.on[0]||c.kun[0]||'';
     return `<button class="tile cat" style="--h:${CAT[c.c][2]}" data-i="${c.i}" aria-label="${c.k} ${c.bn}"><span class="sc">${c.st}画</span><span class="mk"></span><span class="bk">${c.k}</span><span class="tm">${c.bn}</span><span class="tr">${kanaOnly(r)}</span><span class="lv"><i></i><i></i><i></i><i></i></span></button>`}).join('');
-  $$('.tile',grid).forEach(t=>t.onclick=()=>openCard(+t.dataset.i));
+  $$('.tile',grid).forEach(t=>t.onclick=()=>openDetail(+t.dataset.i));
 }
 function paintTiles(){
   $$('.tile',grid).forEach(t=>{
@@ -653,7 +633,7 @@ function paintModalMarks(){
 function openCard(i,keep,list){
   destroyModal();
   if(list)modalList=list;else if(!keep)modalList=null;
-  cur=i;const c=K[i],sh=$('#sheet');
+  cur=i;$$('.tile.last',grid).forEach(x=>x.classList.remove('last'));const lt=$(`.tile[data-i="${i}"]`,grid);if(lt)lt.classList.add('last');const c=K[i],sh=$('#sheet');
   sh.style.setProperty('--h',CAT[c.c][2]);sh.className='sheet cat fp';
   sh.innerHTML=frontHTML(c);
   $('#modal').hidden=false;document.body.classList.add('in-detail');scrollTo(0,0);try{parent.postMessage({djDetail:true},'*')}catch(e){}
@@ -667,15 +647,33 @@ function openCard(i,keep,list){
   $('#modal').scrollTop=0;
   setTimeout(()=>sh.classList.remove('fp'),420);
 }
-function flip(){
+function flip(){if(window.DJNav)DJNav.replace({tab:curTab(),card:cur,flip:1});showQuiz()}
+function backFromQuiz(){openCard(cur,true);if(window.DJNav)DJNav.replace({tab:curTab(),card:cur})}
+function showQuiz(){
   const c=K[cur],sh=$('#sheet');
   if(ST){ST.destroy();ST=null}
   sh.classList.remove('fp');void sh.offsetWidth;sh.classList.add('fp');
   sh.innerHTML=`<div class="sec" style="border:0"><h3>🔄 কুইজ — ${c.k} (${c.bn})</h3><div id="mq"></div></div>`;
-  QV=new QuizView($('#mq',sh),{items:[cur],types:['read','mean','kanji','yomi','hyou','write'],loop:true,total:Infinity,onBack:()=>openCard(cur,true)});
+  QV=new QuizView($('#mq',sh),{items:[cur],types:['read','mean','kanji','yomi','hyou','write'],loop:true,total:Infinity,onBack:()=>backFromQuiz()});
   $('#modal').scrollTop=0;
 }
-function closeModal(){destroyModal();$('#modal').hidden=true;document.body.classList.remove('in-detail');try{parent.postMessage({djDetail:false},'*')}catch(e){}paintTiles()}
+function hideCard(){destroyModal();$('#modal').hidden=true;document.body.classList.remove('in-detail');try{parent.postMessage({djDetail:false},'*')}catch(e){}paintTiles()}
+function cardOpen(){return !$('#modal').hidden}
+function curTab(){const b=$('nav.tabs button[aria-selected="true"]');return b?b.dataset.tab:'cards'}
+function goTab(t){if(t===curTab())return;if(window.DJNav)DJNav.push({tab:t,card:null});if(cardOpen())hideCard();setTab(t)}
+function openDetail(i){if(window.DJNav)DJNav.push({tab:curTab(),card:i});openCard(i)}
+function closeModal(){
+  const s=window.DJNav&&DJNav.state();
+  hideCard();
+  if(s&&s.card!=null)history.back();   // drop the card's history step; popstate puts the list back where it was
+}
+function applyView(s){
+  s=s||{tab:'cards',card:null};
+  if(curTab()!==s.tab)setTab(s.tab);
+  if(s.card==null){if(cardOpen())hideCard();return}
+  openCard(s.card,true);
+  if(s.flip)showQuiz();
+}
 $('#sheet').addEventListener('click',e=>{
   const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
   if(!ST&&a!=='flip'&&a!=='fav'&&a!=='done')return;
@@ -685,7 +683,7 @@ $('#sheet').addEventListener('click',e=>{
   else if(a==='fav')toggle(FAV,cur,'fav');else if(a==='done')toggle(DONE,cur,'done');
   else if(a==='flip')flip();
 });
-function step(d){const L=modalList||VIS;if(!L.length)return;let p=L.indexOf(cur);p=(p+d+L.length)%L.length;openCard(L[p],true)}
+function step(d){const L=modalList||VIS;if(!L.length)return;let p=L.indexOf(cur);p=(p+d+L.length)%L.length;if(window.DJNav)DJNav.replace({tab:curTab(),card:L[p]});openCard(L[p],true)}
 $('#mprev').onclick=()=>step(-1);$('#mnext').onclick=()=>step(1);$('#mclose').onclick=closeModal;$('#mback').onclick=e=>{e.preventDefault();closeModal()};
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 document.addEventListener('keydown',e=>{
@@ -856,7 +854,7 @@ function setTab(t){
   if(t==='cards')paintTiles();
   if(synth)synth.cancel();
 }
-$$('.tabs button').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+$$('.tabs button').forEach(b=>b.onclick=()=>goTab(b.dataset.tab));
 $$('[data-t]').forEach(b=>b.onclick=()=>setTheme(b.dataset.t));
 $$('[data-f]').forEach(b=>b.onclick=()=>setFuri(b.dataset.f==='1'));
 $('#rate').value=String(RATE);$('#rate').onchange=e=>{RATE=+e.target.value;LS.s('rate',RATE)};
@@ -865,6 +863,6 @@ $('#tab-guide').innerHTML=guideHTML();
 buildCatChips();buildTiles();
 setTheme(THEME||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
 setFuri(FURI);
-$$('[data-b]').forEach(b=>b.onclick=()=>setBrush(b.dataset.b==='1'));setBrush(BSND);
 paintTiles();applyFilter();refreshStats();vinfo();
 if(synth){synth.getVoices();synth.onvoiceschanged=vinfo}
+if(window.DJNav)DJNav.init({snapshot:()=>({tab:curTab(),card:cardOpen()?cur:null}),apply:applyView});

@@ -8,3 +8,4 @@
   window.addEventListener('message',function(e){ var d=e.data; if(d&&d.djTheme) ap(d.djTheme); });
   try{ parent.postMessage({djReady:1},'*'); }catch(e){}
 })();
+if(window.DJNav)DJNav.init({snapshot:()=>({tab:curTab(),card:$('#modal').hidden?null:cur}),apply:applyView});

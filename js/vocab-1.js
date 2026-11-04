@@ -253,7 +253,7 @@ document.addEventListener('keydown', function(e){
 });
 function route(){
   var m = location.hash.match(/^#L(\d+)$/);
-  if(m) showLesson(parseInt(m[1], 10)); else showHome();
+  if(m) showLesson(parseInt(m[1], 10)); else { showHome(); if(window.DJNav) DJNav.restoreY(); }
 }
 // stable ids
 var id = 0;
@@ -266,5 +266,6 @@ function setTheme(t){
 }
 document.querySelectorAll('[data-t]').forEach(function(b){ b.addEventListener('click', function(){ setTheme(b.dataset.t); }); });
 setTheme(LS.get('theme', 'light'));
+if(window.DJNav) DJNav.track();
 window.addEventListener('hashchange', route);
 route();
