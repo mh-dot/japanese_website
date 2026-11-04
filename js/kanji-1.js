@@ -272,16 +272,22 @@ function Stage(root,c,cb){
     const s=refs[i].getPointAtLength(0),t=document.createElementNS(NS,'text');
     t.setAttribute('class','num');t.setAttribute('x',s.x-6);t.setAttribute('y',s.y-1.5);t.textContent=i+1;nm.appendChild(t);
   }
+  const ANIM_REPEAT=4;
   async function animate(){
-    tok++;const my=tok;setMode('anim');clearSvg();msg('✍️ স্ট্রোক ক্রম দেখুন…');
-    for(let i=0;i<D.length;i++){
-      addNum(i);
-      const ok=await drawAnim(i,dn,'ink');
-      if(!ok||my!==tok)return;
-      await wait(200);if(my!==tok)return;
+    tok++;const my=tok;setMode('anim');
+    for(let r=0;r<ANIM_REPEAT;r++){
+      clearSvg();
+      msg(`✍️ স্ট্রোক ক্রম দেখুন… (${r+1}/${ANIM_REPEAT})`);
+      for(let i=0;i<D.length;i++){
+        addNum(i);
+        const ok=await drawAnim(i,dn,'ink');
+        if(!ok||my!==tok)return;
+        await wait(200);if(my!==tok)return;
+      }
+      pen.setAttribute('cx',-9);
+      if(r<ANIM_REPEAT-1){await wait(700);if(my!==tok)return;}
     }
-    pen.setAttribute('cx',-9);
-    msg(`✅ মোট ${D.length}টি স্ট্রোক। এবার নিজে আঁকার চেষ্টা করুন!`,'ok');
+    msg(`✅ মোট ${D.length}টি স্ট্রোক, ${ANIM_REPEAT}বার দেখানো হলো। এবার নিজে আঁকার চেষ্টা করুন!`,'ok');
     cb.animEnd&&cb.animEnd();
   }
   function startDraw(m){
