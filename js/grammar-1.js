@@ -410,15 +410,88 @@ E|食事[しょくじ] の 前[まえ]に 手[て]を 洗[あら]います。|�
 E|日本[にほん] に 来[く]る 前[まえ]に、 日本語[にほんご] を 勉強[べんきょう] しました。|জাপানে আসার আগে জাপানি শিখেছি।
 S|{1} 前[まえ]に、 {2}。|{1} আগে, {2}।|寝[ね]る=ঘুমানোর,食事[しょくじ] の=খাওয়ার,出[で]かける=বের হওয়ার;歯[は]を 磨[みが]きます=দাঁত মাজি,手[て]を 洗[あら]います=হাত ধুই,顔[かお]を 洗[あら]います=মুখ ধুই
 S|{1} から、 {2}。|{1}, তারপর {2}।|宿題[しゅくだい] を して=হোমওয়ার্ক করে,ご飯[はん] を 食[た]べて=খেয়ে,シャワー を 浴[あ]びて=গোসল করে;遊[あそ]びます=খেলি,出[で]かけます=বের হই,寝[ね]ます=ঘুমাই
+L|27|পারা ও দেখা-শোনা · 可能形・見えます・しか
+I|এই লেসনে শিখবে কীভাবে কোনো কাজ করতে পারা বোঝাতে হয়, কী আপনা-আপনি দেখা বা শোনা যায় তা বলতে হয়, কিছু তৈরি হওয়া বোঝাতে হয়, আর “শুধু এটুকু” বলতে হয়।¶যেমন:¶• আমি জাপানি বলতে পারি → にほんごが はなせます।¶• পাহাড় দেখা যাচ্ছে → やまが みえます।¶• আমার কাছে মাত্র ১০০ ইয়েন আছে → ひゃくえんしか ありません।¶জাপানিতে এসব বোঝাতে ক্রিয়ার রূপ বদলাতে হয় অথবা বিশেষ পার্টিকল বসাতে হয়।
+G|V-ます → え段 + ます (Group 1)|“-তে পারি” · 可能形 (Group 1)|かきます → かけます|কোনো কাজ করতে পারা বোঝাতে ক্রিয়ার রূপ বদলাতে হয়। Group 1-এ ます এর আগের অক্ষর বদলায়।¶• い-সারির অক্ষর → え-সারির অক্ষর (き→け, み→め, し→せ)¶• তারপর আবার ます বসে (かけ + ます = かけます)|い → え¶かき → かけ¶のみ → のめ¶はなし → はなせ
+T|Group 1 · ます এর আগের অক্ষর বদলায়|সাধারণ ক্রিয়া|Potential Form|বাংলা
+R|かきます|かけます|লিখতে পারি
+R|のみます|のめます|পান করতে পারি
+R|よみます|よめます|পড়তে পারি
+R|はなします|はなせます|বলতে পারি
+R|いきます|いけます|যেতে পারি
+R|あそびます|あそべます|খেলতে পারি
+E|日本語[にほんご] が 話[はな]せます。|আমি জাপানি ভাষা বলতে পারি।
+E|漢字[かんじ] が 読[よ]めます。|আমি কানজি পড়তে পারি।
+E|ひらがな が 書[か]けます。|আমি হিরাগানা লিখতে পারি।
+E|あの 店[みせ] まで 歩[ある]けます。|আমি ওই দোকান পর্যন্ত হেঁটে যেতে পারি।
+G|V-ます → V-られます (Group 2)|“-তে পারি” · 可能形 (Group 2)|たべます → たべられます|Group 2-এ ます বাদ দিয়ে られます যোগ করতে হয়।¶• たべます → たべ (ます বাদ)¶• たべ + られます = たべられます|ます বাদ + られます
+T|Group 2 · ます বাদ + られます|সাধারণ ক্রিয়া|Potential Form|বাংলা
+R|たべます|たべられます|খেতে পারি
+R|みます|みられます|দেখতে পারি
+R|おきます|おきられます|উঠতে পারি
+R|ねます|ねられます|ঘুমাতে পারি
+E|魚[さかな] が 食[た]べられます。|আমি মাছ খেতে পারি।
+E|朝[あさ] 早[はや]く 起[お]きられます。|আমি সকালে তাড়াতাড়ি উঠতে পারি।
+E|夜[よる] は よく 寝[ね]られます。|আমি রাতে ভালো ঘুমাতে পারি।
+G|します → できます / きます → こられます|“-তে পারি” · 可能形 (Group 3)|します → できます / きます → こられます|Group 3-এ মাত্র দুটি ক্রিয়া আছে। এদের কোনো নিয়ম নেই, আলাদা করে মুখস্থ করতে হয়।¶• します → できます¶• きます → こられます¶• 運転します, 勉強します-এর মতো ～します ক্রিয়াও ～できます হয়।|します → できます¶きます → こられます
+T|Group 3 · মুখস্থ করতে হবে|সাধারণ ক্রিয়া|Potential Form|বাংলা
+R|します|できます|করতে পারি
+R|きます|こられます|আসতে পারি
+R|運転します|運転できます|চালাতে পারি
+R|勉強します|勉強できます|পড়াশোনা করতে পারি
+E|車[くるま] が 運転[うんてん] できます。|আমি গাড়ি চালাতে পারি।
+E|明日[あした] 学校[がっこう] に 来[こ]られます。|আমি আগামীকাল স্কুলে আসতে পারব।
+E|日本語[にほんご] で 勉強[べんきょう] できます。|আমি জাপানি ভাষায় পড়াশোনা করতে পারি।
+G|N が V(可能形)|“কী পারি” · を → が|N を V-ます → N が V(可能形)|সাধারণ বাক্যে কাজের কর্মের পরে を বসে। কিন্তু “করতে পারি” বোঝালে সাধারণত が বসে।¶• を → が¶• না-বোধক হলেও একই (かんじが よめません)¶• কিছু বাক্যে を-ও দেখা যায়, তবে が-ই বেশি চলে।|পারা বোঝালে を-এর জায়গায় が।
+T|を → が|সাধারণ বাক্য|পারা বোঝালে
+R|にほんごを はなします|にほんごが はなせます
+R|ピアノを ひきます|ピアノが ひけます
+R|かんじを よみます|かんじが よめます
+E|日本語[にほんご] を 話[はな]します。|আমি জাপানি ভাষায় কথা বলি।
+E|日本語[にほんご] が 話[はな]せます。|আমি জাপানি ভাষায় কথা বলতে পারি।
+E|漢字[かんじ] が 読[よ]めません。|আমি কানজি পড়তে পারি না।
+G|見えます・聞こえます|“দেখা যায় / শোনা যায়” · 見える・聞こえる|N が 見えます / N が 聞こえます|দুটোই আপনা-আপনি হওয়া বোঝায়, ইচ্ছা করে করা নয়।¶• 見えます = চোখে দেখা যায়¶• 聞こえます = কানে শোনা যায়¶দুটোর সাথেই が বসে।|みます = দেখি¶みえます = দেখা যায়¶ききます = শুনি¶きこえます = শোনা যায়
+T|ইচ্ছা করে বনাম আপনা-আপনি||ইচ্ছা করে|আপনা-আপনি
+R|দেখা|みます (テレビを みます)|みえます (やまが みえます)
+R|শোনা|ききます (おんがくを ききます)|きこえます (おとが きこえます)
+E|山[やま] が 見[み]えます。|পাহাড় দেখা যাচ্ছে।
+E|部屋[へや] から 海[うみ] が 見[み]えます。|ঘর থেকে সমুদ্র দেখা যায়।
+E|隣[となり] の 部屋[へや] から 音[おと] が 聞[き]こえます。|পাশের ঘর থেকে শব্দ শোনা যাচ্ছে।
+E|後[うし]ろ から 音楽[おんがく] が 聞[き]こえます。|পেছন থেকে গান শোনা যাচ্ছে।
+G|N が できます|“তৈরি হওয়া / পারা” · できます|N が できます|できます এর দুটি অর্থ আছে।¶• তৈরি বা সম্পন্ন হওয়া: スーパーが できました¶• পারা: にほんごが できます¶কোন অর্থ হবে তা বাক্য দেখে বুঝতে হয়।|কিছু বানানো হলে = তৈরি হওয়া¶ভাষা বা কাজ হলে = পারা
+E|駅[えき] の 前[まえ] に スーパー が できました。|স্টেশনের সামনে সুপারমার্কেট তৈরি হয়েছে।
+E|晩[ばん]ご飯[はん] が できました。|রাতের খাবার তৈরি হয়ে গেছে।
+E|日本語[にほんご] が できます。|আমি জাপানি ভাষা পারি।
+G|N しか V-ません|“মাত্র / শুধু” · しか|N しか V-ません (না-বোধক)|しか ব্যবহার করলে ক্রিয়া সবসময় না-বোধক হয়, কিন্তু অর্থ হয় “শুধু এটুকুই, আর কিছু নয়”।¶• গঠন: N + しか + না-বোধক ক্রিয়া|しか দেখলেই শেষে না-বোধক (ません / ない) খুঁজো।
+T|しか বনাম だけ||だけ|しか
+R|গঠন|N だけ + ইতিবাচক|N しか + না-বোধক
+R|উদাহরণ|これだけ あります|これしか ありません
+R|অর্থ|শুধু এটুকু আছে|এটুকুই আছে, আর নেই
+E|ひらがな しか 書[か]けません。|আমি শুধু হিরাগানা লিখতে পারি।
+E|百円[ひゃくえん] しか ありません。|আমার কাছে মাত্র ১০০ ইয়েন আছে।
+E|一人[ひとり] しか いません。|মাত্র একজন আছে।
+E|これ だけ あります。|শুধু এটুকু আছে।
+E|これ しか ありません。|এটুকুই আছে, আর কিছু নেই।
+G|N は ～が、 N は ～|তুলনা · は|N は V が、 N は V-ません|は শুধু বিষয় নয়, দুটি জিনিসের পার্থক্য বোঝাতেও ব্যবহৃত হয়।¶• এটা পারি, কিন্তু ওটা পারি না → দুই অংশেই は¶• না-বোধক বাক্যে は দিয়ে আলাদা করে বলা যায় (おさけは のみません)|দুটি জিনিস মুখোমুখি রাখলে দুটোতেই は।
+E|日本語[にほんご] は 話[はな]せます が、 英語[えいご] は 話[はな]せません。|জাপানি বলতে পারি, কিন্তু ইংরেজি পারি না।
+E|魚[さかな] は 食[た]べられます が、 肉[にく] は 食[た]べられません。|মাছ খেতে পারি, কিন্তু মাংস পারি না।
+E|お 酒[さけ] は 飲[の]みません。|মদ আমি পান করি না।
+S|{1}।|{1}।|日本語[にほんご] が 話[はな]せます=আমি জাপানি ভাষা বলতে পারি,漢字[かんじ] が 読[よ]めます=আমি কানজি পড়তে পারি,魚[さかな] が 食[た]べられます=আমি মাছ খেতে পারি,車[くるま] が 運転[うんてん] できます=আমি গাড়ি চালাতে পারি
+S|{1}।|{1}।|ひらがな しか 書[か]けません=আমি শুধু হিরাগানা লিখতে পারি,百円[ひゃくえん] しか ありません=আমার কাছে মাত্র ১০০ ইয়েন আছে,一人[ひとり] しか いません=মাত্র একজন আছে,水[みず] しか 飲[の]みません=আমি শুধু পানি খাই
+S|日本語[にほんご] は {1} が、 英語[えいご] は {2}。|জাপানি {1}, কিন্তু ইংরেজি {2}।|話[はな]せます=বলতে পারি,話[はな]せません=বলতে পারি না;話[はな]せます=বলতে পারি,話[はな]せません=বলতে পারি না
 `;
 const LS=[],GS=[],CARDS=[];let L,G;
 D.trim().split('\n').forEach(l=>{const p=l.split('|');
   if(p[0]==='L'){L={n:+p[1],t:p[2],g:[],s:[]};LS.push(L)}
-  else if(p[0]==='G'){G={i:GS.length,l:L.n,p:p[1],nm:p[2],fm:p[3],ex:p[4],tp:p[5],e:[]};L.g.push(G);GS.push(G)}
+  else if(p[0]==='I')L.i=p[1];
+  else if(p[0]==='G'){G={i:GS.length,l:L.n,p:p[1],nm:p[2],fm:p[3],ex:p[4],tp:p[5],e:[],t:[]};L.g.push(G);GS.push(G)}
+  else if(p[0]==='T')G.t.push({n:p[1],h:p.slice(2),r:[]});
+  else if(p[0]==='R')G.t[G.t.length-1].r.push(p.slice(1));
   else if(p[0]==='E')G.e.push({j:p[1],b:p[2]});
   else if(p[0]==='S')L.s.push({t:p[1],b:p[2],o:p[3].split(';').map(x=>x.split(',').map(y=>{const[a,b]=y.split('=');return{j:a.trim(),b}}))});
 });
 GS.forEach(g=>{CARDS.push({id:'r'+g.i,t:'r',g});g.e.forEach((e,k)=>CARDS.push({id:'e'+g.i+'_'+k,t:'e',g,e}))});
+const LSn=n=>LS.find(l=>l.n===n)||LS[0],hue=n=>HUE[(n-1)%HUE.length];
 /* উচ্চারণ */
 const synth=window.speechSynthesis||null;
 const jaV=()=>{const j=synth?synth.getVoices().filter(v=>/^ja/i.test(v.lang)):[];return j.find(v=>/Kyoko|Haruka|Nanami|Google|Ayumi/i.test(v.name))||j[0]||null};
@@ -429,6 +502,9 @@ const vinfo=()=>{const v=jaV();$('#vinfo').textContent=synth?(v?'ভয়েস
 function stats(){$('#sDone').textContent=DONE.size;$('#sTot').textContent=LS.length;$('#sKn').textContent=KN.size;$('#sKt').textContent=CARDS.length;$('#pfill').style.width=(DONE.size/LS.length*100)+'%'}
 function setTheme(t){document.documentElement.dataset.theme=t;$$('[data-t]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===t));LX.s('theme',t)}
 function setFuri(on){FURI=on;$$('[data-f]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.f==='1')===on));LX.s('furi',on);document.body.classList.toggle('nofuri',!on);if(!$('#modal').hidden)openCard(cur,true);if(!$('#tab-build').hidden)buildTab()}
+const plain=s=>(s||'').replace(/¶\s*(• )?/g,' ').replace(/^• /,'');
+const rich=s=>{const o=[];let u=null;(s||'').split('¶').forEach(x=>{x=x.trim();if(!x)return;if(x.startsWith('• ')){if(!u){u=[];o.push(u)}u.push(x.slice(2))}else{u=null;o.push(x)}});return o.map(x=>Array.isArray(x)?`<ul>${x.map(i=>`<li>${i}</li>`).join('')}</ul>`:`<p>${x}</p>`).join('')};
+const tbl=t=>`<div class="tw">${t.n?`<div class="tt">${t.n}</div>`:''}<div class="tsc"><table><thead><tr>${t.h.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${t.r.map(r=>`<tr>${r.map(c=>`<td${/[ぁ-んァ-ン一-龥]/.test(c)?' class="j" lang="ja"':''}>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
 const exH=e=>{const k=kana(e.j),[ro,bn]=conv(k);return `<div class="srow"><div class="sj" lang="ja">${ru(e.j)}</div><button class="sp" data-say="${k}" aria-label="শুনুন">🔊</button><div class="sbn"><div class="rl">${k} · <i>${ro}</i> · ${bn}</div><b>${e.b}</b></div></div>`};
 /* ট্যাব ১: লেসন কার্ড (প্রতি লেসনে একটি কার্ড) */
 let VIS=[],cur=1;
@@ -443,13 +519,14 @@ LS.forEach(l=>l._s=(l.t+l.g.map(g=>g.p+g.nm+g.fm+g.ex+g.e.map(e=>kana(e.j)+e.b).
 $$('.tile',grid).forEach(t=>t.onclick=()=>{if(window.DJNav)DJNav.push({tab:'cards',card:+t.dataset.i});setTab('cards');openCard(+t.dataset.i);const a=$('.app-shell');if(a&&matchMedia('(max-width:860px)').matches)a.classList.add('is-closed');$('#modal').scrollIntoView({block:'start'})});
 function paintTiles(){$$('.tile',grid).forEach(t=>{const i=+t.dataset.i;$('.mk',t).innerHTML=(FAV.has(i)?'★':'')+(DONE.has(i)?'<span class="d">✓</span>':'');t.classList.toggle('fin',DONE.has(i));t.classList.toggle('on',i===cur)})}
 function applyFilter(){const f=$('#flt').value,q=$('#q').value.trim().toLowerCase();VIS=[];
-  $$('.tile',grid).forEach(t=>{const i=+t.dataset.i,l=LS[i-1];const s=(!q||l._s.includes(q))&&(f==='all'||(f==='star'&&FAV.has(i))||(f==='todo'&&!DONE.has(i))||(f==='done'&&DONE.has(i)));t.hidden=!s;if(s)VIS.push(i)});
+  $$('.tile',grid).forEach(t=>{const i=+t.dataset.i,l=LSn(i);const s=(!q||l._s.includes(q))&&(f==='all'||(f==='star'&&FAV.has(i))||(f==='todo'&&!DONE.has(i))||(f==='done'&&DONE.has(i)));t.hidden=!s;if(s)VIS.push(i)});
   $('#cnt').textContent=`${bd(VIS.length)}টি লেসন দেখাচ্ছে`;$('#lt').textContent=''}
 function toggle(set,i,key){set.has(i)?set.delete(i):set.add(i);LX.s(key,[...set]);stats();paintTiles();paintMarks()}
 function paintMarks(){const sh=$('#sheet'),f=$('[data-a=fav]',sh),d=$('[data-a=done]',sh);if(!f)return;f.textContent=FAV.has(cur)?'★ ফেভারিট':'☆ ফেভারিট';d.textContent=DONE.has(cur)?'✓ লেসন শেখা হয়েছে':'○ লেসন শেখা হয়েছে';f.setAttribute('aria-pressed',FAV.has(cur));d.setAttribute('aria-pressed',DONE.has(cur))}
-function openCard(n,keep){cur=n;const l=LS[n-1],sh=$('#sheet');sh.style.setProperty('--h',HUE[n-1]);sh.className='sheet cat';
+function openCard(n,keep){cur=n;const l=LSn(n),sh=$('#sheet');sh.style.setProperty('--h',hue(n));sh.className='sheet cat';
   sh.innerHTML=`<div class="hd"><span class="pill">লেসন ${bd(n)} · ${bd(l.g.length)}টি নিয়ম · ${bd(eN(l))}টি উদাহরণ</span><h2>${l.t.split(' · ')[0]}</h2><div class="en" lang="ja">${l.t.split(' · ')[1]||''}</div><div class="acts"><button class="btn" data-a="fav">☆ ফেভারিট</button><button class="btn" data-a="done">○ লেসন শেখা হয়েছে</button></div></div>`+
-  l.g.map((g,k)=>`<div class="sec"><h3>${bd(k+1)}. <span lang="ja">${g.p}</span> — ${g.nm.split(' · ')[0]}</h3><div class="fm"><b>গঠন</b><span lang="ja">${g.fm}</span></div><div class="story">📖 <b>ব্যাখ্যা:</b> ${g.ex}</div><div class="story">💡 ${g.tp}</div><div class="rlab">📝 উদাহরণ</div>${g.e.map(exH).join('')}</div>`).join('')+
+  (l.i?`<div class="sec rule"><h3><span class="rtt">এই লেসনে কী শিখবে<small>ভূমিকা</small></span></h3><div class="rbox"><div class="rh">মূল ধারণা</div>${rich(l.i)}</div><div class="rbox"><div class="rh">এই লেসনের ${bd(l.g.length)}টি নিয়ম</div><ol class="rlist">${l.g.map(g=>`<li><span lang="ja">${g.p}</span> <small>${g.nm.split(' · ')[0]}</small></li>`).join('')}</ol></div></div>`:'')+
+  l.g.map((g,k)=>`<div class="sec rule"><h3><span class="rn">${bd(k+1)}</span><span class="rtt"><span lang="ja">${g.p}</span><small>${g.nm.split(' · ')[0]}</small></span></h3><div class="rbox"><div class="rh">মূল ধারণা</div>${rich(g.ex)}</div>${g.fm&&g.fm!==g.p?`<div class="rbox"><div class="rh">গঠন</div><div class="fml" lang="ja">${g.fm}</div></div>`:''}${g.t.map(tbl).join('')}${g.tp?`<div class="rbox"><div class="rh">মনে রাখার কৌশল</div>${rich(g.tp)}</div>`:''}<div class="rh2">উদাহরণ</div>${g.e.map(exH).join('')}</div>`).join('')+
   `<div class="foot"><button class="btn pri big" data-a="fl">🔄 ফ্লিপ করে পরীক্ষা দিন</button><button class="btn big" data-a="sb">✍️ বাক্য বানান</button></div>`;
   $('#modal').hidden=false;const p=VIS.indexOf(n);$('#mpos').textContent=p>=0?`${bd(p+1)} / ${bd(VIS.length)}`:'';paintMarks();paintTiles()}
 function hideCard(){$('#modal').hidden=true;document.body.style.overflow='';if(synth)synth.cancel();paintTiles()}
@@ -466,7 +543,7 @@ $('#mprev').onclick=()=>step(-1);$('#mnext').onclick=()=>step(1);$('#mclose').on
 /* ট্যাব ২: ফ্ল্যাশকার্ড (উল্টে টেস্ট) */
 let FK=null;
 function sides(c,d){const g=c.g;
-  if(c.t==='r'){const A=`<h2 lang="ja">${g.p}</h2><div class="rl">${g.nm.split(' · ')[0]}</div>`,B=`<div class="fm" style="width:100%"><b>গঠন</b><span lang="ja">${g.fm}</span></div><div style="text-align:left">${g.ex}</div><div class="rl">💡 ${g.tp}</div>`;
+  if(c.t==='r'){const A=`<h2 lang="ja">${g.p}</h2><div class="rl">${g.nm.split(' · ')[0]}</div>`,B=`<div class="fm" style="width:100%"><b>গঠন</b><span lang="ja">${g.fm}</span></div><div style="text-align:left">${plain(g.ex)}</div><div class="rl">💡 ${plain(g.tp)}</div>`;
     return d==='jb'?{f:A+'<div class="rl">ব্যাখ্যা ও গঠন মনে করুন →</div>',b:B}:{f:`<h2>${g.nm.split(' · ')[0]}</h2><div class="rl">লেসন ${bd(g.l)} · প্যাটার্নটি মনে করুন →</div>`,b:A+`<div class="fm" style="width:100%"><b>গঠন</b><span lang="ja">${g.fm}</span></div>`}}
   const k=kana(c.e.j),[ro,bn]=conv(k),J=`<div class="sj big" lang="ja">${ru(c.e.j)}</div><button class="sp" data-say="${k}" aria-label="শুনুন">🔊</button>`,P=`<div class="rl">${k} · <i>${ro}</i> · ${bn}</div>`,M=`<div class="mean">${c.e.b}</div>`,R=`<div class="rl">📌 ${g.p}</div>`;
   return d==='jb'?{f:J+'<div class="rl">অর্থ বলুন →</div>',b:M+P+R}:{f:M+`<div class="rl">📌 ${g.nm.split(' · ')[0]} · জাপানিতে বলুন →</div>`,b:J+P}}
@@ -481,7 +558,7 @@ function flRun(list,dir){const r=$('#flRoot');list=shuf(list);let i=0,ok=0,bad=[
   const flip=()=>{fl=!fl;$('#fc').classList.toggle('flip',fl);$('#fa').hidden=!fl},
   mark=y=>{if(!fl)return;const c=list[i];if(y){ok++;KN.add(c.id)}else{bad.push(c);KN.delete(c.id)}LX.s('kn',[...KN]);stats();i++;show()};
   function show(){if(i>=list.length)return end();fl=false;const c=list[i],d=dir==='mix'?(Math.random()<.5?'jb':'bj'):dir,s=sides(c,d);
-    r.innerHTML=`<div class="qwrap"><div class="qhead"><span>${i+1}/${list.length}</span><div class="pbar"><i style="width:${i/list.length*100}%"></i></div><span>✅ ${ok}</span></div><div class="fc cat" style="--h:${HUE[c.g.l-1]}" id="fc" tabindex="0" role="button" aria-label="কার্ড উল্টান"><div class="fin"><div class="ff">${s.f}</div><div class="fb">${s.b}</div></div></div><div class="note" style="text-align:center">কার্ডে ট্যাপ করে উল্টান</div><div class="acts" id="fa" style="justify-content:center" hidden><button class="btn" id="fNo">😕 আবার দেখব</button><button class="btn pri" id="fYes">✅ জানি</button></div><div class="acts" style="justify-content:center"><button class="btn" id="fBack">← সেটিংস</button></div></div>`;
+    r.innerHTML=`<div class="qwrap"><div class="qhead"><span>${i+1}/${list.length}</span><div class="pbar"><i style="width:${i/list.length*100}%"></i></div><span>✅ ${ok}</span></div><div class="fc cat" style="--h:${hue(c.g.l)}" id="fc" tabindex="0" role="button" aria-label="কার্ড উল্টান"><div class="fin"><div class="ff">${s.f}</div><div class="fb">${s.b}</div></div></div><div class="note" style="text-align:center">কার্ডে ট্যাপ করে উল্টান</div><div class="acts" id="fa" style="justify-content:center" hidden><button class="btn" id="fNo">😕 আবার দেখব</button><button class="btn pri" id="fYes">✅ জানি</button></div><div class="acts" style="justify-content:center"><button class="btn" id="fBack">← সেটিংস</button></div></div>`;
     $('#fc').onclick=e=>{if(!e.target.closest('[data-say]'))flip()};$('#fNo').onclick=()=>mark(false);$('#fYes').onclick=()=>mark(true);$('#fBack').onclick=flSetup;$('#fc').focus()}
   function end(){FK=null;const p=Math.round(ok/list.length*100);
     r.innerHTML=`<div class="qcard"><div class="res-big">${p>=80?'🎉':p>=50?'👍':'💪'} ${ok}/${list.length}</div><p style="text-align:center">${p>=80?'চমৎকার! লেসনটা ভালোভাবে মনে আছে।':'ভুলগুলো আরেকবার ঘুরে দেখুন — নিয়মের ব্যাখ্যা আবার পড়ে নিন।'}</p><div class="acts" style="justify-content:center">${bad.length?'<button class="btn pri" id="fRe">🔁 শুধু ভুলগুলো আবার</button>':''}<button class="btn" id="fAg">🔄 নতুন টেস্ট</button></div></div>`;
@@ -492,16 +569,16 @@ document.addEventListener('keydown',e=>{if(!FK||$('#tab-flash').hidden||e.target
 /* ট্যাব ৩: লেসন অনুযায়ী বাক্য বানানো */
 let bl=1;
 const fill=(t,o,ix,f)=>t.replace(/\{(\d)\}/g,(m,n)=>o[n-1][ix[n-1]][f]),combos=s=>s.o.reduce((a,o)=>a.flatMap(p=>o.map((_,j)=>[...p,j])),[[]]);
-function bOut(card){const s=LS[bl-1].s[+card.dataset.k],ix=$$('select',card).map(x=>+x.value),j=fill(s.t,s.o,ix,'j'),b=fill(s.b,s.o,ix,'b'),k=kana(j),[ro,bn]=conv(k);
+function bOut(card){const s=LSn(bl).s[+card.dataset.k],ix=$$('select',card).map(x=>+x.value),j=fill(s.t,s.o,ix,'j'),b=fill(s.b,s.o,ix,'b'),k=kana(j),[ro,bn]=conv(k);
   $('.out',card).innerHTML=`<div class="sj big" lang="ja">${ru(j)}</div><button class="sp" data-say="${k}" aria-label="শুনুন">🔊</button><div class="rl">${k} · <i>${ro}</i> · ${bn}</div><div class="mean">${b}</div>`}
-function buildTab(){const l=LS[bl-1],r=$('#buildRoot');
-  r.innerHTML=`<div class="filters">${LS.map(x=>`<button class="chipc cat" style="--h:${HUE[x.n-1]}" data-bl="${x.n}" aria-pressed="${x.n===bl}">লেসন ${bd(x.n)}</button>`).join('')}</div>
-  <div class="gcard tipc"><b>লেসন ${bd(l.n)} · ${l.t}</b><div class="note">এই লেসনের প্যাটার্ন দিয়ে যা যা বাক্য বানানো যায় — শব্দ বদলে বদলে দেখুন, বা “সব বাক্য” খুলে দ্রুত রিভিশন দিন।</div><div style="margin-top:6px">${l.g.map(g=>`<span class="mini cat" style="--h:${HUE[l.n-1]}" lang="ja">${g.p}</span>`).join('')}</div></div>`+
-  l.s.map((s,k)=>`<div class="gcard cat bc" style="--h:${HUE[l.n-1]}" data-k="${k}"><div class="rlab">✍️ ছাঁচ ${bd(k+1)}: <span lang="ja">${s.t.replace(/\{(\d)\}/g,'［$1］')}</span></div><div class="slots">${s.o.map((o,n)=>`<label>${bd(n+1)}<select data-n="${n}">${o.map((x,j)=>`<option value="${j}">${kana(x.j)} — ${x.b}</option>`).join('')}</select></label>`).join('')}</div><div class="out"></div><div class="acts"><button class="btn" data-a="rnd">🎲 র‍্যান্ডম</button><button class="btn" data-a="all">📋 সব সম্ভাব্য বাক্য (${bd(combos(s).length)})</button></div><div class="all" hidden></div></div>`).join('');
+function buildTab(){const l=LSn(bl),r=$('#buildRoot');
+  r.innerHTML=`<div class="filters">${LS.map(x=>`<button class="chipc cat" style="--h:${hue(x.n)}" data-bl="${x.n}" aria-pressed="${x.n===bl}">লেসন ${bd(x.n)}</button>`).join('')}</div>
+  <div class="gcard tipc"><b>লেসন ${bd(l.n)} · ${l.t}</b><div class="note">এই লেসনের প্যাটার্ন দিয়ে যা যা বাক্য বানানো যায় — শব্দ বদলে বদলে দেখুন, বা “সব বাক্য” খুলে দ্রুত রিভিশন দিন।</div><div style="margin-top:6px">${l.g.map(g=>`<span class="mini cat" style="--h:${hue(l.n)}" lang="ja">${g.p}</span>`).join('')}</div></div>`+
+  l.s.map((s,k)=>`<div class="gcard cat bc" style="--h:${hue(l.n)}" data-k="${k}"><div class="rlab">✍️ ছাঁচ ${bd(k+1)}: <span lang="ja">${s.t.replace(/\{(\d)\}/g,'［$1］')}</span></div><div class="slots">${s.o.map((o,n)=>`<label>${bd(n+1)}<select data-n="${n}">${o.map((x,j)=>`<option value="${j}">${kana(x.j)} — ${x.b}</option>`).join('')}</select></label>`).join('')}</div><div class="out"></div><div class="acts"><button class="btn" data-a="rnd">🎲 র‍্যান্ডম</button><button class="btn" data-a="all">📋 সব সম্ভাব্য বাক্য (${bd(combos(s).length)})</button></div><div class="all" hidden></div></div>`).join('');
   $$('.bc',r).forEach(bOut)}
 $('#buildRoot').addEventListener('change',e=>{const c=e.target.closest('.bc');if(c)bOut(c)});
 $('#buildRoot').addEventListener('click',e=>{const ch=e.target.closest('[data-bl]');if(ch){bl=+ch.dataset.bl;buildTab();return}
-  const b=e.target.closest('[data-a]');if(!b)return;const c=b.closest('.bc'),s=LS[bl-1].s[+c.dataset.k];
+  const b=e.target.closest('[data-a]');if(!b)return;const c=b.closest('.bc'),s=LSn(bl).s[+c.dataset.k];
   if(b.dataset.a==='rnd'){$$('select',c).forEach(x=>x.selectedIndex=Math.floor(Math.random()*x.options.length));bOut(c)}
   else{const a=$('.all',c);if(!a.innerHTML)a.innerHTML=combos(s).map(ix=>{const j=fill(s.t,s.o,ix,'j');return `<div class="srow"><div class="sj" lang="ja">${ru(j)}</div><button class="sp" data-say="${kana(j)}" aria-label="শুনুন">🔊</button><div class="sbn">${fill(s.b,s.o,ix,'b')}</div></div>`}).join('');a.hidden=!a.hidden}});
 /* ট্যাব ও শুরু */

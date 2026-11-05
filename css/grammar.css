@@ -214,3 +214,41 @@ html,body{background:#f6fbfd!important}
 .tabs button{padding:6px 15px;font-size:13.5px;line-height:1.45;border-radius:999px;box-shadow:none}
 .panel{border-radius:18px}
 @media(max-width:560px){.tabs{justify-content:center}}
+
+/* ===== rule layout: calm, neutral, ChatGPT-style (concept, table, trick, examples) ===== */
+#sheet .hd{background:var(--card);border-bottom:1px solid var(--line)}
+#sheet .pill{background:color-mix(in srgb,var(--ink,#111) 6%,var(--card));color:var(--sub)}
+#sheet .sec.rule{padding:22px 20px 8px}
+#sheet .rule h3{display:flex;gap:12px;align-items:flex-start;margin:0 0 12px;color:var(--ink,inherit);font-size:19px;line-height:1.45}
+.rn{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;background:color-mix(in srgb,var(--ink,#111) 8%,var(--card));color:var(--ink,inherit)}
+.rtt small{display:block;font-size:13.5px;font-weight:400;color:var(--sub);margin-top:2px}
+.rbox{background:color-mix(in srgb,var(--ink,#111) 3.5%,var(--card));border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:12px 0}
+.rh{font-size:13px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.rh2{font-size:13px;font-weight:700;color:var(--sub);margin:18px 0 4px}
+.rbox p{margin:6px 0;font-size:15.5px;line-height:1.85}
+.rbox ul{margin:6px 0;padding-left:20px}
+.rbox li{margin:4px 0;font-size:15.5px;line-height:1.8}
+.fml{font-size:19px;font-weight:600;line-height:1.7}
+.tw{border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}
+.tt{padding:11px 16px 6px;font-weight:700;font-size:14.5px}
+.tsc{overflow-x:auto}
+.tw table{width:100%;border-collapse:collapse;font-size:15.5px}
+.tw th{text-align:left;padding:9px 16px;font-size:13px;font-weight:700;color:var(--sub);background:color-mix(in srgb,var(--ink,#111) 4%,var(--card))}
+.tw td{padding:10px 16px;border-top:1px solid var(--line);line-height:1.6}
+.tw td.j{font-family:'Noto Sans JP','Hind Siliguri',sans-serif;font-size:17px}
+#sheet .rule .srow{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:8px 0}
+#sheet .rule .srow:last-child{border:1px solid var(--line)}
+#sheet .rule .sp{background:color-mix(in srgb,var(--ink,#111) 8%,var(--card));color:var(--ink,inherit)}
+#sheet .foot{background:none}
+
+/* ===== each rule is its own card, with a gap between cards ===== */
+#sheet{background:none;border:0;box-shadow:none;overflow:visible;border-radius:0}
+#sheet .hd,#sheet .sec.rule,#sheet .foot{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 1px 2px rgba(43,35,90,.05)}
+#sheet .sec.rule{padding:22px 20px 14px;margin:0 0 18px;border-top:1px solid var(--line)}
+#sheet .hd{margin:0 0 18px}
+#sheet .foot{margin:0 0 6px}
+@media(max-width:560px){#sheet .sec.rule{padding:18px 14px 10px;margin-bottom:14px}}
+
+.rlist{margin:6px 0;padding-left:22px}
+.rlist li{margin:5px 0;font-size:15.5px;line-height:1.7}
+.rlist small{color:var(--sub);font-size:13.5px;margin-left:4px}
