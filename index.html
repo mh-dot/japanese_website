@@ -13,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/story-banner.css">
+<link rel="stylesheet" href="css/typewriter.css">
 <!-- SEO:start -->
 <meta name="description" content="বাংলায় বিনামূল্যে জাপানি ভাষা শিখুন: N5 গ্রামার, কানজি, শব্দভান্ডার, কাতাকানা, সংখ্যা ও ক্রিয়ার রূপ — সহজ বাংলা ব্যাখ্যা ও উচ্চারণসহ।">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -47,10 +49,11 @@
 
     <div class="menu" id="menu">
       <a href="index.html" class="active">হোম</a>
-      <div class="has-dd"><a href="grammar.html">গ্রামার</a><div class="dd"><a href="grammar.html">গ্রামার</a><a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a><a href="numbers.html">সংখ্যা, সময় ও তারিখ</a><a href="katakana.html">কাতাকানা</a></div></div>
+      <div class="has-dd"><a href="grammar.html">গ্রামার</a><div class="dd"><a href="grammar.html">গ্রামার</a><a href="grammar-revision.html">গ্রামার রিভিশন</a><a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a><a href="numbers.html">সংখ্যা, সময় ও তারিখ</a><a href="katakana.html">কাতাকানা</a></div></div>
       <a href="sentence.html">বাক্য</a>
-      <a href="kanji.html">কানজি</a>
-      <a href="vocab.html">শব্দভান্ডার</a>
+      <a href="story.html">গল্প</a>
+      <div class="has-dd"><a href="kanji.html">কানজি</a><div class="dd"><a href="kanji.html">কানজি কার্ড</a><a href="kanji-flash.html">জোড়া কানজি ফ্ল্যাশকার্ড</a></div></div>
+      <a href="vocab.html">শব্দভান্ডার</a><a href="practice.html">অনুশীলন</a>
       <div class="has-dd"><a href="mock-test.html">মক টেস্ট</a><div class="dd"><a href="kanji-test.html">কানজি টেস্ট</a><a href="mock-test.html#vocab">শব্দভান্ডার টেস্ট</a><a href="mock-test.html#grammar">গ্রামার টেস্ট</a><a href="reading.html">রিডিং টেস্ট</a><a href="mock-test.html#listening">লিসেনিং টেস্ট</a></div></div>
       <a href="listening.html" class="menu-only">লিসেনিং</a>
     </div>
@@ -134,7 +137,25 @@
     </div>
   </div>
 
-  <section class="block" id="features">
+  <section class="sb" aria-label="গল্পে গল্পে জাপানি শেখা">
+  <div class="sb-in">
+    <div>
+      <span class="sb-tag">📖 নতুন · লেসন গল্প</span>
+      <h2>গল্প পড়তে পড়তে <span>জাপানি শিখুন</span></h2>
+      <p>প্রতিটি লেসনের শব্দ ও গ্রামার একটি বড় গল্পের ভেতরে — রঙিন হাইলাইট, ফুরিগানা, রোমাজি, বাংলা অনুবাদ আর শোনার সুবিধাসহ।</p>
+      <a href="story.html" class="sb-btn">গল্প পড়া শুরু করুন →</a>
+    </div>
+    <div class="sb-card" aria-hidden="true">
+      <small>Lesson 27 · ラナさんの ゆめ</small>
+      <p class="sb-jp">まど から <mark class="a">うみ が みえます</mark>。</p>
+      <p class="sb-bn">জানালা থেকে সমুদ্র দেখা যায়।</p>
+      <p class="sb-jp"><mark class="b">にほんご が</mark> <mark class="c">はなせます</mark>。</p>
+      <p class="sb-bn">আমি জাপানি বলতে পারি।</p>
+      <ul><li>৫৮টি শব্দ</li><li>৮টি গ্রামার</li><li>MCQ প্রশ্ন</li></ul>
+    </div>
+  </div>
+</section>
+<section class="block" id="features">
     <p class="eyebrow">কেন Dream Japan?</p>
     <h2 class="sec-title">জাপানি শেখা হোক <span class="mark">গল্পের মতো</span></h2>
     <p class="sec-sub">প্রতিটি পাঠ বাংলা ব্যাখ্যা, উদাহরণ বাক্য, উচ্চারণ শোনা আর প্র্যাকটিসের সাথে সাজানো — যাতে আপনি বুঝে বুঝে এগোতে পারেন।</p>
@@ -233,15 +254,17 @@
     <div>
       <h4>শেখা</h4>
       <a href="grammar.html">গ্রামার</a>
+      <a href="grammar-revision.html">গ্রামার রিভিশন</a>
       <a href="sentence.html">বাক্য</a>
       <a href="kanji.html">কানজি</a>
       <a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a>
       <a href="numbers.html">সংখ্যা, সময় ও তারিখ</a>
       <a href="katakana.html">কাতাকানা</a>
+      <a href="kanji-flash.html">জোড়া কানজি ফ্ল্যাশকার্ড</a>
     </div>
     <div>
       <h4>অনুশীলন</h4>
-      <a href="vocab.html">শব্দভান্ডার</a>
+      <a href="vocab.html">শব্দভান্ডার</a><a href="practice.html">অনুশীলন</a>
       <a href="listening.html">লিসেনিং</a>
       <a href="mock-test.html">মক টেস্ট</a>
     </div>
@@ -261,5 +284,7 @@
 <script src="js/layout.js"></script>
 <script src="js/app.js"></script>
 <script src="js/home.js"></script>
+<script src="js/typewriter.js"></script>
+<script src="js/story-banner.js"></script>
 </body>
 </html>

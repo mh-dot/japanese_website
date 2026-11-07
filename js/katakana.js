@@ -62,7 +62,7 @@
       return '<article class="kn-card kn-'+x.t+'">' +
         '<button class="kn-glyph" aria-label="'+x.g+' শুনুন" data-g="'+x.g+'">'+x.g+'</button>' +
         '<div class="kn-rom">'+x.r+'</div><div class="kn-bn">'+x.bn+'</div>' +
-        '<div class="kn-ex"><b>'+x.ex+'</b> <span>'+x.exbn+'</span></div></article>';
+        '<div class="kn-ex"><b>'+x.ex+'</b> <span>'+x.exbn+'</span> '+(window.DJ_BN ? DJ_BN.html(x.exbn,'শুনুন') : '')+'</div></article>';
     }).join('');
     grid.querySelectorAll('.kn-glyph').forEach(function(b){
       b.addEventListener('click', function(){ say(b.getAttribute('data-g')); });

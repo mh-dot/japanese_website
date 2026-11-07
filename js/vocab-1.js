@@ -31,7 +31,9 @@ function wordCard(w){
     if(learned.has(w.id)) learned.delete(w.id); else learned.add(w.id);
     saveLearned(); route();
   });
-  row.appendChild(sp); row.appendChild(lr); c.appendChild(row);
+  var bnm = DJ_BN.btn(w.b, 'অর্থ শুনুন'); row.appendChild(sp); row.appendChild(bnm);
+  if(w.sb) row.appendChild(DJ_BN.btn(w.sb, 'বাক্য শুনুন'));
+  row.appendChild(lr); c.appendChild(row);
   return c;
 }
 function showHome(){
@@ -97,8 +99,9 @@ function renderCard(){
   var fm = el('div', 'fc-main' + (f.jp ? ' jp' : ''), f.main); ff.appendChild(fm);
   ff.appendChild(el('div', 'fc-hint', 'ফ্লিপ করুন'));
   fb.appendChild(el('div', 'fc-main' + (b.jp ? ' jp' : ''), b.main));
+  if(!b.jp) fb.appendChild(DJ_BN.btn(b.main, 'শুনুন'));
   if(b.sub) fb.appendChild(el('div', 'fc-sub', b.sub));
-  if(w.s){ fb.appendChild(el('div', 'fc-ex jp', w.s)); if(w.sb) fb.appendChild(el('div', 'fc-exb', w.sb)); }
+  if(w.s){ fb.appendChild(el('div', 'fc-ex jp', w.s)); if(w.sb){ fb.appendChild(el('div', 'fc-exb', w.sb)); fb.appendChild(DJ_BN.btn(w.sb, 'বাক্য শুনুন')); } }
   card.classList.toggle('flipped', FC.flipped);
   document.getElementById('fcCount').textContent = 'CARD ' + bn(FC.i + 1) + ' / ' + bn(FC.list.length);
   var bar = document.getElementById('fcBar'); if(bar) bar.style.width = ((FC.i + 1) / FC.list.length * 100) + '%';
@@ -160,7 +163,9 @@ function showLesson(n){
   sp.addEventListener('click', function(){ var w = FC.list[FC.i]; speak((w.k || w.r).replace(/\s*\[[^\]]*\]/g, '').replace(/[～~]/g, '') || w.r); });
   var lb = el('button', 'fc-pill', 'শিখিনি'); lb.id = 'fcLearn'; lb.type = 'button';
   lb.addEventListener('click', function(){ var w = FC.list[FC.i]; if(learned.has(w.id)) learned.delete(w.id); else learned.add(w.id); saveLearned(); renderCard(); var r = document.querySelector('[data-wid="' + w.id + '"]'); if(r) r.classList.toggle('done', learned.has(w.id)); });
-  act.appendChild(sp); act.appendChild(lb); sec.appendChild(act);
+  var bp = el('button', 'fc-pill dj-bnb-pill', '🔊 বাংলা'); bp.type = 'button';
+  bp.addEventListener('click', function(){ var w = FC.list[FC.i]; if(w) DJ_BN.say(w.b, bp); });
+  act.appendChild(sp); act.appendChild(bp); act.appendChild(lb); sec.appendChild(act);
   v.appendChild(sec);
 
   /* guide modal */
@@ -229,7 +234,7 @@ function showLesson(n){
     if(w.k && w.k !== w.r) td1.appendChild(el('span', 'vt-kanji', w.k));
     tr.appendChild(td1);
     tr.appendChild(el('td', 'vt-ro', toRomaji(w.r)));
-    tr.appendChild(el('td', 'vt-bn', w.b));
+    var tdb = el('td', 'vt-bn', w.b); tdb.appendChild(document.createTextNode(' ')); tdb.appendChild(DJ_BN.btn(w.b, '🔈')); tr.appendChild(tdb);
     tbd.appendChild(tr);
   });
   tbl.appendChild(tbd); wrap.appendChild(tbl); tb.appendChild(wrap); v.appendChild(tb);

@@ -1,0 +1,6 @@
+/* Typewriter effect (js/typewriter.js). Hidden units keep their space, so text never reflows while typing. */
+.tw-h{visibility:hidden}
+.tw-cur{box-shadow:2px 0 0 #9943ee}
+.tw-run mark.g:not(.tw-on){background:none}
+.tw-run .v:not(.tw-on){border-bottom-color:transparent}
+mark.g,.v{transition:background-color .35s,border-color .35s}

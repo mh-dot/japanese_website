@@ -27,10 +27,10 @@
       return '<button type="button" class="rd-chip' + (i === st.cur ? ' cur' : '') + (st.done[i] ? ' done' : '') + '" data-i="' + i + '">' + bn(i + 1) + '</button>';
     }).join('') + '</div>';
     h += '<div class="rd-card"><div class="rd-head"><div><h2>Lesson ' + pad(st.cur + 1) + ': <span class="jp">' + l.title + '</span></h2><small>' + l.subtitle + '</small></div><span class="rd-tag">' + TY[l.type || 'short'] + '</span></div>';
-    h += '<div class="rd-tools"><button type="button" class="rd-pill" data-a="fs" data-d="-2">A−</button><button type="button" class="rd-pill" data-a="fs" data-d="2">A+</button><button type="button" class="rd-pill" data-a="say">🔊 শুনুন</button><button type="button" class="rd-pill" data-a="ro" aria-pressed="false">রোমাজি</button><button type="button" class="rd-pill" data-a="tr" aria-pressed="false">বাংলা অনুবাদ</button></div>';
+    h += '<div class="rd-tools"><button type="button" class="rd-pill" data-a="fs" data-d="-2">A−</button><button type="button" class="rd-pill" data-a="fs" data-d="2">A+</button><button type="button" class="rd-pill" data-a="say">🔊 শুনুন</button><button type="button" class="rd-pill" data-a="bnsay">🔊 বাংলা</button><button type="button" class="rd-pill" data-a="ro" aria-pressed="false">রোমাজি</button><button type="button" class="rd-pill" data-a="tr" aria-pressed="false">বাংলা অনুবাদ</button></div>';
     h += '<div class="rd-passage"><div class="rd-jp" id="rdText" style="--fs:' + st.fs + 'px">' + l.text + '</div><div class="rd-ro" id="rdRo" hidden>' + l.romaji + '</div><div class="rd-tr" id="rdTr" hidden>' + l.translation + '</div></div></div>';
     h += '<div class="rd-card"><h3 class="rd-h3">📚 শব্দভান্ডার</h3><div class="rd-vg">' + l.vocab.map(function (v) {
-      return '<div class="rd-v"><div class="rd-w">' + v[0] + '</div><small>' + v[1] + ' · ' + v[2] + '</small><b>' + v[3] + '</b></div>';
+      return '<div class="rd-v"><div class="rd-w">' + v[0] + '</div><small>' + v[1] + ' · ' + v[2] + '</small><b>' + v[3] + '</b>' + (window.DJ_BN ? DJ_BN.html(v[3], 'শুনুন') : '') + '</div>';
     }).join('') + '</div></div>';
     h += '<div class="rd-card"><h3 class="rd-h3">✍️ প্রশ্ন (MCQ)</h3><small style="color:var(--sub)">Passage পড়ে সঠিক উত্তর বেছে নাও।</small>' + l.questions.map(function (q, i) {
       return '<div class="rd-q" id="q' + i + '"><p>' + bn(i + 1) + '. <span class="jp">' + q[0] + '</span></p>' + q.slice(1, 4).map(function (a, j) {
@@ -82,6 +82,7 @@
     if (a === 'fs') { st.fs = Math.max(18, Math.min(40, st.fs + +b.dataset.d)); $('rdText').style.setProperty('--fs', st.fs + 'px'); save(); }
     else if (a === 'ro' || a === 'tr') { var t = $(a === 'ro' ? 'rdRo' : 'rdTr'); t.hidden = !t.hidden; b.classList.toggle('on', !t.hidden); b.setAttribute('aria-pressed', String(!t.hidden)); }
     else if (a === 'say') say();
+    else if (a === 'bnsay') { if (window.DJ_BN) DJ_BN.say(L[st.cur].translation, b); }
     else if (a === 'check') check();
     else if (a === 'reset') reset();
     else if (a === 'next') open(st.cur + 1);

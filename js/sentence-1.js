@@ -823,8 +823,8 @@ DATA.split('\n').forEach((line,i)=>{
   const [pr,pb]=conv(pol),[lr,lb]=conv(pla);
   const c=document.createElement('article');c.className='card';
   c.innerHTML=`<div class="mk"><button class="st" aria-label="ফেভারিট" aria-pressed="false">☆</button><button class="dn" aria-label="শেখা হয়েছে" aria-pressed="false">○</button></div><div class="front"><div class="pic" aria-hidden="true"><b>${i+1}</b>${em}</div>
-  <div class="meta"><span class="tag">${pat}</span><p class="mean">${mean}</p></div>
-  <div class="wd" title="শব্দ চাপলে উচ্চারণ শুনবেন">${WORDS[i].split(';').map(p=>{const [a,b]=p.split('=');return `<button class="chip" data-w="${a}"><span lang="ja">${a}</span><small>${b}</small></button>`}).join('')}</div>
+  <div class="meta"><span class="tag">${pat}</span><p class="mean">${mean}</p>${DJ_BN.html(mean,'অর্থ শুনুন')}</div>
+  <div class="wd" title="শব্দ চাপলে উচ্চারণ শুনবেন">${WORDS[i].split(';').map(p=>{const [a,b]=p.split('=');return `<button class="chip" data-w="${a}"><span lang="ja">${a}</span><small data-bn-say="${DJ_BN.esc(b)}" title="বাংলা শুনুন">${b} 🔊</small></button>`}).join('')}</div>
   <div class="form pol"><div class="lab">ভদ্র রূপ (Polite)</div><div class="jp" lang="ja">${wr(pol)}</div><div class="ro">${wr(pr)}</div><div class="bn">${wr(pb)}</div><div class="gr">ব্যাকরণ: ます／です দিয়ে শেষ হয়</div><button class="sp" aria-label="Polite শুনুন">🔊</button></div>
   <div class="form pla"><div class="lab">সাধারণ রূপ (Plain)</div><div class="jp" lang="ja">${wr(pla)}</div><div class="ro">${wr(lr)}</div><div class="bn">${wr(lb)}</div><div class="gr">ব্যাকরণ: ${chg}</div><button class="sp" aria-label="Plain শুনুন">🔊</button></div>
   <button class="both">🔊 দুটোই শুনুন (Polite → Plain)</button>
@@ -1140,5 +1140,5 @@ const curTab=()=>{const b=document.querySelector('.tab[aria-selected="true"]');r
 function goTab(t){if(t===curTab())return;if(window.DJNav)DJNav.push({tab:t});setTab(t)}
 tabBtns.forEach(b=>b.onclick=()=>goTab(b.dataset.tab));
 let savedTab;try{savedTab=localStorage.getItem('tab')}catch(e){}
-setTab(['base','l18','l23','l24','l25','l24g','l26','l27'].includes(savedTab)?savedTab:'base');
+setTab(['base','l18','l23','l24','l25','l24g','l26','l27','l28','l29','l30'].includes(savedTab)?savedTab:'base');
 if(window.DJNav)DJNav.init({snapshot:()=>({tab:curTab()}),apply:s=>{if(s&&s.tab)setTab(s.tab)}});

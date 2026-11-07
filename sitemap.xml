@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://japanesewebsite-lake.vercel.app/</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/grammar.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://japanesewebsite-lake.vercel.app/grammar-revision.html</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/sentence.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/kanji.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://japanesewebsite-lake.vercel.app/kanji-flash.html</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/vocab.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/katakana.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/verb-forms.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://japanesewebsite-lake.vercel.app/numbers.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://japanesewebsite-lake.vercel.app/story.html</loc><lastmod>2026-11-07</lastmod></url>
 </urlset>

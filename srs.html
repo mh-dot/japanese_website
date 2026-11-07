@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<script src="js/loader.js"></script>
+<script src="js/theme-init.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>কানজি SRS (Anki-ধাঁচের) — N5 কানজি শিখুন বাংলায় | Dream Japan</title>
+<meta name="description" content="N5 কানজি Anki-ধাঁচের স্পেসড রিপিটিশনে শিখুন: নতুন ও রিভিউ কার্ড, আবার/কঠিন/ভালো/সহজ রেটিং, বাংলা অর্থ ও জাপানি উচ্চারণ।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Yuji+Syuku&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/kanji.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/srs.css">
+</head>
+<body class="page-kanji">
+<div class="nav-wrap">
+  <nav class="nav" aria-label="প্রধান নেভিগেশন">
+    <a href="index.html" class="logo" aria-label="Dream Japan">
+      <span class="logo-mark">夢</span>
+      <span class="brand-name">Dream Japan</span>
+    </a>
+
+    <div class="menu" id="menu">
+      <a href="index.html">হোম</a>
+      <div class="has-dd"><a href="grammar.html">গ্রামার</a><div class="dd"><a href="grammar.html">গ্রামার</a><a href="grammar-revision.html">গ্রামার রিভিশন</a><a href="verb-forms.html">ক্রিয়া ও বিশেষণ</a><a href="numbers.html">সংখ্যা, সময় ও তারিখ</a><a href="katakana.html">কাতাকানা</a></div></div>
+      <a href="sentence.html">বাক্য</a>
+      <a href="story.html">গল্প</a>
+      <div class="has-dd"><a href="kanji.html">কানজি</a><div class="dd"><a href="kanji.html">কানজি কার্ড</a><a href="kanji-flash.html">জোড়া কানজি ফ্ল্যাশকার্ড</a></div></div>
+      <a href="srs.html" class="active">কানজি SRS</a>
+      <a href="vocab.html">শব্দভান্ডার</a><a href="practice.html">অনুশীলন</a>
+      <div class="has-dd"><a href="mock-test.html">মক টেস্ট</a><div class="dd"><a href="kanji-test.html">কানজি টেস্ট</a><a href="mock-test.html#vocab">শব্দভান্ডার টেস্ট</a><a href="mock-test.html#grammar">গ্রামার টেস্ট</a><a href="reading.html">রিডিং টেস্ট</a><a href="mock-test.html#listening">লিসেনিং টেস্ট</a></div></div>
+      <a href="listening.html" class="menu-only">লিসেনিং</a>
+    </div>
+
+    <div class="nav-actions">
+      <a href="listening.html" class="btn-ghost-link">লিসেনিং</a>
+      <a href="grammar.html" class="btn-dark">শুরু করুন</a>
+      <button class="theme-toggle" id="themeBtn" type="button" aria-label="ডার্ক মোড" title="Day / Night">
+        <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+        <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="মেনু খুলুন"><span></span></button>
+    </div>
+  </nav>
+</div>
+<header class="top srs-head">
+  <div class="brand"><div class="big" aria-hidden="true">記</div><div><h1>কানজি SRS</h1><p>Anki-ধাঁচের স্পেসড রিপিটিশন · ১০২টি N5 কানজি · শব্দ ও উদাহরণসহ</p></div></div>
+</header>
+<main class="srs-wrap">
+  <div id="srsDeckWrap">
+    <div id="srsDeck"></div>
+  </div>
+  <section id="srsStudy" hidden>
+    <div class="srs-studybar">
+      <button type="button" class="btn" id="srsBackBtn">← ডেক</button>
+      <div class="srs-top" id="srsTop"></div>
+      <button type="button" class="btn" id="srsUndoBtn">↶ আনডু <kbd>Z</kbd></button>
+    </div>
+    <div id="srsView" aria-live="polite"></div>
+  </section>
+  <details class="srs-opts">
+    <summary>⚙ অপশন</summary>
+    <div class="srs-ctrl">
+      <label>ক্যাটাগরি <select id="srsCat" aria-label="ক্যাটাগরি"></select></label>
+      <label>নতুন কার্ড / দিন <input type="number" id="srsNew" min="1" max="50" aria-label="নতুন কার্ড প্রতিদিন"></label>
+      <button type="button" class="btn" id="srsReset">অগ্রগতি মুছুন</button>
+    </div>
+  </details>
+  <div class="srs-voice" id="srsVoice"></div>
+</main>
+<footer>শব্দ না এলে Chrome বা Edge ব্যবহার করুন এবং ডিভাইসে Japanese ভয়েস চালু আছে কিনা দেখুন। বাংলা উচ্চারণ ডিভাইসের বাংলা ভয়েস দিয়ে হয়।</footer>
+<script src="js/bn-voice.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/kanji-data.js"></script>
+<script src="js/srs.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

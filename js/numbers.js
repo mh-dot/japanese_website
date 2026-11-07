@@ -12,6 +12,21 @@
     pickVoice();
     if (synth.addEventListener) synth.addEventListener('voiceschanged', pickVoice);
   }
+  /* প্রতিটি টাইলের বাংলা অংশে একটি 🔈 বাংলা উচ্চারণ বাটন যোগ করা (টাইল চাপলে জাপানি শোনা যায়) */
+  if (window.DJ_BN) {
+    document.querySelectorAll('.nm-tile').forEach(function (t) {
+      var sub = t.querySelector('.nm-sub');
+      var m = sub && sub.textContent.match(/[ঀ-৿].*$/);
+      if (!m) return;
+      var s = document.createElement('span');
+      s.className = 'nm-bnsp';
+      s.setAttribute('data-bn-say', m[0].trim());
+      s.title = 'বাংলা শুনুন';
+      s.textContent = ' 🔈';
+      sub.appendChild(s);
+    });
+  }
+
   function say(t) {
     if (!synth || !t) return;
     try {

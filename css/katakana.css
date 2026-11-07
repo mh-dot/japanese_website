@@ -1,17 +1,33 @@
-.kn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.kn-card{background:var(--vf-card);border:1px solid var(--vf-line);border-radius:18px;padding:12px 10px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
-.kn-glyph{font-size:52px;font-weight:700;line-height:1.1;background:var(--vf-soft);color:var(--vf-ink);border:0;border-radius:14px;width:100%;padding:10px 0;cursor:pointer;font-family:inherit}
-.kn-glyph:hover{filter:brightness(1.05)}
-.kn-rom{font-size:14px;font-weight:700;color:var(--vf-acc);margin-top:4px}
-.kn-bn{font-size:15px;font-weight:700;color:var(--vf-ink)}
-.kn-ex{font-size:12.5px;color:var(--vf-sub);line-height:1.5}
-.kn-ex b{color:var(--vf-ink)}
-.kn-yoon .kn-glyph{font-size:44px}
-.kq-box{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center}
-.kq-glyph{font-size:110px;font-weight:700;text-align:center;background:var(--vf-soft);border-radius:20px;padding:18px 0;line-height:1.1}
-.kq-opts{display:flex;flex-wrap:wrap;gap:10px}
-.kq-opt{font-size:18px;padding:10px 22px;font-weight:700}
-.kq-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
-.kq-msg{min-height:24px;font-size:15px;font-weight:700;margin-top:10px}
-.kq-msg.ok{color:#1f8a6f}.kq-msg.bad{color:#c03f2b}
-@media(max-width:600px){.kq-box{grid-template-columns:1fr}.kq-glyph{font-size:84px}.kn-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}
+/* Katakana page: reuses kanji.css for layout, cards, quiz and modal. Extra rules only. */
+.modal[hidden]{display:none!important}
+.modal:not([hidden]){display:block;position:static;background:none;padding:0 0 40px;backdrop-filter:none;overflow:visible;z-index:auto}
+.mwrap{width:min(900px,100%);margin:0 auto}
+.mbar{display:flex;gap:8px;align-items:center;justify-content:flex-start;margin:18px 4px 12px}
+.mbar a{font-weight:700}
+.mbar button{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:6px 12px;font-weight:700}
+#mpos{color:var(--sub);font-size:14px;margin:0 4px}
+body.in-detail main,body.in-detail nav.tabs,body.in-detail header.top,body.in-detail .nav-wrap{display:none!important}
+.page-kata .tile .bk{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:clamp(34px,5vw,58px);-webkit-text-stroke:0}
+.tile .tr{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}
+.tile .mis{position:absolute;top:6px;right:8px;color:#c03f2b;font-weight:800;font-size:12px}
+.tile.fin{border-color:#1f8a6f}
+.tile.fin .d{position:absolute;top:6px;left:8px;color:#1f8a6f;font-weight:800;font-size:12px}
+.kstage{position:relative;width:100%;max-width:320px;aspect-ratio:1;margin:auto;background:var(--paper);border:2px solid var(--line);border-radius:18px;overflow:hidden}
+.kbig{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:180px;color:var(--ink);opacity:.12;pointer-events:none;transition:opacity .2s}
+.kstage.trace .kbig{opacity:.35}
+.kpad{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.hero{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:16px;padding:16px;background:linear-gradient(145deg,color-mix(in srgb,var(--ct) 60%,var(--card)),color-mix(in srgb,var(--cb) 38%,var(--card)));border-radius:18px}
+.heroR h2{margin:0 0 6px;font-size:22px}
+.heroR .en{color:var(--sub);font-size:14px;line-height:1.6}
+.exbox{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+.exbox .exj{font-family:"Noto Sans JP",sans-serif;font-size:24px;font-weight:700;margin-right:6px}
+.exbox .exb{font-size:15px}
+.acts .btn.on{outline:2px solid var(--cc,var(--acc))}
+.kq-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.kq-modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.kq-big{font-family:"Noto Sans JP",sans-serif;font-size:120px;font-weight:700;text-align:center;line-height:1.2;padding:8px 0}
+.kq-big.rom{font-size:56px;font-weight:700;color:var(--cc,var(--acc))}
+.kq-sub{text-align:center;color:var(--sub);font-size:14px}
+.qo.kj{font-family:"Noto Sans JP",sans-serif;font-size:34px;font-weight:700;-webkit-text-stroke:0}
+.kq-count{color:var(--sub);font-size:13.5px}
+@media(max-width:600px){.hero{grid-template-columns:1fr}.kq-opts{grid-template-columns:1fr}.kq-big{font-size:96px}}

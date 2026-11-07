@@ -452,8 +452,8 @@ function kanjiDis(raw,n){
 }
 const mkOpts=(ans,ds,h)=>shuf([ans,...ds]).map(v=>({v,h:h?h(v):v}));
 const readLine=c=>`${c.on.length?'音: '+c.on.map(kanaOnly).join('・'):''}${c.on.length&&c.kun.length?' ／ ':''}${c.kun.length?'訓: '+c.kun.map(kanaOnly).join('・'):''}`;
-const expl=c=>`<b class="kjx">${c.k}</b> = ${c.bn} (${c.en})<br><span class="note">${readLine(c)}</span>`;
-const sentBox=(s,c)=>`<div class="sj">${rubyH(s.j,true)}</div><div class="note">${s.bn}</div><div class="acts"><button class="btn" data-say="${sKana(s.j)}">🔊 বাক্যটি শুনুন</button></div>`;
+const expl=c=>`<b class="kjx">${c.k}</b> = ${c.bn} ${DJ_BN.html(c.bn,'শুনুন')} (${c.en})<br><span class="note">${readLine(c)}</span>`;
+const sentBox=(s,c)=>`<div class="sj">${rubyH(s.j,true)}</div><div class="note">${s.bn} ${DJ_BN.html(s.bn,'শুনুন')}</div><div class="acts"><button class="btn" data-say="${sKana(s.j)}">🔊 বাক্যটি শুনুন</button></div>`;
 
 function qRead(c){
   const mine=[...c.on,...c.kun].map(kanaOnly),ans=mine[rnd(mine.length)],kata=/[ァ-ヶ]/.test(ans),pool=[];
@@ -598,14 +598,14 @@ function wordRows(c){
   const M=matchSent(c);
   return c.w.map((x,i)=>{
     const ro=conv(x.r)[0], ex=M[i];
-    const exr=ex?`<tr class="exr"><td colspan="5"><span class="exj">${rubyH(ex.j,false)}</span> <span class="exb">— ${ex.bn}</span> <button class="sp sm" data-say="${sKana(ex.j)}" aria-label="শুনুন">🔊</button></td></tr>`:'';
-    return `<tr><td class="jp">${markK(x.w,c.k)}</td><td class="kn">${x.r}</td><td class="rom">${ro}</td><td class="bnm">${x.bn}</td><td><button class="sp" data-say="${x.r}" aria-label="শুনুন">🔊</button></td></tr>${exr}`;
+    const exr=ex?`<tr class="exr"><td colspan="5"><span class="exj">${rubyH(ex.j,false)}</span> <span class="exb">— ${ex.bn}</span> ${DJ_BN.html(ex.bn,'শুনুন')} <button class="sp sm" data-say="${sKana(ex.j)}" aria-label="শুনুন">🔊</button></td></tr>`:'';
+    return `<tr><td class="jp">${markK(x.w,c.k)}</td><td class="kn">${x.r}</td><td class="rom">${ro}</td><td class="bnm">${x.bn} ${DJ_BN.html(x.bn,'শুনুন')}</td><td><button class="sp" data-say="${x.r}" aria-label="শুনুন">🔊</button></td></tr>${exr}`;
   }).join('');
 }
 function restHTML(c){
   const used=new Set(matchSent(c).filter(Boolean));
   const rest=c.s.filter(s=>!used.has(s));
-  return rest.length?`<div class="sec"><h3>📝 আরও উদাহরণ বাক্য</h3>${rest.map(s=>`<div class="srow"><div class="sj">${rubyH(s.j,FURI)}</div><button class="sp" data-say="${sKana(s.j)}" aria-label="শুনুন">🔊</button><div class="sbn">${s.bn}</div></div>`).join('')}</div>`:'';
+  return rest.length?`<div class="sec"><h3>📝 আরও উদাহরণ বাক্য</h3>${rest.map(s=>`<div class="srow"><div class="sj">${rubyH(s.j,FURI)}</div><button class="sp" data-say="${sKana(s.j)}" aria-label="শুনুন">🔊</button><div class="sbn">${s.bn} ${DJ_BN.html(s.bn,'শুনুন')}</div></div>`).join('')}</div>`:'';
 }
 function frontHTML(c){
   const cat=CAT[c.c];
@@ -616,7 +616,7 @@ function frontHTML(c){
 <button class="btn pri" data-a="anim">▶ আঁকা দেখুন</button><button class="btn" data-a="trace">✍️ ট্রেস করুন</button><button class="btn" data-a="memory">🧠 না দেখে</button><button class="btn" data-a="free">🖌 ফ্রি হ্যান্ড</button>
 <button class="btn" data-a="ref" hidden>👁 রেফারেন্স</button><button class="btn" data-a="undo" hidden>↶ আনডু</button><button class="btn" data-a="clear" hidden>🗑 মুছুন</button><button class="btn" data-a="view">↺ ব্রাশ</button></div></div>
 <div class="heroR"><span class="pill">${cat[1]} ${cat[0]}</span><span class="pill">${c.st} স্ট্রোক</span>
-<h2>${c.bn}</h2><div class="en">${c.en}</div>
+<h2>${c.bn} ${DJ_BN.html(c.bn,'শুনুন')}</h2><div class="en">${c.en}</div>
 <div class="story">💡 <b>মনে রাখার গল্প:</b> ${c.mn}</div>
 <div class="stmsg" id="stmsg">কাঞ্জির ওপর ক্লিক করলে স্ট্রোক অ্যানিমেশন শুরু হবে</div>
 <div class="rdbox"><h4 class="sech">১. ${c.k}-এর উচ্চারণ (Reading)</h4><div class="tblw"><table><thead><tr><th>Reading</th><th>Hiragana</th><th>Romaji</th><th></th></tr></thead><tbody>${tRead(c)}</tbody></table></div></div>
@@ -824,7 +824,7 @@ function Drill(el,items,o){
     if(shown||ended)return;shown=true;clearTimeout(tm);
     const c=K[cur.i],s=c.s[cur.j],t=tgt(s.j),fb=$('#dfb');
     $('.dsj',el).classList.remove('hid');fb.hidden=false;
-    fb.innerHTML=`<div>${s.bn}</div><div style="margin-top:8px">🎯 <b>${t.kj}</b> → <b>${t.rd}</b></div><div style="margin-top:6px">${expl(c)}</div>`;
+    fb.innerHTML=`<div>${s.bn} ${DJ_BN.html(s.bn,'শুনুন')}</div><div style="margin-top:8px">🎯 <b>${t.kj}</b> → <b>${t.rd}</b></div><div style="margin-top:6px">${expl(c)}</div>`;
     $('#dact').innerHTML=`<button class="btn pri" id="dok">✔ পারলাম (→)</button><button class="btn" id="dno">✘ আবার দেখব (←)</button><button class="btn" data-say="${sKana(s.j)}">🔊</button><button class="btn" id="dopen">📖 কার্ড</button>`;
     $('#dok').onclick=()=>rate(true);$('#dno').onclick=()=>rate(false);$('#dopen').onclick=()=>openCard(cur.i,false,[cur.i]);
     if(o.auto)say(sKana(s.j));
