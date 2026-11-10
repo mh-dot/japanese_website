@@ -1140,5 +1140,5 @@ const curTab=()=>{const b=document.querySelector('.tab[aria-selected="true"]');r
 function goTab(t){if(t===curTab())return;if(window.DJNav)DJNav.push({tab:t});setTab(t)}
 tabBtns.forEach(b=>b.onclick=()=>goTab(b.dataset.tab));
 let savedTab;try{savedTab=localStorage.getItem('tab')}catch(e){}
-setTab(['base','l18','l23','l24','l25','l24g','l26','l27','l28','l29','l30'].includes(savedTab)?savedTab:'base');
+setTab(['base','l18','l23','l24','l25','l24g','l26','l27','l28','l29','l30','l30a','l30b','l30c','l30d','l31a','l31b','l31c','l31d','l32a','l32b','l32c','l32d'].includes(savedTab)?savedTab:'base');
 if(window.DJNav)DJNav.init({snapshot:()=>({tab:curTab()}),apply:s=>{if(s&&s.tab)setTab(s.tab)}});

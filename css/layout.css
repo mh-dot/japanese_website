@@ -75,7 +75,7 @@ header p,.top p,.brand p{font-size:13px;line-height:1.55;margin:2px auto 0;max-w
 .app-shell.is-closed{grid-template-columns:0 minmax(0,1fr);gap:0}
 .app-shell.is-closed .side{opacity:0;visibility:hidden;pointer-events:none}
 .side{
-  position:sticky;top:96px;max-height:calc(100vh - 112px);overflow:auto;min-width:0;
+  position:sticky;top:96px;max-height:calc(100vh - 180px);overflow:auto;overscroll-behavior:contain;min-width:0;
   padding:2px 2px 12px;transition:opacity .2s ease;
 }
 .side .tabbox{padding:0;margin:0;width:100%}
@@ -197,7 +197,7 @@ html[data-theme=dark] .side{
 .page-title .brand p{margin:0}
 
 /* when the navbar slides away on scroll, the sidebar moves up with it (no empty gap) */
-body.nav-hide .side{top:14px;max-height:calc(100vh - 28px)}
+body.nav-hide .side{top:14px;max-height:calc(100vh - 98px)}
 
 /* kanji grid: exactly 5 columns, square cards */
 body.page-kanji #grid.grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
@@ -325,4 +325,23 @@ body.page-vocab .wrap{
 /* sentence cards: ONE card per row on laptops (big monitors / tablets / phones keep their own columns) */
 @media (min-width:1025px) and (max-width:1539px){
   body.page-sentence .grid{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ===== Nested submenu: কাতাকানা → ফ্ল্যাশকার্ড ===== */
+.menu .dd .sub{position:relative}
+.menu .dd .sub>a{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.menu .dd .sub>a::after{content:"\203A";font-size:16px;line-height:1;opacity:.6}
+.menu .subdd{position:absolute;top:-9px;left:100%;min-width:230px;padding:8px;z-index:61;
+  background:#fff;border:1px solid rgba(43,35,90,.06);border-radius:16px;
+  box-shadow:0 18px 40px -16px rgba(43,35,90,.3);
+  opacity:0;visibility:hidden;transform:translateX(6px);transition:opacity .18s,transform .18s,visibility .18s}
+.menu .subdd a{display:block;white-space:nowrap;padding:9px 12px;border-radius:10px;font-size:13.5px}
+.menu .subdd a:hover{background:var(--hov-bg,#f5f6f9)}
+.menu .sub:hover>.subdd,.menu .sub:focus-within>.subdd{opacity:1;visibility:visible;transform:none}
+html[data-theme=dark] .menu .subdd{background:#172e3a;border-color:rgba(255,255,255,.08);box-shadow:0 18px 40px -16px rgba(0,0,0,.7)}
+@media (max-width:900px){
+  .menu .dd .sub>a::after{display:none}
+  .menu .subdd{position:static;opacity:1;visibility:visible;transform:none!important;box-shadow:none;border:0;background:none;padding:0 0 0 14px;min-width:0}
+  .menu .subdd a{padding:10px 16px;font-size:14px;color:var(--sub)}
+  html[data-theme=dark] .menu .subdd{background:none}
 }

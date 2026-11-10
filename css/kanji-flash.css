@@ -41,3 +41,18 @@ body.nofuri .kf-sen .sr,body.nofuri .kf-sen rt{display:none}
 .kf-nav .btn{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:7px 14px;font-size:14px;font-weight:600}
 .kf-nav .btn:disabled{opacity:.4;cursor:default}
 .kf-nav .kf-cnt{margin:0;min-height:0}
+
+/* ---- controls living in the sidebar (js/kf-side.js) ---- */
+.kf-side{display:flex;flex-direction:column;gap:14px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.side .kf-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0}
+.side .kf-stats .stat{padding:6px 10px;font-size:12.5px;justify-content:space-between}
+.side .kf-stats .stat:nth-child(3){grid-column:1/-1}
+.side .kf-stats .pbar{grid-column:1/-1;min-width:0;height:10px}
+.side .kf-tools{flex-direction:column;align-items:stretch;gap:8px;margin:0}
+.side .kf-tools .seg{display:flex;flex-direction:column;border-radius:14px}
+.side .kf-tools .seg button{text-align:left;padding:8px 12px;font-size:13px;border-radius:0}
+.side .kf-tools .inp{min-width:0;width:100%;flex:none}
+.side .kf-tools label{font-size:13px}
+.side #kfDeck{display:none!important}
+.side #kfReset{margin-left:0!important;width:100%;padding:7px 10px!important}
+.side .kf-stats .stat:nth-child(3){justify-content:flex-start;gap:6px}
